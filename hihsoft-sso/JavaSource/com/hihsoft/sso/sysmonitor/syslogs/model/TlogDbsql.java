@@ -1,4 +1,8 @@
-
+/**
+ * Copyright (c) 2013-2015 www.javahih.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.hihsoft.sso.sysmonitor.syslogs.model;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;

@@ -1,14 +1,14 @@
+/**
+ * Copyright (c) 2013-2015 www.javahih.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.hihsoft.sso.business.web;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.hihsoft.sso.business.model.TaclRole;
 import com.hihsoft.sso.business.web.controller.TaclRoleController;

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2013-2015 www.javahih.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.hihsoft.sso.business.service.impl;
 import java.util.List;
 import java.util.Map;
