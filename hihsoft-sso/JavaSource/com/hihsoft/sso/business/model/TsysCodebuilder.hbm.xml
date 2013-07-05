@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysCodebuilder" table="T_SYS_CODEBUILDER">
+
+        <id name="codeid" column="CODEID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="pri" 
+			column="PRI" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="tablename" 
+			column="TABLENAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="fields" 
+			column="FIELDS" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="querycondition" 
+			column="QUERYCONDITION" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="fill" 
+			column="FILL" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="descript" 
+			column="DESCRIPT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="control" 
+			column="CONTROL" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

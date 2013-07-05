@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysDuty" table="T_SYS_DUTY">
+
+        <id name="dutyid" column="DUTYID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		<property 
+			name="dutyname" 
+			column="DUTYNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="80"/>
+		
+		<property 
+			name="remark" 
+			column="REMARK" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="parentDutyid" 
+			column="PARENT_DUTYID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="dutyType" 
+			column="DUTY_TYPE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+			
+		<property 
+			name="dutySort" 
+			column="DUTY_SORT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		<!-- One-To-Many attributes -->
+		
+		<set name="taclUserinfos"
+		     lazy="false"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="DUTYID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TaclUserinfo"/>
+		</set> 
+		
+		<set name="tsysDutys"
+		     lazy="false"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="PARENT_DUTYID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TsysDuty"/>
+		</set> 
+
+		<!-- Many-To-One attributes -->
+		
+		<many-to-one
+			name="tsysDuty"
+            not-null="false"
+	        update="false"
+	        lazy="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="PARENT_DUTYID"/>
+		</many-to-one> 
+
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,8 @@
+YUI Compressor 是一个用来压缩 JS 和 CSS 文件的工具，采用Java开发。
+
+使用方法：
+
+//压缩JS
+java -jar yuicompressor-2.4.2.jar --type js --charset utf-8 -v src.js > packed.js
+//压缩CSS
+java -jar yuicompressor-2.4.2.jar --type css --charset utf-8 -v src.css > packed.css

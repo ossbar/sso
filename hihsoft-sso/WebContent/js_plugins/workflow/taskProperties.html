@@ -1,0 +1,25 @@
+<script type="text/javascript">
+<!--
+jq(function(){
+	jq('#model-properties').propertygrid({
+		fit:true,
+		height:'auto',
+		//url:'propertygrid_data.json',
+		showGroup:true,
+		scrollbarSize:0
+	});
+});
+//-->
+</script>
+<div class="easyui-accordion" fit="true" border="false">
+		<div id="general" title="General" selected="true" class="properties-menu">
+			<table id="model-properties">
+			</table>
+		</div>
+		<div id="main-config" title="Main Config" class="properties-menu">
+		</div>
+		<div id="form" title="Form" class="properties-menu">
+		</div>
+		<div id="listeners" title="Listeners" class="properties-menu">
+		</div>
+</div>

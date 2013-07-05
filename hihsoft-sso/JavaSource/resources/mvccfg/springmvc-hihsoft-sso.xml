@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<description>Spring MVC 3配置 </description>
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- 自动扫描且只扫描@Controller -->
+	<context:component-scan
+		base-package="com.hihsoft.sso.business.web.controller,com.hihsoft.baseclass.web.controller,com.hihframework.core.utils,com.hihsoft.sso.sysmonitor.syslogs.web.controller">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+	<!-- <mvc:view-controller path="/" view-name="redirect:/index"/> -->
+
+	<!-- 使用缓存mvc注解配置 -->
+	<mvc:annotation-driven>
+		<!-- 配置StringHttpMessageConverter当@ResponseBody 时中文正常显示 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/plain;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- spring mvc 的静态资源处理 -->
+	<mvc:resources mapping="/js_plugins/**" location="/js_plugins/" />
+	<mvc:resources mapping="/themes/**" location="/themes/" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!--文件分段上傳 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize">
+			<value>104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="defaultErrorView"> <value>common/error.jsp</value> </property> 
+		<property name="exceptionMappings"> <props> <prop key="java.lang.Exception">common/error.jsp</prop> 
+		<prop key="java.lang.Throwable">common/error.jsp</prop> <prop key="java.io.IOException">common/error.jsp</prop> 
+		<prop key="jave.sql.SQLException">common/error.jsp</prop> </props> </property> 
+		<property name="warnLogCategory" value="WARN"></property> <property name="defaultStatusCode" 
+		value="500"></property> </bean> -->
+	<!--国际化modify by zhujw一次性加载多个属性配置文件 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:/resources/propertiescfg/ApplicationResources
+				</value>
+				<value>classpath:/resources/propertiescfg/SystemGlobals</value>
+				<value>classpath:/resources/propertiescfg/error</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	<bean id="methodNameResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName">
+			<value>method</value>
+		</property>
+		<property name="defaultMethodName" value="list" />
+	</bean>
+	<!-- 面向写业务日志的拦截器AOP <bean id="businessLoggerInterceptor" class="com.framework.syslogs.aop.BusinessLoggerInterceptor"> 
+		</bean> -->
+	<!-- 启用基于注解的处理器映射，添加拦截器，类级别的处理器映射 -->
+	<mvc:annotation-driven />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.do" />
+			<mvc:exclude-mapping path="/" />
+			<mvc:exclude-mapping path="/**/tsysLoginController.do" />
+			<bean id="sessionInterceptor"
+				class="com.hihsoft.sso.sysmonitor.syswatch.session.SessionInterceptor">
+				<property name="redirectTo" value="tsysLoginController.do?method=login"></property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- 使用默认的servlet handler -->
+	<mvc:default-servlet-handler />
+</beans>

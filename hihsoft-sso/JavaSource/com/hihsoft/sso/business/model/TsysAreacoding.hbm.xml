@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysAreacoding" table="T_SYS_AREACODING">
+
+        <id name="areacodingid" column="AREACODINGID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="areacode" 
+			column="AREACODE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="6"/>
+		
+		<property 
+			name="areaname" 
+			column="AREANAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="areatype" 
+			column="AREATYPE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="parentarea" 
+			column="PARENTAREA" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

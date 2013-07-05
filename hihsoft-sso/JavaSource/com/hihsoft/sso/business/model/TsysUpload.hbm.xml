@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysUpload" table="T_SYS_UPLOAD">
+
+        <id name="uploadid" column="UPLOADID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="createMan" 
+			column="CREATE_MAN" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="createTime" 
+			column="CREATE_TIME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="fileUrl" 
+			column="FILE_URL" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="fileName" 
+			column="FILE_NAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="flatid" 
+			column="FLATID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="remark" 
+			column="REMARK" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="secondName" 
+			column="SECOND_NAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

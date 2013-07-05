@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysParameter" table="T_SYS_PARAMETER">
+
+        <id name="paraid" column="PARAID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="isdefault" 
+			column="ISDEFAULT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="paraname" 
+			column="PARANAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="parano" 
+			column="PARANO" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="paraClass" 
+			column="PARA_CLASS" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="paraKey" 
+			column="PARA_KEY" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="60"/>
+		
+		<property 
+			name="paraType" 
+			column="PARA_TYPE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="paraOrder" 
+			column="PARA_ORDER" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="22"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

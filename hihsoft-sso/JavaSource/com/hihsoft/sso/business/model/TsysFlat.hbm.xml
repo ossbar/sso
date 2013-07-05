@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysFlat" table="T_SYS_FLAT">
+
+        <id name="flatid" column="FLATID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="flatcode" 
+			column="FLATCODE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="remark" 
+			column="REMARK" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="flaturl" 
+			column="FLATURL" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="shortname" 
+			column="SHORTNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="flatdesc" 
+			column="FLATDESC" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="flatname" 
+			column="FLATNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<!-- One-To-Many attributes -->
+		
+		<set name="tsysModuleinfos"
+		     lazy="false"
+		     inverse="true"
+		     cascade="none"
+		     order-by="sortnum"
+		>
+			<key>
+	       		<column name="FLATID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TsysModuleinfo"/>
+		</set> 
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

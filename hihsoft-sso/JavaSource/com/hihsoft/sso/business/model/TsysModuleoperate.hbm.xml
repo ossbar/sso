@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysModuleoperate" table="T_SYS_MODULEOPERATE">
+
+        <id name="operateid" column="OPERATEID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property 
+			name="moduleid" 
+			column="MODULEID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="operatename" 
+			column="OPERATENAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="operateno" 
+			column="OPERATENO" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		<many-to-one
+			name="tsysModuleinfo"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="delete"
+		>	
+       	<column name="MODULEID"/>
+		</many-to-one> 
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,23 @@
+/×××××××××××××××××××明确建站的主要宗旨、长远的规划、运作×××××××××××××××××××××××××××××/
+框架容易使用，开发手册、设计手册、数据库设计文档齐全
+1、SUN标准标签库JSTL包jstl1.2采用的版本1.2 jstl-1.2.jar
+2、数据库支持包：mysql:mysql-connector-java-5.1.14-bin.jar;oracle ojdbc14.jar
+3、开源WEB框架：采用的spring mvc来实现
+4、Spring框架V3.2.2
+        org.springframework.*.RELEASE.jar              
+5、持久化ORM映射框架:Hibernate3.6
+                            hibernate3.jar,
+                            cglib-2.2.jar,
+                            antlr-2.7.6.jar,
+                            ehcache-core-2.3.1.jar(配置集群时可以用terracotta)
+                            slf4j-log4j12-1.6.1.jar(hibernate用此包来打印日志SQL)
+6、开源数据库连接池          bonecp-0.7.1.jar&guava-14.0.jar
+7、开源XML框架           dom4j-1.6.1.jar
+8、日志框架log4j        log4j-1.2.16.jar&slf4j-log4j12-1.6.1.ja(hibernate专用)
+9、测试框架：spring-mock.jar
+10、远程调用框架：hessian-4.0.7.jar
+11、excel操作辅助框架：jxl.jar
+12、模板语言框架：freemarker-2.3.16.jar
+13、引入面向AOP框架aspectj(aspectjrt.jar&aspectjweaver.jar&aspectjtools.jar)
+16、考虑加入系统运行性能监控框架：javamelody：http://javamelody.googlecode.com/svn/trunk。目前没整合
+17、去掉登录时选择子系统的下拉列表，由用户的权限决定是否登录到那个子系统，如果有几个系统时默认一个即可。

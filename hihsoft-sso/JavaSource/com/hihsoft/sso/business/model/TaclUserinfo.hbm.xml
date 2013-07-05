@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TaclUserinfo" table="T_ACL_USERINFO">
+
+        <id name="userid" column="USERID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="birthday" 
+			column="BIRTHDAY" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="4"/>
+		
+		<property 
+			name="certified" 
+			column="CERTIFIED" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="city" 
+			column="CITY" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="320"/>
+		
+		<property 
+			name="userEmail" 
+			column="USER_EMAIL" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="idcard" 
+			column="IDCARD" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="18"/>
+		
+		<property 
+			name="imagepath" 
+			column="IMAGEPATH" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="isonline" 
+			column="ISONLINE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="6"/>
+		
+		<property 
+			name="loginname" 
+			column="LOGINNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="mobile" 
+			column="MOBILE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="12"/>
+		
+		<property 
+			name="msn" 
+			column="MSN" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="nickname" 
+			column="NICKNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="province" 
+			column="PROVINCE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="320"/>
+		
+		<property 
+			name="qq" 
+			column="QQ" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="sex" 
+			column="SEX" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="1"/>
+		
+		<property 
+			name="orgid" 
+			column="ORGID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="deptid" 
+			column="DEPTID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="dutyid" 
+			column="DUTYID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="telephone" 
+			column="TELEPHONE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="userdesc" 
+			column="USERDESC" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="60"/>
+		
+		<property 
+			name="username" 
+			column="USERNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="userpw" 
+			column="USERPW" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="userstate" 
+			column="USERSTATE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="6"/>
+		
+		<property 
+			name="usertype" 
+			column="USERTYPE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="work" 
+			column="WORK" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="trade" 
+			column="TRADE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="age" 
+			column="AGE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		<property 
+			name="userNo" 
+			column="USER_NO" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		<property 
+			name="officeAddr" 
+			column="OFFICE_ADDR" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		<property 
+			name="modifyTime" 
+			column="MODIFY_TIME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		<property 
+			name="fax" 
+			column="FAX" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+			<property 
+			name="admin" 
+			column="ADMIN" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<!-- One-To-Many attributes -->
+		
+		<many-to-one
+			name="tsysOrg"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+			lazy="false"
+		>	
+       		<column name="ORGID"/>
+		</many-to-one> 
+		
+		<many-to-one
+			name="tsysDuty"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+			lazy="false"
+		>	
+       		<column name="DUTYID"/>
+		</many-to-one> 
+
+    </class>
+</hibernate-mapping>
+

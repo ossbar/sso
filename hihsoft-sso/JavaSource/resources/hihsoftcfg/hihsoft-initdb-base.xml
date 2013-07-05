@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hihsoft>
+	<!--###################子系统初始化########################################## -->
+	<import resource="initdbcfg/hihsoft-initdb-areacoding.xml" isLoad="false" type="framework" />
+	<import resource="initdbcfg/hihsoft-initdb-sso.xml" isLoad="false" type="framework" />
+</hihsoft>

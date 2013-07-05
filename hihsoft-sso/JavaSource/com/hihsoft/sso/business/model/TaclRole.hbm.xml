@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TaclRole" table="T_ACL_ROLE">
+
+        <id name="roleid" column="ROLEID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="remark" 
+			column="REMARK" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="rolename" 
+			column="ROLENAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="roletype" 
+			column="ROLETYPE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="orgid" 
+			column="ORGID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="roleSort" 
+			column="ROLE_SORT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="1"/>
+		
+		<!-- One-To-Many attributes -->
+		
+		<set name="taclRoleusers"
+		     lazy="true"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="ROLEID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TaclRoleuser"/>
+		</set> 
+		
+	<!-- Many-To-One attributes -->
+		
+		<many-to-one
+			name="tsysOrg"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+			lazy="false">	
+       		<column name="ORGID"/>
+		</many-to-one> 
+
+    </class>
+</hibernate-mapping>
+

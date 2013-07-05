@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
+	<class name="TlogLoginlog" table="t_log_loginlog">
+
+		<id name="logid" column="LOGID" type="java.lang.String" length="32">
+			<generator class="uuid" />
+		</id>
+
+		<property name="ipaddr" column="IPADDR" update="true" insert="true"
+			type="java.lang.String" not-null="false" unique="false" length="30" />
+
+		<property name="logintime" column="LOGINTIME" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="30" />
+
+		<property name="logouttime" column="LOGOUTTIME" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="30" />
+
+		<property name="onlinetime" column="ONLINETIME" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="20" />
+
+		<property name="userid" column="USERID" update="true" insert="true"
+			type="java.lang.String" not-null="false" unique="false" length="32" />
+
+		<property name="logout" column="LOGOUT" update="true" insert="true"
+			type="java.lang.String" not-null="false" unique="false" length="2" />
+
+		<property name="orgid" column="ORGID" update="true" insert="true"
+			type="java.lang.String" not-null="false" unique="false" length="32"/>
+
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+	</class>
+</hibernate-mapping>
+

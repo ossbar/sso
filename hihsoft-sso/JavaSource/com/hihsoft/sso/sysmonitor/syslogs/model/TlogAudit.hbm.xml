@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
+	<class name="TlogAudit" table="T_LOG_AUDIT">
+
+		<id name="aduitid" column="ADUITID" type="java.lang.String" length="32">
+			<generator class="uuid"/>
+		</id>
+		
+		
+		
+		<property 
+			name="oid" 
+			column="OID" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="behindData" 
+			column="BEHIND_DATA" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2000"/>
+		
+		<property 
+			name="frontData" 
+			column="FRONT_DATA" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2000"/>
+		
+		<property 
+			name="createUser" 
+			column="CREATE_USER" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="createTime" 
+			column="CREATE_TIME" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="modifyMan" 
+			column="MODIFY_MAN" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="modifyTime" 
+			column="MODIFY_TIME" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="property" 
+			column="PROPERTY" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2000"/>
+		
+		<property 
+			name="operationType" 
+			column="OPERATION_TYPE" 
+			update="true"
+			insert="true"
+			type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+	</class>
+</hibernate-mapping>
+

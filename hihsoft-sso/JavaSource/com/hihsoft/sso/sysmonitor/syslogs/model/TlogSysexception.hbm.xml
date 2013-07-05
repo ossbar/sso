@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
+	<class name="TlogSysexception" table="t_log_sysexception">
+
+		<id name="exceptionOid" column="EXCEPTION_OID" type="java.lang.String" length="32">
+			<generator class="uuid" />
+		</id>
+
+
+
+		<property name="exceptionTimes" column="EXCEPTION_TIMES"
+			update="true" insert="true" type="java.lang.String" not-null="false"
+			unique="false" length="100" />
+
+		<property name="exceptionLasttime" column="EXCEPTION_LASTTIME"
+			update="true" insert="true" type="java.lang.String" not-null="false"
+			unique="false" length="30" />
+
+		<property name="exceptionName" column="EXCEPTION_NAME"
+			update="true" insert="true" type="java.lang.String" not-null="false"
+			unique="false" length="200" />
+
+		<property name="exceptionMsg" column="EXCEPTION_MSG" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="500" />
+
+		<property name="exceptionClass" column="EXCEPTION_CLASS"
+			update="true" insert="true" type="java.lang.String" not-null="false"
+			unique="false" length="300" />
+
+		<property name="userid" column="USERID" update="true" insert="true"
+			type="java.lang.String" not-null="false" unique="false" length="32" />
+
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+	</class>
+</hibernate-mapping>
+

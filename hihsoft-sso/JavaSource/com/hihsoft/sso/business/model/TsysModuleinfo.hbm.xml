@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysModuleinfo" table="T_SYS_MODULEINFO">
+
+        <id name="moduleid" column="MODULEID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+	<property 
+			name="flatid" 
+			column="FLATID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="linkedaddr" 
+			column="LINKEDADDR" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+	<property 
+			name="moduleclass" 
+			column="MODULECLASS" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="moduledesc" 
+			column="MODULEDESC" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="moduleicon" 
+			column="MODULEICON" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="modulename" 
+			column="MODULENAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="80"/>
+		
+		<property 
+			name="moduleno" 
+			column="MODULENO" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="parentmoduleid" 
+			column="PARENTMODULEID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="sortnum" 
+			column="SORTNUM" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="leaf" 
+			column="LEAF" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="tabsort" 
+			column="TABSORT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+			
+		<property 
+			name="modulearea" 
+			column="MODULEAREA" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<!-- One-To-Many attributes -->
+		
+		<set name="tsysModuleoperates"
+		     lazy="false"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="MODULEID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TsysModuleoperate"/>
+		</set> 
+		
+		<set name="tsysModuleinfos"
+		     lazy="false"
+		     inverse="true"
+		     cascade="none"
+		     order-by="sortnum"
+		>
+			<key>
+	       		<column name="PARENTMODULEID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TsysModuleinfo"/>
+		</set> 
+
+		<!-- Many-To-One attributes -->
+		
+		<many-to-one
+			name="tsysModuleinfo"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="PARENTMODULEID"/>
+		</many-to-one> 
+		
+		<many-to-one
+			name="tsysFlat"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="FLATID"/>
+		</many-to-one> 
+
+    </class>
+</hibernate-mapping>
+

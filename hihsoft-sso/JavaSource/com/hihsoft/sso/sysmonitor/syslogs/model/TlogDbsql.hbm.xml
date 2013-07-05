@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
+	<class name="TlogDbsql" table="t_log_dbsql">
+
+		<id name="databaseOid" column="DATABASE_OID" type="java.lang.String" length="32">
+			<generator class="uuid" />
+		</id>
+
+
+
+		<property name="tableName" column="TABLE_NAME" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="100" />
+
+		<property name="tableOperate" column="TABLE_OPERATE" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="60" />
+
+		<property name="tableAccessTimes" column="TABLE_ACCESS_TIMES"
+			update="true" insert="true" type="java.lang.String" not-null="false"
+			unique="false" length="30" />
+
+		<property name="tableAccessLastTime" column="TABLE_ACCESS_LAST_TIME"
+			update="true" insert="true" type="java.lang.String" not-null="false"
+			unique="false" length="30" />
+
+		<property name="columes" column="COLUMES" update="true"
+			insert="true" type="java.lang.String" not-null="false" unique="false"
+			length="2" />
+
+		<property name="userid" column="USERID" update="true" insert="true"
+			type="java.lang.String" not-null="false" unique="false" length="32" />
+
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+	</class>
+</hibernate-mapping>
+

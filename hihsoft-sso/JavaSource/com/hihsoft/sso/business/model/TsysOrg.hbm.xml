@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TsysOrg" table="T_SYS_ORG">
+
+        <id name="orgid" column="ORGID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="orgno" 
+			column="ORGNO" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="12"/>
+		
+		<property 
+			name="orgname" 
+			column="ORGNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="parentorgid" 
+			column="PARENTORGID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="addr" 
+			column="ADDR" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="website" 
+			column="WEBSITE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="telephone" 
+			column="TELEPHONE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="fax" 
+			column="FAX" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="orgtype" 
+			column="ORGTYPE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="email" 
+			column="E_MAIL" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="orgdesc" 
+			column="ORGDESC" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="60"/>
+		
+		<property 
+			name="orgstate" 
+			column="ORGSTATE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="6"/>
+		
+		<property 
+			name="orgClass" 
+			column="ORG_CLASS" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="orgShortname" 
+			column="ORG_SHORTNAME" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="orgKind" 
+			column="ORG_KIND" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+		
+		<property 
+			name="corpMan" 
+			column="CORP_MAN" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		<property 
+			name="mobile" 
+			column="MOBILE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="15"/>
+		<property 
+			name="orgSort" 
+			column="ORG_SORT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="1"/>
+		<property 
+			name="orgRegion" 
+			column="ORG_REGION" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+			
+		<!-- One-To-Many attributes -->
+		<set name="tsysOrgs"
+		     lazy="false"
+		     cascade="all"
+		     inverse="true"
+		     order-by="orgno,org_class,org_sort desc">
+			<key column="PARENTORGID"/>
+			<one-to-many class="com.hihsoft.sso.business.model.TsysOrg"/>
+		</set> 
+
+		<!-- Many-To-One attributes -->
+		
+		<many-to-one
+			name="tsysOrg"
+			update="false"
+            insert="false"
+			not-null="false"	       
+	        unique="true"
+			lazy="false" 
+			column="PARENTORGID"/>	
+
+    </class>
+</hibernate-mapping>
+
