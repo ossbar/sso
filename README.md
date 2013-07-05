@@ -29,6 +29,8 @@ Hihsoft业务基础平台目标定位有两个：
 体验地址：http://www.javahih.com/sso
 
 用户名：admin 密码：admin
+![hihsoft](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/login.png "hihsoft") 
+![hihsoft](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/main.png "hihsoft") 
 
 1.4 为何选择
 ---------------------------------------------------------------------------
