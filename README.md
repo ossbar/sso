@@ -19,9 +19,9 @@ Hihsoft业务基础平台目标定位有两个：
 1.2文档精要：
 ------------------------------------------------------------------
 ###
-1、[hihsoft业务基础平台开发手册.pdf](https://github.com/hihsoft/sso/blob/master/hihsoft-sso/doc/hihsoft%E4%B8%9A%E5%8A%A1%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C.pdf)
+1、[hihsoft业务基础平台开发手册.pdf](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/hihsoft%E4%B8%9A%E5%8A%A1%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C.pdf)
 ###
-2、[hihsoft业务基础平台总体设计方案.pdf](https://github.com/hihsoft/sso/blob/master/hihsoft-sso/doc/hihsoft%E4%B8%9A%E5%8A%A1%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.pdf)
+2、[hihsoft业务基础平台总体设计方案.pdf](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/hihsoft%E4%B8%9A%E5%8A%A1%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.pdf)
 ###
 文档持续更新中。。。。。。。
 1.3在线体验：
