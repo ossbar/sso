@@ -28,6 +28,7 @@ public class TsysModuleoperate extends BaseEntity {
 	public static final String ALIAS_OPERATENAME = "operatename";
 	public static final String ALIAS_OPERATENO = "operateno";
 	
+	
 	//date formats
 	
 	//columns START
@@ -35,7 +36,16 @@ public class TsysModuleoperate extends BaseEntity {
 	private java.lang.String moduleid;
 	private java.lang.String operatename;
 	private java.lang.String operateno;
+	private String operateonlycode;
 	//columns END
+
+	public String getOperateonlycode() {
+		return operateonlycode;
+	}
+
+	public void setOperateonlycode(String operateonlycode) {
+		this.operateonlycode = operateonlycode;
+	}
 
 	public TsysModuleoperate(){
 	}

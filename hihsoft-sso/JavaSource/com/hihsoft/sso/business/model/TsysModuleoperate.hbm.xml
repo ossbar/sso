@@ -19,6 +19,15 @@
 			length="32"/>
 		
 		<property 
+			name="operateonlycode" 
+			column="OPERATEONLYCODE" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+			<property 
 			name="operatename" 
 			column="OPERATENAME" 
 			update="true"
