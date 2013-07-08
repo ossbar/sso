@@ -27,7 +27,7 @@ import com.hihsoft.baseclass.model.BaseEntity;
  * 2、模拟前端页面的get和post请求，方便测试前端页面
  * 3、模拟并发,优化系统性能用
  * <p> Copyright: Copyright (c) 2013 </p>
- * <p> Company:javahih.co.,ltd </p>
+ * <p> Company:hihsoft.co.,ltd </p>
  *
  * @author zhujw
  * @version 1.0

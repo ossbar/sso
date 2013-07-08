@@ -17,7 +17,7 @@ import com.hihsoft.sso.util.BaseTestCase;
  * <p> Title:单元测试 </p>
  * <p> Description:角色管理业务逻辑层单元测试案例</p>
  * <p> Copyright: Copyright (c) 2013 </p>
- * <p> Company:javahih.co.,ltd </p>
+ * <p> Company:hihsoft.co.,ltd </p>
  *
  * @author zhujw
  * @version 1.0
