@@ -4,38 +4,25 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package com.hihsoft.sso.business.model;
-import com.hihsoft.baseclass.model.BaseEntity;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import java.util.*;
+import com.hihsoft.baseclass.model.BaseEntity;
 /**
  * <p> Title: </p>
  * <p> Description:</p>
- * <p> Copyright: Copyright (c) 2011 </p>
- * <p> Company:javahih.co.,ltd </p>
+ * <p> Copyright: Copyright (c) 2013 </p>
+ * <p> Company:hihsoft.co.,ltd </p>
  *
  * @author zhujw
  * @version 1.0
  */
 
 public class TaclRoleuser extends BaseEntity {
-	
-	//alias
-	public static final String TABLE_ALIAS = "TaclRoleuser";
-	public static final String ALIAS_ROLEUSERID = "roleuserid";
-	public static final String ALIAS_USERID = "userid";
-	public static final String ALIAS_ROLEID = "roleid";
-	
-	//date formats
-	
-	//columns START
 	private java.lang.String roleuserid;
 	private java.lang.String userid;
 	private java.lang.String roleid;
-	//columns END
 
 	public TaclRoleuser(){
 	}

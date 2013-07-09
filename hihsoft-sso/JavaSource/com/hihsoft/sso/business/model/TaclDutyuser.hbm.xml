@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TaclDutyuser" table="T_ACL_DUTYUSER">
+
+        <id name="dutyuserid" column="DUTYUSERID" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="userid" 
+			column="USERID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="dutyid" 
+			column="DUTYID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+		
+		<many-to-one
+			name="taclUserinfo"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="USERID"/>
+		</many-to-one> 
+		
+		<many-to-one
+			name="tsysDuty"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="DUTYID"/>
+		</many-to-one> 
+
+    </class>
+</hibernate-mapping>
+
