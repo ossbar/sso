@@ -32,6 +32,13 @@ public interface TaclUserinfoService extends BaseService {
 	 */
 	public void saveOrUpdateTaclUserinfo(TaclUserinfo taclUserinfo)
 			throws ServiceException;
+	/**
+	 * 新增或修改用户岗位
+	 * @param taclDutyuser
+	 * @throws ServiceException
+	 */
+	public boolean saveOrUpdateTaclDutyUser(String userId, String duty)
+			throws ServiceException;
 
 	/**
 	 * 删除TaclUserinfo信息

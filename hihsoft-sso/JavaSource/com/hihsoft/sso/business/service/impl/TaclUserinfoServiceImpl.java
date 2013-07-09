@@ -24,6 +24,7 @@ import com.hihframework.core.utils.StringHelpers;
 import com.hihframework.exception.ServiceException;
 import com.hihframework.osplugins.json.JsonUtil;
 import com.hihsoft.baseclass.service.impl.BaseServiceImpl;
+import com.hihsoft.sso.business.model.TaclDutyuser;
 import com.hihsoft.sso.business.model.TaclRoleprivilege;
 import com.hihsoft.sso.business.model.TaclUserinfo;
 import com.hihsoft.sso.business.model.TaclUserprivilege;
@@ -483,6 +484,22 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 			}
 		});
 		return tree;
+	}
+
+	@Override
+	public boolean saveOrUpdateTaclDutyUser(String userId, String duty)
+			throws ServiceException {
+		String[] dataSets =  duty.split(",");
+		String hql = "delete from TaclDutyuser where userid='"+userId+"'";
+		executeHQL(hql);
+		for (String set : dataSets) {
+			if ("".equals(set)) continue;
+			TaclDutyuser td = new TaclDutyuser();
+			td.setDutyid(set);
+			td.setUserid(userId);
+			saveOrUpdateVO(td);
+		}
+		return true;
 	}
 	
 }

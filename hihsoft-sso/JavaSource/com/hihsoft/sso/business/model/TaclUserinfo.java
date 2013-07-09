@@ -16,8 +16,8 @@ import com.hihsoft.baseclass.model.IUser;
 /**
  * <p> Title: </p>
  * <p> Description:</p>
- * <p> Copyright: Copyright (c) 2011 </p>
- * <p> Company:javahih.co.,ltd </p>
+ * <p> Copyright: Copyright (c) 2013 </p>
+ * <p> Company:hihsoft.co.,ltd </p>
  *
  * @author zhujw
  * @version 1.0
@@ -44,7 +44,6 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 	public static final String ALIAS_SEX = "sex";
 	public static final String ALIAS_ORGID = "orgid";
 	public static final String ALIAS_DEPTID = "deptid";
-	public static final String ALIAS_DUTYID = "dutyid";
 	public static final String ALIAS_TELEPHONE = "telephone";
 	public static final String ALIAS_USERDESC = "userdesc";
 	public static final String ALIAS_USERNAME = "username";
@@ -80,7 +79,6 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 	private java.lang.String sex;
 	private java.lang.String orgid;
 	private java.lang.String deptid;
-	private java.lang.String dutyid;
 	private java.lang.String telephone;
 	private java.lang.String userdesc;
 	private java.lang.String username;
@@ -241,13 +239,6 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 	public java.lang.String getDeptid() {
 		return this.deptid;
 	}
-	public void setDutyid(java.lang.String value) {
-		this.dutyid = value;
-	}
-	
-	public java.lang.String getDutyid() {
-		return this.dutyid;
-	}
 	public void setTelephone(java.lang.String value) {
 		this.telephone = value;
 	}
@@ -375,7 +366,6 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 			.append("Sex",getSex())
 			.append("Orgid",getOrgid())
 			.append("Deptid",getDeptid())
-			.append("Dutyid",getDutyid())
 			.append("Telephone",getTelephone())
 			.append("Userdesc",getUserdesc())
 			.append("Username",getUsername())
@@ -408,7 +398,6 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 			.append(getSex())
 			.append(getOrgid())
 			.append(getDeptid())
-			.append(getDutyid())
 			.append(getTelephone())
 			.append(getUserdesc())
 			.append(getUsername())
@@ -444,7 +433,6 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 			.append(getSex(),other.getSex())
 			.append(getOrgid(),other.getOrgid())
 			.append(getDeptid(),other.getDeptid())
-			.append(getDutyid(),other.getDutyid())
 			.append(getTelephone(),other.getTelephone())
 			.append(getUserdesc(),other.getUserdesc())
 			.append(getUsername(),other.getUsername())

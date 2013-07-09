@@ -26,6 +26,7 @@ import com.hihframework.core.utils.StringHelpers;
 import com.hihframework.exception.ControllerException;
 import com.hihframework.osplugins.json.JsonUtil;
 import com.hihsoft.baseclass.web.controller.javahihBaseController;
+import com.hihsoft.sso.business.model.TaclDutyuser;
 import com.hihsoft.sso.business.model.TaclRole;
 import com.hihsoft.sso.business.model.TaclRoleuser;
 import com.hihsoft.sso.business.model.TaclUserinfo;
@@ -229,6 +230,7 @@ public class TaclUserinfoController extends javahihBaseController {
 	public ModelAndView save(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
 		TaclUserinfo taclUserinfo=taclUserinfoService.getTaclUserinfoById(getParam(request,"userid"));
+		TaclDutyuser TaclDutyuser=new TaclDutyuser();
 		if(StringHelpers.isNull(taclUserinfo)){
 			taclUserinfo=new TaclUserinfo();
 	    }
@@ -244,9 +246,12 @@ public class TaclUserinfoController extends javahihBaseController {
 	    }
 	    String dataSet = getParam(request, "dataSet");
 	    String treeSet = getParam(request, "treeSet");
+	    //支持單個用戶多個崗位
+	    String dutySet=getParam(request, "dutySet");
 	    boolean flag = true;
 	    try {
 		    taclUserinfoService.saveOrUpdateTaclUserinfo(taclUserinfo);
+		    taclUserinfoService.saveOrUpdateTaclDutyUser(taclUserinfo.getUserid(), dutySet);
 		    taclUserinfoService.saveDataSet(taclUserinfo.getUserid(), dataSet);
 		    taclUserinfoService.saveTreeSet(taclUserinfo.getUserid(), treeSet);
 	    } catch (Exception e) {
