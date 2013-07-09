@@ -172,16 +172,6 @@
 			length="32"/>
 		
 		<property 
-			name="dutyid" 
-			column="DUTYID" 
-			update="true"
-            insert="true"
-            type="java.lang.String"
-			not-null="false" 
-			unique="false" 
-			length="32"/>
-		
-		<property 
 			name="telephone" 
 			column="TELEPHONE" 
 			update="true"
