@@ -16,7 +16,15 @@ var dlg;
 $(function() {
 	win = $("#win").window({
 		title : "新增",
-		modal : true
+		modal : true,
+		onMaximize:function(){
+			//解决窗口最大化问题
+			$("#msg").load($("#reloadUrl").val());
+		},
+		onRestore:function(){
+			//解决窗口最小化问题
+			$("#msg").load($("#reloadUrl").val());
+		}
 	});
 	var tree = $("#tree").tree({
 		url : baseUrl + "getAssignedOrgTree",
@@ -41,6 +49,7 @@ $(function() {
 		}
 		if (!check()) return;
 		win.window('open');
+		$("#reloadUrl").val(baseUrl + "add&orgid="+org.val());
 		$("#msg").load(baseUrl + "add&orgid="+org.val());
 	});
 	$("#btn_edit").click(function() {
@@ -49,6 +58,7 @@ $(function() {
 		if (!check()) return;
 		win.window("setTitle", "修改");
 		win.window('open');
+		$("#reloadUrl").val(baseUrl + "modify",{id : ids});
 		$("#msg").load(baseUrl + "modify",{id : ids});
 	});
 	$("#btn_remove").click(function() {
@@ -75,6 +85,7 @@ $(function() {
 		if (!check()) return;
 		win.window("setTitle", "分配角色");
 		win.window("open");
+		$("#reloadUrl").val(baseUrl + "listRole", {userId : ids});
 		$("#msg").load(baseUrl + "listRole", {userId : ids});
 	});
 	$("#btn_resetRole").click(function() {
@@ -106,6 +117,7 @@ $(function() {
 		var ids = getSelected(true, form);
 		if (!ids) return;
 		win.window("open");
+		$("#reloadUrl").val(baseUrl + "privilege", {userId : ids});
 		$("#msg").load(baseUrl + "privilege", {userId : ids});
 	});
 	dlg = $("#queryLayer").dialog();
@@ -193,6 +205,7 @@ function showUser(id) {
 	if (!id) return;
 	win.window("setTitle", "查看用户详细信息");
 	win.window("open");
+	$("#reloadUrl").val(baseUrl + "view&id=" + id);
 	$("#msg").load(baseUrl + "view&id=" + id);
 }
 </script>
@@ -221,6 +234,7 @@ function showUser(id) {
 		</div>
 	</div>
 <div id="win" closed="true" style="width: 650px; height: 535px;" resizable="false" collapsible="false" >
+	<input type="hidden" id="reloadUrl">
 	<div id="msg"></div>
 </div>
 <hih:form bean="request">
