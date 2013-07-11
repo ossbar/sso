@@ -78,17 +78,17 @@
 						id="mainregion">
 						<col class="Label" />
 						<col class="Data" />
+						<col class="Label" />
+						<col class="Data" />
 						<tr>
 							<td><fmt:message key="tsysorg.orgname"></fmt:message></td>
 							<td><input type="text" name="orgname" id="orgname"
 								class="validate[required,maxSize[15]] text" /><font color="red">**</font>
 							</td>
-						</tr>
-						<tr>
 							<td><fmt:message key="tsysorg.orgno"></fmt:message>
 							</td>
 							<td><input type="text" name="orgno" id="orgno"
-								class="validate[maxSize[12],custom[onlyNumberSp]] text" />
+								class="validate[required,maxSize[12],custom[onlyNumberSp]] text" /><font color="red">**</font>
 							</td>
 						</tr>
 						<tr>
@@ -97,8 +97,6 @@
 							<td><input type="text" name="orgShortname" id="orgshortname"
 								class="validate[maxSize[20]] text" />
 							</td>
-						</tr>
-						<tr>
 							<td><fmt:message key="tsysorg.orgclass"></fmt:message>
 							</td>
 							<td><hih:parameter name="roleType" id="orgClass" cssClass="select"/>
@@ -110,35 +108,13 @@
 							<td>
 								<hih:parameter name="ORG_SORT" id="orgSort" style="width:165px;" defValue="1" type="radio"/>
 							</td>
-						</tr>
-						<tr>
-							<td><fmt:message key="tsysorg.orgtype"></fmt:message>
-							</td>
-							<td>
-								<hih:parameter name="RUN_MODE" id="orgtype" style="width:165px;"/>
-							</td>
-						</tr>
-						<tr>
 							<td><fmt:message key="tsysorg.parentorgid"></fmt:message>
 							</td>
 							<td><input id="parentorgid" name="parentorgid"
 								value="${parentorgid==null?(org==null?"
 								":org.parentorgid):parentorgid}" readOnly />
 							</td>
-						</tr>
-						<tr>
-							<td><fmt:message key="tsysorg.orgdesc"></fmt:message>
-							</td>
-							<td><input type="text" name="orgdesc" id="orgdesc"
-								class="validate[maxSize[30]] text" />
-							</td>
-						</tr>
-						<tr>
-							<td><fmt:message key="tsysorg.addr"></fmt:message>
-							</td>
-							<td><textarea type="textarea" name="addr" id="addr"
-									class="validate[maxSize[50]] textarea" cols="28" rows="3"></textarea>
-							</td>
+							
 						</tr>
 						<tr>
 							<td><fmt:message key="tsysorg.telephone"></fmt:message>
@@ -146,26 +122,23 @@
 							<td><input type="text" name="telephone" id="telephone"
 								class="validate[maxSize[20],custom[phone]] text" />
 							</td>
+							<td><fmt:message key="tsysorg.orgdesc"></fmt:message>
+							</td>
+							<td><input type="text" name="orgdesc" id="orgdesc"
+								class="validate[maxSize[30]] text" />
+							</td>
 						</tr>
 						<tr>
+							<td>
+								<fmt:message key="tsysorg.corpman"></fmt:message>
+							</td>
+							<td><input type="text" name="corpMan" id="corpMan"
+								class="validate[maxSize[15]] text" />
+							</td>
 							<td><fmt:message key="tsysorg.mobile"></fmt:message>
 							</td>
 							<td><input type="text" name="mobile" id="mobile"
 								class="validate[maxSize[15],custom[phone]] text" />
-							</td>
-						</tr>
-						<tr>
-							<td><fmt:message key="tsysorg.fax"></fmt:message>
-							</td>
-							<td><input type="text" name="fax" id="fax"
-								class="validate[maxSize[20],custom[fax]] text" />
-							</td>
-						</tr>
-						<tr>
-							<td><fmt:message key="tsysorg.corpman"></fmt:message>
-							</td>
-							<td><input type="text" name="corpMan" id="corpMan"
-								class="validate[maxSize[15]] text" />
 							</td>
 						</tr>
 						<tr>
@@ -174,6 +147,11 @@
 							<td><input type="text" name="email" id="email"
 								class="validate[maxSize[30],custom[email]] text" />
 							</td>
+							<td><fmt:message key="tsysorg.fax"></fmt:message>
+							</td>
+							<td><input type="text" name="fax" id="fax"
+								class="validate[maxSize[20],custom[fax]] text" />
+							</td>
 						</tr>
 						<tr>
 							<td><fmt:message key="tsysorg.website"></fmt:message>
@@ -181,15 +159,31 @@
 							<td><input type="text" name="website" id="website"
 								class="validate[maxSize[30],custom[url]] text" />
 							</td>
-						</tr>
-						<tr>
 							<td><fmt:message key="tsysorg.orgkind"></fmt:message>
 							</td>
 							<td><input type="text" name="orgKind" id="orgKind"
 								class="text" />
 							</td>
 						</tr>
+						<tr>
+							<td><fmt:message key="tsysorg.addr"></fmt:message>
+							</td>
+							<td colspan="3"><textarea type="textarea" name="addr" id="addr"
+									class="validate[maxSize[50]] textarea" cols="28" rows="3"></textarea>
+							</td>
+							
+						</tr>
 					</table>
+					<div align="center" class="foot-buttons" id="footBar">
+						<%-- <div class="tool-btn" id="btn_save" onclick="save_click()">
+							<span class="icon-save">&nbsp;</span>
+							<fmt:message key="button.save" />
+						</div>
+						<div class="tool-btn" id="btn_cancel" onclick="back_click()">
+							<span class="icon-back">&nbsp;</span>
+							<fmt:message key="button.back" />
+						</div> --%>
+					</div>
 				</div>
 			</form>
 		</hih:form>
