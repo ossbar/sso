@@ -169,9 +169,8 @@
 							<td><fmt:message key="tsysorg.addr"></fmt:message>
 							</td>
 							<td colspan="3"><textarea type="textarea" name="addr" id="addr"
-									class="validate[maxSize[50]] textarea" cols="28" rows="3"></textarea>
+									class="validate[maxSize[50]] textarea" cols="28" rows="3" style="width: 670px;"> </textarea>
 							</td>
-							
 						</tr>
 					</table>
 					<div align="center" class="foot-buttons" id="footBar">
