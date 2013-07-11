@@ -14,15 +14,16 @@ function detail(id) {
 	$("#detail").load(baseUrl + "view&orgid="+id, function() {
 		orgfrom = $("form[name='orgform']");
 		disableForm();
-		$(".tool-btn").remove();
+		$("#footBar").remove(".tool-btn");
 	});
 }
 function layout() {
-	var toolbar = $("#detail").parent().find(".panel-header").find(".panel-tool");
-	if (toolbar.children(".icon-save").length == 0) {
+	var footBar = $("#footBar");
+	var toolbar = footBar.children(".tool-btn");
+	if (toolbar.length == 0) {
 		var text = "<fmt:message key="button.save"/>";
-		toolbar.append("<span class='icon-save tool-btn' onclick='save_click()'>"+text+"</span>");
-		toolbar.append("<span class='icon-back tool-btn' onclick='back_click()' >"+exclude+"</span>");
+		footBar.append('<div class="tool-btn" id="btn_save" onclick="save_click()"><span class="icon-save">&nbsp;</span><fmt:message key="button.save" /></div>');
+		footBar.append('<div class="tool-btn" id="btn_cancel" onclick="back_click()"><span class="icon-back">&nbsp;</span><fmt:message key="button.back" /></div>');
 	}
 }
 function add_click() {
@@ -33,13 +34,14 @@ function add_click() {
 		url += "&orgid="+id;
 	}
 	if (div.size() != 0) {
-		div.load(url);
+		div.load(url,function(){
+			layout();
+		});
 	} else {
 		orgform.attr("action", url);
 		orgform.submit();
 	}
 	enableForm.defer(500);
-	layout();
 }
 function save_click() {
 	if (!formEnabled) return;
