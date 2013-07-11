@@ -15,7 +15,7 @@ import java.util.*;
  * <p> Title: </p>
  * <p> Description:</p>
  * <p> Copyright: Copyright (c) 2011 </p>
- * <p> Company:javahih.co.,ltd </p>
+ * <p> Company:hihsoft.co.,ltd </p>
  *
  * @author zhujw
  * @version 1.0
@@ -37,15 +37,51 @@ public class TsysParameter extends BaseEntity {
 	//date formats
 	
 	//columns START
-	private java.lang.String paraid;
-	private java.lang.String isdefault;
-	private java.lang.String paraname;
-	private java.lang.String parano;
-	private java.lang.String paraClass;
-	private java.lang.String paraKey;
-	private java.lang.String paraType;
-	private Long paraOrder;
+	private java.lang.String paraid;//主键
+	private java.lang.String isdefault;//默认值
+	private java.lang.String paraname;//字典类型名称
+	private java.lang.String parano;//字典编码
+	private java.lang.String paraClass;//字典分类系统、自定义
+	private java.lang.String paraKey;//字典值
+	private java.lang.String paraType;//字典类型
+	private Long paraOrder;//排序号
+	private java.lang.String remark;//备注
+	private java.lang.String parentparaid;//父ID
+	private java.lang.String displaySort;//显示方式：树、下拉、复选、单选字典中获取
 	//columns END
+    private TsysParameter tsysParameter;
+	
+	public void setTsysParameter(TsysParameter tsysParameter){
+		this.tsysParameter = tsysParameter;
+	}
+	
+	public TsysParameter getTsysParameter() {
+		return tsysParameter;
+	}
+
+	public java.lang.String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(java.lang.String remark) {
+		this.remark = remark;
+	}
+
+	public java.lang.String getParentparaid() {
+		return parentparaid;
+	}
+
+	public void setParentparaid(java.lang.String parentparaid) {
+		this.parentparaid = parentparaid;
+	}
+
+	public java.lang.String getDisplaySort() {
+		return displaySort;
+	}
+
+	public void setDisplaySort(java.lang.String displaySort) {
+		this.displaySort = displaySort;
+	}
 
 	public TsysParameter(){
 	}

@@ -80,10 +80,46 @@
 			not-null="false" 
 			unique="false" 
 			length="22"/>
+			<property 
+			name="remark" 
+			column="REMARK" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		<property 
+			name="displaySort" 
+			column="DISPLAYSORT" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2"/>
+			<property 
+			name="parentparaid" 
+			column="PARENTPARAID" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
 		
 		<!-- One-To-Many attributes -->
 
 		<!-- Many-To-One attributes -->
+		<many-to-one
+			name="tsysPrameter"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="PARENTPARAID"/>
+		</many-to-one> 
 
     </class>
 </hibernate-mapping>
