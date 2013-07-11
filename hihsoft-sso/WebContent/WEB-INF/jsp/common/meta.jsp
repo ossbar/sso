@@ -17,7 +17,7 @@
 <script type="text/javascript" src="${ctx}/js_plugins/custom/common.js"></script>
 <script type="text/javascript" src="${ctx}/js_plugins/custom/switchthemes.js"></script>
 <script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery-1.6.min.js"></script>
-<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery.easyui-1.2.6.js"></script>
+<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery.easyui.1.2.3-hih.js"></script>
 <script type="text/javascript" src="${ctx}/js_plugins/custom/javahihgrid.js"></script>
 <link href="${ctx}/js_plugins/custom/javahihgrid.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${ctx}/js_plugins/formvalidator/css/validationEngine.jquery.css" type="text/css" charset="utf-8" />
