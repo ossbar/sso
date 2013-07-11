@@ -132,8 +132,8 @@ $(function() {
 	<div id="modifyWindow" style="width: 350px;height: 230px;" closed="true">
 		<div id="window-body"></div>
 	</div>
-	<div id="loading" class="aft-mask-container" style="display: none;">
-		<div class="aft-mask-txt tree-loading">加载中...</div>
+	<div id="loading" class="hih-mask-container" style="display: none;">
+		<div class="hih-mask-txt tree-loading">加载中...</div>
 	</div>
 </body>
 </html>

@@ -2,7 +2,6 @@
 <%@ include file="/WEB-INF/jsp/common/taglibs.jsp"%>
 <html>
 <head>
-<%@ include file="/WEB-INF/jsp/common/meta.jsp"%>
 </head>
 <script type="text/javascript">
 	var baseUrl = "${ctx}/taclRoleController.do?method=list";
@@ -123,7 +122,7 @@
 						<td>
 						<c:choose>
 							<c:when test="${isGroup}">
-							<aft:parameter name="roleType" id="roletype" cssClass="select"/>
+							<hih:parameter name="roleType" id="roletype" cssClass="select"/>
 							</c:when>
 							<c:otherwise>
 							<select name="roletype" class="select" id="roletype" style="width: 165px">

@@ -1,13 +1,13 @@
 html,body {margin: 0px;padding: 0px;height: 100%;width: 100%;}
-span.aft-tool-btn {height:18px; padding: 0px 2px 2px 15px;cursor: pointer;outline: 1px solid gray;margin-right: 2px;}
+span.hih-tool-btn {height:18px; padding: 0px 2px 2px 15px;cursor: pointer;outline: 1px solid gray;margin-right: 2px;}
 .form-body {overflow: auto;position: absolute;left: 6px;bottom: 39px;top: 27px;right: 6px; position: relative;width: 100%;height:100%;}
 .foot-buttons {bottom: 6px; left: 6px;height: 35px;right: 6px; border-top: 1px solid gray;position: absolute;background: rgb(235,245,255);display: block;}
 .foot-buttons * {margin-top: 4px;}
 #msg {width: 100%;height: 100%;}
 
-/* .error-field{border: 2px solid red !important;} */
-.aft-mask-container {position: absolute;top: 0px;right: 0px;z-index: 99998;background-color: gray;text-align: center;}
-.aft-mask-txt {padding: 2px; margin-left: 10px;text-align: right;width: 72px;heght: 40px;border: 3px solid #416AA3;margin-left: auto;margin-right: auto;background-color: white;z-index: 99999;}
+.error-field{border: 2px solid red;}
+.hih-mask-container {position: absolute;top: 0px;right: 0px;z-index: 99998;background-color: gray;text-align: center;}
+.hih-mask-txt {padding: 2px; margin-left: 10px;text-align: right;width: 72px;heght: 40px;border: 3px solid #416AA3;margin-left: auto;margin-right: auto;background-color: white;z-index: 99999;}
 .query-layer {display: none;position: absolute;border: 1px solid gray;z-index: 999;background: white;}
 .query-layer-title {
 	color:#3F3F3F;

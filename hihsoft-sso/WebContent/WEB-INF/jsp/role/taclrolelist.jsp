@@ -11,27 +11,22 @@ var win;
 	$(function() {
 		var form = $("form[name=listForm]");
 		initGrid(form);
+		var handler = function() {
+			win.window('open');
+			var div = $(this);
+			div.show();
+		};
 		win = $("#win").window({
-			title : "角色管理",
+			title : "操作窗口",
 			modal : true
 		});
-		var handler = function() {
-			$(this).find("#btn_save").click(function() {
-				if(!$("#formID").validationEngine('validate'))
-					return;		
-				var frm = $("form[name='taclRoleForm']");
-				frm.attr("action", "${ctx}/taclRoleController.do?method=save");
-				frm.submit();
-			});
-			$(this).find("#btn_cancel").click(function() {
-				win.window("close");
-			});
-		};
 		
 		$("#btn_add").click(
 				function() {
 					win.window('open');
-					$("#msg").load("${ctx}/taclRoleController.do?method=add",handler);
+					$("#msg").load(
+							"${ctx}/taclRoleController.do?method=add",
+							"", handler);
 				});
 		
 		$("#btn_edit").click(
@@ -166,20 +161,37 @@ var win;
 				</tr>
 			</table>
 		</div>
-		<div id="grid-body" region="center">
-			<hih:table items="${list}" var="item">
-				<hih:column field="roleid" checkbox="true"/>
-				<hih:column field="rolename" header="taclrole.rolename" width="120"/>
-				<hih:column field="remark" header="taclrole.remark" width="120"/>
-				<hih:column field="roletype" header="taclrole.roletype" width="120"/>
-				<hih:column field="orgid" header="taclrole.orgid" width="120"/>
-				<hih:column field="roleSort" header="taclrole.rolesort" width="120"/>
-			</hih:table>
+		<div id="grid-body" class="grid-body" region="center">
+			<table class="data-grid" cellspacing="0" cellpadding="0">
+				<thead>
+				<tr class="data-grid-header">
+				<th><input type="checkbox" id="selectAll" /></th>
+				<th width="120"><fmt:message key="taclrole.rolename" /></th>
+				<th width="120"><fmt:message key="taclrole.remark" /></th>						
+				<th width="120"><fmt:message key="taclrole.roletype" /></th>
+				<th width="120"><fmt:message key="taclrole.orgid" /></th>
+				<th width="120"><fmt:message key="taclrole.rolesort" /></th>
+				</tr>
+				</thead>
+				<c:forEach items="${list}" var="taclrole"
+					varStatus="paStatus">
+					<tr>
+					<td width="100" class="checkbox"><input type="checkbox"
+							name="ckh" value="${taclrole.roleid}" /></td>
+						<td width="120">
+						<a href="#" onclick="showRole('${taclrole.roleid}')">${taclrole.rolename}</a></td>
+						<td width="120">${taclrole.remark}</td>								
+						<td width="120">${taclrole.roletype}</td>
+						<td width="120">${taclrole.orgid}</td>
+						<td width="120">${taclrole.roleSort}</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 		<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
 	</div>
 </form>
-	<div id="win" closed="true" style="width: 650px; height: 600px;">
+	<div id="win" closed="true" style="width: 650px; height: 500px;">
 		<div id="msg"></div>
 	</div>
 </body>

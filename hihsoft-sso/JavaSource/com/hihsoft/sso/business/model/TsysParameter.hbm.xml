@@ -112,7 +112,7 @@
 
 		<!-- Many-To-One attributes -->
 		<many-to-one
-			name="tsysPrameter"
+			name="tsysParameter"
             not-null="false"
 	        update="false"
 	        insert="false"

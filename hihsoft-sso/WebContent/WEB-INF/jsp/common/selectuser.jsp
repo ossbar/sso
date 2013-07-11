@@ -38,7 +38,7 @@ $(function() {
 			<li>
 				登陆帐号：<input name="filter_loginname" type="text" class="text" style="width: 120px;"/>
 			</li>
-			<li>范围：<aft:parameter name="userState" id="userstate" type="checkbox" defValue="正常,调岗"/>
+			<li>范围：<hih:parameter name="userState" id="userstate" type="checkbox" defValue="正常,调岗"/>
 			</li>
 			<li class="west">
 				<a class="easyui-linkbutton" iconCls="icon-search" id="btn-query">查询</a>
