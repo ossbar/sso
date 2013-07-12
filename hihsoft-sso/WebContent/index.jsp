@@ -26,8 +26,8 @@ if ((u != null && !"".equals(u) && p != null && !"".equals(p) && "".equals(msg))
 <link href="${ctx}/js_plugins/jquery/css/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="${ctx}/js_plugins/jquery/js/themes/default/easyui.css" />
 <link rel="stylesheet" type="text/css" href="${ctx}/js_plugins/jquery/js/themes/icon.css" />
-<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery-1.6.4.js"></script>
-<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery.easyui-1.2.6.js"></script>
+<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${ctx}/js_plugins/custom/common.js"></script>
 <script type="text/javascript" >
 function onBodyLoad() {
