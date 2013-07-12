@@ -726,74 +726,128 @@ function showUserWindow(onOk, params, width, height, title, isSingle, noTree,
 	if (noTree) {
 		url += "?noTree=noTree";
 	}
+	params = params || {};
+	var queue = [];
+	var menu = $("<div/>").appendTo('body').width("100px")
+			.append("<div iconCls='icon-ok' add>标记为已选</div>")
+			.append("<div class='menu-sep'></div>")
+			.append("<div iconCls='icon-remove' remove>清空队列</div>").menu({
+				onClick : function(item) {
+					if (item.iconCls == "icon-ok") {
+						var sels = $("#userGrid").datagrid("getSelections");
+						for (var i = 0; i < sels.length; i++) {
+							if (queue.indexOf(sels[i]) == -1) {
+								queue.push(sels[i]);
+							}
+						}
+						showTip("标记成功！");
+						$("#selectedUsers").text("已选用户："
+								+ getSelectedBy(queue, "username"));
+					} else {
+						queue.splice(0, queue.length);
+						showTip("已选队列已清空！");
+						$("#userGrid").datagrid("clearSelections");
+						$("#selectedUsers").empty();
+					}
+				}
+			});
 	$.createWin({
 		title : title || "选择用户",
 		url : url,
 		data : params,
 		height : height || 480,
-		width : width || 650,
+		width : width || 770,
 		shadow : true,
 		bgiframe : true,
 		buttons : [{
 					text : '确定',
 					handler : function() {
 						var selected = $("#userGrid").datagrid("getSelections");
-						var len = selected.length;
+						for (var i = 0; i < selected.length; i++) {
+							var s = selected[i];
+							if (queue.indexOf(s) != -1) {
+								selected.splice(i, 1);
+							}
+						}
+						var len = selected.length + queue.length;
 						if (canEmpty === true && len == 0) {
-							alert("请选择一个用户");
+							showTip("请选择一个用户");
 							return;
 						}
 						if (isSingle === true && len > 1) {
-							alert("一次只能选择一个用户");
+							showTip("一次只能选择一个用户");
 							return;
 						}
 						if (typeof onOk == "function") {
-							onOk.call(this, selected, win);
+							onOk.call(this, queue.concat(selected), win);
 						}
 					}
 				}],
 		onComplete : function(wid) {
 			win = $(this);
-			var orgTree,grid,dutyTree,param={},form = $("form[name=queryForm]");
-			if($("#orgTree").length > 0) {
+			var orgTree, grid, dutyTree, param = {}, form = $("form[name=queryForm]");
+			if ($("#orgTree").length > 0) {
 				orgTree = $("#orgTree").tree({
-					url : "/sso/tsysLoginController.do?method=getAssignedOrgTree",
+					url : "/sso/tsysLoginController.do?method=getAssignedOrgTree&full="
+							+ params.full,
 					onClick : function(n) {
-						param = {"orgId" : n.id};
+						param = {
+							"orgId" : n.id
+						};
 						grid.datagrid("reload");
 					}
 				});
 				dutyTree = $("#dutyTree").tree({
-					url : "/sso/tsysLoginController.do?method=getDutyTree",
-					onClick : function(n) {
-						param = {"filter_dutyid" : n.id};
-						grid.datagrid("reload");
-					}
-				});
+							url : "/sso/tsysLoginController.do?method=getDutyTree",
+							onClick : function(n) {
+								param = {
+									"filter_dutyid" : n.id
+								};
+								grid.datagrid("reload");
+							}
+						});
 			}
-			
+
 			grid = $("#userGrid").datagrid({
-				fit : true,              
-		        striped: true,
-		        border : false,
-		        pageList : [10, 15, 20, 30, 40, 50],
+				fit : true,
+				striped : true,
+				border : false,
+				pageList : [10, 15, 20, 30, 40, 50],
 				pageSize : 15,
-		        url : "/sso/tsysLoginController.do?method=getUserToJson",
-		        loadMsg : "数据加载中。。。",
-		        queryParams : params,
-		        columns:[[{field:"userid", checkbox : true},{field:'username',title:'用户名',width:180,sortable:true}]],
-		        onBeforeLoad : function(options) {
-		        	var p = form.getFormParams();
-		        	apply(options, param, p);
-		        },
-		        pagination : true
+				url : "/sso/tsysLoginController.do?method=getUserToJson&full="
+						+ params.full,
+				loadMsg : "数据加载中。。。",
+				queryParams : params,
+				columns : [[{
+							field : "userid",
+							checkbox : true
+						}, {
+							field : 'username',
+							title : '用户名',
+							width : 180,
+							sortable : true
+						}]],
+				onBeforeLoad : function(options) {
+					var p = form.getFormParams();
+					apply(options, param, p);
+				},
+				pagination : true,
+				onRowContextMenu : function(e, i, row) {
+					e.preventDefault();
+					grid.datagrid("selectRow", i);
+					menu.menu("show", {
+								left : e.clientX,
+								top : e.clientY
+							});
+				}
 			});
 			$("#btn-query").click(function() {
-				grid.datagrid("reload");
-			})
+						param = {};
+						grid.datagrid("reload");
+					})
 			$("#btn-reset").click(function() {
-				form[0].reset();
-			});
+						form[0].reset();
+					});
 		}
 	});
 }
@@ -825,7 +879,7 @@ function showUploader(config) {
 	var config = $.extend(defaults, config);
 	$.createWin({
 		title : "上传文件",
-		url : "/sso/js_plugins/uploadify/uploadfile.jsp",
+		url : "./common/uploadfile.jsp",
 		data : config.params,
 		height : config.height,
 		width : config.width,

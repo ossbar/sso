@@ -26,10 +26,10 @@
 		<level  value="INFO" />
 	</logger>
 	<logger name="org.springframework" >
-		<level  value="ERROR" />
+		<level  value="INFO" />
 	</logger>
 	<logger name="org.hibernate" >
-		<level  value="ERROR" />
+		<level  value="INFO" />
 	</logger>
 	<root>
 		<priority value="INFO" />
