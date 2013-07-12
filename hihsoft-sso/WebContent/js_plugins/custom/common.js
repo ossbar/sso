@@ -536,7 +536,7 @@ $(function(){
 						"color" : "#222",
 						"z-index" : "99999",
 						"border" : "3px solid #447799",
-						"background" : "#fff url('/sso/js_plugins/jquery/js/themes/default/images/pagination_loading.gif') no-repeat scroll 5px 10px",
+						"background" : "#fff ",//url('/sso/js_plugins/jquery/js/themes/default/images/pagination_loading.gif') no-repeat scroll 5px 10px
 						"display" : "inline-block"
 					}).html(html || "加载中，请稍候...");
 				}
@@ -550,7 +550,7 @@ $(function(){
 				if (noText !== false) {
 					div.append(msg);
 				} else {
-					div.css({"opacity": 0.7, "background" : "#fff url('/sso/js_plugins/jquery/images/loading.gif') no-repeat center center"});
+					div.css({"opacity": 0.7, "background" : "#fff "});//url('/sso/css/images/loading.gif') no-repeat center center
 				}
 				$.data(el, "masker", div);
 			});
