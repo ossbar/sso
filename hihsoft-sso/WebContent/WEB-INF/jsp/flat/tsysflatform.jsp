@@ -6,6 +6,19 @@
 <%@ include file="/WEB-INF/jsp/common/title.jsp"%>
 </head>
 <script type="text/javascript">
+function showuser(){
+	showUserWindow(function(rows,win){
+		if(rows.length > 0){
+			win.window("close");
+			var i=0;
+			$("#username").val("");
+			$("#userId").val("");
+			for(i=0;i<rows.length;i++){
+			$("#username").val(rows[i].username);
+			$("#userId").val(rows[i].userid);
+		}
+	}},{excludes : "2"});
+}
 $(function(){
 	var fn = function(){
 		$("input[name='flatcode']").focus();
@@ -88,6 +101,7 @@ $(function(){
 				<span class="icon-save">&nbsp;</span>
 				<fmt:message key="button.save" />
 			</div>
+			<input type="button" class="button BackRecord" value="选择用户" onclick="showuser()">
 			<div class="tool-btn" id="btn_save" onclick="back_click()">
 				<span class="icon-back">&nbsp;</span>
 				<fmt:message key="button.back" />

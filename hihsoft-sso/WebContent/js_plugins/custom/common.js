@@ -722,7 +722,7 @@ function printDiv(divId){
 function showUserWindow(onOk, params, width, height, title, isSingle, noTree,
 		canEmpty) {
 	var win;
-	var url = "./common/selectuser.jsp";
+	var url = "/sso/js_plugins/custom/selectuser.jsp";
 	if (noTree) {
 		url += "?noTree=noTree";
 	}
@@ -825,7 +825,7 @@ function showUploader(config) {
 	var config = $.extend(defaults, config);
 	$.createWin({
 		title : "上传文件",
-		url : "./common/uploadfile.jsp",
+		url : "/sso/js_plugins/uploadify/uploadfile.jsp",
 		data : config.params,
 		height : config.height,
 		width : config.width,

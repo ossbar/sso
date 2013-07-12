@@ -113,7 +113,7 @@ $(function() {
 		<div id="tabs" class="easyui-tabs" fit="true" border="false">
 			<div title="欢迎使用"
 				style="padding: 20px; overflow: hidden; color: red;">
-				<h1 style="font-size: 24px;">正华进销存系统</h1>
+				<h1 style="font-size: 24px;">手拉手业务基础平台</h1>
 			</div>
 		</div>
 	</div>

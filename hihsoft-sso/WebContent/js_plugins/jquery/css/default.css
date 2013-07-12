@@ -1,19 +1,18 @@
-*{font-size:12px; font-family:Tahoma,Verdana,Î¢ÈíÑÅºÚ,ÐÂËÎÌå}
+*{font-size:12px; font-family:Tahoma,Verdana,å¾®è½¯é›…é»‘,æ–°å®‹ä½“}
 body{background:#D2E0F2; }
 a{ color:Black; text-decoration:none;}
 a:hover{ color:Red; text-decoration:underline;}
-.textbox03 {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,ËÎÌå;line-height: 14px; background-color: #fff;  height: auto; font-size: 14px;  font-weight: bold; width: 190px; }
+.textbox03 {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,å®‹ä½“;line-height: 14px; background-color: #fff;  height: auto; font-size: 14px;  font-weight: bold; width: 190px; }
 
-.txt01{font:Verdana, Geneva, sans-serif,ËÎÌå;padding:3px 2px 2px 2px; border-width:1px; border-color:#ddd;  color:#000;}
-.txt {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,ËÎÌå;line-height: 14px; background-color: #fff;  height: auto; font-size: 14px;}
+.txt01{font:Verdana, Geneva, sans-serif,å®‹ä½“;padding:3px 2px 2px 2px; border-width:1px; border-color:#ddd;  color:#000;}
+.txt {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,å®‹ä½“;line-height: 14px; background-color: #fff;  height: auto; font-size: 14px;}
 .footer{text-align:center;color:#15428B; margin:0px; padding:0px;line-height:23px; font-weight:bold;}
 
 .head a{color:White;text-decoration:underline;}
-
 .easyui-accordion ul {
 	list-style-type: none;
 	margin: 0px;
-	padding: 3px;
+	padding: 10px;
 }
 
 .easyui-accordion ul li {
@@ -27,7 +26,8 @@ a:hover{ color:Red; text-decoration:underline;}
 .easyui-accordion ul li div {
 	margin: 2px 0px;
 	padding-left: 10px;
-	padding-top: 2px;
+	padding-top: 4px;
+	border:1px  #ffffff;
 }
 
 .easyui-accordion ul li div.hover {
