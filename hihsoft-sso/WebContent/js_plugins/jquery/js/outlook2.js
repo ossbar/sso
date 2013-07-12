@@ -38,9 +38,9 @@ function getMenus(baseUrl, flatid) {
 		dataType : "json"
 	});
 }
-function getHelpMenu() {
+function getHelpMenu(ctx) {
 	$.ajax({
-		url : "/sso/tsysLoginController.do?method=getHelpMenu",
+		url : ctx + "/tsysLoginController.do?method=getHelpMenu",
 		success : function(data) {
 			var menu = $("<div></div>");
 			$.each(data, function(i, d) {
@@ -48,7 +48,7 @@ function getHelpMenu() {
 			});
 			menu.children("div").width(200);
 			menu.menu({onClick : function(item) {
-				window.open("/sso/tsysLoginController.do?method=downloadFile&fileId="+item.id);
+				window.open(ctx + "/tsysLoginController.do?method=downloadFile&fileId="+item.id);
 			}});
 			if ($.isArray(data) && data.length > 0) {
 				$("#helper").click(function(e) {
@@ -66,7 +66,6 @@ function getHelpMenu() {
 	})
 }
 function initMenus(_menus) {
-	getHelpMenu();
 	InitLeftMenu(_menus);
 	tabClose();
 	tabCloseEven();
