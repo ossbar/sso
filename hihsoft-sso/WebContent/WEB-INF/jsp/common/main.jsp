@@ -18,12 +18,12 @@ $(function() {
 		defaultMenu = $("div[flatid='"+curFlatId+"']");
 	}
 	$("div[flatid="+defaultMenu.attr("flatid")+"]").children("div").each(function(){
-		var css = {"background" : "url('${ctx}/js_plugins/jquery/images/menu_lefts.png) no-repeat"};
+		var css = {"background" : "url(themes/lightblue/images/menus/menu_lefts.png) no-repeat"};
 		var menu = $(this).attr("menu");
 		if (menu == "cent") {
-			css.background = "url'${ctx}/js_plugins/jquery/images/menu_cens.png) repeat";
+			css.background = "url(themes/lightblue/images/menus/menu_cens.png) repeat";
 		} else if (menu =="right") {
-			css.background = "url('${ctx}/js_plugins/jquery/images/menu_rights.png) no-repeat";
+			css.background = "url(themes/lightblue/images/menus/menu_rights.png) no-repeat";
 		}
 		$(this).css(css);
 	});
@@ -65,8 +65,9 @@ $(function() {
 					<a id="changePwd" href="#4" style="text-decoration: none;"><b>修改密码</b></a> | 
 					<a id="logout" href="javascript:void(0)" style="text-decoration: none;"><b>退出</b></a>
 					<div class="bs">
-	                	<a class="styleswitch a3" style="CURSOR: pointer" title="天蓝色" rel="blue"></a>	
+						<a class="styleswitch a1" style="CURSOR: pointer" title="橘黄色" rel="orange"></a>
 						<a class="styleswitch a2" style="CURSOR: pointer" title="竹绿色" rel="green"></a> 
+						<a class="styleswitch a3" style="CURSOR: pointer" title="天蓝色" rel="blue"></a>	
 						<a class="styleswitch a4" style="CURSOR: pointer" title="黑灰色" rel="gray"></a>	
 						<a class="styleswitch a5" style="CURSOR: pointer" title="艳红色" rel="pink"></a>		
 					</div>
@@ -82,12 +83,12 @@ $(function() {
 				<div id="menu${paStatus.index}" flatid="${tsysflat.flatid}" onclick="jump('${tsysflat.flaturl}', '${userinfo.loginname}', '${userinfo.userpw}', '${tsysflat.flatid}', '${ctx}')"
 					style="width: auto; height: 22px; line-height: 22px; cursor: pointer; margin: 0 1px; display: inline; float: left;">
 					<div menu="left" 
-						style="width: 5px; height: 22px; background: url(js_plugins/jquery/images/menu_left.png) no-repeat; margin: 0; float: left;"></div>
+						style="width: 5px; height: 22px; background: url(themes/lightblue/images/menu/menu_left.png) no-repeat; margin: 0; float: left;"></div>
 					<div menu="cent"
-						style="font-family:'微软雅黑', Courier, monospace;height: 22px; background: url(js_plugins/jquery/images/menu_cen.png) repeat; margin: 0; float: left;">
+						style="font-family:'微软雅黑', Courier, monospace;height: 22px; background: url(themes/lightblue/images/menu/menu_cen.png) repeat; margin: 0; float: left;">
 						${tsysflat.shortname}</div>
 					<div menu="right"
-						style="width: 5px; height: 22px; background: url(js_plugins/jquery/images/menu_right.png) no-repeat; margin: 0; float: left;"></div>
+						style="width: 5px; height: 22px; background: url(themes/lightblue/images/menu/menu_right.png) no-repeat; margin: 0; float: left;"></div>
 				</div>
 				</c:forEach>
 	</div>
@@ -132,8 +133,8 @@ $(function() {
 	<div id="modifyWindow" style="width: 350px;height: 230px;" closed="true">
 		<div id="window-body"></div>
 	</div>
-	<div id="loading" class="hih-mask-container" style="display: none;">
-		<div class="hih-mask-txt tree-loading">加载中...</div>
+	<div id="loading" class="aft-mask-container" style="display: none;">
+		<div class="aft-mask-txt tree-loading">加载中...</div>
 	</div>
 </body>
 </html>
