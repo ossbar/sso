@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglibs.jsp"%>
+<!DOCTYPE html>
 <html>
 <head>
 </head>
@@ -72,9 +73,9 @@
 </script>
 <body>
 	<hih:form bean="taclRole" scope="request">
-	<form action="/taclRoleController" method="post" name="taclRoleForm" style="width: 100%;height: 100%">
-		<div id="treecontainer" fit="true" border="false">
-			<div region="north" style="height: 100px;" border="false"
+	<form action="/taclRoleController" method="post" name="taclRoleForm" style="width: 100%;height: 100%" id="formID">
+		<div id="treecontainer"  style="width: 100%; height: 465px;border: none;" region="center">
+			<div region="north"  style="height: 100px;" border="false"
 				title="角色信息" collapsible="false">
 				<table class="FormView" border="0" cellspacing="1" cellpadding="0">
 					<col class="Label" />
