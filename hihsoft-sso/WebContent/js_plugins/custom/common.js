@@ -459,7 +459,7 @@ $(function(){
 		 * 自定义下拉列表共有4个参数：textField:文本字段，valueField:值字段，params:参数，addEmpty:是否添加一个空选项
 		 * @author xjf@2011-09-27
 		 */
-		aftcombo : function(config) {
+		hihcombo : function(config) {
 			if (!config.url) return;
 			var txtfield = config.textField || 0;
 			var valfield = config.valueField || 1;
