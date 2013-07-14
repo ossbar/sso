@@ -200,6 +200,9 @@ public class TaclUserinfoController extends javahihBaseController {
 		String id=request.getParameter("id");
 		TaclUserinfo taclUserinfo=taclUserinfoService.getTaclUserinfoById(id);
 		List<TaclRole> roles = taclRoleuserService.getDefinedRole(id);
+		String dutySetName = taclUserinfoService.getDutyAllNameByUserId(id);
+		System.out.println(dutySetName);
+		
 		String[] roleIds = new String[roles.size()];
 		int index = 0;
 		for (TaclRole role : roles) {
@@ -216,6 +219,7 @@ public class TaclUserinfoController extends javahihBaseController {
 	    mv.addObject("org", taclUserinfo.getTsysOrg());
 		mv.addObject("duty", taclUserinfo.getTsysDuty());
 		mv.addObject("roleIds", rids);
+		mv.addObject("dutySetName", dutySetName);
 		return mv;
 	}
 	
@@ -247,7 +251,9 @@ public class TaclUserinfoController extends javahihBaseController {
 	    String dataSet = getParam(request, "dataSet");
 	    String treeSet = getParam(request, "treeSet");
 	    //支持單個用戶多個崗位
-	    String dutySet=getParam(request, "dutySet");
+	//  String dutySet=getParam(request, "dutySet");
+	    String dutySet=getParam(request, "dutyid");
+	    
 	    boolean flag = true;
 	    try {
 		    taclUserinfoService.saveOrUpdateTaclUserinfo(taclUserinfo);

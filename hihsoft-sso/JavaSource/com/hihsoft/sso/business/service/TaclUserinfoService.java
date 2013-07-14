@@ -243,4 +243,22 @@ public interface TaclUserinfoService extends BaseService {
 	public void savePrivilege(String userId, String moduleSet) throws ServiceException;
 	
 	public List<Map<String, Object>> getModuleTree(String userId) throws ServiceException;
+	
+	/**
+	 * 根据用户id查找该用户所有岗位
+	 * @param userId
+	 * @throws ServiceException
+	 * @author xiaoBin
+	 * @since 2013-7-14
+	 * */
+	public List<TsysDuty> getDutyAllByUserId(String userId) throws ServiceException;
+	
+	/**
+	 * 根据用户id获取该用户所有岗位名，并且以","号隔开
+	 * @param userId
+	 * @throws ServiceException
+	 * @author xiaoBin
+	 * @since 2013-7-14
+	 * */
+	public String getDutyAllNameByUserId(String userId) throws ServiceException;
 }

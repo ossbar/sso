@@ -29,6 +29,7 @@ import com.hihsoft.sso.business.model.TaclRoleprivilege;
 import com.hihsoft.sso.business.model.TaclUserinfo;
 import com.hihsoft.sso.business.model.TaclUserprivilege;
 import com.hihsoft.sso.business.model.TsysDataprivilege;
+import com.hihsoft.sso.business.model.TsysDuty;
 import com.hihsoft.sso.business.model.TsysFlat;
 import com.hihsoft.sso.business.model.TsysModuleinfo;
 import com.hihsoft.sso.business.model.TsysModuleoperate;
@@ -501,5 +502,24 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 		}
 		return true;
 	}
-	
+
+	@Override
+	public List<TsysDuty> getDutyAllByUserId(String userId)
+			throws ServiceException {
+		String hql = "from TsysDuty d where d.dutyid in " +
+				"(select du.dutyid from TaclDutyuser du where du.userid = ?)";
+		List<TsysDuty> dutySet = getValueObjectsByHQL(hql, userId);
+		return dutySet; 
+	}
+
+	@Override
+	public String getDutyAllNameByUserId(String userId) throws ServiceException {
+		String result = "";
+		List<TsysDuty> dutySet = getDutyAllByUserId(userId);
+		for (TsysDuty tsysDuty : dutySet) {
+			result += tsysDuty.getDutyname() + ",";
+		}
+		if(result.endsWith(",")){		result = result.substring(0, result.length() - 1); }
+		return result;
+	}
 }

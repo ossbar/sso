@@ -49,7 +49,9 @@ $(function() {
 	});
 	$("#dutyId").combotree({
 		url : "${ctx}/taclUserinfoController.do?method=getDutyTree",
-		disabled : ${taclUserinfo!=null}
+		disabled : ${taclUserinfo!=null},
+		cascadeCheck : false,
+		multiple : true
 	});
 });
 function back_click() {

@@ -121,7 +121,11 @@
 					<td>${taclUserinfo.userstate}</td>
 					<td><fmt:message key="tacluserinfo.dutyid" />
 					</td>
-					<td>${taclUserinfo.tsysDuty.dutyname}</td>
+					<td>
+					<%-- ${taclUserinfo.tsysDuty.dutyname} --%>
+					${dutySetName}
+					</td>
+					
 				</tr>
 				<tr>
 					<td><fmt:message key="tacluserinfo.certified" />
