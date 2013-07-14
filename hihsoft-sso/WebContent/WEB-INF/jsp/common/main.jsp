@@ -82,7 +82,7 @@ $(function() {
 				<div id="menu${paStatus.index}" flatid="${tsysflat.flatid}" onclick="jump('${tsysflat.flaturl}', '${userinfo.loginname}', '${userinfo.userpw}', '${tsysflat.flatid}', '${ctx}')"
 					style="width: auto; height: 22px; line-height: 22px; cursor: pointer; margin: 0 1px; display: inline; float: left;">
 					<div menu="left" 
-						style="width: 5px; height: 22px; background: url(${ctx}/js_plugins/jquery/images/menu/menu_left.png) no-repeat; margin: 0; float: left;"></div>
+						style="width: 5px; height: 22px; background: url(${ctx}/js_plugins/jquery/images/menu_left.png) no-repeat; margin: 0; float: left;"></div>
 					<div menu="cent"
 						style="font-family:'微软雅黑', Courier, monospace;height: 22px; background: url(${ctx}/js_plugins/jquery/images/menu_cen.png) repeat; margin: 0; float: left;">
 						${tsysflat.shortname}</div>
