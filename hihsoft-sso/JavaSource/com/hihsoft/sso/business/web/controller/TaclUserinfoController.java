@@ -201,8 +201,6 @@ public class TaclUserinfoController extends javahihBaseController {
 		TaclUserinfo taclUserinfo=taclUserinfoService.getTaclUserinfoById(id);
 		List<TaclRole> roles = taclRoleuserService.getDefinedRole(id);
 		String dutySetName = taclUserinfoService.getDutyAllNameByUserId(id);
-		System.out.println(dutySetName);
-		
 		String[] roleIds = new String[roles.size()];
 		int index = 0;
 		for (TaclRole role : roles) {
@@ -267,6 +265,7 @@ public class TaclUserinfoController extends javahihBaseController {
 	    renderJson(response, toJson("success", flag));
 		return null;
 	}
+	
 	/**
 	 * 定义用户所属角色
 	 * @param request
