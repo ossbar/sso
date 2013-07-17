@@ -133,8 +133,13 @@ QQ群：80186309，身份验证码：以码会友
 E-mail：hihsoft@gmail.com
 ###
 Github：https://github.com/hihsoft/sso
+###
 googlecode:https://code.google.com/p/hihsoft-sso/
+###
+https://git.oschina.net/hihsoft/sso
+#
 因第三方开源包在gitthub下下载比较慢，为满足拉丝们的需要，
+#
 手拉手研发团队在oschina国内版本库上以maven模式发布，以提供更好的体验。
 ###
 如果你想参与进来共同完善它或有更好的建议，请联系我吧(^_^)。
