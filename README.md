@@ -128,21 +128,22 @@ a)	单元测试：Junit4
 1.8    交流、反馈、参与贡献
 -------------------------------------------------------------------------------
 ###
-QQ群：80186309，身份验证码：以码会友
+QQ群：80186309，身份验证码：以码会友，贡献者群：321196258，诚邀你的加入！
 ###
 E-mail：hihsoft@gmail.com
 ###
 Github：https://github.com/hihsoft/sso
 ###
-googlecode:https://code.google.com/p/hihsoft-sso/
+googlecode：https://code.google.com/p/hihsoft-sso/
 ###
-https://git.oschina.net/hihsoft/sso
-#
-因第三方开源包在gitthub下下载比较慢，为满足拉丝们的需要，
-#
-手拉手研发团队在oschina国内版本库上以maven模式发布，以提供更好的体验。
+oschina：https://git.oschina.net/hihsoft/sso
 ###
 如果你想参与进来共同完善它或有更好的建议，请联系我吧(^_^)。
+###
+备注说明：因第三方开源包在gitthub下下载比较慢，为满足拉丝们的需要，
+###
+手拉手研发团队在oschina国内版本库上以maven模式发布，以提供更好的体验。
+
 1.9   版本发布历史
 -------------------------------------------------------------------------------
  Open Source Business Base Framework开源业务基础平台雏形V1.0.0
