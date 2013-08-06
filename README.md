@@ -23,7 +23,7 @@ Hihsoft业务基础平台目标定位有两个：
 ###
 2、[hihsoft业务基础平台总体设计方案.pdf](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/hihsoft%E4%B8%9A%E5%8A%A1%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.pdf)
 ###
-文档持续更新中。。。。。。。
+3、[HihSoft业务基础平台开发环境介绍篇.pdf]
 1.3在线体验：
 ------------------------------------------------------------------
 体验地址：暂无
@@ -134,7 +134,16 @@ E-mail：hihsoft@gmail.com
 ###
 Github：https://github.com/hihsoft/sso
 ###
+googlecode：https://code.google.com/p/hihsoft-sso/
+###
+oschina：https://git.oschina.net/hihsoft/sso
+###
 如果你想参与进来共同完善它或有更好的建议，请联系我吧(^_^)。
+###
+备注说明：因第三方开源包在gitthub下下载比较慢，为满足拉丝们的需要，
+###
+手拉手研发团队在oschina国内版本库上以maven模式发布，以提供更好的体验。
+
 1.9   版本发布历史
 -------------------------------------------------------------------------------
  Open Source Business Base Framework开源业务基础平台雏形V1.0.0
