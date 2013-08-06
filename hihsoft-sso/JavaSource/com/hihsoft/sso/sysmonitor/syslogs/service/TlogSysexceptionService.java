@@ -48,7 +48,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTlogSysexceptionByHQL(String hql) throws ServiceException;
+	  public List<?> getTlogSysexceptionByHQL(String hql) throws ServiceException;
 
 	 /**
 		 * 根据主键查询TlogSysexception信息明细
@@ -65,7 +65,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTlogSysexceptionByHQL(String hql,Object[] object) throws ServiceException;
+	  public List<?> getTlogSysexceptionByHQL(String hql,Object[] object) throws ServiceException;
 	  /**
 		 * 取得分页总数
 		 * 
@@ -88,7 +88,7 @@ public interface TlogSysexceptionService extends BaseService{
 	 * @throws DataAccessException
 	 */
 
-	    public List getTlogSysexceptionPageDataByHQL(String hql, Object[] object, int page_size,
+	    public List<?> getTlogSysexceptionPageDataByHQL(String hql, Object[] object, int page_size,
 	                                 int pageNo) throws ServiceException;
 
 	    
@@ -102,7 +102,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTlogSysexceptionPageDataByHQL(String hql, Map obj, int page_size, int pageNo)
+	    public List<?> getTlogSysexceptionPageDataByHQL(String hql, Map<String, Object> obj, int page_size, int pageNo)
 	            throws ServiceException;
 
 	    /**
@@ -113,7 +113,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTlogSysexceptionValueObjectBySQL(String sql, Object[] object) throws ServiceException;
+	    public List<?> getTlogSysexceptionValueObjectBySQL(String sql, Object[] object) throws ServiceException;
 
 	    
 		/**
@@ -124,7 +124,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTlogSysexceptionValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException;
+		public List<?> getTlogSysexceptionValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException;
 		
 		/**
 		 * 动态构造HQL参数
@@ -132,7 +132,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTlogSysexceptionValueObjectByDetachedCriteria(
+		public List<?> getTlogSysexceptionValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException;
 
 		/**
@@ -141,7 +141,7 @@ public interface TlogSysexceptionService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTlogSysexceptionValueObjectByDetachedCriterias(
+		public List<?> getTlogSysexceptionValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException;
 

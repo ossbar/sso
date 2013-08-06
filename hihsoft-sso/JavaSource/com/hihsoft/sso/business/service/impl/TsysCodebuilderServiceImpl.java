@@ -53,7 +53,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysCodebuilderByHQL(String hql) throws ServiceException{
+	  public List<?> getTsysCodebuilderByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -64,7 +64,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysCodebuilder() throws ServiceException{
+	  public List<?> getAllTsysCodebuilder() throws ServiceException{
 		  return  baseDAO.getValueObjectsByHQL(ALLTSYSCODEBUILDER_HQL);
 	  }
 
@@ -76,7 +76,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 */
 	  public TsysCodebuilder getTsysCodebuilderById(String id) throws ServiceException{
 		  TsysCodebuilder tsysCodebuilder=null;
-		  List list=baseDAO.getValueObjectsByHQL(TSYSCODEBUILDERById_HQL,new Object[]{id});
+		  List<?> list=baseDAO.getValueObjectsByHQL(TSYSCODEBUILDERById_HQL,new Object[]{id});
 		  if(!list.isEmpty()&&list.size()>0){
 			  tsysCodebuilder=(TsysCodebuilder)list.get(0);
 		  }
@@ -90,7 +90,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysCodebuilderByHQL(String hql,Object[] object) throws ServiceException{
+	  public List<?> getTsysCodebuilderByHQL(String hql,Object[] object) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql,object);
 	  }
 	  /**
@@ -117,7 +117,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 	    * @throws DataAccessException
 	 */
 
-     public List getTsysCodebuilderPageDataByHQL(String hql, Object[] object, int page_size,
+     public List<?> getTsysCodebuilderPageDataByHQL(String hql, Object[] object, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(hql,object,page_size,pageNo);
 }
@@ -133,7 +133,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysCodebuilderPageDataByHQL(String hql, Map obj, int page_size, int pageNo)
+	    public List<?> getTsysCodebuilderPageDataByHQL(String hql, Map<String, Object> obj, int page_size, int pageNo)
 	            throws ServiceException{
 	    	return baseDAO.getPageDataByHQL(hql,obj,page_size,pageNo);
 	    }
@@ -146,7 +146,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysCodebuilderValueObjectBySQL(String sql, Object[] object) throws ServiceException{
+	    public List<?> getTsysCodebuilderValueObjectBySQL(String sql, Object[] object) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(sql,object);
 	    }
 
@@ -159,7 +159,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysCodebuilderValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException{
+		public List<?> getTsysCodebuilderValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,object);
 		}
 		/**
@@ -168,7 +168,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysCodebuilderValueObjectByDetachedCriteria(
+		public List<?> getTsysCodebuilderValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -179,7 +179,7 @@ public class TsysCodebuilderServiceImpl extends BaseServiceImpl implements TsysC
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysCodebuilderValueObjectByDetachedCriterias(
+		public List<?> getTsysCodebuilderValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);

@@ -22,9 +22,9 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 public class I18n {
-	private static final Logger logger = Logger.getLogger(I18n.class);
+	static final Logger logger = Logger.getLogger(I18n.class);
 
-	private static Map messagesMap = new HashMap();
+	private static Map<String, Object> messagesMap = new HashMap<String, Object>();
 
 	private static Properties localeNames = new Properties();
 
@@ -61,9 +61,9 @@ public class I18n {
 	 * @return String
 	 */
 
-	public static Map getMessage() {
+	public static Map<String, Object> getMessage() {
 		loadLocales();
-		Set keySet = localeNames.keySet();
+		Set<?> keySet = localeNames.keySet();
 		for (Object key : keySet) {
 			messagesMap
 					.put((String) key, localeNames.getProperty((String) key));

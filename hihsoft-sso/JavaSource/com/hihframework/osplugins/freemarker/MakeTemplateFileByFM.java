@@ -75,7 +75,7 @@ public class MakeTemplateFileByFM {
 			// 获取模板
 			Template newsTemplate = cfg.getTemplate(dto.getTemplateName());
 			newsTemplate.setEncoding("UTF-8");// 设定编码，避免乱码
-			Map root = new HashMap();
+			Map<String, Object> root = new HashMap<String, Object>();
 			root.put(dto.getRootName(), obj);
 			root.put("JspTaglibs", new TaglibFactory(request.getSession()   
 	                .getServletContext()));   //加载struts标签库

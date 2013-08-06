@@ -47,7 +47,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgByHQL(String hql) throws ServiceException;
+	public List<?> getTsysOrgByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 查询所有的TsysOrg信息
@@ -56,7 +56,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTsysOrg() throws ServiceException;
+	public List<?> getAllTsysOrg() throws ServiceException;
 
 	/**
 	 * 根据主键查询TsysOrg信息明细
@@ -74,7 +74,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgByArray(Object[] filter) throws ServiceException;
+	public List<?> getTsysOrgByArray(Object[] filter) throws ServiceException;
 
 	/**
 	 * 取得分页总数
@@ -95,7 +95,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgByMap(Map filter) throws ServiceException;
+	public List<?> getTsysOrgByMap(Map<String, Object> filter) throws ServiceException;
 
 	/**
 	 * 分页查询
@@ -108,7 +108,7 @@ public interface TsysOrgService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTsysOrgPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTsysOrgPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException;
 
 	/**
@@ -122,7 +122,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgPageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTsysOrgPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException;
 
 	/**
@@ -133,7 +133,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTsysOrgValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException;
 
 	/**
@@ -144,7 +144,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgValueObjectByNameQuery(String queryName,
+	public List<?> getTsysOrgValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException;
 
 	/**
@@ -154,7 +154,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysOrgValueObjectByDetachedCriteria(
+	public List<?> getTsysOrgValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -164,7 +164,7 @@ public interface TsysOrgService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysOrgValueObjectByDetachedCriterias(
+	public List<?> getTsysOrgValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 

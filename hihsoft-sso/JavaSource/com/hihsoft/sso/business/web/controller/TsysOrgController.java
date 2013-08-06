@@ -6,6 +6,8 @@
 package com.hihsoft.sso.business.web.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -116,7 +118,6 @@ public class TsysOrgController extends javahihBaseController {
 		}
 		return new ModelAndView(new RedirectView(request.getContextPath()+"/tsysOrgController.do?method=list"));
 	}
-
 	/**
 	 * 删除
 	 * 
@@ -132,7 +133,22 @@ public class TsysOrgController extends javahihBaseController {
 		String result = tsysOrgService.deleteTsysOrg(id);
 		renderJson(response, toJson(result, true));
 		return null;
-//		return new ModelAndView(v_success);
 	}
-
+	
+	/**
+	 * 判断机构编号是否已经存在
+	 * @param request
+	 * @param response
+	 * @throws ControllerException
+	 */
+	@RequestMapping(params="method=testOrgno")
+	public void testOrgno(HttpServletRequest request,
+			HttpServletResponse response) throws ControllerException {
+		String orgno = getParam(request, "fieldValue");
+		String fieldId = getParam(request, "fieldId");
+		@SuppressWarnings("unchecked")
+		List<TsysOrg> tsysOrgs = (List<TsysOrg>) tsysOrgService.getValueObjectsByHQL(" from TsysOrg where orgno = '"+orgno+"'");
+		boolean flag = (tsysOrgs.size() == 0);
+		renderJson(response, toJsArray(fieldId, flag ? "" + flag : "", "ajaxOrgnoCall"));
+	}
 }

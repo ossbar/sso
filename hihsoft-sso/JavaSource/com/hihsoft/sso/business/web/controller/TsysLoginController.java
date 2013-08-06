@@ -175,7 +175,6 @@ public class TsysLoginController extends javahihBaseController {
 			try {
 				response.sendRedirect(jumpTo);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return null;
@@ -197,10 +196,9 @@ public class TsysLoginController extends javahihBaseController {
 		try {
 			username = URLDecoder.decode(username, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<TaclUserinfo> list = taclUserinfoService.getValueObjectsByHQL(
+		List<TaclUserinfo> list = (List<TaclUserinfo>) taclUserinfoService.getValueObjectsByHQL(
 				"from TaclUserinfo where loginname=?", username);
 		if (list.size() > 0)
 			user = list.get(0);
@@ -220,7 +218,6 @@ public class TsysLoginController extends javahihBaseController {
 				try {
 					response.sendRedirect(url);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				return null;
@@ -285,7 +282,7 @@ public class TsysLoginController extends javahihBaseController {
 	@RequestMapping(params="method=loginpage")
 	public ModelAndView loginpage(final HttpServletRequest request,
 			final HttpServletResponse response) throws Exception {
-		final List flatList = tsysFlatService.getAllTsysFlat();
+		final List<?> flatList = tsysFlatService.getAllTsysFlat();
 		request.setAttribute("flatList", flatList);
 		return new ModelAndView("index");
 	}

@@ -149,7 +149,7 @@ function addTab(subtitle, url, icon) {
 		});
 	} else {
 		$('#tabs').tabs('select', subtitle);
-		$('#mm-tabupdate').click();
+		//$('#mm-tabupdate').click();
 	}
 	tabClose();
 }

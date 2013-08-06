@@ -55,7 +55,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoByHQL(String hql) throws ServiceException;
+	public List<?> getTaclUserinfoByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 查询所有的TaclUserinfo信息
@@ -64,7 +64,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclUserinfo() throws ServiceException;
+	public List<?> getAllTaclUserinfo() throws ServiceException;
 
 	/**
 	 * 根据主键查询TaclUserinfo信息明细
@@ -82,7 +82,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoByArray(Object[] filter) throws ServiceException;
+	public List<?> getTaclUserinfoByArray(Object[] filter) throws ServiceException;
 
 	/**
 	 * 取得分页总数
@@ -104,7 +104,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoByMap(Map filter) throws ServiceException;
+	public List<?> getTaclUserinfoByMap(Map<String, Object> filter) throws ServiceException;
 
 	/**
 	 * 分页查询
@@ -117,7 +117,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclUserinfoPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTaclUserinfoPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException;
 
 	/**
@@ -131,7 +131,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoPageDataByMap(Map filter, int page_size,
+	public List<?> getTaclUserinfoPageDataByMap(Map<String, Object> filter, int page_size,
 			int pageNo) throws ServiceException;
 
 	/**
@@ -142,7 +142,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTaclUserinfoValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException;
 
 	/**
@@ -153,7 +153,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoValueObjectByNameQuery(String queryName,
+	public List<?> getTaclUserinfoValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException;
 
 	/**
@@ -163,7 +163,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclUserinfoValueObjectByDetachedCriteria(
+	public List<?> getTaclUserinfoValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -173,7 +173,7 @@ public interface TaclUserinfoService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclUserinfoValueObjectByDetachedCriterias(
+	public List<?> getTaclUserinfoValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 	/**

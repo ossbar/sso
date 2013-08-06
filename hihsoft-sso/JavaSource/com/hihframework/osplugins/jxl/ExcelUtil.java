@@ -175,7 +175,7 @@ public class ExcelUtil {
 	 */
 	public ArrayList<String> getColContentList(Sheet sheet, int column) {
 		Cell[] cell = sheet.getColumn(column);
-		ArrayList columnlist = new ArrayList<String>();
+		ArrayList<String> columnlist = new ArrayList<String>();
 		if (cell.length > 0) {
 			for (int i = 0; i < cell.length; i++) {
 				String content = cell[i].getContents();
@@ -461,8 +461,7 @@ public class ExcelUtil {
 	 * @throws Exception
 	 */
 	public void batchWriteSheet(File file, String sheetName, int beginColumn,
-			int beginRow, List datalist) throws Exception {
-		ReflectUtil reflect = new ReflectUtil();
+			int beginRow, List<?> datalist) throws Exception {
 		WritableWorkbook wwb = createWritableWorkbook(file);
 		WritableSheet wsheet = wwb.createSheet(sheetName, 0);
 		String str = "";

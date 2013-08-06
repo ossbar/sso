@@ -68,7 +68,7 @@ public class TsysFlatController extends javahihBaseController {
 		if (orders != null && !"".equals(orders))
 			hql += " order by " + orders;
 		else{
-			hql+=" order by flatname asc";
+			hql+=" order by flatdesc asc";
 		}
 		addOrders(request, orders);
 		List<TsysFlat> list = calcPage(request, tsysFlatService, hql);

@@ -1704,11 +1704,14 @@ a.s-btn-plain-active .s-btn-downarrow{
 	float: left;
 }
 .maintop2 {
-	width: 100%;
 	height: 45px;
+	min-width:980px;
+	max-width:1280px;
+	width:expression(document.body.clientWidth<982?"980px":document.body.clientWidth>1282?"1280px":"auto");
 	background: url(images/banner_02.png) repeat 0 0 #FFF;
-	margin: 0;
+	margin:0;
 }
+
 .maintop3 {
 	width: 63px;
 	height: 45px;
@@ -1718,8 +1721,8 @@ a.s-btn-plain-active .s-btn-downarrow{
 }
 
 .maintop4 {
-	font-family: '΢���ź�', Courier New, monospace;
-	width: auto;
+	font-family: '微软雅黑', Courier New, monospace;
+	width: 230px;
 	height: 21px;
 	line-height: 21px;
 	font-size: 13px;

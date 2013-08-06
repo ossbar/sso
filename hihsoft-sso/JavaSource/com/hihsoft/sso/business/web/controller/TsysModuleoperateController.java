@@ -55,7 +55,7 @@ public class TsysModuleoperateController extends javahihBaseController {
 		if (StringUtils.isNullOrEmpty(moduleId)) {
 			return null;
 		}
-		List list = calcPage(request, tsysModuleoperateService, hql, moduleId);
+		List<?> list = calcPage(request, tsysModuleoperateService, hql, moduleId);
 		mv.addObject("list", list);
 		mv.addObject("moduleid", moduleId);
 		return mv;

@@ -146,47 +146,34 @@ var win;
 				id="btn_edit" iconCls="icon-edit" />
 			<hih:auth operate="DELETE" module="ACL_ROLE" value="button.remove"
 				id="btn_remove" iconCls="icon-remove" />
-			<hih:auth operate="QUERY" module="ACL_ROLE" value="button.query"
-				id="btn_search" iconCls="icon-search" />
 			<hih:auth operate="AUTHORIZATION" module="ACL_ROLE" value="button.assign.user"
 				id="btn_authorization" iconCls="icon-ok" style="width: 70px;"/>
 			<hih:auth operate="CANCEL" module="ACL_ROLE" value="button.cancel.assign"
 				id="btn_cancel" iconCls="icon-remove" style="width: 70px;"/>
+			<hih:auth operate="QUERY" module="ACL_ROLE" value="button.query"
+				id="btn_search" iconCls="icon-search" />
 			<table class="FormView" border="0" cellspacing="1" cellpadding="0" style="margin-top: 4px;">
+				<col class="Label" />
+				<col class="Data" />
 				<tr height="30px">
-					<td align="left" bgcolor="#E0EEEE">
+					<td align="left" >
 						<fmt:message key="taclrole.rolename" />
 						<input type="text" class="text" name="srh_rolename" value="${rolename}">
 					</td>
 				</tr>
 			</table>
 		</div>
-		<div id="grid-body" class="grid-body" region="center">
-			<table class="data-grid" cellspacing="0" cellpadding="0">
-				<thead>
-				<tr class="data-grid-header">
-				<th><input type="checkbox" id="selectAll" /></th>
-				<th width="120"><fmt:message key="taclrole.rolename" /></th>
-				<th width="120"><fmt:message key="taclrole.remark" /></th>						
-				<th width="120"><fmt:message key="taclrole.roletype" /></th>
-				<th width="120"><fmt:message key="taclrole.orgid" /></th>
-				<th width="120"><fmt:message key="taclrole.rolesort" /></th>
-				</tr>
-				</thead>
-				<c:forEach items="${list}" var="taclrole"
-					varStatus="paStatus">
-					<tr>
-					<td width="100" class="checkbox"><input type="checkbox"
-							name="ckh" value="${taclrole.roleid}" /></td>
-						<td width="120">
-						<a href="#" onclick="showRole('${taclrole.roleid}')">${taclrole.rolename}</a></td>
-						<td width="120">${taclrole.remark}</td>								
-						<td width="120">${taclrole.roletype}</td>
-						<td width="120">${taclrole.orgid}</td>
-						<td width="120">${taclrole.roleSort}</td>
-					</tr>
-				</c:forEach>
-			</table>
+		<div id="grid-body" region="center">
+			<hih:table items="${list}" var="taclrole">
+				<hih:column field="roleid" checkbox="true"/>
+				<hih:column field="rolename" header="taclrole.rolename" width="200">
+				<a href="#" onclick="showRole('${taclrole.roleid}')">${taclrole.rolename}</a>
+				</hih:column>
+				<hih:column field="roletype" header="taclrole.roletype" width="120"/>
+				<hih:column field="roleSort" header="taclrole.rolesort" width="120"/>
+				<hih:column field="orgid" header="taclrole.orgid" width="200"/>
+			    <hih:column field="remark" header="taclrole.remark" width="400"/>
+			</hih:table>
 		</div>
 		<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
 	</div>

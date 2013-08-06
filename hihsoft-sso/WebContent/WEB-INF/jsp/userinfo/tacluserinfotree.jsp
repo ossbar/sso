@@ -278,9 +278,19 @@ function showUser(id) {
 			<td><hih:parameter name="userState" id="srh_userstate" cssClass="select"/></td>
 		</tr>
 	</table>
-	<div id="dlg-buttons" style="text-align: center;">
+	<%-- <div id="dlg-buttons" style="text-align: center;">
 		<input id="btnQuery" type="button" class="icon-search common-button" value="<fmt:message key="button.query"/>">
 		<input id="btnReset" type="button" class="icon-cancel common-button" value="<fmt:message key="button.reset"/>">
+	</div> --%>
+	<div id="dlg-buttons" style="text-align: center;">
+		<div class="tool-btn" id="btnQuery">
+		<span class="icon-search">&nbsp;</span>
+		<fmt:message key="button.query"/>
+		</div>
+		<div class="tool-btn" id="btnReset">
+		<span class="icon-cancel">&nbsp;</span>
+		<fmt:message key="button.reset"/>	
+		</div>
 	</div>
 	</form>
 </div>

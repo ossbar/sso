@@ -51,7 +51,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditByHQL(String hql) throws ServiceException;
+	public List<?> getTlogAuditByHQL(String hql) throws ServiceException;
 
 	/**
 	* 查询所有的TlogAudit信息
@@ -60,7 +60,7 @@ public interface TlogAuditService extends BaseService {
 	* @return List
 	* @throws DataAccessException
 	*/
-	public List getAllTlogAudit() throws ServiceException;
+	public List<?> getAllTlogAudit() throws ServiceException;
 
 	/**
 	 * 根据主键查询TlogAudit信息明细
@@ -78,7 +78,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditByArray(Object[] filter) throws ServiceException;
+	public List<?> getTlogAuditByArray(Object[] filter) throws ServiceException;
 
 	/**
 	 * 取得分页总数
@@ -100,7 +100,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditByMap(Map filter) throws ServiceException;
+	public List<?> getTlogAuditByMap(Map<String, Object> filter) throws ServiceException;
 
 	/**
 	 * 分页查询
@@ -113,7 +113,7 @@ public interface TlogAuditService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTlogAuditPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTlogAuditPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException;
 
 	/**
@@ -126,7 +126,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditPageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTlogAuditPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException;
 
 	/**
@@ -137,7 +137,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTlogAuditValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException;
 
 	/**
@@ -148,7 +148,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditValueObjectByNameQuery(String queryName,
+	public List<?> getTlogAuditValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException;
 
 	/**
@@ -157,7 +157,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTlogAuditValueObjectByDetachedCriteria(
+	public List<?> getTlogAuditValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -166,7 +166,7 @@ public interface TlogAuditService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTlogAuditValueObjectByDetachedCriterias(
+	public List<?> getTlogAuditValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 

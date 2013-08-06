@@ -184,27 +184,6 @@
 				<property name="linkedaddr"
 					value="tsysModuleoperateController.do?method=getTree" />
 			</object>
-			<!-- 案例展示区 -->
-			<object id="sysCaseShowArea">
-				<property name="moduleno" value="" />
-				<property name="moduleicon" value="icon-sys" />
-				<property name="modulename" value="控件展示区" />
-				<property name="sortnum" value="6" />
-				<property name="moduleclass" value="1" />
-				<property name="flatid" parent="sso" property="flatid" />
-			</object>
-			<!-- 图表展现 -->
-			<object id="sysFusionChart">
-				<property name="moduleno" value="FUSION_CHART" />
-				<property name="moduleicon" value="icon-log" />
-				<property name="modulename" value="图表控件" />
-				<property name="sortnum" value="61" />
-				<property name="moduleclass" value="2" />
-				<property name="flatid" parent="sso" property="flatid" />
-				<property name="parentmoduleid" parent="sysCaseShowArea"
-					property="moduleid" />
-				<property name="linkedaddr" value="fusionChartController.do?method=list" />
-			</object>
 		</model>
 		<!-- ############################具体定义模块(菜单)下的模块操作############################ -->
 		<model name="tSysModuleoperate_sso" class="com.hihsoft.sso.business.model.TsysModuleoperate">
@@ -226,12 +205,6 @@
 				<property name="operatename" value="删除" />
 				<property name="moduleid" parent="sysFlatinfo" property="moduleid" />
 			</object>
-			<!--查询 -->
-			<object id="sysFlatinfoQuery">
-				<property name="operateno" value="QUERY" />
-				<property name="operatename" value="查询" />
-				<property name="moduleid" parent="sysFlatinfo" property="moduleid" />
-			</object>
 			<!--新增岗位 -->
 			<object id="sysDutyAdd">
 				<property name="operateno" value="ADD" />
@@ -248,6 +221,18 @@
 			<object id="sysDutyDelete">
 				<property name="operateno" value="DELETE" />
 				<property name="operatename" value="删除" />
+				<property name="moduleid" parent="sysDuty" property="moduleid" />
+			</object>
+			<!--岗位分配用户 -->
+			<object id="sysDutyAllocation">
+				<property name="operateno" value="ALLOCATION" />
+				<property name="operatename" value="分配用户" />
+				<property name="moduleid" parent="sysDuty" property="moduleid" />
+			</object>
+			<!--岗位取消分配用户 -->
+			<object id="sysDutyCancel">
+				<property name="operateno" value="CANCEL" />
+				<property name="operatename" value="取消分配用户" />
 				<property name="moduleid" parent="sysDuty" property="moduleid" />
 			</object>
 			<!--查询 -->
@@ -402,6 +387,12 @@
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<!--查询 -->
+			<object id="sysRoleinfoQuery">
+				<property name="operateno" value="QUERY" />
+				<property name="operatename" value="查询" />
+				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
+			</object>
+			<!--角色分配用户 -->
 			<object id="sysRoleinfoAssignUser">
 				<property name="operateno" value="AUTHORIZATION" />
 				<property name="operatename" value="分配用户" />
@@ -453,11 +444,6 @@
 				<property name="operateno" value="QUERY" />
 				<property name="operatename" value="查询" />
 				<property name="moduleid" parent="syslogLogin" property="moduleid" />
-			</object>
-			<object id="sysFusionChartAdd">
-				<property name="operateno" value="ADD" />
-				<property name="operatename" value="图表展现" />
-				<property name="moduleid" parent="sysFusionChart" property="moduleid" />
 			</object>
 			<object id="sysFileUpload">
 				<property name="operateno" value="UPLOAD " />
@@ -858,27 +844,36 @@
 			</object>
 			<object id="initOrgSort2">
 				<property name="parano" value="2" />
-				<property name="paraKey" value="企业" />
+				<property name="paraKey" value="部门" />
 				<property name="paraType" value="ORG_SORT" />
 				<property name="paraname" value="单位类型" />
 				<property name="paraOrder" value="2" />
 				<property name="isdefault" value="" />
 				<property name="paraClass" value="0" />
 			</object>
-	<object id="initOrgType1">
+	      <object id="initOrgType1">
 				<property name="parano" value="zs" />
-				<property name="paraKey" value="学校" />
+				<property name="paraKey" value="直属单位" />
 				<property name="paraType" value="RUN_MODE" />
 				<property name="paraname" value="单位类型" />
 				<property name="paraOrder" value="1" />
 				<property name="isdefault" value="1" />
 				<property name="paraClass" value="0" />
 			</object>
+	        <object id="initOrgType2">
+				<property name="parano" value="hz" />
+				<property name="paraKey" value="合作单位" />
+				<property name="paraType" value="RUN_MODE" />
+				<property name="paraname" value="单位类型" />
+				<property name="paraOrder" value="2" />
+				<property name="isdefault" value="1" />
+				<property name="paraClass" value="0" />
+			</object>
 		<object id="initSuperUser">
-				<property name="parano" value="admin" />
-				<property name="paraKey" value="admin" />
+				<property name="parano" value="devadmin" />
+				<property name="paraKey" value="devadmin" />
 				<property name="paraType" value="SUPER_USER" />
-				<property name="paraname" value="是否为超级系统管理员" />
+				<property name="paraname" value="是否为开发管理员" />
 				<property name="paraOrder" value="1" />
 				<property name="isdefault" value="" />
 				<property name="paraClass" value="0" />
@@ -922,6 +917,7 @@
 				<property name="flatcode" value="SSO" />
 				<property name="flatname" value="统一用户管理系统" />
 				<property name="shortname" value="基础平台" />
+				<property name="flatdesc" value="1" />
 				<property name="flaturl" value="http://localhost:9081/sso" />
 			</object>
 			<!-- 采购-->
@@ -929,6 +925,7 @@
 				<property name="flatcode" value="purchase" />
 				<property name="flatname" value="采购子系统" />
 				<property name="shortname" value="采购" />
+				<property name="flatdesc" value="2" />
 				<property name="flaturl" value="http://localhost:9081/purchase" />
 			</object>
 			<!-- 销售 -->
@@ -936,6 +933,7 @@
 				<property name="flatcode" value="sales" />
 				<property name="flatname" value="销售子系统" />
 				<property name="shortname" value="销售" />
+				<property name="flatdesc" value="3" />
 				<property name="flaturl" value="http://localhost:9081/sales" />
 			</object>
 			<!-- 库存 -->
@@ -943,6 +941,7 @@
 				<property name="flatcode" value="stock" />
 				<property name="flatname" value="库存子系统" />
 				<property name="shortname" value="库存" />
+				<property name="flatdesc" value="4" />
 				<property name="flaturl" value="http://localhost:9081/stock" />
 			</object>
 			<!-- 财务 -->
@@ -950,47 +949,54 @@
 				<property name="flatcode" value="finance" />
 				<property name="flatname" value="财务子系统" />
 				<property name="shortname" value="财务" />
+				<property name="flatdesc" value="5" />
 				<property name="flaturl" value="http://localhost:9081/finance" />
 			</object>
 			<!-- 客户关系系统 -->
 			<object id="client">
-				<property name="flatcode" value="client" />
-				<property name="flatname" value="库存子系统" />
-				<property name="shortname" value="库存" />
+				<property name="flatcode" value="CMS" />
+				<property name="flatname" value="客戶关系子系统" />
+				<property name="shortname" value="客戶关系" />
+				<property name="flatdesc" value="6" />
 				<property name="flaturl" value="http://localhost:9081/client" />
 			</object>
 			<object id="oa">
 				<property name="flatcode" value="OA" />
 				<property name="flatname" value="办公自动化子系统" />
 				<property name="flatname" value="办公自动化" />
+				<property name="flatdesc" value="7" />
 				<property name="flaturl" value="http://localhost:9081/oa" />
 			</object>
 		</model>
-		<!-- 用户信息 登录默认为admin -->
+		<!-- 用户信息 登录默认为devadmin -->
 		<model name="tAclUserinfo" class="com.hihsoft.sso.business.model.TaclUserinfo">
 			<!-- 系统管理员 -->
-			<object id="admin">
-				<property name="username" value="超级管理员" />
+			<object id="devadmin">
+				<property name="username" value="开发管理员" />
 				<property name="usertype" value="4" />
 				<property name="userstate" value="1" />
-				<property name="loginname" value="admin" />
+				<property name="loginname" value="devadmin" />
+				<property name="superadmin" value="devadmin" />
 				<property name="orgid" parent="orginfo1" property="orgid" />
 				<property name="deptid" parent="orginfo1" property="orgid" />
-				<property name="userpw" value="952dc9562e32eb52e2393b34ec2b27d9" />
+				<property name="userpw" value="e05b2b33585496f07866dde84e17449f" />
 			</object>
 		</model>
 		<!-- 角色信息 -->
 		<model name="tAclRole" class="com.hihsoft.sso.business.model.TaclRole">
-			<object id="adminRole">
-				<property name="rolename" value="超级管理员角色" />
+			<object id="devadminRole">
+				<property name="rolename" value="开发管理员角色" />
 				<property name="roletype" value="1" />
+				<property name="roleSort" value="1" />
+				<property name="orgid" parent="orginfo1" property="orgid" />
+				<property name="remark" value="拥有系统所有权限" />
 			</object>
 		</model>
 		<!-- 角色用户 -->
 		<model name="tAclRoleuser" class="com.hihsoft.sso.business.model.TaclRoleuser">
 			<object id="roleUser">
-				<property name="userid" parent="admin" property="userid" />
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="userid" parent="devadmin" property="userid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 			</object>
 		</model>
 		<!-- 系统管理员数据访问权限初始化 -->
@@ -999,160 +1005,161 @@
 			<!--添加用户 -->
 			<object id="tsysTreeprivilege_sso1">
 				<property name="orgid" parent="orginfo1" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso2">
 				<property name="orgid" parent="orginfo2" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso3">
 				<property name="orgid" parent="orginfo3" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso4">
 				<property name="orgid" parent="orginfo4" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso5">
 				<property name="orgid" parent="orginfo5" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso6">
 				<property name="orgid" parent="orginfo6" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso7">
 				<property name="orgid" parent="orginfo7" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso8">
 				<property name="orgid" parent="orginfo8" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso9">
 				<property name="orgid" parent="orginfo9" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 			<object id="tsysTreeprivilege_sso10">
 				<property name="orgid" parent="orginfo10" property="orgid" />
-				<property name="userid" parent="admin" property="userid" />
+				<property name="userid" parent="devadmin" property="userid" />
 			</object>
 		</model>
 		<!-- 角色权限 -->
 		<model name="tAclRoleprivilege_sso" class="com.hihsoft.sso.business.model.TaclRoleprivilege">
 			<!--添加用户 -->
 			<object id="tAclRoleprivilege_sso0">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoAdd"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso1">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<!--删除用户 -->
 			<object id="tAclRoleprivilege_sso2">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<!--查询 -->
 			<object id="tAclRoleprivilege_sso3">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoAssignRole"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso4">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoQuery"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<!-- 模块定义 -->
 			<object id="tAclRoleprivilege_sso5">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysModuleinfoAdd"
 					property="operateid" />
 				<property name="moduleid" parent="sysModuleinfo" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso6">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysModuleinfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysModuleinfo" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso7">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysModuleinfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysModuleinfo" property="moduleid" />
 			</object>
 			<!--查询 -->
 			<object id="tAclRoleprivilege_sso8">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysModuleinfoQuery"
 					property="operateid" />
 				<property name="moduleid" parent="sysModuleinfo" property="moduleid" />
 			</object>
 			<!-- 子系统信息 -->
 			<object id="tAclRoleprivilege_sso9">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysFlatinfoAdd"
 					property="operateid" />
 				<property name="moduleid" parent="sysFlatinfo" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso10">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysFlatinfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysFlatinfo" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso11">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysFlatinfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysFlatinfo" property="moduleid" />
 			</object>
+			
 			<!--查询 -->
 			<object id="tAclRoleprivilege_sso12">
-				<property name="roleid" parent="adminRole" property="roleid" />
-				<property name="operateid" parent="sysFlatinfoQuery"
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="operateid" parent="sysRoleinfoQuery"
 					property="operateid" />
-				<property name="moduleid" parent="sysFlatinfo" property="moduleid" />
+				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<!--新增 -->
 			<object id="tAclRoleprivilege_sso13">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOperateinfoAdd"
 					property="operateid" />
 				<property name="moduleid" parent="sysOperateinfo" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso14">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOperateinfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysOperateinfo" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso15">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOperateinfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysOperateinfo" property="moduleid" />
 			</object>
 			<!--查询 -->
 			<object id="tAclRoleprivilege_sso16">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOperateinfoQuery"
 					property="operateid" />
 				<property name="moduleid" parent="sysOperateinfo" property="moduleid" />
@@ -1160,196 +1167,195 @@
 			<!-- 角色定义 -->
 			<!--新增 -->
 			<object id="tAclRoleprivilege_sso17">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysRoleinfoAdd"
 					property="operateid" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso18">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysRoleinfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso19">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysRoleinfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<!--查询 -->
 			<object id="tAclRoleprivilege_sso20">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysRoleinfoAssignUser"
 					property="operateid" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<!-- 参数管理 -->
 			<object id="tAclRoleprivilege_sso21">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysParamteinfoAdd"
 					property="operateid" />
 				<property name="moduleid" parent="sysParamteinfo" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso22">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysParamteinfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysParamteinfo" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso23">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysParamteinfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysParamteinfo" property="moduleid" />
 			</object>
 			<!--查询 -->
 			<object id="tAclRoleprivilege_sso24">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysParamteinfoQuery"
 					property="operateid" />
 				<property name="moduleid" parent="sysParamteinfo" property="moduleid" />
 			</object>
 			<!-- 岗位管理 -->
 			<object id="tAclRoleprivilege_sso25">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysDutyAdd" property="operateid" />
 				<property name="moduleid" parent="sysDuty" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso26">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysDutyEdit" property="operateid" />
 				<property name="moduleid" parent="sysDuty" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso27">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysDutyDelete" property="operateid" />
 				<property name="moduleid" parent="sysDuty" property="moduleid" />
 			</object>
 			<!--新增 -->
 			<object id="tAclRoleprivilege_sso28">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOrginfoAdd" property="operateid" />
 				<property name="moduleid" parent="sysOrginfo" property="moduleid" />
 			</object>
 			<!--修改 -->
 			<object id="tAclRoleprivilege_sso29">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOrginfoEdit"
 					property="operateid" />
 				<property name="moduleid" parent="sysOrginfo" property="moduleid" />
 			</object>
 			<!--删除 -->
 			<object id="tAclRoleprivilege_sso30">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysOrginfoDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysOrginfo" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso31">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="moduleid" parent="sysModule" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso32">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="moduleid" parent="sysSecurityArea"
 					property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso33">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="moduleid" parent="sysMonitorArea"
 					property="moduleid" />
 			</object>
-			<object id="tAclRoleprivilege_sso34">
-				<property name="roleid" parent="adminRole" property="roleid" />
-				<property name="moduleid" parent="sysCaseShowArea"
-					property="moduleid" />
-			</object>
 			<object id="tAclRoleprivilege_sso35">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoAssignPrivilege"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso36">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysUserinfoResetPrivilege"
 					property="operateid" />
 				<property name="moduleid" parent="sysUserinfo" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso37">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysRoleinfoCancelUser"
 					property="operateid" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso38">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysBusinesslogDelete"
 					property="operateid" />
 				<property name="moduleid" parent="sysBusinesslog" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso39">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysBusinesslogQuery"
 					property="operateid" />
 				<property name="moduleid" parent="sysBusinesslog" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso40">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogDbSqlDelete"
 					property="operateid" />
 				<property name="moduleid" parent="syslogDbSql" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso41">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogDbSqlQuery"
 					property="operateid" />
 				<property name="moduleid" parent="syslogDbSql" property="moduleid" />
 			</object>
 
 			<object id="tAclRoleprivilege_sso42">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogSysexceptionDelete"
 					property="operateid" />
 				<property name="moduleid" parent="syslogSysexception"
 					property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso43">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogSysexceptionQuery"
 					property="operateid" />
 				<property name="moduleid" parent="syslogSysexception"
 					property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso44">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogLoginDelete"
 					property="operateid" />
 				<property name="moduleid" parent="syslogLogin" property="moduleid" />
 			</object>
 			<object id="tAclRoleprivilege_sso45">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogLoginQuery"
 					property="operateid" />
 				<property name="moduleid" parent="syslogLogin" property="moduleid" />
 			</object>
-			<object id="tAclRoleprivilege_sso46">
-				<property name="roleid" parent="adminRole" property="roleid" />
-				<property name="operateid" parent="sysFusionChartAdd"
-					property="operateid" />
-				<property name="moduleid" parent="sysFusionChart" property="moduleid" />
-			</object>
 			<object id="tAclRoleprivilege_sso47">
-				<property name="roleid" parent="adminRole" property="roleid" />
+				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysFileUpload" property="operateid" />
 				<property name="moduleid" parent="sysFile" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso48">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="operateid" parent="sysDutyAllocation" property="operateid" />
+				<property name="moduleid" parent="sysDuty" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso49">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="operateid" parent="sysDutyCancel" property="operateid" />
+				<property name="moduleid" parent="sysDuty" property="moduleid" />
 			</object>
 		</model>
 	</models>

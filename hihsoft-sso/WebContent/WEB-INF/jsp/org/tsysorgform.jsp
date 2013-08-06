@@ -88,7 +88,7 @@
 							<td><fmt:message key="tsysorg.orgno"></fmt:message>
 							</td>
 							<td><input type="text" name="orgno" id="orgno"
-								class="validate[required,maxSize[12],custom[onlyNumberSp]] text" /><font color="red">**</font>
+								class="validate[required,maxSize[12],custom[onlyNumberSp],ajax[ajaxOrgnoCall]] text" /><font color="red">**</font>
 							</td>
 						</tr>
 						<tr>
@@ -169,7 +169,7 @@
 							<td><fmt:message key="tsysorg.addr"></fmt:message>
 							</td>
 							<td colspan="3"><textarea type="textarea" name="addr" id="addr"
-									class="validate[maxSize[50]] textarea" cols="28" rows="3" style="width: 670px;"> </textarea>
+									class="validate[maxSize[50]] textarea" cols="28" rows="3" style="width: 591px;"> </textarea>
 							</td>
 						</tr>
 					</table>

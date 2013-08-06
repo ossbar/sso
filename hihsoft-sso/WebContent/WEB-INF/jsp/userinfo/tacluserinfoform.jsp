@@ -22,6 +22,7 @@ $(function() {
 		url: "${ctx}/taclUserinfoController.do?method=getOrgTree&userId=" + (userId || ""),
 		includeHalf : false,
 		onLoadSuccess : function(node, data) {
+			console.log(data);
 			if (data && data.length > 0) {
 				$("#orgid").combotree({
 					data : data,
@@ -48,8 +49,7 @@ $(function() {
 		$(op[i]).height($(td).height());
 	});
 	$("#dutyId").combotree({
-		url : "${ctx}/taclUserinfoController.do?method=getDutyTree",
-		disabled : ${taclUserinfo!=null},
+		url : "${ctx}/taclUserinfoController.do?method=getDutyTree&userId=" + userId,
 		cascadeCheck : false,
 		multiple : true
 	});

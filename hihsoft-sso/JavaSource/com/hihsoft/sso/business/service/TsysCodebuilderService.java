@@ -44,7 +44,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysCodebuilderByHQL(String hql) throws ServiceException;
+	  public List<?> getTsysCodebuilderByHQL(String hql) throws ServiceException;
 	  
 		 /**
 		 * 查询所有的TsysCodebuilder信息
@@ -53,7 +53,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysCodebuilder() throws ServiceException;
+	  public List<?> getAllTsysCodebuilder() throws ServiceException;
 
 	 /**
 		 * 根据主键查询TsysCodebuilder信息明细
@@ -70,7 +70,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysCodebuilderByHQL(String hql,Object[] object) throws ServiceException;
+	  public List<?> getTsysCodebuilderByHQL(String hql,Object[] object) throws ServiceException;
 	  /**
 		 * 取得分页总数
 		 * 
@@ -93,7 +93,7 @@ public interface TsysCodebuilderService extends BaseService{
 	 * @throws DataAccessException
 	 */
 
-	    public List getTsysCodebuilderPageDataByHQL(String hql, Object[] object, int page_size,
+	    public List<?> getTsysCodebuilderPageDataByHQL(String hql, Object[] object, int page_size,
 	                                 int pageNo) throws ServiceException;
 
 	    
@@ -107,7 +107,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysCodebuilderPageDataByHQL(String hql, Map obj, int page_size, int pageNo)
+	    public List<?> getTsysCodebuilderPageDataByHQL(String hql, Map<String, Object> obj, int page_size, int pageNo)
 	            throws ServiceException;
 
 	    /**
@@ -118,7 +118,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysCodebuilderValueObjectBySQL(String sql, Object[] object) throws ServiceException;
+	    public List<?> getTsysCodebuilderValueObjectBySQL(String sql, Object[] object) throws ServiceException;
 
 	    
 		/**
@@ -129,7 +129,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysCodebuilderValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException;
+		public List<?> getTsysCodebuilderValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException;
 		
 		/**
 		 * 动态构造HQL参数
@@ -137,7 +137,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysCodebuilderValueObjectByDetachedCriteria(
+		public List<?> getTsysCodebuilderValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException;
 
 		/**
@@ -146,7 +146,7 @@ public interface TsysCodebuilderService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysCodebuilderValueObjectByDetachedCriterias(
+		public List<?> getTsysCodebuilderValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException;
 

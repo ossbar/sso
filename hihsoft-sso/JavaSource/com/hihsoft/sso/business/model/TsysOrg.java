@@ -27,6 +27,7 @@ import java.util.*;
 
 public class TsysOrg extends BaseEntity {
 
+	private static final long serialVersionUID = -3576372676930106718L;
 	// alias
 	public static final String TABLE_ALIAS = "TsysOrg";
 	public static final String ALIAS_ORGID = "orgid";
@@ -216,13 +217,13 @@ public class TsysOrg extends BaseEntity {
 		return orgSort;
 	}
 
-	private Set tsysOrgs = new HashSet(0);
+	private Set<TsysOrg> tsysOrgs = new HashSet<TsysOrg>(0);
 
-	public void setTsysOrgs(Set tsysOrg) {
+	public void setTsysOrgs(Set<TsysOrg> tsysOrg) {
 		this.tsysOrgs = tsysOrg;
 	}
 
-	public Set getTsysOrgs() {
+	public Set<TsysOrg> getTsysOrgs() {
 		return tsysOrgs;
 	}
 

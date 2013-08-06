@@ -45,7 +45,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDataprivilegeByHQL(String hql) throws ServiceException;
+	  public List<?> getTsysDataprivilegeByHQL(String hql) throws ServiceException;
 	  
 		 /**
 		 * 查询所有的TsysDataprivilege信息
@@ -54,7 +54,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysDataprivilege() throws ServiceException;
+	  public List<?> getAllTsysDataprivilege() throws ServiceException;
 
 	 /**
 		 * 根据主键查询TsysDataprivilege信息明细
@@ -71,7 +71,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDataprivilegeByArray(Object[] filter) throws ServiceException;
+	  public List<?> getTsysDataprivilegeByArray(Object[] filter) throws ServiceException;
 	  /**
 		 * 取得分页总数
 		 * 
@@ -93,7 +93,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDataprivilegeByMap(Map filter) throws ServiceException;
+	  public List<?> getTsysDataprivilegeByMap(Map<String, Object> filter) throws ServiceException;
 
  /**
 	 * 分页查询
@@ -106,7 +106,7 @@ public interface TsysDataprivilegeService extends BaseService{
 	 * @throws DataAccessException
 	 */
 
-	    public List getTsysDataprivilegePageDataByArray(Object[] filter, int page_size,
+	    public List<?> getTsysDataprivilegePageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException;
 
 	    
@@ -120,7 +120,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysDataprivilegePageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTsysDataprivilegePageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException;
 
 	    /**
@@ -131,7 +131,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysDataprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException;
+	    public List<?> getTsysDataprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException;
 
 		/**
 		 * 通过配置SQL来执行查询带多个参数的情况 包括SQL语句、存储过程等
@@ -141,7 +141,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysDataprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException;
+		public List<?> getTsysDataprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException;
 		
 		/**
 		 * 动态构造HQL参数
@@ -149,7 +149,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysDataprivilegeValueObjectByDetachedCriteria(
+		public List<?> getTsysDataprivilegeValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException;
 
 		/**
@@ -158,7 +158,7 @@ public interface TsysDataprivilegeService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysDataprivilegeValueObjectByDetachedCriterias(
+		public List<?> getTsysDataprivilegeValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException;
 

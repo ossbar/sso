@@ -222,7 +222,7 @@ public class XmlParseUtil {
 	 */
 	public Element getElement(Element parentelement, String elementName) {
 		Element element = null;
-		for (Iterator i = parentelement.elementIterator(elementName); i
+		for (Iterator<?> i = parentelement.elementIterator(elementName); i
 				.hasNext();) {
 			element = (Element) i.next();
 		}
@@ -268,7 +268,7 @@ public class XmlParseUtil {
 	public Element FindElement(Document document, String elementName) {
 		Element root = document.getRootElement();
 		Element element = null;
-		for (Iterator i = root.elementIterator(elementName); i.hasNext();) {
+		for (Iterator<?> i = root.elementIterator(elementName); i.hasNext();) {
 			element = (Element) i.next();
 		}
 		return element;
@@ -281,14 +281,15 @@ public class XmlParseUtil {
 	 *            节点对象
 	 * @return 属性和属性值列表
 	 */
-	public List attributeList(Element element) {
-		List list = element.attributes();
+	public List<Object> attributeList(Element element) {
+		@SuppressWarnings("unchecked")
+		List<Object> list = element.attributes();
 		return list;
 	}
 
 	public int getElementCount(Element element) {
 		int i = 0;
-		Iterator iterator = element.elementIterator();
+		Iterator<?> iterator = element.elementIterator();
 		while (iterator.hasNext()) {
 			i++;
 			iterator.next();
@@ -314,8 +315,9 @@ public class XmlParseUtil {
 	 *            节点对象
 	 * @return 属性和属性值列表
 	 */
-	public Iterator attributeIterator(Element element) {
-		Iterator attrIterator = element.attributeIterator();
+	public Iterator<Object> attributeIterator(Element element) {
+		@SuppressWarnings("unchecked")
+		Iterator<Object> attrIterator = element.attributeIterator();
 		return attrIterator;
 	}
 
@@ -326,9 +328,9 @@ public class XmlParseUtil {
 	 *            节点元素
 	 * @return 列表值
 	 */
-	public HashMap attributeMap(Element element) {
-		HashMap attributeHah = new HashMap();
-		Iterator elemIterator = element.attributeIterator();
+	public HashMap<String, String> attributeMap(Element element) {
+		HashMap<String, String> attributeHah = new HashMap<String, String>();
+		Iterator<?> elemIterator = element.attributeIterator();
 		while (elemIterator.hasNext()) {
 			Attribute attribute = (Attribute) elemIterator.next();
 			String attributeName = attribute.getName();
@@ -345,8 +347,9 @@ public class XmlParseUtil {
 	 *            节点元素
 	 * @return 子节点的迭代
 	 */
-	public Iterator elementIterator(Element element) {
-		Iterator elemIterator = element.elementIterator();
+	public Iterator<Object> elementIterator(Element element) {
+		@SuppressWarnings("unchecked")
+		Iterator<Object> elemIterator = element.elementIterator();
 		return elemIterator;
 	}
 
@@ -355,8 +358,9 @@ public class XmlParseUtil {
 	 * @param element
 	 * @return
 	 */
-	public List elementList(Element element) {
-		List list = element.elements();
+	public List<Object> elementList(Element element) {
+		@SuppressWarnings("unchecked")
+		List<Object> list = element.elements();
 		return list;
 	}
 
@@ -368,8 +372,9 @@ public class XmlParseUtil {
 	 * @param elementName子节点
 	 * @return子节点的迭代
 	 */
-	public Iterator elementIterator(Element element, String elementName) {
-		Iterator elemIterator = element.elementIterator(elementName);
+	public Iterator<Object> elementIterator(Element element, String elementName) {
+		@SuppressWarnings("unchecked")
+		Iterator<Object> elemIterator = element.elementIterator(elementName);
 		return elemIterator;
 	}
 
@@ -380,9 +385,9 @@ public class XmlParseUtil {
 	 *            查找的节点元素
 	 * @return子节点的名称列表
 	 */
-	public ArrayList getElementNameList(Element element) {
-		Iterator elemIterator = element.elementIterator();
-		ArrayList list = new ArrayList();
+	public ArrayList<String> getElementNameList(Element element) {
+		Iterator<?> elemIterator = element.elementIterator();
+		ArrayList<String> list = new ArrayList<String>();
 		while (elemIterator.hasNext()) {
 			Element childElement = (Element) elemIterator.next();
 			list.add(childElement.getName());
@@ -436,7 +441,7 @@ public class XmlParseUtil {
 	 */
 	public boolean deleteAttribute(Element element) {
 		boolean deleteFlag = false;
-		Iterator iterator = (Iterator) element.attributeIterator();
+		Iterator<?> iterator = element.attributeIterator();
 		while (iterator.hasNext()) {
 			Attribute attribute = (Attribute) iterator.next();
 			deleteFlag = element.remove(attribute);
@@ -458,8 +463,8 @@ public class XmlParseUtil {
 	 */
 	public void setAttrValues(Document document, String attributeName,
 			String attributeValue) {
-		List list = document.selectNodes(attributeName);
-		Iterator iter = list.iterator();
+		List<?> list = document.selectNodes(attributeName);
+		Iterator<?> iter = list.iterator();
 		while (iter.hasNext()) {
 			Attribute attribute = (Attribute) iter.next();
 			attribute.setValue(attributeValue);
@@ -477,11 +482,11 @@ public class XmlParseUtil {
 	 */
 	public void setElementValue(Document document, String NodeName,
 			String elementName, String elementValue) {
-		List list = document.selectNodes(NodeName);
-		Iterator iter = list.iterator();
+		List<?> list = document.selectNodes(NodeName);
+		Iterator<?> iter = list.iterator();
 		while (iter.hasNext()) {
 			Element element = (Element) iter.next();
-			Iterator iterator = element.elementIterator(elementName);
+			Iterator<?> iterator = element.elementIterator(elementName);
 			while (iterator.hasNext()) {
 				Element titleElement = (Element) iterator.next();
 				titleElement.setText(elementValue);
@@ -499,8 +504,8 @@ public class XmlParseUtil {
 	 *            节点名称， 格式："//节点名称"，如果是多个节点下的，就一直加“/节点名称",此节点名称是遍历拥有多个子节点的。
 	 * @return 此节点下所有节点信息。
 	 */
-	public List getNodes(Document document, String nodesName) {
-		List list = document.selectNodes(nodesName);
+	public List<?> getNodes(Document document, String nodesName) {
+		List<?> list = document.selectNodes(nodesName);
 		//得到list后，可以通过如下方式来遍历节点
 		/*
 		 * for (Iterator iter = list.iterator(); iter.hasNext(); ) { Attribute
@@ -677,9 +682,9 @@ public class XmlParseUtil {
 		String rootName = xp.getRootName(rootElement);
 		System.out.println(rootName);//输出根节点名称
 		//用迭代方式遍历根节点下的子节点
-		Iterator iterator = xp.elementIterator(rootElement);
+		Iterator<?> iterator = xp.elementIterator(rootElement);
 		//用列表方式遍历根节点下的子节点
-		List list = xp.elementList(rootElement);
+		List<?> list = xp.elementList(rootElement);
 		System.out.println(list.size());//输出子节点数量
 		System.out.println(xp.getElementCount(rootElement));//输出子节点数量
 		//遍历节点
@@ -691,7 +696,7 @@ public class XmlParseUtil {
 			if (attributeValue.equals("zhongyi")) { //输出定位到的子节点的名称
 				System.out.println(element.getName());
 				//遍历定位的子节点
-				Iterator it = xp.elementIterator(element);
+				Iterator<?> it = xp.elementIterator(element);
 				while (it.hasNext()) {
 					Element childElement = (Element) it.next();
 					String elementName = xp.getRootName(childElement);

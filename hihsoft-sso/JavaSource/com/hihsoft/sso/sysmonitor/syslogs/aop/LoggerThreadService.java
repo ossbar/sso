@@ -26,11 +26,6 @@ import com.hihsoft.sso.sysmonitor.syslogs.service.TlogServicecallService;
 public class LoggerThreadService implements Runnable {
 	private final Logger log = Logger.getLogger(LoggerThreadService.class);
 
-	private TlogServicecallService tlogServicecallService;
-	
-
-
-
 	/**
 	 * 异步执行任务入口
 	 */

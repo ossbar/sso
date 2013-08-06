@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
  * @author hihsoft.co.,ltd
  *
  */
+@SuppressWarnings("rawtypes")
 public class HibernateJsonBeanProcessorMatcher extends JsonBeanProcessorMatcher {
 
 	private static Logger log = Logger

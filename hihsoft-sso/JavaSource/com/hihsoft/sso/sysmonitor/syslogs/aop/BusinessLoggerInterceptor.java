@@ -25,7 +25,7 @@ import com.hihsoft.sso.sysmonitor.syslogs.service.TlogBusinesslogService;
  * @version 1.0
  */
 public class BusinessLoggerInterceptor extends HandlerInterceptorAdapter {
-	private static final Logger log = Logger
+	static final Logger log = Logger
 			.getLogger(BusinessLoggerInterceptor.class);
 	@Autowired
 	private TlogBusinesslogService tlogBusinesslogService;

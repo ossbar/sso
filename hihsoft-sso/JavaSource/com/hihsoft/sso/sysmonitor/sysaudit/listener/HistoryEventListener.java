@@ -5,8 +5,6 @@
  */
 package com.hihsoft.sso.sysmonitor.sysaudit.listener;
 
-import java.text.SimpleDateFormat;
-
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -31,6 +29,7 @@ import com.hihsoft.sso.sysmonitor.syslogs.model.TlogAudit;
  */
 public class HistoryEventListener extends DefaultLoadEventListener implements
 		PostUpdateEventListener {
+	private static final long serialVersionUID = -6156501106358768142L;
 	protected Logger log = Logger.getLogger(HistoryEventListener.class);
 
 	public void onPostUpdate(PostUpdateEvent event) {

@@ -62,7 +62,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatByHQL(String hql) throws ServiceException {
+	public List<?> getTsysFlatByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -74,7 +74,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTsysFlat() throws ServiceException {
+	public List<?> getAllTsysFlat() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTSYSFLAT_HQL);
 	}
 
@@ -86,7 +86,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 */
 	public TsysFlat getTsysFlatById(String id) throws ServiceException {
 		TsysFlat tsysFlat = null;
-		List list = baseDAO.getValueObjectsByHQL(TSYSFLATById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TSYSFLATById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			tsysFlat = (TsysFlat) list.get(0);
@@ -102,7 +102,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatByArray(Object[] filter) throws ServiceException {
+	public List<?> getTsysFlatByArray(Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(QUERY_TSYSFLAT_HQL.toString(),
 				filter);
 	}
@@ -128,7 +128,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatByMap(Map filter) throws ServiceException {
+	public List<?> getTsysFlatByMap(Map<String, Object> filter) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TSYSFLAT_HQL.toString(), filter);
 	}
 
@@ -143,7 +143,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @throws DataAccessException
 	 */
 
-	public List getTsysFlatPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTsysFlatPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TSYSFLAT_HQL.toString(), filter,
 				page_size, pageNo);
@@ -160,9 +160,8 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatPageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTsysFlatPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException {
-		String id = (String) filter.get("id");
 		return baseDAO.getPageDataByHQL(QUERY_TSYSFLAT_HQL.toString(), filter,
 				page_size, pageNo);
 	}
@@ -175,7 +174,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTsysFlatValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(QUERY_TSYSFLAT_SQL.toString(),
 				filter);
@@ -189,7 +188,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatValueObjectByNameQuery(String queryName,
+	public List<?> getTsysFlatValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, filter);
 	}
@@ -201,7 +200,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysFlatValueObjectByDetachedCriteria(
+	public List<?> getTsysFlatValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -213,7 +212,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysFlatValueObjectByDetachedCriterias(
+	public List<?> getTsysFlatValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,
@@ -221,7 +220,7 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	}
 
 	public List<TsysFlat> getFlatsByUser(String userId) {
-		String sql = "select * from t_sys_flat where flatid in (select flatid from t_sys_moduleinfo where moduleid in (select moduleid from t_acl_roleprivilege where roleid in(select roleid from t_acl_roleuser where userid=?)) or moduleid in (select moduleid from t_acl_userprivilege where userid=?)) order by flatdesc";
+		String sql = "SELECT * FROM T_SYS_FLAT WHERE FLATID IN (SELECT FLATID FROM T_SYS_MODULEINFO WHERE MODULEID IN (SELECT MODULEID FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN(SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?)) OR MODULEID IN (SELECT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?)) ORDER BY FLATDESC";
 		return getBeanBySQL(sql, TsysFlat.class, userId, userId);
 	}
 }

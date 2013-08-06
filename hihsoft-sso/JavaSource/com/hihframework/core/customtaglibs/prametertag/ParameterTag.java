@@ -30,7 +30,6 @@ import com.hihsoft.sso.business.model.TsysParameter;
  */
 public class ParameterTag extends RequestContextAwareTag {
 	private static final long serialVersionUID = -1549277547687411683L;
-	private static final String TEXT = "text";
 	private static final String SELECT = "select";
 	private static final String RADIO = "radio";
 	private static final String CHECKBOX = "checkbox";

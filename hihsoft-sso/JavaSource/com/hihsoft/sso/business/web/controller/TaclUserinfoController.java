@@ -4,6 +4,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package com.hihsoft.sso.business.web.controller;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -26,7 +27,6 @@ import com.hihframework.core.utils.StringHelpers;
 import com.hihframework.exception.ControllerException;
 import com.hihframework.osplugins.json.JsonUtil;
 import com.hihsoft.baseclass.web.controller.javahihBaseController;
-import com.hihsoft.sso.business.model.TaclDutyuser;
 import com.hihsoft.sso.business.model.TaclRole;
 import com.hihsoft.sso.business.model.TaclRoleuser;
 import com.hihsoft.sso.business.model.TaclUserinfo;
@@ -96,12 +96,21 @@ public class TaclUserinfoController extends javahihBaseController {
 			Object value = filter.get(key);
 			if (key.equals("orgid")) continue;
 			if (StringHelpers.notNull(value)) {
+				
+				try {
+					//解决中文检索乱码问题
+					value = new String(value.toString().getBytes("ISO-8859-1"), "UTF-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+				
 				hql += " and " + key + " like '%" + value + "%'";
 				mv.addObject("srh_"+key, value);
 			}
 		}
 		if (orders != null && !"".equals(orders))
 			hql += " order by " + orders;
+		
 		addOrders(request, orders);
 		List<TaclUserinfo> list = calcPage(request, taclUserinfoService, hql);
 		Map<String, String> params = new HashMap<String, String>();
@@ -129,7 +138,7 @@ public class TaclUserinfoController extends javahihBaseController {
 					+ getRoleTypeLower(request, response)
 					+ ") and t.roleSort=1)";
 		}
-		List<TaclRole> roles = taclRoleService.getTaclRoleByHQL(hql);
+		List<TaclRole> roles = (List<TaclRole>) taclRoleService.getTaclRoleByHQL(hql);
 		if (StringHelpers.notNull(userId) && userId.indexOf(",") == -1) {
 			List<TaclRole> defiends = taclRoleuserService.getDefinedRole(userId);
 			for (Iterator<TaclRole> it = roles.iterator(); it.hasNext();) {
@@ -156,12 +165,11 @@ public class TaclUserinfoController extends javahihBaseController {
 			HttpServletResponse response) throws ControllerException {
 		ModelAndView mv = new ModelAndView("userinfo/tacluserinfoform");
 		String orgid = getParam(request, "orgid");
-		String deptid = getParam(request, "deptid");
 		if (StringHelpers.notNull(orgid)) {
 			TsysOrg org = tsysOrgService.getTsysOrgById(orgid);
 			mv.addObject("org", org);
 		}
-		List dutys = tsysDutyService.getAllTsysDuty();
+		List<?> dutys = tsysDutyService.getAllTsysDuty();
 		mv.addObject("dutys", dutys);
 		return mv;
 	}
@@ -178,8 +186,7 @@ public class TaclUserinfoController extends javahihBaseController {
 		ModelAndView mv = new ModelAndView("userinfo/tacluserinfoform");
 		String id=request.getParameter("id");
 		TaclUserinfo taclUserinfo=taclUserinfoService.getTaclUserinfoById(id);
-		String pwd = taclUserinfo.getUserpw();
-		List dutys = tsysDutyService.getAllTsysDuty();
+		List<?> dutys = tsysDutyService.getAllTsysDuty();
 		mv.addObject("dutys", dutys);
 		mv.addObject("org", taclUserinfo.getTsysOrg());
 //		mv.addObject("dept", taclUserinfo.getTsysDept());
@@ -215,7 +222,7 @@ public class TaclUserinfoController extends javahihBaseController {
 	    mv.addObject("taclUserinfo", taclUserinfo);
 	    mv.addObject("roles", roles);
 	    mv.addObject("org", taclUserinfo.getTsysOrg());
-		mv.addObject("duty", taclUserinfo.getTsysDuty());
+		//mv.addObject("duty", taclUserinfo.getTsysDuty());
 		mv.addObject("roleIds", rids);
 		mv.addObject("dutySetName", dutySetName);
 		return mv;
@@ -232,7 +239,6 @@ public class TaclUserinfoController extends javahihBaseController {
 	public ModelAndView save(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
 		TaclUserinfo taclUserinfo=taclUserinfoService.getTaclUserinfoById(getParam(request,"userid"));
-		TaclDutyuser TaclDutyuser=new TaclDutyuser();
 		if(StringHelpers.isNull(taclUserinfo)){
 			taclUserinfo=new TaclUserinfo();
 	    }

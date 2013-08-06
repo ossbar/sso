@@ -23,6 +23,7 @@ import com.hihsoft.baseclass.model.BaseEntity;
 
 public class TlogServicecall extends BaseEntity
 {
+	private static final long serialVersionUID = 2868188306358225630L;
 	//alias
 	public static final String TABLE_ALIAS = "TlogServicecall";
 	public static final String ALIAS_CALLID = "callid";

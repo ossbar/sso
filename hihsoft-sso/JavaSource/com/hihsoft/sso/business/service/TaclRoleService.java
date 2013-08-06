@@ -47,7 +47,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleByHQL(String hql) throws ServiceException;
+	public List<?> getTaclRoleByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 查询所有的TaclRole信息
@@ -56,7 +56,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclRole() throws ServiceException;
+	public List<?> getAllTaclRole() throws ServiceException;
 
 	/**
 	 * 根据主键查询TaclRole信息明细
@@ -83,7 +83,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleByArray(Object[] filter) throws ServiceException;
+	public List<?> getTaclRoleByArray(Object[] filter) throws ServiceException;
 
 	/**
 	 * 取得分页总数
@@ -104,7 +104,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleByMap(Map filter) throws ServiceException;
+	public List<?> getTaclRoleByMap(Map<String, Object> filter) throws ServiceException;
 
 	/**
 	 * 分页查询
@@ -117,7 +117,7 @@ public interface TaclRoleService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclRolePageDataByArray(Object[] filter, int page_size,
+	public List<?> getTaclRolePageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException;
 
 	/**
@@ -131,7 +131,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRolePageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTaclRolePageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException;
 
 	/**
@@ -142,7 +142,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTaclRoleValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException;
 
 	/**
@@ -153,7 +153,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleValueObjectByNameQuery(String queryName,
+	public List<?> getTaclRoleValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException;
 
 	/**
@@ -163,7 +163,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleValueObjectByDetachedCriteria(
+	public List<?> getTaclRoleValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -173,7 +173,7 @@ public interface TaclRoleService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleValueObjectByDetachedCriterias(
+	public List<?> getTaclRoleValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 	

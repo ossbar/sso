@@ -5,14 +5,14 @@
  */
 package com.hihsoft.sso.business.model;
 
-import com.hihsoft.baseclass.model.BaseEntity;
-import com.hihsoft.sso.sysmonitor.sysaudit.model.BaseAuditEntity;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import java.util.*;
+import com.hihsoft.baseclass.model.BaseEntity;
 
 /**
  * <p> Title: </p>
@@ -26,6 +26,7 @@ import java.util.*;
 
 public class TsysFlat extends BaseEntity {
 
+	private static final long serialVersionUID = 5376296699846837463L;
 	// alias
 	public static final String TABLE_ALIAS = "TsysFlat";
 	public static final String ALIAS_FLATID = "flatid";
@@ -112,13 +113,13 @@ public class TsysFlat extends BaseEntity {
 		return this.flatname;
 	}
 
-	private Set tsysModuleinfos = new HashSet(0);
+	private Set<TsysModuleinfo> tsysModuleinfos = new HashSet<TsysModuleinfo>(0);
 
-	public void setTsysModuleinfos(Set tsysModuleinfo) {
+	public void setTsysModuleinfos(Set<TsysModuleinfo> tsysModuleinfo) {
 		this.tsysModuleinfos = tsysModuleinfo;
 	}
 
-	public Set getTsysModuleinfos() {
+	public Set<TsysModuleinfo> getTsysModuleinfos() {
 		return tsysModuleinfos;
 	}
 

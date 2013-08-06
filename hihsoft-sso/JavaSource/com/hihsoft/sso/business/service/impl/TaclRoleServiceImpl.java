@@ -76,7 +76,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleByHQL(String hql) throws ServiceException {
+	public List<?> getTaclRoleByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -88,7 +88,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclRole() throws ServiceException {
+	public List<?> getAllTaclRole() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTACLROLE_HQL);
 	}
 
@@ -106,7 +106,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 				TaclRole taclRole = null;
 				Query query = session.createQuery(TACLROLEById_HQL);
 				query.setString(0, id);
-				List list = query.list();
+				List<?> list = query.list();
 				if (!list.isEmpty() && list.size() > 0) {
 					taclRole = (TaclRole) list.get(0);
 					Hibernate.initialize(taclRole.getTaclRoleusers());
@@ -124,14 +124,13 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 				TaclRole taclRole = null;
 				Query query = session.createQuery(TACLROLEById_HQL);
 				query.setString(0, id);
-				List list = query.list();
+				List<?> list = query.list();
 				if (!list.isEmpty() && list.size() > 0) {
 					taclRole = (TaclRole) list.get(0);
 					Hibernate.initialize(taclRole.getTaclRoleusers());
-					list.clear();
-					list.addAll(taclRole.getTaclRoleusers());
+					return new ArrayList<TaclRoleuser>(taclRole.getTaclRoleusers());
 				}
-				return list;
+				return new ArrayList<TaclRoleuser>();
 			}
 		});
 	}
@@ -144,7 +143,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleByArray(Object[] filter) throws ServiceException {
+	public List<?> getTaclRoleByArray(Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(QUERY_TACLROLE_HQL.toString(),
 				filter);
 	}
@@ -170,7 +169,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleByMap(Map filter) throws ServiceException {
+	public List<?> getTaclRoleByMap(Map<String, Object> filter) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TACLROLE_HQL.toString(), filter);
 	}
 
@@ -185,7 +184,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclRolePageDataByArray(Object[] filter, int page_size,
+	public List<?> getTaclRolePageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TACLROLE_HQL.toString(), filter,
 				page_size, pageNo);
@@ -202,9 +201,8 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRolePageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTaclRolePageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException {
-		String id = (String) filter.get("id");
 		return baseDAO.getPageDataByHQL(QUERY_TACLROLE_HQL.toString(), filter,
 				page_size, pageNo);
 	}
@@ -217,7 +215,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTaclRoleValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(QUERY_TACLROLE_SQL.toString(),
 				filter);
@@ -231,7 +229,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleValueObjectByNameQuery(String queryName,
+	public List<?> getTaclRoleValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, filter);
 	}
@@ -243,7 +241,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleValueObjectByDetachedCriteria(
+	public List<?> getTaclRoleValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -255,7 +253,7 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleValueObjectByDetachedCriterias(
+	public List<?> getTaclRoleValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,
@@ -270,15 +268,15 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 			public List<Map<String, Object>> doInHibernate(Session session) throws HibernateException,
 					SQLException {
 				List<Map<String, Object>> tree = new ArrayList<Map<String, Object>>();
-				String sql = "select distinct f.* from t_sys_flat f,(select distinct moduleid from t_acl_roleprivilege where roleid in (select roleid from t_acl_roleuser where userid=:userId) union all select distinct moduleid from t_acl_userprivilege where userid=:userId) mi, T_sys_moduleinfo m where mi.moduleid=m.moduleid and m.flatid = f.flatid";
+				String sql = "SELECT DISTINCT F.* FROM T_SYS_FLAT F,(SELECT DISTINCT MODULEID FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=:USERID) UNION ALL SELECT DISTINCT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=:USERID) MI, T_SYS_MODULEINFO M WHERE MI.MODULEID=M.MODULEID AND M.FLATID = F.FLATID";
 				List<TsysFlat> flats = session.createSQLQuery(sql)
 						.addEntity(TsysFlat.class)
-						.setString("userId", curUserId).list();
+						.setString("USERID", curUserId).list();
 				//当前角色已授权信息
-				sql = "select distinct concat(moduleid,operateid) from t_acl_roleprivilege where roleid=?";
+				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID=?";
 				Map<String, Object> assigned = queryAsMapBySQL(sql, roleId);
 				//当前用户可用模块
-				sql = "select distinct concat(moduleid,operateid) from t_acl_roleprivilege where roleid in (select roleid from t_acl_roleuser where userid=?) union all select distinct moduleid from t_acl_userprivilege where userid=?";
+				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?) UNION ALL SELECT DISTINCT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
 				Map<String, Object> modules = baseDAO.queryAsMapBySQL(sql, curUserId, curUserId);
 				
 				for (TsysFlat flat : flats) {
@@ -307,7 +305,6 @@ public class TaclRoleServiceImpl extends BaseServiceImpl implements
 				return tree;
 			}
 			
-			@SuppressWarnings("unchecked")
 			private void buildModuleTree(TsysModuleinfo info,
 					Map<String, Object> child, Map<String, Object> modules,
 					Map<String, Object> assinged, String userId) {

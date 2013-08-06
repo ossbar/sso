@@ -20,6 +20,7 @@ import com.hihsoft.baseclass.model.BaseEntity;
  */
 
 public class TaclRoleuser extends BaseEntity {
+	private static final long serialVersionUID = 2033855477627594936L;
 	private java.lang.String roleuserid;
 	private java.lang.String userid;
 	private java.lang.String roleid;

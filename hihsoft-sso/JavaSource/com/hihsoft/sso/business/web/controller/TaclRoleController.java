@@ -80,7 +80,6 @@ public class TaclRoleController extends javahihBaseController {
 		Map<String, Object> filter = WebUtils.getParametersStartingWith(
 				request, "srh_");// 得到查询条件
 		String rolename = (String) filter.get("rolename");
-		String rolesort = (String) filter.get("rolesort");
 		boolean falg = true;
 		if(StringHelpers.notNull(rolename)){
 			hql += " and t.rolename like '%"+rolename+"%'";
@@ -119,7 +118,8 @@ public class TaclRoleController extends javahihBaseController {
 			pageSize = "15";
 		if (pageNo == null)
 			pageNo = "1";
-		List<TaclRole> list = taclRoleService.getPageDataByHQL(hql,
+		@SuppressWarnings("unchecked")
+		List<TaclRole> list = (List<TaclRole>) taclRoleService.getPageDataByHQL(hql,
 				Integer.parseInt(pageSize), Integer.parseInt(pageNo));
 		for (TaclRole role : list) {
 			TsysOrg org = role.getTsysOrg();
@@ -160,7 +160,7 @@ public class TaclRoleController extends javahihBaseController {
 			}
 			hql += " where rolename like '%" + rolename + "%'";
 		}
-		List list = calcPage(request, taclRoleService, hql);
+		List<?> list = calcPage(request, taclRoleService, hql);
 		mv.addObject("list", list);
 		return mv;
 	}
@@ -277,12 +277,13 @@ public class TaclRoleController extends javahihBaseController {
 		 * Integer.parseInt(pageNo));
 		 */
 
-		List<TaclUserinfo> list = taclUserinfoService.getValueObjectsByHQL(hql);
+		@SuppressWarnings("unchecked")
+		List<TaclUserinfo> list = (List<TaclUserinfo>) taclUserinfoService.getValueObjectsByHQL(hql);
 		convertParam(list, "usertype", "userType");
 		// int total = taclUserinfoService.getDataTotalNum(hql);
 		// int rows = Integer.parseInt(pageSize);
 		// int pages = total % rows == 0 ? (total / rows) : (total / rows + 1);
-		List dutys = tsysDutyService.getAllTsysDuty();
+		List<?> dutys = tsysDutyService.getAllTsysDuty();
 		mv.addObject("dutys", dutys);
 		// mv.addObject("orgid",orgid);
 		// mv.addObject("srh_loginname", loginname);
@@ -355,7 +356,8 @@ public class TaclRoleController extends javahihBaseController {
 			for (String userId : arr) {
 				String hql = "from TaclRoleuser where userid = '" + userId
 						+ "' and roleid ='" + roleId + "'";
-				List<TaclRoleuser> roleUser = taclRoleuserService
+				@SuppressWarnings("unchecked")
+				List<TaclRoleuser> roleUser = (List<TaclRoleuser>) taclRoleuserService
 						.getTaclRoleuserByHQL(hql);
 				taclRoleuserService.deleteBatchVO(roleUser);
 			}
@@ -394,7 +396,7 @@ public class TaclRoleController extends javahihBaseController {
 	}
 
 	/**
-	 * 查看角色用户信息
+	 * 查看角色基本信息及分配的用戶及角色中的權限
 	 * 
 	 * @param request
 	 * @param response
@@ -406,6 +408,7 @@ public class TaclRoleController extends javahihBaseController {
 			HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView("role/taclrolerole");
 		String roleId = request.getParameter("id");
+		String dutyname="";
 		List<TaclRoleuser> roleList = taclRoleService
 				.getTaclRoleUserByRoleId(roleId);
 		List<TaclUserinfo> userList = new ArrayList<TaclUserinfo>();
@@ -413,11 +416,14 @@ public class TaclRoleController extends javahihBaseController {
 			TaclUserinfo userInfo = taclUserinfoService
 					.getTaclUserinfoById(taclUserinfo.getUserid());
 			userList.add(userInfo);
+			//modify by zhujw用戶多崗位顯示
+			dutyname= taclUserinfoService.getDutyAllNameByUserId(taclUserinfo.getUserid());
 		}
 		TaclRole taclRole = taclRoleService.getTaclRoleById(roleId);
 		convertParam(taclRole, "roletype", "roleType");
 		mv.addObject("taclRole", taclRole);
 		mv.addObject("userList", userList);
+		mv.addObject("dutyname", dutyname);
 		mv.addObject("roleId", roleId);
 		return mv;
 	}

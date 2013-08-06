@@ -37,10 +37,10 @@ public class CollectionUtils {
 	 * @param keyPropertyName 要提取为Map中的Key值的属性名.
 	 * @param valuePropertyName 要提取为Map中的Value值的属性名.
 	 */
-	public static Map fetchPropertyToMap(final Collection collection,
+	public static Map<Object, Object> fetchPropertyToMap(final Collection<?> collection,
 			final String keyPropertyName, final String valuePropertyName)
 			throws Exception {
-		Map map = new HashMap();
+		Map<Object, Object> map = new HashMap<Object, Object>();
 		for (Object obj : collection) {
 			map.put(PropertyUtils.getProperty(obj, keyPropertyName),
 					PropertyUtils.getProperty(obj, valuePropertyName));
@@ -56,11 +56,10 @@ public class CollectionUtils {
 	 * @param propertyName
 	 *            要提取的属性名.
 	 */
-	@SuppressWarnings("unchecked")
-	public static List fetchPropertyToList(Collection collection,
+	public static List<Object> fetchPropertyToList(Collection<?> collection,
 			String propertyName) throws Exception {
 
-		List list = new ArrayList();
+		List<Object> list = new ArrayList<Object>();
 
 		for (Object obj : collection) {
 			list.add(PropertyUtils.getProperty(obj, propertyName));
@@ -79,10 +78,9 @@ public class CollectionUtils {
 	 * @param separator
 	 *            分隔符.
 	 */
-	@SuppressWarnings("unchecked")
-	public static String fetchPropertyToString(Collection collection,
+	public static String fetchPropertyToString(Collection<Object> collection,
 			String propertyName, String separator) throws Exception {
-		List list = fetchPropertyToList(collection, propertyName);
+		List<Object> list = fetchPropertyToList(collection, propertyName);
 		return StringUtils.join(list, separator);
 	}
 

@@ -43,7 +43,7 @@ public class TsysDataprivilegeController extends javahihBaseController {
 	@RequestMapping(params="method=list")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
-		List list = tsysDataprivilegeService.getAllTsysDataprivilege();
+		List<?> list = tsysDataprivilegeService.getAllTsysDataprivilege();
 		TsysDataprivilege tsysDataprivilege = new TsysDataprivilege();
 		this.bind(request, tsysDataprivilege);
 		request.setAttribute("list", list);

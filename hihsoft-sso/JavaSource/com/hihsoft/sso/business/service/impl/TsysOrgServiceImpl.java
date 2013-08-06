@@ -41,7 +41,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 
 	/************ 通过不同的条件组合，利用JDBC SQL查询TSYSORG ******************/
 	private static final StringBuffer QUERY_TSYSORG_SQL = new StringBuffer(
-			"select * from t_sys_org t where 1=1");
+			"select * from T_SYS_ORG t where 1=1");
 
 	/**
 	 * 新增、修改TsysOrg信息
@@ -63,7 +63,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 					old.setTsysOrg(parent);
 					session.saveOrUpdate(parent);
 					session.saveOrUpdate(old);
-					String orgId = null, regionId = null;
+					String regionId = null;
 					if (Integer.valueOf(old.getOrgClass()) <= 2 && old.getOrgSort().equals("1")) {
 						regionId = old.getOrgid();
 					} else while (parent != null) {
@@ -100,13 +100,12 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 			public String doInHibernate(Session session) throws HibernateException,
 					SQLException {
 				TsysOrg org = (TsysOrg) session.get(TsysOrg.class, id);
-				@SuppressWarnings("unchecked")
 				Set<TsysOrg> subOrgs = org.getTsysOrgs();
 				if (subOrgs.size() > 0) {
 					for (TsysOrg o : subOrgs) {
-						if ("2".equals(o.getOrgSort())) return "hasDept";
+//						if ("2".equals(o.getOrgSort())) return "hasDept";
+						if("01".equals(o.getOrgstate())) return "hasOrg";
 					}
-					return "hasOrg";
 				}
 				int num = getDataTotalNum("from TaclUserinfo where orgid=?", id);
 				if (num > 0) return "hasUser";
@@ -132,7 +131,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgByHQL(String hql) throws ServiceException {
+	public List<?> getTsysOrgByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -144,7 +143,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTsysOrg() throws ServiceException {
+	public List<?> getAllTsysOrg() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTSYSORG_HQL);
 	}
 
@@ -156,7 +155,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 */
 	public TsysOrg getTsysOrgById(String id) throws ServiceException {
 		TsysOrg tsysOrg = null;
-		List list = baseDAO.getValueObjectsByHQL(TSYSORGById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TSYSORGById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			tsysOrg = (TsysOrg) list.get(0);
@@ -172,7 +171,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgByArray(Object[] filter) throws ServiceException {
+	public List<?> getTsysOrgByArray(Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(QUERY_TSYSORG_HQL.toString(),
 				filter);
 	}
@@ -198,7 +197,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgByMap(Map filter) throws ServiceException {
+	public List<?> getTsysOrgByMap(Map<String, Object> filter) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TSYSORG_HQL.toString(), filter);
 	}
 
@@ -213,7 +212,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @throws DataAccessException
 	 */
 
-	public List getTsysOrgPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTsysOrgPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TSYSORG_HQL.toString(), filter,
 				page_size, pageNo);
@@ -230,9 +229,8 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgPageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTsysOrgPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException {
-		String id = (String) filter.get("id");
 		return baseDAO.getPageDataByHQL(QUERY_TSYSORG_HQL.toString(), filter,
 				page_size, pageNo);
 	}
@@ -245,7 +243,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTsysOrgValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException {
 		return baseDAO
 				.getValueObjectBySQL(QUERY_TSYSORG_SQL.toString(), filter);
@@ -259,7 +257,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysOrgValueObjectByNameQuery(String queryName,
+	public List<?> getTsysOrgValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, filter);
 	}
@@ -271,7 +269,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysOrgValueObjectByDetachedCriteria(
+	public List<?> getTsysOrgValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -283,7 +281,7 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysOrgValueObjectByDetachedCriterias(
+	public List<?> getTsysOrgValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,

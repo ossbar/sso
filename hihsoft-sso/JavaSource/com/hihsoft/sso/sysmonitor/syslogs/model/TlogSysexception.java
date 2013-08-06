@@ -4,13 +4,11 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package com.hihsoft.sso.sysmonitor.syslogs.model;
-import com.hihsoft.baseclass.model.BaseEntity;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import java.util.*;
+import com.hihsoft.baseclass.model.BaseEntity;
 /**
  * <p> Title: </p>
  * <p> Description:</p>
@@ -23,6 +21,7 @@ import java.util.*;
 
 public class TlogSysexception extends BaseEntity {
 	
+	private static final long serialVersionUID = 3592613808607821150L;
 	//alias
 	public static final String TABLE_ALIAS = "TlogSysexception";
 	public static final String ALIAS_EXCEPTION_OID = "exceptionOid";

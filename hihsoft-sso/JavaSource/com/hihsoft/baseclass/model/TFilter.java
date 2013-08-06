@@ -5,7 +5,6 @@
  */
 package com.hihsoft.baseclass.model;
 
-import javax.servlet.GenericServlet;
 
 public class TFilter extends BaseEntity {
 	private static final long serialVersionUID = 1L;

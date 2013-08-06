@@ -45,7 +45,7 @@ public class TsysCodebuilderController extends javahihBaseController {
 	@RequestMapping(params="method=list")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
-		List list = tsysCodebuilderService.getAllTsysCodebuilder();
+		List<?> list = tsysCodebuilderService.getAllTsysCodebuilder();
 		TsysCodebuilder tsysCodebuilder = new TsysCodebuilder();
 		this.bind(request, tsysCodebuilder);
 		request.setAttribute("list", list);

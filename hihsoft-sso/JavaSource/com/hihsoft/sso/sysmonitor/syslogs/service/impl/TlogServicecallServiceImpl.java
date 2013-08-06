@@ -4,7 +4,6 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package com.hihsoft.sso.sysmonitor.syslogs.service.impl;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +55,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTlogServicecallByHQL(String hql) throws ServiceException{
+	  public List<?> getTlogServicecallByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -70,7 +69,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 	  public TlogServicecall getTlogServicecallById(String id) throws ServiceException{
 		  TlogServicecall tlogServicecall=null;
 		   String hql=" from TlogServicecall tlogServicecall where tlogServicecall.callid='"+id+"'";
-		  List list=baseDAO.getValueObjectsByHQL(hql);
+		  List<?> list=baseDAO.getValueObjectsByHQL(hql);
 		  if(!list.isEmpty()&&list.size()>0){
 			  tlogServicecall=(TlogServicecall)list.get(0);
 		  }
@@ -84,7 +83,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTlogServicecallByHQL(String hql,Object[] object) throws ServiceException{
+	  public List<?> getTlogServicecallByHQL(String hql,Object[] object) throws ServiceException{
 				  return baseDAO.getValueObjectsByHQL(hql,object);
 	  }
 	 
@@ -112,7 +111,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 	    * @throws DataAccessException
 	 */
 
-     public List getTlogServicecallPageDataByHQL(String hql, Object[] object, int page_size,
+     public List<?> getTlogServicecallPageDataByHQL(String hql, Object[] object, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(hql,object,page_size,pageNo);
 }
@@ -128,7 +127,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTlogServicecallPageDataByHQL(String hql, Map obj, int page_size, int pageNo)
+	    public List<?> getTlogServicecallPageDataByHQL(String hql, Map<String, Object> obj, int page_size, int pageNo)
 	            throws ServiceException{
 	    	return baseDAO.getPageDataByHQL(hql,obj,page_size,pageNo);
 	    }
@@ -141,7 +140,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTlogServicecallValueObjectBySQL(String sql, Object[] object) throws ServiceException{
+	    public List<?> getTlogServicecallValueObjectBySQL(String sql, Object[] object) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(sql,object);
 	    }
 
@@ -154,7 +153,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTlogServicecallValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException{
+		public List<?> getTlogServicecallValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,object);
 		}
 		/**
@@ -163,7 +162,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTlogServicecallValueObjectByDetachedCriteria(
+		public List<?> getTlogServicecallValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -174,7 +173,7 @@ public class TlogServicecallServiceImpl extends BaseServiceImpl implements TlogS
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTlogServicecallValueObjectByDetachedCriterias(
+		public List<?> getTlogServicecallValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);

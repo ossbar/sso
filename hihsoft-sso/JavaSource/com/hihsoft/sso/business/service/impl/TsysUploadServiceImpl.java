@@ -58,7 +58,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysUploadByHQL(String hql) throws ServiceException{
+	  public List<?> getTsysUploadByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -69,7 +69,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysUpload() throws ServiceException{
+	  public List<?> getAllTsysUpload() throws ServiceException{
 		  return  baseDAO.getValueObjectsByHQL(ALLTSYSUPLOAD_HQL);
 	  }
 
@@ -81,7 +81,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 */
 	  public TsysUpload getTsysUploadById(String id) throws ServiceException{
 		  TsysUpload tsysUpload=null;
-		  List list=baseDAO.getValueObjectsByHQL(TSYSUPLOADById_HQL,new Object[]{id});
+		  List<?> list=baseDAO.getValueObjectsByHQL(TSYSUPLOADById_HQL,new Object[]{id});
 		  if(!list.isEmpty()&&list.size()>0){
 			  tsysUpload=(TsysUpload)list.get(0);
 		  }
@@ -95,7 +95,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysUploadByArray(Object[] filter) throws ServiceException{
+	  public List<?> getTsysUploadByArray(Object[] filter) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(QUERY_TSYSUPLOAD_HQL.toString(),filter);
 	  }
 	  /**
@@ -120,7 +120,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysUploadByMap(Map filter) throws ServiceException{
+	  public List<?> getTsysUploadByMap(Map<String, Object> filter) throws ServiceException{
 		  return baseDAO.getPageDataByHQL(QUERY_TSYSUPLOAD_HQL.toString(),filter);
 	  }
 
@@ -136,7 +136,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 	    * @throws DataAccessException
 	 */
 
-     public List getTsysUploadPageDataByArray(Object[] filter, int page_size,
+     public List<?> getTsysUploadPageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(QUERY_TSYSUPLOAD_HQL.toString(),filter,page_size,pageNo);
 }
@@ -152,9 +152,8 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysUploadPageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTsysUploadPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException{
-	    	 String id = (String) filter.get("id");
 	    	return baseDAO.getPageDataByHQL(QUERY_TSYSUPLOAD_HQL.toString(),filter,page_size,pageNo);
 	    }
 
@@ -166,7 +165,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysUploadValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
+	    public List<?> getTsysUploadValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(QUERY_TSYSUPLOAD_SQL.toString(),filter);
 	    }
 
@@ -179,7 +178,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysUploadValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
+		public List<?> getTsysUploadValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,filter);
 		}
 		/**
@@ -188,7 +187,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysUploadValueObjectByDetachedCriteria(
+		public List<?> getTsysUploadValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -199,7 +198,7 @@ public class TsysUploadServiceImpl extends BaseServiceImpl implements TsysUpload
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysUploadValueObjectByDetachedCriterias(
+		public List<?> getTsysUploadValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);

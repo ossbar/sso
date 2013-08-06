@@ -17,6 +17,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
@@ -34,7 +35,6 @@ import org.springframework.stereotype.Repository;
 
 import com.hihframework.core.customtaglibs.pagetag.Page;
 import com.hihframework.core.utils.BeanUtils;
-import com.hihframework.core.utils.StringHelpers;
 import com.hihsoft.baseclass.dao.BaseDAO;
 import com.hihsoft.baseclass.model.BaseEntity;
 import com.hihsoft.sso.sysmonitor.sysaudit.model.BaseAuditEntity;
@@ -55,7 +55,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void deleteBatchVO(final List dataList) throws DataAccessException {
+	public void deleteBatchVO(final List<?> dataList) throws DataAccessException {
 		getHibernateTemplate().deleteAll(dataList);
 	}
 
@@ -109,7 +109,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 		final int start = hql.toLowerCase().indexOf("from");
 		query = session.createQuery("select count(*) from "
 				+ hql.substring(start + 4)); // 查询符合条件数据
-		final List list = query.list();
+		final List<?> list = query.list();
 		if (!list.isEmpty()) {
 			amount = Integer.parseInt(list.get(0).toString());
 
@@ -128,7 +128,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 		Query query = null;
 		query = session.createQuery(hql); // 查询符合条件数据
 		query.setString(0, arg1);
-		final List list = query.list();
+		final List<?> list = query.list();
 		if (!list.isEmpty()) {
 			amount = list.size();
 
@@ -163,7 +163,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 		query = session.createQuery(
 				"select count(*) from " + hql.substring(start + 4))
 				.setProperties(obj); // 查询符合条件数据
-		final List list = query.list();
+		final List<?> list = query.list();
 		if (!list.isEmpty()) {
 			amount = Integer.parseInt(list.get(0).toString());
 
@@ -188,7 +188,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 		for (int i = 0; i < filter.length; i++) {
 			query = query.setParameter(i, filter[i]);
 		}
-		final List list = query.list();
+		final List<?> list = query.list();
 		if (!list.isEmpty()) {
 			amount = Integer.parseInt(list.get(0).toString());
 		}
@@ -216,7 +216,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 
 		final Session session = getSession();
 		final Query query = session.createQuery(hql);
-		final List list = query.list();
+		final List<?> list = query.list();
 		releaseSession(session); // 关闭session
 		if (list != null && !list.isEmpty()) {
 			return Integer.parseInt(list.get(0).toString());
@@ -225,9 +225,9 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(String hql, int page_size, int pageNo,
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo,
 			Object... args) throws DataAccessException {
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 
 		final int total_num = getDataTotalNum(hql, args); // 总记录数
@@ -260,14 +260,14 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql,
+	public List<?> getPageDataByHQL(final String hql,
 			final Map<String, Object> filter) throws DataAccessException {
 
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		final Session session = getSession(); // 取得session
 		Query query = null;
 		query = session.createQuery(hql); // 查询符合条件的数据
-		final Iterator it = filter.keySet().iterator();
+		final Iterator<?> it = filter.keySet().iterator();
 		while (it.hasNext()) {
 			final String key = (String) it.next();
 			query = query.setParameter(key, filter.get(key));
@@ -281,11 +281,11 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final int page_size,
+	public List<?> getPageDataByHQL(final String hql, final int page_size,
 			int pageNo) throws DataAccessException {
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
-		final int total_num = getHibernateTemplate().find(hql).size(); // 总记录数
+		final int total_num = getDataTotalNum(hql); // 总记录数
 		if (total_num < 1) {
 			return list;
 		}
@@ -311,10 +311,10 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final String arg1,
+	public List<?> getPageDataByHQL(final String hql, final String arg1,
 			final int page_size, int pageNo) throws DataAccessException {
 
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 
 		final int total_num = getDataTotalNum(hql, arg1); // 总记录数
@@ -341,10 +341,10 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final Object obj,
+	public List<?> getPageDataByHQL(final String hql, final Object obj,
 			final int page_size, int pageNo) throws DataAccessException {
 
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 
 		final int total_num = getDataTotalNum(hql, obj); // 总记录数
@@ -372,11 +372,11 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql,
+	public List<?> getPageDataByHQL(final String hql,
 			final Map<String, Object> filter, final int page_size, int pageNo)
 			throws DataAccessException {
 
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 
 		final int total_num = getDataTotalNum(hql, filter); // 总记录数
@@ -394,7 +394,7 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 		final Session session = getSession(); // 取得session
 		Query query = null;
 		query = session.createQuery(hql); // 查询符合条件的数据
-		final Iterator it = filter.keySet().iterator();
+		final Iterator<?> it = filter.keySet().iterator();
 		while (it.hasNext()) {
 			final String key = (String) it.next();
 			query = query.setParameter(key, filter.get(key));
@@ -410,11 +410,11 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final int page_size,
+	public List<?> getPageDataByHQL(final String hql, final int page_size,
 			int pageNo, final int total_num) throws DataAccessException {
 
 		log.info("查询数据 " + hql);
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 		if (total_num % page_size == 0) { // 取得总页数
 			total_page = total_num / page_size;
@@ -451,24 +451,24 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public BaseEntity getVO(final BaseEntity vo) throws DataAccessException {
-		return (BaseEntity) getHibernateTemplate().loadAll(vo.getClass());
+	public List<? extends BaseEntity> getVO(final BaseEntity vo) throws DataAccessException {
+		return getHibernateTemplate().loadAll(vo.getClass());
 	}
 
 	@Override
-	public List getValueObjectBySQL(final String sql)
+	public List<?> getValueObjectBySQL(final String sql)
 			throws DataAccessException {
 		final Session session = getSession(); // 取得session
 		Query query = null;
 		query = session.createSQLQuery(sql); // 查询符合条件数据
-		final List list = query.list();// 返回数组对象,给实体赋值时循环数组对象就行了.
+		final List<?> list = query.list();// 返回数组对象,给实体赋值时循环数组对象就行了.
 		releaseSession(session); // 关闭session
 
 		return list;
 	}
 
 	@Override
-	public List getValueObjectBySQL(final String sql, Object... args)
+	public List<?> getValueObjectBySQL(final String sql, Object... args)
 			throws DataAccessException {
 		Session session = getSession();
 		Query query = null;
@@ -477,27 +477,27 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 			query = query.setParameter(i, args[i]);
 
 		}
-		List list = query.list();
+		List<?> list = query.list();
 		releaseSession(session);
 		return list;
 	}
 
 	@Override
-	public List getValueObjectsByHQL(final String hql)
+	public List<?> getValueObjectsByHQL(final String hql)
 			throws DataAccessException {
 
 		return getHibernateTemplate().find(hql);
 	}
 
 	@Override
-	public List getValueObjectsByHQL(final String hql, Object... object)
+	public List<?> getValueObjectsByHQL(final String hql, Object... object)
 			throws DataAccessException {
 
 		return getHibernateTemplate().find(hql, object);
 	}
 
 	@Override
-	public void saveOrUpdateBatchVO(final List dataList)
+	public void saveOrUpdateBatchVO(final List<?> dataList)
 			throws DataAccessException {
 		getHibernateTemplate().saveOrUpdateAll(dataList);
 	}
@@ -523,30 +523,30 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	 * where user.userid=3 ]]> </query>
 	 */
 	@Override
-	public List getValueObjectByNameQuery(final String queryName)
+	public List<?> getValueObjectByNameQuery(final String queryName)
 			throws DataAccessException {
 		return getHibernateTemplate().findByNamedQuery(queryName);
 	}
 	@Override
-	public List getValueObjectByNameQuery(final String queryName,
+	public List<?> getValueObjectByNameQuery(final String queryName,
 			final Object object) throws DataAccessException {
 		return getHibernateTemplate().findByNamedQuery(queryName, object);
 	}
 
 	@Override
-	public List getValueObjectByNameQuery(final String queryName,
+	public List<?> getValueObjectByNameQuery(final String queryName,
 			final Object... filter) throws DataAccessException {
 		return getHibernateTemplate().findByNamedQuery(queryName, filter);
 	}
 
 	@Override
-	public List getValueObjectByDetachedCriteria(
+	public List<?> getValueObjectByDetachedCriteria(
 			final DetachedCriteria detachedCriteria) throws DataAccessException {
 		return getHibernateTemplate().findByCriteria(detachedCriteria);
 	}
 
 	@Override
-	public List getValueObjectByDetachedCriterias(
+	public List<?> getValueObjectByDetachedCriterias(
 			final DetachedCriteria detachedCriteria, final int arg1,
 			final int arg2) throws DataAccessException {
 		return getHibernateTemplate().findByCriteria(detachedCriteria, arg1,
@@ -554,9 +554,9 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataBySQL(String sql, int page_size, int pageNo,
+	public List<?> getPageDataBySQL(String sql, int page_size, int pageNo,
 			Object... args) throws DataAccessException {
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 
 		final int total_num = getDataTotalNum(sql, args); // 总记录数
@@ -580,10 +580,10 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	}
 
 	@Override
-	public List getPageDataBySQL(final String sql, final int page_size,
+	public List<?> getPageDataBySQL(final String sql, final int page_size,
 			int pageNo) throws DataAccessException {
 
-		List list = new ArrayList();
+		List<?> list = new ArrayList<Object>();
 		int total_page = 0; // 总页数
 		final int total_num = getHibernateTemplate().find(sql).size(); // 总记录数
 		if (total_num < 1) {
@@ -618,15 +618,15 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 	 * @throws DataAccessException
 	 */
 	@Override
-	public List getFrontPage(final Page page) throws DataAccessException {
-		return getHibernateTemplate().executeFind(new HibernateCallback() {
+	public List<?> getFrontPage(final Page page) throws DataAccessException {
+		return getHibernateTemplate().executeFind(new HibernateCallback<List<?>>() {
 			@Override
-			public Object doInHibernate(final Session s)
+			public List<?> doInHibernate(final Session s)
 					throws HibernateException, SQLException {
 				final Query query = s.createQuery(page.getHql());
 				query.setFirstResult(page.getStartRs());
 				query.setMaxResults(page.getPerPage());
-				final List list = query.list();
+				final List<?> list = query.list();
 				return list;
 
 			}
@@ -925,5 +925,10 @@ public class BaseDAOImpl extends HibernateDaoSupport implements BaseDAO {
 						return map;
 					}
 				});
+	}
+	
+	@Override
+	public void initialLazy(Object lazy) throws DataAccessException {
+		Hibernate.initialize(lazy);
 	}
 }

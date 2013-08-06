@@ -89,20 +89,20 @@ public class TaclUserinfo extends BaseEntity implements IUser {
 	private java.lang.String trade;
 	private java.lang.String age;
 	private java.lang.String userNo;
-	public java.lang.String getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(java.lang.String admin) {
-		this.admin = admin;
-	}
-
 	private java.lang.String officeAddr;
 	private java.lang.String modifyTime;
 	private java.lang.String fax;
 	//是否为管理员
-	private java.lang.String admin;
+	private java.lang.String superadmin;
 	//columns END
+
+	public java.lang.String getSuperadmin() {
+		return superadmin;
+	}
+
+	public void setSuperadmin(java.lang.String superadmin) {
+		this.superadmin = superadmin;
+	}
 
 	public TaclUserinfo(){
 	}

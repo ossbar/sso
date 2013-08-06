@@ -78,12 +78,11 @@ public class TlogSysexceptionController extends javahihBaseController {
 		}
 		String pageSize = getParam(request, "rows");
 		String pageNo = getParam(request, "page");
-		String orders = getParam(request, "orders");
 		if (pageSize == null)
 			pageSize = "10";
 		if (pageNo == null)
 			pageNo = "1";
-		List list = tlogSysexceptionService.getPageDataBySQL(
+		List<TlogSysexception> list = tlogSysexceptionService.getPageDataBySQL(
 				TlogSysexception.class, sql, Integer.parseInt(pageSize),
 				Integer.parseInt(pageNo));
 		int total = tlogSysexceptionService.getTotalNumBySQL(sql);

@@ -45,7 +45,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTaclUserprivilegeByHQL(String hql) throws ServiceException;
+	  public List<?> getTaclUserprivilegeByHQL(String hql) throws ServiceException;
 	  
 		 /**
 		 * 查询所有的TaclUserprivilege信息
@@ -54,7 +54,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTaclUserprivilege() throws ServiceException;
+	  public List<?> getAllTaclUserprivilege() throws ServiceException;
 
 	 /**
 		 * 根据主键查询TaclUserprivilege信息明细
@@ -71,7 +71,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTaclUserprivilegeByArray(Object[] filter) throws ServiceException;
+	  public List<?> getTaclUserprivilegeByArray(Object[] filter) throws ServiceException;
 	  /**
 		 * 取得分页总数
 		 * 
@@ -93,7 +93,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTaclUserprivilegeByMap(Map filter) throws ServiceException;
+	  public List<?> getTaclUserprivilegeByMap(Map<String, Object> filter) throws ServiceException;
 
  /**
 	 * 分页查询
@@ -106,7 +106,7 @@ public interface TaclUserprivilegeService extends BaseService{
 	 * @throws DataAccessException
 	 */
 
-	    public List getTaclUserprivilegePageDataByArray(Object[] filter, int page_size,
+	    public List<?> getTaclUserprivilegePageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException;
 
 	    
@@ -120,7 +120,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTaclUserprivilegePageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTaclUserprivilegePageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException;
 
 	    /**
@@ -131,7 +131,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTaclUserprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException;
+	    public List<?> getTaclUserprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException;
 
 		/**
 		 * 通过配置SQL来执行查询带多个参数的情况 包括SQL语句、存储过程等
@@ -141,7 +141,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTaclUserprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException;
+		public List<?> getTaclUserprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException;
 		
 		/**
 		 * 动态构造HQL参数
@@ -149,7 +149,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTaclUserprivilegeValueObjectByDetachedCriteria(
+		public List<?> getTaclUserprivilegeValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException;
 
 		/**
@@ -158,7 +158,7 @@ public interface TaclUserprivilegeService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTaclUserprivilegeValueObjectByDetachedCriterias(
+		public List<?> getTaclUserprivilegeValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException;
 

@@ -14,6 +14,7 @@ package com.hihframework.exception;
  * @version 1.0
  */
 public class HihSoftException extends RuntimeException {
+	private static final long serialVersionUID = -4138902797063401170L;
 	// 异常代码
 	private String key;
 	private Object[] values;

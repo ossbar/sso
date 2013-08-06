@@ -27,7 +27,7 @@ public class XmlObject extends BaseEntity {
 
 	private String isload;// 是否保存至数据库;
 
-	private Map propertys;// 对象XmlProperty的集合
+	private Map<String, Object> propertys;// 对象XmlProperty的集合
 
 	private boolean mapping = false;// 此对象是否以成功映射
 
@@ -56,14 +56,14 @@ public class XmlObject extends BaseEntity {
 	/**
 	 * @return the propertys
 	 */
-	public Map getPropertys() {
+	public Map<String, Object> getPropertys() {
 		return propertys;
 	}
 
 	/**
 	 * @param propertys the propertys to set
 	 */
-	public void setPropertys(Map propertys) {
+	public void setPropertys(Map<String, Object> propertys) {
 		this.propertys = propertys;
 	}
 

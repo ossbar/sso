@@ -45,7 +45,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysUploadByHQL(String hql) throws ServiceException;
+	  public List<?> getTsysUploadByHQL(String hql) throws ServiceException;
 	  
 		 /**
 		 * 查询所有的TsysUpload信息
@@ -54,7 +54,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysUpload() throws ServiceException;
+	  public List<?> getAllTsysUpload() throws ServiceException;
 
 	 /**
 		 * 根据主键查询TsysUpload信息明细
@@ -71,7 +71,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysUploadByArray(Object[] filter) throws ServiceException;
+	  public List<?> getTsysUploadByArray(Object[] filter) throws ServiceException;
 	  /**
 		 * 取得分页总数
 		 * 
@@ -93,7 +93,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysUploadByMap(Map filter) throws ServiceException;
+	  public List<?> getTsysUploadByMap(Map<String, Object> filter) throws ServiceException;
 
  /**
 	 * 分页查询
@@ -106,7 +106,7 @@ public interface TsysUploadService extends BaseService{
 	 * @throws DataAccessException
 	 */
 
-	    public List getTsysUploadPageDataByArray(Object[] filter, int page_size,
+	    public List<?> getTsysUploadPageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException;
 
 	    
@@ -120,7 +120,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysUploadPageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTsysUploadPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException;
 
 	    /**
@@ -131,7 +131,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysUploadValueObjectWithSQLByArray(Object[] filter) throws ServiceException;
+	    public List<?> getTsysUploadValueObjectWithSQLByArray(Object[] filter) throws ServiceException;
 
 		/**
 		 * 通过配置SQL来执行查询带多个参数的情况 包括SQL语句、存储过程等
@@ -141,7 +141,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysUploadValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException;
+		public List<?> getTsysUploadValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException;
 		
 		/**
 		 * 动态构造HQL参数
@@ -149,7 +149,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysUploadValueObjectByDetachedCriteria(
+		public List<?> getTsysUploadValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException;
 
 		/**
@@ -158,7 +158,7 @@ public interface TsysUploadService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysUploadValueObjectByDetachedCriterias(
+		public List<?> getTsysUploadValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException;
 

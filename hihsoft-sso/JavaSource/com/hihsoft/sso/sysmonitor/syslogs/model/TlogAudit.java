@@ -10,7 +10,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import com.hihsoft.baseclass.model.BaseEntity;
-import com.hihsoft.sso.sysmonitor.sysaudit.model.AuditableEntity;
 
 /**
  * <p> Title: </p>
@@ -24,6 +23,7 @@ import com.hihsoft.sso.sysmonitor.sysaudit.model.AuditableEntity;
 
 public class TlogAudit extends BaseEntity {
 
+	private static final long serialVersionUID = 7655499744238599749L;
 	// alias
 	public static final String TABLE_ALIAS = "TlogAudit";
 	public static final String ALIAS_ADUITID = "aduitid";
@@ -50,7 +50,6 @@ public class TlogAudit extends BaseEntity {
 	private java.lang.String modifyTime;
 	private java.lang.String property;
 	private java.lang.String operationType;
-	private Class entity;
 
 	// columns END
 

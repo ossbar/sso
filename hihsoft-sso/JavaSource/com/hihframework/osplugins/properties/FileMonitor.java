@@ -29,10 +29,10 @@ public class FileMonitor {
 
 	private Timer timer;
 
-	private Map timerEntries;
+	private Map<String, FileMonitorTask> timerEntries;
 
 	private FileMonitor() {
-		this.timerEntries = new HashMap();
+		this.timerEntries = new HashMap<String, FileMonitorTask>();
 		this.timer = new Timer(true);
 	}
 
@@ -66,7 +66,7 @@ public class FileMonitor {
 		}
 	}
 
-	private static class FileMonitorTask extends TimerTask {
+	public static class FileMonitorTask extends TimerTask {
 		private String filename;
 
 		private File monitoredFile;
@@ -78,6 +78,7 @@ public class FileMonitor {
 
 			this.monitoredFile = new File(filename);
 			if (!this.monitoredFile.exists()) {
+				this.cancel();
 				return;
 			}
 
@@ -90,6 +91,10 @@ public class FileMonitor {
 				this.lastModified = latestChange;
 
 			}
+		}
+		
+		public String getFilename() {
+			return filename;
 		}
 	}
 }

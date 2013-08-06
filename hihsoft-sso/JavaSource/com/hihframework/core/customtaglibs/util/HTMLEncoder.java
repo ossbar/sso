@@ -62,9 +62,9 @@ public class HTMLEncoder {
       return sb.toString();
    }
 
-   public static String encodeUrlParameters(Hashtable params) {
+   public static String encodeUrlParameters(Hashtable<String, String> params) {
       StringBuffer s = new StringBuffer();
-      Enumeration keys = params.keys();
+      Enumeration<String> keys = params.keys();
       int i=0;
       while (keys.hasMoreElements()) {
          String key = (String) keys.nextElement();

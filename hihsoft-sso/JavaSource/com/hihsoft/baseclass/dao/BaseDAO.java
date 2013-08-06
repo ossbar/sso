@@ -71,7 +71,7 @@ public interface BaseDAO {
 	 * @param dataList the data list
 	 * @throws DataAccessException the data access exception
 	 */
-	public void saveOrUpdateBatchVO(List dataList) throws DataAccessException;
+	public void saveOrUpdateBatchVO(List<?> dataList) throws DataAccessException;
 
 	/**
 	 * 删除对象.
@@ -98,7 +98,7 @@ public interface BaseDAO {
 	 * @param dataList the data list
 	 * @throws DataAccessException the data access exception
 	 */
-	public void deleteBatchVO(List dataList) throws DataAccessException;
+	public void deleteBatchVO(List<?> dataList) throws DataAccessException;
 
 	/**
 	 * 通过字符串型主键来加载子类对象.
@@ -119,7 +119,7 @@ public interface BaseDAO {
 	 * @throws DataAccessException the data access exception
 	 */
 
-	public BaseEntity getVO(BaseEntity vo) throws DataAccessException;
+	public List<? extends BaseEntity> getVO(BaseEntity vo) throws DataAccessException;
 
 	/**
 	 * 通用的通过hql来查询列表.
@@ -128,7 +128,7 @@ public interface BaseDAO {
 	 * @return List
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectsByHQL(String hql) throws DataAccessException;
+	public List<?> getValueObjectsByHQL(String hql) throws DataAccessException;
 
 	/**
 	 * 通过数组来构造查询条件，解决复杂查询.
@@ -138,7 +138,7 @@ public interface BaseDAO {
 	 * @return list
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectsByHQL(String hql, Object... args)
+	public List<?> getValueObjectsByHQL(String hql, Object... args)
 			throws DataAccessException;
 
 	/**
@@ -214,7 +214,7 @@ public interface BaseDAO {
 	 * @throws DataAccessException the data access exception
 	 */
 
-	public List getPageDataByHQL(String hql, int page_size, int pageNo,
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo,
 			Object... args) throws DataAccessException;
 
 	/**
@@ -228,7 +228,7 @@ public interface BaseDAO {
 	 * @throws DataAccessException the data access exception
 	 */
 
-	public List getPageDataBySQL(String sql, int page_size, int pageNo,
+	public List<?> getPageDataBySQL(String sql, int page_size, int pageNo,
 			Object... args) throws DataAccessException;
 
 	/**
@@ -240,7 +240,7 @@ public interface BaseDAO {
 	 * @throws DataAccessException the data access exception
 	 */
 
-	public List getPageDataByHQL(String hql, Map<String, Object> filter)
+	public List<?> getPageDataByHQL(String hql, Map<String, Object> filter)
 			throws DataAccessException;
 
 	/**
@@ -252,7 +252,7 @@ public interface BaseDAO {
 	 * @return the page data by hql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getPageDataByHQL(String hql, int page_size, int pageNo)
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo)
 			throws DataAccessException;
 
 	/**
@@ -264,7 +264,7 @@ public interface BaseDAO {
 	 * @return the page data by sql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getPageDataBySQL(String sql, int page_size, int pageNo)
+	public List<?> getPageDataBySQL(String sql, int page_size, int pageNo)
 			throws DataAccessException;
 
 	/**
@@ -277,7 +277,7 @@ public interface BaseDAO {
 	 * @return the page data by hql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getPageDataByHQL(String hql, String arg1, int page_size,
+	public List<?> getPageDataByHQL(String hql, String arg1, int page_size,
 			int pageNo) throws DataAccessException;
 
 	/**
@@ -290,7 +290,7 @@ public interface BaseDAO {
 	 * @return the page data by hql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getPageDataByHQL(String hql, Object obj, int page_size,
+	public List<?> getPageDataByHQL(String hql, Object obj, int page_size,
 			int pageNo) throws DataAccessException;
 
 	/**
@@ -303,7 +303,7 @@ public interface BaseDAO {
 	 * @return the page data by hql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getPageDataByHQL(String hql, Map<String, Object> filter,
+	public List<?> getPageDataByHQL(String hql, Map<String, Object> filter,
 			int page_size, int pageNo) throws DataAccessException;
 
 	/**
@@ -316,7 +316,7 @@ public interface BaseDAO {
 	 * @return the page data by hql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getPageDataByHQL(String hql, int page_size, int pageNo,
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo,
 			int total_num) throws DataAccessException;
 
 	/**
@@ -343,7 +343,7 @@ public interface BaseDAO {
 	 * @return the value object by sql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectBySQL(String sql) throws DataAccessException;
+	public List<?> getValueObjectBySQL(String sql) throws DataAccessException;
 
 	/**
 	 * 利用SQL数组条件来查询记录.
@@ -353,7 +353,7 @@ public interface BaseDAO {
 	 * @return the value object by sql
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectBySQL(String sql, Object... args)
+	public List<?> getValueObjectBySQL(String sql, Object... args)
 			throws DataAccessException;
 
 	/**
@@ -363,7 +363,7 @@ public interface BaseDAO {
 	 * @return the value object by name query
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectByNameQuery(String queryName)
+	public List<?> getValueObjectByNameQuery(String queryName)
 			throws DataAccessException;
 
 	/**
@@ -374,7 +374,7 @@ public interface BaseDAO {
 	 * @return the value object by name query
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectByNameQuery(String queryName, Object object)
+	public List<?> getValueObjectByNameQuery(String queryName, Object object)
 			throws DataAccessException;
 
 	/**
@@ -385,7 +385,7 @@ public interface BaseDAO {
 	 * @return the value object by name query
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectByNameQuery(String queryName, Object... args)
+	public List<?> getValueObjectByNameQuery(String queryName, Object... args)
 			throws DataAccessException;
 
 	/**
@@ -395,7 +395,7 @@ public interface BaseDAO {
 	 * @return the value object by detached criteria
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectByDetachedCriteria(
+	public List<?> getValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws DataAccessException;
 
 	/**
@@ -407,7 +407,7 @@ public interface BaseDAO {
 	 * @return the value object by detached criterias
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getValueObjectByDetachedCriterias(
+	public List<?> getValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws DataAccessException;
 
@@ -418,7 +418,7 @@ public interface BaseDAO {
 	 * @return the front page
 	 * @throws DataAccessException the data access exception
 	 */
-	public List getFrontPage(final Page page) throws DataAccessException;
+	public List<?> getFrontPage(final Page page) throws DataAccessException;
 
 	/**
 	 * 在同一个Session中执行指定的代码
@@ -519,5 +519,13 @@ public interface BaseDAO {
 	 * @since 2012-1-9
 	 */
 	public Map<String, Object> queryAsMapBySQL(final String sql, final Object... args) throws DataAccessException;
+	/**
+	 * 初始化延迟加载的数据
+	 * @author Xiaojf
+	 * @since 2013-8-3
+	 * @param lazy
+	 * @throws DataAccessException
+	 */
+	public void initialLazy(Object lazy) throws DataAccessException;
 	
 }

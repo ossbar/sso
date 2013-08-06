@@ -72,7 +72,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditByHQL(String hql) throws ServiceException {
+	public List<?> getTlogAuditByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -84,7 +84,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	* @return List
 	* @throws DataAccessException
 	*/
-	public List getAllTlogAudit() throws ServiceException {
+	public List<?> getAllTlogAudit() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTLOGAUDIT_HQL);
 	}
 
@@ -96,7 +96,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 */
 	public TlogAudit getTlogAuditById(String id) throws ServiceException {
 		TlogAudit tlogAudit = null;
-		List list = baseDAO.getValueObjectsByHQL(TLOGAUDITById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TLOGAUDITById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			tlogAudit = (TlogAudit) list.get(0);
@@ -112,7 +112,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditByArray(Object[] filter) throws ServiceException {
+	public List<?> getTlogAuditByArray(Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(QUERY_TLOGAUDIT_HQL.toString(),
 				filter);
 	}
@@ -139,7 +139,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditByMap(Map filter) throws ServiceException {
+	public List<?> getTlogAuditByMap(Map<String, Object> filter) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TLOGAUDIT_HQL.toString(), filter);
 	}
 
@@ -154,7 +154,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	  * @throws DataAccessException
 	*/
 
-	public List getTlogAuditPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTlogAuditPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TLOGAUDIT_HQL.toString(), filter,
 				page_size, pageNo);
@@ -170,9 +170,8 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditPageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTlogAuditPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException {
-		String id = (String) filter.get("id");
 		return baseDAO.getPageDataByHQL(QUERY_TLOGAUDIT_HQL.toString(), filter,
 				page_size, pageNo);
 	}
@@ -185,7 +184,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTlogAuditValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(QUERY_TLOGAUDIT_SQL.toString(),
 				filter);
@@ -199,7 +198,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogAuditValueObjectByNameQuery(String queryName,
+	public List<?> getTlogAuditValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, filter);
 	}
@@ -210,7 +209,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTlogAuditValueObjectByDetachedCriteria(
+	public List<?> getTlogAuditValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -221,7 +220,7 @@ public class TlogAuditServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTlogAuditValueObjectByDetachedCriterias(
+	public List<?> getTlogAuditValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,

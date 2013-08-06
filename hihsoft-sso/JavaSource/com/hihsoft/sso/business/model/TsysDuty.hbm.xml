@@ -94,7 +94,18 @@
 		>	
        		<column name="PARENT_DUTYID"/>
 		</many-to-one> 
-
+		<!-- One-To-Many attributes -->
+		
+		<set name="taclDutyusers"
+		     lazy="true"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="DUTYID"/>
+	        </key>
+			<one-to-many class="com.hihsoft.sso.business.model.TaclDutyuser"/>
+		</set> 
     </class>
 </hibernate-mapping>
 

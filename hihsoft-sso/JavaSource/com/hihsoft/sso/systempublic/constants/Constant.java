@@ -5,6 +5,7 @@
  */
 package com.hihsoft.sso.systempublic.constants;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -104,16 +105,16 @@ public class Constant {
 	 */
 	public static final String SYS_USER_MOPEDOM_MAP = "userMopedomMap";
 
-	public static Map paramMap = null;
+	public static Map<String, Object> paramMap = new HashMap<String, Object>();
 
-	public static List getTsysParameterByparaType(String paraType) {
-		return (List) paramMap.get(paraType);
+	public static List<?> getTsysParameterByparaType(String paraType) {
+		return (List<?>) paramMap.get(paraType);
 	}
 
-	public static Map areaMap = null;
+	public static Map<String, Object> areaMap = new HashMap<String, Object>();
 
-	public static List getTSysAreaByAreaType(String type) {
-		return (List) areaMap.get(type);
+	public static List<?> getTSysAreaByAreaType(String type) {
+		return (List<?>) areaMap.get(type);
 	}
 	/**
 	 * 停用状态

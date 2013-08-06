@@ -33,7 +33,7 @@ public class CurrencyConverter {
 	 * @param value the object to convert
 	 * @return object the converted object (Double or String)
 	 */
-	public final Object convert(final Class type, final Object value) {
+	public final Object convert(final Class<?> type, final Object value) {
 		// for a null value, return null
 		if (value == null) {
 			return null;

@@ -119,7 +119,7 @@ $(function() {
 		<div region="west" title="组织机构树" split="true" style="width:250px;">
 			<ul id="tree" style=""></ul>
 		</div>
-		<div id="detail" region="center" title="单位信息" style="width: 500px;"></div>
+		<div id="detail" region="center" title="单位信息" style="width: 500px;overflow-x:auto;white-space:nowrap;"></div>
 	</div>
 </body>
 </html>

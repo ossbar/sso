@@ -8,7 +8,6 @@ package com.hihsoft.baseclass.service.impl;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Service;
 
+import com.hihframework.core.utils.DateUtils;
 import com.hihframework.core.utils.ParamUtil;
 import com.hihframework.core.utils.StringHelpers;
 import com.hihframework.exception.ServiceException;
@@ -50,7 +50,7 @@ public class BaseServiceImpl implements BaseService {
 	@Autowired
 	protected BaseDAO baseDAO;
 	@Override
-	public void deleteBatchVO(final List dataList) throws ServiceException {
+	public void deleteBatchVO(final List<?> dataList) throws ServiceException {
 		baseDAO.deleteBatchVO(dataList);
 	}
 
@@ -107,45 +107,45 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final int page_size,
+	public List<?> getPageDataByHQL(final String hql, final int page_size,
 			final int pageNo, final Object... filter) throws ServiceException {
 
 		return baseDAO.getPageDataByHQL(hql, page_size, pageNo, filter);
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql,
+	public List<?> getPageDataByHQL(final String hql,
 			final Map<String, Object> filter) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, filter);
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final int page_size,
+	public List<?> getPageDataByHQL(final String hql, final int page_size,
 			final int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, page_size, pageNo);
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final String arg1,
+	public List<?> getPageDataByHQL(final String hql, final String arg1,
 			final int page_size, final int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, arg1, page_size, pageNo);
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final Object obj,
+	public List<?> getPageDataByHQL(final String hql, final Object obj,
 			final int page_size, final int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, obj, page_size, pageNo);
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql,
+	public List<?> getPageDataByHQL(final String hql,
 			final Map<String, Object> filter, final int page_size,
 			final int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, filter, page_size, pageNo);
 	}
 
 	@Override
-	public List getPageDataByHQL(final String hql, final int page_size,
+	public List<?> getPageDataByHQL(final String hql, final int page_size,
 			final int pageNo, final int total_num) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, page_size, pageNo, total_num);
 	}
@@ -157,52 +157,52 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public BaseEntity getVO(final BaseEntity vo) throws ServiceException {
+	public List<? extends BaseEntity> getVO(final BaseEntity vo) throws ServiceException {
 		return baseDAO.getVO(vo);
 	}
 
 	@Override
-	public List getValueObjectByNameQuery(final String queryName)
+	public List<?> getValueObjectByNameQuery(final String queryName)
 			throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName);
 	}
 
 	@Override
-	public List getValueObjectByNameQuery(final String queryName,
+	public List<?> getValueObjectByNameQuery(final String queryName,
 			final Object object) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, object);
 	}
 
 	@Override
-	public List getValueObjectByNameQuery(final String queryName,
+	public List<?> getValueObjectByNameQuery(final String queryName,
 			final Object... filter) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, filter);
 	}
 
 	@Override
-	public List getValueObjectBySQL(final String sql) throws ServiceException {
+	public List<?> getValueObjectBySQL(final String sql) throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql);
 	}
 
 	@Override
-	public List getValueObjectBySQL(final String sql, final Object... filter)
+	public List<?> getValueObjectBySQL(final String sql, final Object... filter)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql, filter);
 	}
 
 	@Override
-	public List getValueObjectsByHQL(final String hql) throws ServiceException {
+	public List<?> getValueObjectsByHQL(final String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 	}
 
 	@Override
-	public List getValueObjectsByHQL(final String hql, final Object... filter)
+	public List<?> getValueObjectsByHQL(final String hql, final Object... filter)
 			throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql, filter);
 	}
 
 	@Override
-	public void saveOrUpdateBatchVO(final List dataList)
+	public void saveOrUpdateBatchVO(final List<?> dataList)
 			throws ServiceException {
 		baseDAO.saveOrUpdateBatchVO(dataList);
 	}
@@ -224,16 +224,16 @@ public class BaseServiceImpl implements BaseService {
 
 	public String getNow(String parttern) throws ServiceException {
 		SimpleDateFormat format = new SimpleDateFormat(parttern);
-		String sql = "select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from dual";
-		List<?> list = baseDAO.getValueObjectBySQL(sql);
-		if (list != null && !list.isEmpty()) {
-			try {
-				return format.format(format.parse((String) list.get(0)));
-			} catch (ParseException e) {
-				log.error(e);
-			}
-		}
-		return null;
+//		String sql = "select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from dual";
+//		List<?> list = baseDAO.getValueObjectBySQL(sql);
+//		if (list != null && !list.isEmpty()) {
+//			try {
+//				return format.format(format.parse((String) list.get(0)));
+//			} catch (ParseException e) {
+//				log.error(e);
+//			}
+//		}
+		return format.format(DateUtils.getNowDate());
 	}
 
 	@Override
@@ -320,7 +320,6 @@ public class BaseServiceImpl implements BaseService {
 	 * @author Xiaojf
 	 * @since 2011-5-14
 	 */
-	@SuppressWarnings("unchecked")
 	protected void buildModuleTree(TsysModuleinfo info,
 			Map<String, Object> child, List<TaclRoleprivilege> assinged,
 			boolean listoper, boolean hidden, String... roleId)
@@ -449,7 +448,6 @@ public class BaseServiceImpl implements BaseService {
 	 * @author Xiaojf
 	 * @since 2011-5-22
 	 */
-	@SuppressWarnings("unchecked")
 	public void buildOrgTree(TsysOrg org, Map<String, Object> treeData,
 			List<TsysDataprivilege> dataList, String userId, String orgClass)
 			throws ServiceException {
@@ -532,7 +530,6 @@ public class BaseServiceImpl implements BaseService {
 		return getSubOrgIds(orgId, null);
 	}
 
-	@SuppressWarnings("unchecked")
 	protected void eachOrg(TsysOrg org, StringBuffer buf, String type,
 			String orgClass) {
 		if (("dept".equals(type) && "2".equals(org.getOrgSort()))
@@ -593,7 +590,7 @@ public class BaseServiceImpl implements BaseService {
 				// roleid from t_acl_roleuser where userid=?) union all select
 				// moduleid from t_acl_userprivilege where userid=?)");
 				Query query = session
-						.createSQLQuery("select moduleid from t_sys_moduleinfo where moduleid in(select distinct t.moduleid from (select r.moduleid from t_acl_roleprivilege  r where r.roleid in (select us.roleid from t_acl_roleuser us where us.userid=?) union all select ac.moduleid from t_acl_userprivilege ac where ac.userid=?) t) order by sortnum");
+						.createSQLQuery("SELECT MODULEID FROM T_SYS_MODULEINFO WHERE MODULEID IN(SELECT DISTINCT T.MODULEID FROM (SELECT R.MODULEID FROM T_ACL_ROLEPRIVILEGE  R WHERE R.ROLEID IN (SELECT US.ROLEID FROM T_ACL_ROLEUSER US WHERE US.USERID=?) UNION ALL SELECT AC.MODULEID FROM T_ACL_USERPRIVILEGE AC WHERE AC.USERID=?) T) ORDER BY SORTNUM");
 				query.setString(0, user.getUserid());
 				query.setString(1, user.getUserid());
 				List<String> assinged = query.list();
@@ -628,7 +625,6 @@ public class BaseServiceImpl implements BaseService {
 			attr.put("url", url);
 		}
 		menu.put("attributes", attr);
-		@SuppressWarnings("unchecked")
 		Set<TsysModuleinfo> set = info.getTsysModuleinfos();
 		List<Map<String, Object>> children = new ArrayList<Map<String, Object>>();
 		for (TsysModuleinfo child : set) {
@@ -653,14 +649,13 @@ public class BaseServiceImpl implements BaseService {
 		return baseDAO.getBean(entity, id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getPrivilege(String userId) throws ServiceException {
 		String hql = "from TsysDataprivilege where userid=?";
 		if (isSuperUser(userId)) {
-			List<TsysOrg> list = baseDAO.getValueObjectsByHQL("from TsysOrg");
+			List<?> list = baseDAO.getValueObjectsByHQL("from TsysOrg");
 			return StringHelpers.join(list, "orgid");
 		}
-		List<TsysDataprivilege> datas = baseDAO.getValueObjectsByHQL(hql,
+		List<?> datas = baseDAO.getValueObjectsByHQL(hql,
 				userId);
 		return StringHelpers.join(datas, "orgid");
 	}
@@ -675,12 +670,12 @@ public class BaseServiceImpl implements BaseService {
 					throws HibernateException, SQLException {
 				String ids = StringHelpers.join(orgId.split(","));
 				@SuppressWarnings("unchecked")
-				List<TsysOrg> orgs = getValueObjectsByHQL("from TsysOrg where orgid in ("
+				List<TsysOrg> orgs = (List<TsysOrg>) getValueObjectsByHQL("from TsysOrg where orgid in ("
 						+ ids + ")");
-				String sql = "select orgid from t_sys_dataprivilege where userid=?";
+				String sql = "SELECT ORGID FROM T_SYS_DATAPRIVILEGE WHERE USERID=?";
 				Map<String, Object> map = null;
 				if (isSuperUser(userId)) {
-					sql = "select orgid from t_sys_org";
+					sql = "SELECT ORGID FROM T_SYS_ORG";
 					map = queryAsMapBySQL(sql);
 				} else {
 					map = queryAsMapBySQL(sql, userId);
@@ -739,34 +734,46 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> getDutyTree(String dutyId)
+	public List<Map<String, Object>> getDutyTree(String userId)
 			throws ServiceException {
-		List<TsysDuty> dutys = new ArrayList<TsysDuty>();
-		if (StringHelpers.notNull(dutyId)) {
-			dutys.add(getBean(TsysDuty.class, dutyId));
+		List<TsysDuty> dutys = (List<TsysDuty>) getVO(new TsysDuty());
+		List<TsysDuty> assigned = null;
+		if (StringHelpers.notNull(userId)) {
+//			TaclUserinfo bean = getBean(TaclUserinfo.class, userId);
+//			if (bean != null) {
+//				baseDAO.initialLazy(bean.getTaclDuties());
+//				dutys = bean.getTaclDuties();
+//				check = true;
+//			}
+			String hql = "from TsysDuty where dutyid in (select dutyid from TaclDutyuser where userid=?)";
+			assigned = (List<TsysDuty>) getValueObjectsByHQL(hql, userId);
 		} else {
 			String hql = "from TsysDuty where parentDutyid is null";
-			dutys = getValueObjectsByHQL(hql);
+			dutys = (List<TsysDuty>) getValueObjectsByHQL(hql);
 		}
 		List<Map<String, Object>> datas = new ArrayList<Map<String, Object>>();
 		for (TsysDuty duty : dutys) {
 			if (duty == null)
 				continue;
-			eachDuty(duty, datas);
+			eachDuty(duty, datas, assigned);
 		}
 		return datas;
 	}
+	
+	
 
-	protected void eachDuty(TsysDuty duty, List<Map<String, Object>> datas) {
+	protected void eachDuty(TsysDuty duty, List<Map<String, Object>> datas, List<TsysDuty> assigned) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", duty.getDutyid());
 		map.put("text", duty.getDutyname());
-		@SuppressWarnings("unchecked")
+		if (assigned != null && assigned.contains(duty)) {
+			map.put("checked", true);
+		}
 		Set<TsysDuty> dutys = duty.getTsysDutys();
 		if (dutys.size() > 0) {
 			List<Map<String, Object>> children = new ArrayList<Map<String, Object>>();
 			for (TsysDuty child : dutys) {
-				eachDuty(child, children);
+				eachDuty(child, children, assigned);
 			}
 			map.put("children", children);
 		}
@@ -777,9 +784,9 @@ public class BaseServiceImpl implements BaseService {
 	public List<Map<String, Object>> getAssignedOrgTree(String userId,
 			String orgClass) throws ServiceException {
 		List<Map<String, Object>> datas = new ArrayList<Map<String, Object>>();
-		List<TsysTreeprivilege> assigned = baseDAO.getValueObjectsByHQL(
+		List<TsysTreeprivilege> assigned = (List<TsysTreeprivilege>) baseDAO.getValueObjectsByHQL(
 				"from TsysTreeprivilege where userid=?", userId);
-		List<TsysOrg> orgs = baseDAO
+		List<TsysOrg> orgs = (List<TsysOrg>) baseDAO
 				.getValueObjectsByHQL("from TsysOrg where orgstate=? and parentorgid is null", Constant.ORG_STATUS_NORMAL);
 		for (TsysOrg org : orgs) {
 			if (!checkOrgClass(org, orgClass))
@@ -812,7 +819,6 @@ public class BaseServiceImpl implements BaseService {
 		return StringHelpers.notNull(superuser);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void buildAssigned(TsysOrg org, List<Map<String, Object>> datas,
 			String userId, List<TsysTreeprivilege> assigned, String orgClass) {
 		if (Constant.ORG_STATUS_STOPED.equals(org.getOrgstate())) return;

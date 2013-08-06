@@ -59,7 +59,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTaclUserprivilegeByHQL(String hql) throws ServiceException{
+	  public List<?> getTaclUserprivilegeByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -70,7 +70,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTaclUserprivilege() throws ServiceException{
+	  public List<?> getAllTaclUserprivilege() throws ServiceException{
 		  return  baseDAO.getValueObjectsByHQL(ALLTACLUSERPRIVILEGE_HQL);
 	  }
 
@@ -82,7 +82,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 */
 	  public TaclUserprivilege getTaclUserprivilegeById(String id) throws ServiceException{
 		  TaclUserprivilege taclUserprivilege=null;
-		  List list=baseDAO.getValueObjectsByHQL(TACLUSERPRIVILEGEById_HQL,new Object[]{id});
+		  List<?> list=baseDAO.getValueObjectsByHQL(TACLUSERPRIVILEGEById_HQL,new Object[]{id});
 		  if(!list.isEmpty()&&list.size()>0){
 			  taclUserprivilege=(TaclUserprivilege)list.get(0);
 		  }
@@ -96,7 +96,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTaclUserprivilegeByArray(Object[] filter) throws ServiceException{
+	  public List<?> getTaclUserprivilegeByArray(Object[] filter) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(QUERY_TACLUSERPRIVILEGE_HQL.toString(),filter);
 	  }
 	  /**
@@ -121,7 +121,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTaclUserprivilegeByMap(Map filter) throws ServiceException{
+	  public List<?> getTaclUserprivilegeByMap(Map<String, Object> filter) throws ServiceException{
 		  return baseDAO.getPageDataByHQL(QUERY_TACLUSERPRIVILEGE_HQL.toString(),filter);
 	  }
 
@@ -137,7 +137,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 	    * @throws DataAccessException
 	 */
 
-     public List getTaclUserprivilegePageDataByArray(Object[] filter, int page_size,
+     public List<?> getTaclUserprivilegePageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(QUERY_TACLUSERPRIVILEGE_HQL.toString(),filter,page_size,pageNo);
 }
@@ -153,9 +153,8 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTaclUserprivilegePageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTaclUserprivilegePageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException{
-	    	 String id = (String) filter.get("id");
 	    	return baseDAO.getPageDataByHQL(QUERY_TACLUSERPRIVILEGE_HQL.toString(),filter,page_size,pageNo);
 	    }
 
@@ -167,7 +166,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTaclUserprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
+	    public List<?> getTaclUserprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(QUERY_TACLUSERPRIVILEGE_SQL.toString(),filter);
 	    }
 
@@ -180,7 +179,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTaclUserprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
+		public List<?> getTaclUserprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,filter);
 		}
 		/**
@@ -189,7 +188,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTaclUserprivilegeValueObjectByDetachedCriteria(
+		public List<?> getTaclUserprivilegeValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -200,7 +199,7 @@ public class TaclUserprivilegeServiceImpl extends BaseServiceImpl implements Tac
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTaclUserprivilegeValueObjectByDetachedCriterias(
+		public List<?> getTaclUserprivilegeValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);

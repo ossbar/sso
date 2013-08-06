@@ -59,7 +59,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDataprivilegeByHQL(String hql) throws ServiceException{
+	  public List<?> getTsysDataprivilegeByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -70,7 +70,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysDataprivilege() throws ServiceException{
+	  public List<?> getAllTsysDataprivilege() throws ServiceException{
 		  return  baseDAO.getValueObjectsByHQL(ALLTSYSDATAPRIVILEGE_HQL);
 	  }
 
@@ -82,7 +82,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 */
 	  public TsysDataprivilege getTsysDataprivilegeById(String id) throws ServiceException{
 		  TsysDataprivilege tsysDataprivilege=null;
-		  List list=baseDAO.getValueObjectsByHQL(TSYSDATAPRIVILEGEById_HQL,new Object[]{id});
+		  List<?> list=baseDAO.getValueObjectsByHQL(TSYSDATAPRIVILEGEById_HQL,new Object[]{id});
 		  if(!list.isEmpty()&&list.size()>0){
 			  tsysDataprivilege=(TsysDataprivilege)list.get(0);
 		  }
@@ -93,10 +93,10 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * 
 		 * @param Object[]
 		 *            object
-		 * @return List
+		 * @return List<?>
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDataprivilegeByArray(Object[] filter) throws ServiceException{
+	  public List<?> getTsysDataprivilegeByArray(Object[] filter) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(QUERY_TSYSDATAPRIVILEGE_HQL.toString(),filter);
 	  }
 	  /**
@@ -121,7 +121,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDataprivilegeByMap(Map filter) throws ServiceException{
+	  public List<?> getTsysDataprivilegeByMap(Map<String, Object> filter) throws ServiceException{
 		  return baseDAO.getPageDataByHQL(QUERY_TSYSDATAPRIVILEGE_HQL.toString(),filter);
 	  }
 
@@ -137,7 +137,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 	    * @throws DataAccessException
 	 */
 
-     public List getTsysDataprivilegePageDataByArray(Object[] filter, int page_size,
+     public List<?> getTsysDataprivilegePageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(QUERY_TSYSDATAPRIVILEGE_HQL.toString(),filter,page_size,pageNo);
 }
@@ -153,9 +153,8 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysDataprivilegePageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTsysDataprivilegePageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException{
-	    	 String id = (String) filter.get("id");
 	    	return baseDAO.getPageDataByHQL(QUERY_TSYSDATAPRIVILEGE_HQL.toString(),filter,page_size,pageNo);
 	    }
 
@@ -167,7 +166,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysDataprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
+	    public List<?> getTsysDataprivilegeValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(QUERY_TSYSDATAPRIVILEGE_SQL.toString(),filter);
 	    }
 
@@ -180,7 +179,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysDataprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
+		public List<?> getTsysDataprivilegeValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,filter);
 		}
 		/**
@@ -189,7 +188,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysDataprivilegeValueObjectByDetachedCriteria(
+		public List<?> getTsysDataprivilegeValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -200,7 +199,7 @@ public class TsysDataprivilegeServiceImpl extends BaseServiceImpl implements Tsy
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysDataprivilegeValueObjectByDetachedCriterias(
+		public List<?> getTsysDataprivilegeValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);

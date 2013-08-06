@@ -96,7 +96,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoByHQL(String hql) throws ServiceException {
+	public List<?> getTaclUserinfoByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -108,7 +108,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclUserinfo() throws ServiceException {
+	public List<?> getAllTaclUserinfo() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTACLUSERINFO_HQL);
 	}
 
@@ -120,7 +120,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 */
 	public TaclUserinfo getTaclUserinfoById(String id) throws ServiceException {
 		TaclUserinfo taclUserinfo = null;
-		List list = baseDAO.getValueObjectsByHQL(TACLUSERINFOById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TACLUSERINFOById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			taclUserinfo = (TaclUserinfo) list.get(0);
@@ -136,7 +136,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoByArray(Object[] filter) throws ServiceException {
+	public List<?> getTaclUserinfoByArray(Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(QUERY_TACLUSERINFO_HQL.toString(),
 				filter);
 	}
@@ -164,7 +164,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoByMap(Map filter) throws ServiceException {
+	public List<?> getTaclUserinfoByMap(Map<String, Object> filter) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TACLUSERINFO_HQL.toString(),
 				filter);
 	}
@@ -180,7 +180,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclUserinfoPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTaclUserinfoPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(QUERY_TACLUSERINFO_HQL.toString(),
 				filter, page_size, pageNo);
@@ -197,9 +197,8 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoPageDataByMap(Map filter, int page_size,
+	public List<?> getTaclUserinfoPageDataByMap(Map<String, Object> filter, int page_size,
 			int pageNo) throws ServiceException {
-		String id = (String) filter.get("id");
 		return baseDAO.getPageDataByHQL(QUERY_TACLUSERINFO_HQL.toString(),
 				filter, page_size, pageNo);
 	}
@@ -212,7 +211,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTaclUserinfoValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(QUERY_TACLUSERINFO_SQL.toString(),
 				filter);
@@ -226,7 +225,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclUserinfoValueObjectByNameQuery(String queryName,
+	public List<?> getTaclUserinfoValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, filter);
 	}
@@ -238,7 +237,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclUserinfoValueObjectByDetachedCriteria(
+	public List<?> getTaclUserinfoValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -250,7 +249,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclUserinfoValueObjectByDetachedCriterias(
+	public List<?> getTaclUserinfoValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,
@@ -272,8 +271,8 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 //		String sql = "select o.operateno,i.moduleno from t_sys_moduleoperate o,(select * from T_ACL_ROLEPRIVILEGE where roleid in (select roleid from t_acl_roleuser where userid=?)) t,t_sys_moduleinfo i where o.moduleid=t.moduleid and o.operateid=t.operateid and i.moduleid = t.moduleid";
 		//String sql = "select o.operateno,i.moduleno from t_sys_moduleoperate o,(select distinct moduleid,operateid from (select moduleid,operateid from t_acl_roleprivilege where roleid in (select roleid from t_acl_roleuser where userid=?) union all select moduleid, operateid from t_acl_userprivilege where userid=?)) t,t_sys_moduleinfo i where o.moduleid=t.moduleid and o.operateid=t.operateid and i.moduleid = t.moduleid order by i.moduleno,o.operateno";
 		//modify by zhujw兼容mysql 、oracle
-		String sql = "select o.operateno,i.moduleno from t_sys_moduleoperate o,(select distinct c.moduleid,c.operateid from (select r.moduleid,r.operateid from t_acl_roleprivilege  r where r.roleid in (select us.roleid from t_acl_roleuser us where us.userid=?) union all select ac.moduleid, ac.operateid from t_acl_userprivilege ac where ac.userid=?) c) t,t_sys_moduleinfo i where o.moduleid=t.moduleid and o.operateid=t.operateid and i.moduleid = t.moduleid order by i.moduleno,o.operateno";
-		List<Object[]> rolePrivileges = baseDAO.getValueObjectBySQL(sql, userId, userId);
+		String sql = "SELECT O.OPERATENO,I.MODULENO FROM T_SYS_MODULEOPERATE O,(SELECT DISTINCT C.MODULEID,C.OPERATEID FROM (SELECT R.MODULEID,R.OPERATEID FROM T_ACL_ROLEPRIVILEGE  R WHERE R.ROLEID IN (SELECT US.ROLEID FROM T_ACL_ROLEUSER US WHERE US.USERID=?) UNION ALL SELECT AC.MODULEID, AC.OPERATEID FROM T_ACL_USERPRIVILEGE AC WHERE AC.USERID=?) C) T,T_SYS_MODULEINFO I WHERE O.MODULEID=T.MODULEID AND O.OPERATEID=T.OPERATEID AND I.MODULEID = T.MODULEID ORDER BY I.MODULENO,O.OPERATENO";
+		List<Object[]> rolePrivileges = (List<Object[]>) baseDAO.getValueObjectBySQL(sql, userId, userId);
 		String moduleno = "";
 		for (Object[] os : rolePrivileges) {
 			Map<String, String> map = null;
@@ -318,18 +317,18 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 			@SuppressWarnings("unchecked")
 			public List<Map<String, Object>> doInHibernate(Session session) throws HibernateException ,SQLException {
 				List<Map<String, Object>> tree = new ArrayList<Map<String, Object>>();
-				String sql = "select distinct f.* from t_sys_flat f,(select distinct moduleid from t_acl_roleprivilege where roleid in (select roleid from t_acl_roleuser where userid=:userId) union all select distinct moduleid from t_acl_userprivilege where userid=:userId) mi, T_sys_moduleinfo m where mi.moduleid=m.moduleid and m.flatid = f.flatid";
+				String sql = "SELECT DISTINCT F.* FROM T_SYS_FLAT F,(SELECT DISTINCT MODULEID FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=:USERID) UNION ALL SELECT DISTINCT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=:USERID) MI, T_SYS_MODULEINFO M WHERE MI.MODULEID=M.MODULEID AND M.FLATID = F.FLATID";
 				List<TsysFlat> flats = session.createSQLQuery(sql)
 						.addEntity(TsysFlat.class)
-						.setString("userId", curUserId).list();
-				sql = "select distinct concat(moduleid,operateid) from t_acl_roleprivilege where roleid in (select roleid from t_acl_roleuser where userid=?) union all select distinct moduleid from t_acl_userprivilege where userid=?";
+						.setString("USERID", curUserId).list();
+				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?) UNION ALL SELECT DISTINCT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
 				//当前用户可用模块
 				Map<String, Object> modules = baseDAO.queryAsMapBySQL(sql, curUserId, curUserId);
 				//已授权角色
-				sql = "select distinct concat(moduleid,operateid) from t_acl_roleprivilege where roleid in (select roleid from t_acl_roleuser where userid=?)";
+				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?)";
 				Map<String, Object> assigned = baseDAO.queryAsMapBySQL(sql, userId);
 				//已授权特权
-				sql = "select distinct concat(moduleid,operateid) from t_acl_userprivilege where userid=?";
+				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
 				Map<String, Object> privileges = baseDAO.queryAsMapBySQL(sql, userId);
 				for (TsysFlat flat : flats) {
 					Map<String, Object> map = new HashMap<String, Object>();
@@ -360,7 +359,6 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 		return JsonUtil.toString(map);
 	}
 	
-	@SuppressWarnings("unchecked")
 	protected void buildModuleTree(TsysModuleinfo info,
 			Map<String, Object> child, Map<String, Object> modules, Map<String, Object> assinged, Map<String, Object> privileges) throws ServiceException {
 		if (modules.get(info.getModuleid()) == null) return;
@@ -448,16 +446,16 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 			public Object doInHibernate(Session arg0) throws HibernateException,
 					SQLException {
 				String hql = "from TaclRoleprivilege where roleid in (select roleid from TaclRoleuser where userid=?)";
-				List<TaclRoleprivilege> assigned = getValueObjectsByHQL(hql, userId);
+				List<TaclRoleprivilege> assigned = (List<TaclRoleprivilege>) getValueObjectsByHQL(hql, userId);
 				hql = "from TaclUserprivilege where userid=?";
-				List<TaclUserprivilege> userpri = getValueObjectsByHQL(hql, userId);
+				List<TaclUserprivilege> userpri = (List<TaclUserprivilege>) getValueObjectsByHQL(hql, userId);
 				for (TaclUserprivilege pri : userpri) {
 					TaclRoleprivilege r = new TaclRoleprivilege();
 					r.setModuleid(pri.getModuleid());
 					r.setOperateid(pri.getOperateid());
 					assigned.add(r);
 				}
-				List<TsysFlat> flats = getValueObjectsByHQL("from TsysFlat order by flatdesc");
+				List<TsysFlat> flats = (List<TsysFlat>) getValueObjectsByHQL("from TsysFlat order by flatdesc");
 				for (TsysFlat flat : flats) {
 					Map<String, Object> map = new HashMap<String, Object>();
 					map.put("id", flat.getFlatid());
@@ -508,7 +506,8 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 			throws ServiceException {
 		String hql = "from TsysDuty d where d.dutyid in " +
 				"(select du.dutyid from TaclDutyuser du where du.userid = ?)";
-		List<TsysDuty> dutySet = getValueObjectsByHQL(hql, userId);
+		@SuppressWarnings("unchecked")
+		List<TsysDuty> dutySet = (List<TsysDuty>) getValueObjectsByHQL(hql, userId);
 		return dutySet; 
 	}
 

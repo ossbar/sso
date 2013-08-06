@@ -23,6 +23,7 @@ public class DateConverter implements Converter {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Object convert(Class arg0, Object value) {
 		try {
 			String dateStr = (String) value;

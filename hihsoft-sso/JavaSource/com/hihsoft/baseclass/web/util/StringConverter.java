@@ -12,6 +12,7 @@ public class StringConverter implements Converter {
 	public StringConverter() {
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Object convert(Class type, Object value) {
 		if (value == null || "".equals(value.toString())) {
 			return (String) null;

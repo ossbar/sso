@@ -21,6 +21,7 @@ import com.hihsoft.baseclass.model.BaseEntity;
 
 public class TaclDutyuser extends BaseEntity {
 	
+	private static final long serialVersionUID = -1461477907187419160L;
 	private java.lang.String dutyuserid;
 	private java.lang.String userid;
 	private java.lang.String dutyid;

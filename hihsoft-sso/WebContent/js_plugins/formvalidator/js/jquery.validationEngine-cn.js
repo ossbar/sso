@@ -140,6 +140,16 @@
 					// speaks by itself
 					"alertTextLoad" : "* 验证中, 请稍后..."
 				},
+				"ajaxOrgnoCall" : {
+					// remote json service location
+					"url" : "tsysOrgController.do?method=testOrgno",
+					// error
+					"alertText" : "* 这个单位编号已被注册",
+					// speaks by itself
+					"alertTextLoad" : "* 验证中, 请稍后...",
+					
+					"alertTextOk" : "* 此单位编号可用"
+				},
 				"validate2fields" : {
 					"alertText" : "* Please input HELLO"
 				},

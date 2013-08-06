@@ -45,7 +45,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysAreacodingByHQL(String hql) throws ServiceException;
+	  public List<?> getTsysAreacodingByHQL(String hql) throws ServiceException;
 	  
 		 /**
 		 * 查询所有的TsysAreacoding信息
@@ -54,7 +54,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysAreacoding() throws ServiceException;
+	  public List<?> getAllTsysAreacoding() throws ServiceException;
 
 	 /**
 		 * 根据主键查询TsysAreacoding信息明细
@@ -71,7 +71,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysAreacodingByHQL(String hql,Object[] object) throws ServiceException;
+	  public List<?> getTsysAreacodingByHQL(String hql,Object[] object) throws ServiceException;
 	  /**
 		 * 取得分页总数
 		 * 
@@ -94,7 +94,7 @@ public interface TsysAreacodingService extends BaseService{
 	 * @throws DataAccessException
 	 */
 
-	    public List getTsysAreacodingPageDataByHQL(String hql, Object[] object, int page_size,
+	    public List<?> getTsysAreacodingPageDataByHQL(String hql, Object[] object, int page_size,
 	                                 int pageNo) throws ServiceException;
 
 	    
@@ -108,7 +108,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysAreacodingPageDataByHQL(String hql, Map obj, int page_size, int pageNo)
+	    public List<?> getTsysAreacodingPageDataByHQL(String hql, Map<String, Object> obj, int page_size, int pageNo)
 	            throws ServiceException;
 
 	    /**
@@ -119,7 +119,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysAreacodingValueObjectBySQL(String sql, Object[] object) throws ServiceException;
+	    public List<?> getTsysAreacodingValueObjectBySQL(String sql, Object[] object) throws ServiceException;
 
 	    
 		/**
@@ -130,7 +130,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysAreacodingValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException;
+		public List<?> getTsysAreacodingValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException;
 		
 		/**
 		 * 动态构造HQL参数
@@ -138,7 +138,7 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysAreacodingValueObjectByDetachedCriteria(
+		public List<?> getTsysAreacodingValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException;
 
 		/**
@@ -147,11 +147,11 @@ public interface TsysAreacodingService extends BaseService{
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysAreacodingValueObjectByDetachedCriterias(
+		public List<?> getTsysAreacodingValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException;
 		
-		public Map saveFillParamMap(String type) throws Exception;
+		public Map<String, Object> saveFillParamMap(String type) throws Exception;
 
 
 }

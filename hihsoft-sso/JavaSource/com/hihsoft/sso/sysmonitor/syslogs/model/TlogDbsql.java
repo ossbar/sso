@@ -21,6 +21,7 @@ import com.hihsoft.baseclass.model.BaseEntity;
 
 public class TlogDbsql extends BaseEntity {
 	
+	private static final long serialVersionUID = 5369926891287444693L;
 	//alias
 	public static final String TABLE_ALIAS = "TlogDbsql";
 	public static final String ALIAS_DATABASE_OID = "databaseOid";

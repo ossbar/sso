@@ -17,10 +17,9 @@ import com.hihsoft.sso.sysmonitor.syslogs.model.TlogLoginlog;
 
 /**
  * <p>
- * Title:记录登录日志
- * Description:
- * Copyright: Copyright (c) 2011
+ * Title:记录登录日志 Description: Copyright: Copyright (c) 2011
  * Company:hihsoft.co.,ltd
+ * 
  * @author hihsoft.co.,ltd
  * @version 1.0
  */
@@ -51,7 +50,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogLoginlogByHQL(String hql) throws ServiceException;
+	public List<?> getTlogLoginlogByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 根据主键查询TlogLoginlog信息明细
@@ -69,7 +68,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTlogLoginlogByHQL(String hql, Object[] object)
+	public List<?> getTlogLoginlogByHQL(String hql, Object[] object)
 			throws ServiceException;
 
 	/**
@@ -95,7 +94,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTlogLoginlogPageDataByHQL(String hql, Object[] object,
+	public List<?> getTlogLoginlogPageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException;
 
 	/**
@@ -109,8 +108,9 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogLoginlogPageDataByHQL(String hql, Map obj,
+	public List<?> getTlogLoginlogPageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException;
+
 	/**
 	 * 利用SQL数组条件来查询记录
 	 * 
@@ -119,7 +119,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogLoginlogValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTlogLoginlogValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException;
 
 	/**
@@ -130,7 +130,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTlogLoginlogValueObjectByNameQuery(String queryName,
+	public List<?> getTlogLoginlogValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException;
 
 	/**
@@ -140,7 +140,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTlogLoginlogValueObjectByDetachedCriteria(
+	public List<?> getTlogLoginlogValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -150,7 +150,7 @@ public interface TlogLoginlogService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTlogLoginlogValueObjectByDetachedCriterias(
+	public List<?> getTlogLoginlogValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 

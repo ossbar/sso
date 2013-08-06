@@ -58,7 +58,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysAreacodingByHQL(String hql) throws ServiceException {
+	public List<?> getTsysAreacodingByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -70,7 +70,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	* @return List
 	* @throws DataAccessException
 	*/
-	public List getAllTsysAreacoding() throws ServiceException {
+	public List<?> getAllTsysAreacoding() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTSYSAREACODING_HQL);
 	}
 
@@ -83,7 +83,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	public TsysAreacoding getTsysAreacodingById(String id)
 			throws ServiceException {
 		TsysAreacoding tsysAreacoding = null;
-		List list = baseDAO.getValueObjectsByHQL(TSYSAREACODINGById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TSYSAREACODINGById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			tsysAreacoding = (TsysAreacoding) list.get(0);
@@ -99,7 +99,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysAreacodingByHQL(String hql, Object[] object)
+	public List<?> getTsysAreacodingByHQL(String hql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql, object);
 	}
@@ -129,7 +129,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	  * @throws DataAccessException
 	*/
 
-	public List getTsysAreacodingPageDataByHQL(String hql, Object[] object,
+	public List<?> getTsysAreacodingPageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, object, page_size, pageNo);
 	}
@@ -144,7 +144,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysAreacodingPageDataByHQL(String hql, Map obj,
+	public List<?> getTsysAreacodingPageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, obj, page_size, pageNo);
 	}
@@ -157,7 +157,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysAreacodingValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTsysAreacodingValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql, object);
 	}
@@ -170,7 +170,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysAreacodingValueObjectByNameQuery(String queryName,
+	public List<?> getTsysAreacodingValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, object);
 	}
@@ -181,7 +181,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysAreacodingValueObjectByDetachedCriteria(
+	public List<?> getTsysAreacodingValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -192,7 +192,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysAreacodingValueObjectByDetachedCriterias(
+	public List<?> getTsysAreacodingValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,
@@ -207,14 +207,14 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 	 * java.lang.String)
 	 */
 	@Override
-	public Map saveFillParamMap(String type) throws Exception {
-		List list = null;
-		Map priviceMap = new HashMap();
+	public Map<String, Object> saveFillParamMap(String type) throws Exception {
+		List<?> list = null;
+		Map<String, Object> priviceMap = new HashMap<String, Object>();
 		TsysAreacoding area = null;
 		String hql = "from TsysAreacoding area";
 		list = baseDAO.getValueObjectsByHQL(hql);
 		if (type != null && type.equalsIgnoreCase(Constant.SYS_AREA_PROVINCE)) {
-			Iterator it = list.iterator();
+			Iterator<?> it = list.iterator();
 			while (it.hasNext()) {
 				area = (TsysAreacoding) it.next();
 				String parent = area.getParentarea();
@@ -227,7 +227,7 @@ public class TsysAreacodingServiceImpl extends BaseServiceImpl implements
 		} else {
 			hql += " where area.parentarea='" + type + "'";
 			list = baseDAO.getValueObjectsByHQL(hql);
-			Iterator it = list.iterator();
+			Iterator<?> it = list.iterator();
 			while (it.hasNext()) {
 				area = (TsysAreacoding) it.next();
 				priviceMap.put(area.getAreacodingid(), area.getAreaname());

@@ -23,6 +23,7 @@ import java.util.*;
 
 public class TsysDuty extends BaseEntity {
 	
+	private static final long serialVersionUID = 3495019892099277653L;
 	//alias
 	public static final String TABLE_ALIAS = "TsysDuty";
 	public static final String ALIAS_DUTYID = "dutyid";
@@ -97,21 +98,21 @@ public class TsysDuty extends BaseEntity {
 		return this.parentDutyid;
 	}
 	
-	private Set taclUserinfos = new HashSet(0);
-	public void setTaclUserinfos(Set taclUserinfo){
+	private Set<TaclUserinfo> taclUserinfos = new HashSet<TaclUserinfo>(0);
+	public void setTaclUserinfos(Set<TaclUserinfo> taclUserinfo){
 		this.taclUserinfos = taclUserinfo;
 	}
 	
-	public Set getTaclUserinfos() {
+	public Set<TaclUserinfo> getTaclUserinfos() {
 		return taclUserinfos;
 	}
 	
-	private Set tsysDutys = new HashSet(0);
-	public void setTsysDutys(Set tsysDuty){
+	private Set<TsysDuty> tsysDutys = new HashSet<TsysDuty>(0);
+	public void setTsysDutys(Set<TsysDuty> tsysDuty){
 		this.tsysDutys = tsysDuty;
 	}
 	
-	public Set getTsysDutys() {
+	public Set<TsysDuty> getTsysDutys() {
 		return tsysDutys;
 	}
 	
@@ -123,6 +124,17 @@ public class TsysDuty extends BaseEntity {
 	
 	public TsysDuty getTsysDuty() {
 		return tsysDuty;
+	}
+
+	private Set<TaclDutyuser> taclDutyusers = new HashSet<TaclDutyuser>(0);
+	
+	
+	public Set<TaclDutyuser> getTaclDutyusers() {
+		return taclDutyusers;
+	}
+
+	public void setTaclDutyusers(Set<TaclDutyuser> taclDutyusers) {
+		this.taclDutyusers = taclDutyusers;
 	}
 
 	public String toString() {
@@ -144,7 +156,7 @@ public class TsysDuty extends BaseEntity {
 	}
 	
 	public boolean equals(Object obj) {
-		if(obj instanceof TsysDuty == false) return false;
+		if(!(obj instanceof TsysDuty)) return false;
 		if(this == obj) return true;
 		TsysDuty other = (TsysDuty)obj;
 		return new EqualsBuilder()

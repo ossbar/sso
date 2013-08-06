@@ -56,24 +56,23 @@ $(function() {
 	<div region="north" split="false" border="false"
 		style="overflow: hidden; height: 73px; font-family: Verdana, 微软雅黑, 黑体">
 		<div class="maintop2">
-			<div class="maintop1"></div>
-			<div style="width: auto; height: 45px; margin: 0; float: right;">
-				<div class="maintop3"></div>
-				<div class="maintop4">
-					<a href="#1" style="text-decoration: none;"><b>控制面板</b></a> | 
-					<a href="#2" id="helper" style="text-decoration: none;"><b>帮助</b></a> | 
-					<a id="changePwd" href="#4" style="text-decoration: none;"><b>修改密码</b></a> | 
-					<a id="logout" href="javascript:void(0)" style="text-decoration: none;"><b>退出</b></a>
-					<div class="bs">
-						<a class="styleswitch a3" style="CURSOR: pointer" title="天蓝色" rel="blue"></a>	
-						<a class="styleswitch a2" style="CURSOR: pointer" title="竹绿色" rel="green"></a> 
-						<a class="styleswitch a4" style="CURSOR: pointer" title="黑灰色" rel="gray"></a>	
-						<a class="styleswitch a5" style="CURSOR: pointer" title="艳红色" rel="pink"></a>		
-					</div>
-				</div>
-				<div class="maintop5"></div>
-			</div>
-		</div>
+    <div class="maintop1"></div>
+    <div style="width:393px; height:45px; margin:0; float:right;">
+        <div class="bs">
+            <a class="styleswitch a3" style="CURSOR: pointer" title="天蓝色" rel="blue"></a>	
+            <a class="styleswitch a2" style="CURSOR: pointer" title="竹绿色" rel="green"></a> 
+            <a class="styleswitch a4" style="CURSOR: pointer" title="黑灰色" rel="gray"></a>	
+            <a class="styleswitch a5" style="CURSOR: pointer" title="艳红色" rel="pink"></a>		
+        </div>
+	<div class="maintop3"></div>
+	<div class="maintop4">
+	    <a href="#1" style="text-decoration: none;"><b>控制面板</b></a> | 
+	    <a href="#2" id="helper" style="text-decoration: none;"><b>帮助</b></a> | 
+            <a id="changePwd" href="#4" style="text-decoration: none;"><b>修改密码</b></a> | 
+            <a id="logout" href="javascript:void(0)" style="text-decoration: none;"><b>退出</b></a>		        </div>
+	<div class="maintop5"></div>
+    </div>
+   </div>
 		<div class="maintop6">
 			<div id="menu"
 				style="width: auto; height: 22px; font-size: 12px; margin: 8px 0 0 8px; display: inline; float: left;">

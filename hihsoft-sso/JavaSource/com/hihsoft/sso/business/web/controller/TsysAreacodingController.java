@@ -45,7 +45,7 @@ public class TsysAreacodingController extends javahihBaseController {
 	@RequestMapping(params="method=list")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
-		List list = tsysAreacodingService.getAllTsysAreacoding();
+		List<?> list = tsysAreacodingService.getAllTsysAreacoding();
 		TsysAreacoding tsysAreacoding = new TsysAreacoding();
 		this.bind(request, tsysAreacoding);
 		request.setAttribute("list", list);

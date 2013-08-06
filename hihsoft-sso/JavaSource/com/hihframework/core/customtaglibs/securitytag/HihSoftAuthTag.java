@@ -35,9 +35,9 @@ public class HihSoftAuthTag extends RequestContextAwareTag {
 	private String id;
 	private String iconCls;
 	
-	private static final String TYPE_BTN = "button";
-	private static final String TYPE_DIVBTN = "divbutton";
-	private static final String TYPE_LINK = "link";
+	static final String TYPE_BTN = "button";
+	static final String TYPE_DIVBTN = "divbutton";
+	static final String TYPE_LINK = "link";
 
 	@Override
 	protected int doStartTagInternal() throws Exception {

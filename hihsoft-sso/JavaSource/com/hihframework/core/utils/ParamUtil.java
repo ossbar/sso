@@ -6,6 +6,7 @@
 package com.hihframework.core.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -133,7 +134,7 @@ public class ParamUtil {
 	public void updateParams() {
 		params.clear();
 		parsed.clear();
-		params.addAll(tsysParameterService.getAllTsysParameter());
+		params.addAll((Collection<? extends TsysParameter>) tsysParameterService.getAllTsysParameter());
 		parseList(params);
 	}
 

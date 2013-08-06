@@ -48,7 +48,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeByHQL(String hql) throws ServiceException;
+	public List<?> getTaclRoleprivilegeByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 查询所有的TaclRoleprivilege信息
@@ -57,7 +57,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclRoleprivilege() throws ServiceException;
+	public List<?> getAllTaclRoleprivilege() throws ServiceException;
 
 	/**
 	 * 根据主键查询TaclRoleprivilege信息明细
@@ -76,7 +76,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeByHQL(String hql, Object[] object)
+	public List<?> getTaclRoleprivilegeByHQL(String hql, Object[] object)
 			throws ServiceException;
 
 	/**
@@ -102,7 +102,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclRoleprivilegePageDataByHQL(String hql, Object[] object,
+	public List<?> getTaclRoleprivilegePageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException;
 
 	/**
@@ -116,7 +116,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegePageDataByHQL(String hql, Map obj,
+	public List<?> getTaclRoleprivilegePageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException;
 
 	/**
@@ -127,7 +127,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTaclRoleprivilegeValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException;
 
 	/**
@@ -138,7 +138,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeValueObjectByNameQuery(String queryName,
+	public List<?> getTaclRoleprivilegeValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException;
 
 	/**
@@ -148,7 +148,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleprivilegeValueObjectByDetachedCriteria(
+	public List<?> getTaclRoleprivilegeValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -158,7 +158,7 @@ public interface TaclRoleprivilegeService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleprivilegeValueObjectByDetachedCriterias(
+	public List<?> getTaclRoleprivilegeValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 

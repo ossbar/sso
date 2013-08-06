@@ -23,6 +23,7 @@ import java.util.*;
 
 public class TsysModuleinfo extends BaseEntity {
 	
+	private static final long serialVersionUID = -7116776576393470756L;
 	//alias
 	public static final String TABLE_ALIAS = "TsysModuleinfo";
 	public static final String ALIAS_MODULEID = "moduleid";
@@ -157,21 +158,21 @@ public class TsysModuleinfo extends BaseEntity {
 		return modulearea;
 	}
 	
-	private Set tsysModuleoperates = new HashSet(0);
-	public void setTsysModuleoperates(Set tsysModuleoperate){
+	private Set<TsysModuleoperate> tsysModuleoperates = new HashSet<TsysModuleoperate>(0);
+	public void setTsysModuleoperates(Set<TsysModuleoperate> tsysModuleoperate){
 		this.tsysModuleoperates = tsysModuleoperate;
 	}
 	
-	public Set getTsysModuleoperates() {
+	public Set<TsysModuleoperate> getTsysModuleoperates() {
 		return tsysModuleoperates;
 	}
 	
-	private Set tsysModuleinfos = new HashSet(0);
-	public void setTsysModuleinfos(Set tsysModuleinfo){
+	private Set<TsysModuleinfo> tsysModuleinfos = new HashSet<TsysModuleinfo>(0);
+	public void setTsysModuleinfos(Set<TsysModuleinfo> tsysModuleinfo){
 		this.tsysModuleinfos = tsysModuleinfo;
 	}
 	
-	public Set getTsysModuleinfos() {
+	public Set<TsysModuleinfo> getTsysModuleinfos() {
 		return tsysModuleinfos;
 	}
 	

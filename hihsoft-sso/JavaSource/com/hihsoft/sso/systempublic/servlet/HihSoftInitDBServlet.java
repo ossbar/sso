@@ -7,9 +7,7 @@ package com.hihsoft.sso.systempublic.servlet;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -21,6 +19,7 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.hihframework.osplugins.dom4j.XmlParseUtil;
@@ -40,6 +39,8 @@ import com.hihsoft.sso.systempublic.constants.Constant;
  */
 public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 		implements javax.servlet.Servlet {
+	private static final long serialVersionUID = -2029458947542555939L;
+
 	private static Logger log = Logger.getLogger(HihSoftInitDBServlet.class
 			.getName());
 
@@ -65,7 +66,6 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 			ctx = WebApplicationContextUtils
 					.getRequiredWebApplicationContext(context);
 		}
-
 		initFrameworkService = (InitFrameworkService) ctx
 				.getBean("initFrameworkService");
 		tsysParameterService = (TsysParameterService) ctx
@@ -73,7 +73,7 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 		tsysAreacodingService = (TsysAreacodingService) ctx
 				.getBean("tsysAreacodingService");
 		// 检察系统是不是第一次启动，如果是把初始化数据加载至数据库
-		// util.getIsFrameworkInitialized(); 2011-03-08 by
+		//util.getIsFrameworkInitialized(); 2011-03-08 by
 		// zhujw:需求变更如果系统已经运行，要初始化其他数据时，不适合，所以去掉此验证
 		try {
 			// 在web.xml文件中读取配置文件路径，可以是xml文件，可以是文件夹，多个文件之间用‘,’分隔
@@ -131,9 +131,10 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 		XmlParseUtil xmlUtil = new XmlParseUtil();
 		Document doc = xmlUtil.readXml(file);
 		Element root = doc.getRootElement();
-		Iterator it = root.elementIterator();
+		Iterator<?> it = root.elementIterator();
 		String path = file.getPath();
-		String dir = path.substring(0, path.lastIndexOf("\\"));
+		String fileseparate=System.getProperty("file.separator");
+		String dir = path.substring(0, path.lastIndexOf(fileseparate));
 		Element el = null;
 		String isLoad = null;
 		String type = null;
@@ -148,7 +149,7 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 			// 如果此节点为"import"节点，当引入的为文件夹时,递归找到xml文件，否则加载文件
 			if (el.getName().equals("import") && isLoad != null
 					&& isLoad.equals("true")) {
-				file1 = new FileSystemResource(dir + "\\" + resource).getFile();
+				file1 = new FileSystemResource(dir + fileseparate + resource).getFile();
 				if (file1.isDirectory()) {
 					readFile(file1);
 				} else {
@@ -182,7 +183,6 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 	 * @param doc
 	 */
 	private void initDB(Document doc) throws Exception {
-		XmlParseUtil xmlUtil = new XmlParseUtil();
 		initFrameworkService.saveSysInitializeFactory(doc);
 	}
 
@@ -192,8 +192,6 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 	 * @throws ServletException
 	 */
 	private void initSysParam() throws ServletException {
-		// 缓存系统参数
-		Map map = new HashMap();
 		try {
 			tsysParameterService.saveFillParamMap(null);
 		} catch (Exception e) {
@@ -236,7 +234,8 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 	 */
 	public static String getAbsolutePath(String RelativePath)
 			throws IOException {
-		return context.getRealPath(RelativePath);
+//		return context.getRealPath(RelativePath);
+		return ResourceUtils.getFile(RelativePath).getAbsolutePath();
 	}
 
 
@@ -250,5 +249,9 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 				// 检查下程序目录下是否有此.xml文件，
 			}
 			return a;
+		}
+		public static void main(String[] args) {
+			String fileseparate=System.getProperty("file.separator");
+			System.out.println(fileseparate);
 		}
 }

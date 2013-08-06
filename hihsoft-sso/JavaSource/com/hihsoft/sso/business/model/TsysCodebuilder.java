@@ -5,13 +5,11 @@
  */
 package com.hihsoft.sso.business.model;
 
-import com.hihsoft.baseclass.model.BaseEntity;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import java.util.*;
+import com.hihsoft.baseclass.model.BaseEntity;
 
 /**
  * <p> Title: </p>
@@ -25,6 +23,7 @@ import java.util.*;
 
 public class TsysCodebuilder extends BaseEntity {
 
+	private static final long serialVersionUID = 8594194256376208981L;
 	// alias
 	public static final String TABLE_ALIAS = "TsysCodebuilder";
 	public static final String ALIAS_CODEID = "codeid";

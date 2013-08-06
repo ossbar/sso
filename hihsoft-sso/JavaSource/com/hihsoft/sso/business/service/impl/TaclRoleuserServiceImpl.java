@@ -57,7 +57,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleuserByHQL(String hql) throws ServiceException {
+	public List<?> getTaclRoleuserByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 	}
 	
@@ -80,7 +80,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclRoleuser() throws ServiceException {
+	public List<?> getAllTaclRoleuser() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTACLROLEUSER_HQL);
 	}
 
@@ -92,7 +92,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 */
 	public TaclRoleuser getTaclRoleuserById(String id) throws ServiceException {
 		TaclRoleuser taclRoleuser = null;
-		List list = baseDAO.getValueObjectsByHQL(TACLROLEUSERById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TACLROLEUSERById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			taclRoleuser = (TaclRoleuser) list.get(0);
@@ -108,7 +108,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleuserByHQL(String hql, Object[] object)
+	public List<?> getTaclRoleuserByHQL(String hql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql, object);
 	}
@@ -138,7 +138,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclRoleuserPageDataByHQL(String hql, Object[] object,
+	public List<?> getTaclRoleuserPageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, object, page_size, pageNo);
 	}
@@ -154,7 +154,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleuserPageDataByHQL(String hql, Map obj,
+	public List<?> getTaclRoleuserPageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, obj, page_size, pageNo);
 	}
@@ -167,7 +167,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleuserValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTaclRoleuserValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql, object);
 	}
@@ -180,7 +180,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleuserValueObjectByNameQuery(String queryName,
+	public List<?> getTaclRoleuserValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, object);
 	}
@@ -192,7 +192,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleuserValueObjectByDetachedCriteria(
+	public List<?> getTaclRoleuserValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -204,7 +204,7 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleuserValueObjectByDetachedCriterias(
+	public List<?> getTaclRoleuserValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,
@@ -215,6 +215,6 @@ public class TaclRoleuserServiceImpl extends BaseServiceImpl implements
 	@Override
 	public List<TaclRole> getDefinedRole(final String userId) {
 		String hql = "from TaclRole t left join fetch t.taclRoleusers r where r.userid=? and t.roleid=r.roleid)";
-		return baseDAO.getValueObjectsByHQL(hql, userId);
+		return (List<TaclRole>) baseDAO.getValueObjectsByHQL(hql, userId);
 	} 
 }

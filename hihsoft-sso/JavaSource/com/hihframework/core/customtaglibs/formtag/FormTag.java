@@ -25,6 +25,7 @@ import com.hihframework.core.utils.StringHelpers;
  * @version 1.0
  */
 public class FormTag extends BodyTagSupport {
+	private static final long serialVersionUID = 8654099979375676520L;
 	private String beanName = null;
 	private String scope = null;
 	private Object bean = null;

@@ -15,6 +15,8 @@ package com.hihframework.osplugins.jxl;
  * @version 1.0
  */
 public class ExcelImportException extends Exception {
+	private static final long serialVersionUID = 6179538138036322023L;
+
 	public ExcelImportException() {
 
 		super();

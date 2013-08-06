@@ -33,17 +33,17 @@ import com.hihsoft.baseclass.service.InitFrameworkService;
 public class InitFrameworkServiceImpl extends BaseServiceImpl implements
 		InitFrameworkService {
 
-	private Map objMap;
+	private Map<String, Object> objMap;
 
 	private XmlParseUtil xmlUtil;
 
-	private Map voMap;
+	private Map<String, Object> voMap;
 
 	// private Document doc;
 	public InitFrameworkServiceImpl() {
 		this.xmlUtil = new XmlParseUtil();
-		this.objMap = new HashMap();
-		this.voMap = new HashMap();
+		this.objMap = new HashMap<String, Object>();
+		this.voMap = new HashMap<String, Object>();
 	}
 
 	/*
@@ -56,7 +56,7 @@ public class InitFrameworkServiceImpl extends BaseServiceImpl implements
 		try {
 			// SysInitializeFactory(doc);
 
-			Map voMap = initialize();
+			Map<String, Object> voMap = initialize();
 			Field[] fields = Consts.class.getDeclaredFields();
 			// 设置全局属性
 			for (int i = 0; i < fields.length; i++) {
@@ -114,16 +114,16 @@ public class InitFrameworkServiceImpl extends BaseServiceImpl implements
 		// 得到根结点
 		Element rootElement = xmlUtil.getRootElement(doc).element("models");
 		// 得到所有model集合
-		List modelList = xmlUtil.elementList(rootElement);
-		Iterator modelIt = modelList.iterator();
+		List<?> modelList = xmlUtil.elementList(rootElement);
+		Iterator<?> modelIt = modelList.iterator();
 		// 得到每一个结点,构建XmlObject对象集合
 		// objMap = new HashMap();
 		while (modelIt.hasNext()) {
 			Element model = (Element) modelIt.next();
 			String modelClass = model.attribute("class").getValue();
 			// 得到每一个对象
-			List objList = xmlUtil.elementList(model);
-			Iterator objIt = objList.iterator();
+			List<?> objList = xmlUtil.elementList(model);
+			Iterator<?> objIt = objList.iterator();
 			while (objIt.hasNext()) {
 				XmlObject xmlObj = new XmlObject();
 				Element object = (Element) objIt.next();
@@ -143,10 +143,10 @@ public class InitFrameworkServiceImpl extends BaseServiceImpl implements
 	}
 
 	// 得到对象的所有属性
-	public Map getPropertys(Element element) throws Exception {
-		List proList = xmlUtil.elementList(element);
-		Iterator proIt = proList.iterator();
-		Map propertyMap = new HashMap();
+	public Map<String, Object> getPropertys(Element element) throws Exception {
+		List<?> proList = xmlUtil.elementList(element);
+		Iterator<?> proIt = proList.iterator();
+		Map<String, Object> propertyMap = new HashMap<String, Object>();
 		while (proIt.hasNext()) {
 			Element proElen = (Element) proIt.next();
 			XmlProperty pro = new XmlProperty();
@@ -173,9 +173,9 @@ public class InitFrameworkServiceImpl extends BaseServiceImpl implements
 	// }
 
 	// 初始化
-	public Map initialize() throws ServiceException {
+	public Map<String, Object> initialize() throws ServiceException {
 		try {
-			Iterator objIt = objMap.keySet().iterator();
+			Iterator<?> objIt = objMap.keySet().iterator();
 			while (objIt.hasNext()) {
 				// 对象标识
 				String objId = (String) objIt.next();
@@ -198,9 +198,9 @@ public class InitFrameworkServiceImpl extends BaseServiceImpl implements
 
 		BeanWrapper bwTb = null;
 		// 对象的全部属性
-		Map proMap = xmlObj.getPropertys();
+		Map<String, Object> proMap = xmlObj.getPropertys();
 		// 动态加载model对象
-		Class objClass = null;
+		Class<?> objClass = null;
 		try {
 			objClass = Class.forName(xmlObj.getModel());
 		} catch (ClassNotFoundException e) {

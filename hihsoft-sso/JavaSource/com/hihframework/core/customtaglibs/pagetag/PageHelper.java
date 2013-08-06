@@ -291,7 +291,7 @@ public class PageHelper {
 			/**
 			 * 以下主要是进行数据填充,将数据填充到模型中
 			 */
-			Map root = new HashMap();
+			Map<String, String> root = new HashMap<String, String>();
 			root.put("total", String.valueOf(total));
 			root.put("page", String.valueOf(page));
 			root.put("allPage", String.valueOf(totalPage));

@@ -297,14 +297,14 @@
 			unique="false" 
 			length="50"/>
 			<property 
-			name="admin" 
-			column="ADMIN" 
+			name="superadmin" 
+			column="SUPERADMIN" 
 			update="true"
             insert="true"
             type="java.lang.String"
 			not-null="false" 
 			unique="false" 
-			length="2"/>
+			length="10"/>
 		
 		<!-- One-To-Many attributes -->
 		

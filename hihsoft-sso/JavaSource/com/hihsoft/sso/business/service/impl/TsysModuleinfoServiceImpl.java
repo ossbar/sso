@@ -53,7 +53,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysModuleinfoByHQL(String hql) throws ServiceException{
+	  public List<?> getTsysModuleinfoByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -64,7 +64,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysModuleinfo() throws ServiceException{
+	  public List<?> getAllTsysModuleinfo() throws ServiceException{
 		  return  baseDAO.getValueObjectsByHQL(ALLTSYSMODULEINFO_HQL);
 	  }
 
@@ -76,7 +76,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 */
 	  public TsysModuleinfo getTsysModuleinfoById(String id) throws ServiceException{
 		  TsysModuleinfo tsysModuleinfo=null;
-		  List list=baseDAO.getValueObjectsByHQL(TSYSMODULEINFOById_HQL,new Object[]{id});
+		  List<?> list=baseDAO.getValueObjectsByHQL(TSYSMODULEINFOById_HQL,new Object[]{id});
 		  if(!list.isEmpty()&&list.size()>0){
 			  tsysModuleinfo=(TsysModuleinfo)list.get(0);
 		  }
@@ -90,7 +90,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysModuleinfoByHQL(String hql,Object[] object) throws ServiceException{
+	  public List<?> getTsysModuleinfoByHQL(String hql,Object[] object) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql,object);
 	  }
 	  /**
@@ -117,7 +117,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 	    * @throws DataAccessException
 	 */
 
-     public List getTsysModuleinfoPageDataByHQL(String hql, Object[] object, int page_size,
+     public List<?> getTsysModuleinfoPageDataByHQL(String hql, Object[] object, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(hql,object,page_size,pageNo);
 }
@@ -133,7 +133,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysModuleinfoPageDataByHQL(String hql, Map obj, int page_size, int pageNo)
+	    public List<?> getTsysModuleinfoPageDataByHQL(String hql, Map<String, Object> obj, int page_size, int pageNo)
 	            throws ServiceException{
 	    	return baseDAO.getPageDataByHQL(hql,obj,page_size,pageNo);
 	    }
@@ -146,7 +146,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysModuleinfoValueObjectBySQL(String sql, Object[] object) throws ServiceException{
+	    public List<?> getTsysModuleinfoValueObjectBySQL(String sql, Object[] object) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(sql,object);
 	    }
 
@@ -159,7 +159,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysModuleinfoValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException{
+		public List<?> getTsysModuleinfoValueObjectByNameQuery(String queryName,Object[] object)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,object);
 		}
 		/**
@@ -168,7 +168,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysModuleinfoValueObjectByDetachedCriteria(
+		public List<?> getTsysModuleinfoValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -179,7 +179,7 @@ public class TsysModuleinfoServiceImpl extends BaseServiceImpl implements TsysMo
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysModuleinfoValueObjectByDetachedCriterias(
+		public List<?> getTsysModuleinfoValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);

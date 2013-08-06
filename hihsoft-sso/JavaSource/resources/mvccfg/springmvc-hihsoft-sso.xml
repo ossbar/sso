@@ -25,9 +25,6 @@
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-
-	<!-- <mvc:view-controller path="/" view-name="redirect:/index"/> -->
-
 	<!-- 使用缓存mvc注解配置 -->
 	<mvc:annotation-driven>
 		<!-- 配置StringHttpMessageConverter当@ResponseBody 时中文正常显示 -->
@@ -60,14 +57,20 @@
 			<value>4096</value>
 		</property>
 	</bean>
-	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
-		<property name="defaultErrorView"> <value>common/error.jsp</value> </property> 
-		<property name="exceptionMappings"> <props> <prop key="java.lang.Exception">common/error.jsp</prop> 
-		<prop key="java.lang.Throwable">common/error.jsp</prop> <prop key="java.io.IOException">common/error.jsp</prop> 
-		<prop key="jave.sql.SQLException">common/error.jsp</prop> </props> </property> 
-		<property name="warnLogCategory" value="WARN"></property> <property name="defaultStatusCode" 
-		value="500"></property> </bean> -->
-	<!--国际化modify by zhujw一次性加载多个属性配置文件 -->
+	 <!-- 异常处理类 -->
+<bean id="exceptionHandler" class="com.hihframework.exception.HihSoftHandlerException" />
+<!-- 系统错误转发配置[并记录错误日志]   -->
+<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<property name="defaultErrorView" value="500"></property>   <!-- 默认为500，系统错误(error.jsp)  -->
+<property name="defaultStatusCode" value="404"></property>
+<property name="statusCodes"><!-- 配置多个statusCode -->
+  <props>    
+      <prop key="error">500</prop>  <!-- error.jsp -->
+      <prop key="error1">404</prop>    <!-- error1.jsp -->
+  </props>    
+</property>
+</bean>
+<!--国际化modify by zhujw一次性加载多个属性配置文件 -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
@@ -89,20 +92,5 @@
 	</bean>
 	<!-- 面向写业务日志的拦截器AOP <bean id="businessLoggerInterceptor" class="com.framework.syslogs.aop.BusinessLoggerInterceptor"> 
 		</bean> -->
-	<!-- 启用基于注解的处理器映射，添加拦截器，类级别的处理器映射 -->
-	<mvc:annotation-driven />
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**/*.do" />
-			<mvc:exclude-mapping path="/" />
-			<mvc:exclude-mapping path="/**/tsysLoginController.do" />
-			<bean id="sessionInterceptor"
-				class="com.hihsoft.sso.sysmonitor.syswatch.session.SessionInterceptor">
-				<property name="redirectTo" value="tsysLoginController.do?method=login"></property>
-			</bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
-
-	<!-- 使用默认的servlet handler -->
 	<mvc:default-servlet-handler />
 </beans>

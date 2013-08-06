@@ -440,8 +440,8 @@ public class javahihBaseController extends BaseController {
 	 *            the request
 	 * @return the map
 	 */
-	protected Map referenceData(final HttpServletRequest request) {
-		final Map model = new HashMap();
+	protected Map<String, Object> referenceData(final HttpServletRequest request) {
+		final Map<String, Object> model = new HashMap<String, Object>();
 		referenceData(request, model);
 		return model;
 	}
@@ -455,7 +455,7 @@ public class javahihBaseController extends BaseController {
 	 *            the model
 	 */
 	protected void referenceData(final HttpServletRequest request,
-			final Map model) {
+			final Map<String, Object> model) {
 		//ConfigLoader.listenForChanges();
 	}
 
@@ -505,7 +505,6 @@ public class javahihBaseController extends BaseController {
 		try {
 			result = super.bindObject(request, command);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (command instanceof AuditableEntity) {
@@ -724,9 +723,10 @@ public class javahihBaseController extends BaseController {
 	 * @author Xiaob
 	 * @since 2011-8-15
 	 * */
+	@SuppressWarnings("unchecked")
 	public Map<String , TsysDuty> getAllDuty(){
 		TsysDutyService dutysvc = (TsysDutyService) getApplicationContext().getBean("tsysDutyService");
-		List<TsysDuty> alldety = dutysvc.getAllTsysDuty();
+		List<TsysDuty> alldety = (List<TsysDuty>) dutysvc.getAllTsysDuty();
 		Map<String , TsysDuty> detys = new HashMap<String, TsysDuty>();
 		for (TsysDuty o : alldety) {
 			TsysDuty duty = o;
@@ -745,7 +745,7 @@ public class javahihBaseController extends BaseController {
 	@SuppressWarnings("unchecked")
 	public Map<String, TsysOrg> getAllOrgs() {
 		TsysOrgService orgsvc = (TsysOrgService) getApplicationContext().getBean("tsysOrgService");
-		List<TsysOrg> allorgs = orgsvc.getAllTsysOrg();
+		List<TsysOrg> allorgs = (List<TsysOrg>) orgsvc.getAllTsysOrg();
 		Map<String, TsysOrg> orgs = new HashMap<String, TsysOrg>();
 		for (Object o : allorgs) {
 			TsysOrg org = (TsysOrg) o;
@@ -763,7 +763,7 @@ public class javahihBaseController extends BaseController {
 	@SuppressWarnings("unchecked")
 	public Map<String, TaclUserinfo> getAllUsers() {
 		TaclUserinfoService usersvc = (TaclUserinfoService) getApplicationContext().getBean("taclUserinfoService");
-		List<TaclUserinfo> allusers = usersvc.getAllTaclUserinfo();
+		List<TaclUserinfo> allusers = (List<TaclUserinfo>) usersvc.getAllTaclUserinfo();
 		Map<String, TaclUserinfo> users = new HashMap<String, TaclUserinfo>();
 		for (Object o : allusers) {
 			TaclUserinfo user = (TaclUserinfo) o;
@@ -854,10 +854,8 @@ public class javahihBaseController extends BaseController {
 						try {
 							setter = o.getClass().getDeclaredMethod("set" + mname, String.class);
 						} catch (SecurityException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (NoSuchMethodException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
@@ -865,10 +863,8 @@ public class javahihBaseController extends BaseController {
 						try {
 							getter = o.getClass().getDeclaredMethod("get" + mname);
 						} catch (SecurityException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (NoSuchMethodException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
@@ -877,13 +873,10 @@ public class javahihBaseController extends BaseController {
 						try {
 							t = (T) source.get(getter.invoke(o));
 						} catch (IllegalArgumentException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (IllegalAccessException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (InvocationTargetException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						String m = StringHelpers.fistCapital(sourceField);
@@ -892,23 +885,18 @@ public class javahihBaseController extends BaseController {
 							try {
 								gt = t.getClass().getDeclaredMethod("get" + m);
 							} catch (SecurityException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							} catch (NoSuchMethodException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							if (gt != null)
 								try {
 									setter.invoke(o, gt.invoke(t));
 								} catch (IllegalArgumentException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (IllegalAccessException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (InvocationTargetException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 						}
@@ -983,7 +971,6 @@ public class javahihBaseController extends BaseController {
 	@RequestMapping(params="method=getAllUserToJson")
 	public void getAllUserToJson(HttpServletRequest request, HttpServletResponse response) {
 		String hql = "from TaclUserinfo where 1=1 ";
-		String full = getParam(request, "full");
 		Map<String, Object> map = WebUtils.getParametersStartingWith(request, "filter_");
 		for (Iterator<String> it = map.keySet().iterator();it.hasNext();) {
 			String key = it.next();
@@ -1100,8 +1087,8 @@ public class javahihBaseController extends BaseController {
 	@RequestMapping(params="method=getDutyTree")
 	public void getDutyTree(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
-		String dutyId = getParam(request, "dutyId");
-		List<Map<String,Object>> tree = baseService.getDutyTree(dutyId);
+		String userId = getParam(request, "userId");
+		List<Map<String,Object>> tree = baseService.getDutyTree(userId);
 		renderJson(response, JsonUtil.toString(tree));
 	}
 }

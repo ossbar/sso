@@ -6,7 +6,6 @@
 package com.hihsoft.sso.business.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -59,7 +58,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterByHQL(String hql) throws ServiceException {
+	public List<?> getTsysParameterByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -71,7 +70,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	* @return List
 	* @throws DataAccessException
 	*/
-	public List getAllTsysParameter() throws ServiceException {
+	public List<?> getAllTsysParameter() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTSYSPARAMETER_HQL);
 	}
 
@@ -84,7 +83,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	public TsysParameter getTsysParameterById(String id)
 			throws ServiceException {
 		TsysParameter tsysParameter = null;
-		List list = baseDAO.getValueObjectsByHQL(TSYSPARAMETERById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TSYSPARAMETERById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			tsysParameter = (TsysParameter) list.get(0);
@@ -100,7 +99,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterByHQL(String hql, Object[] object)
+	public List<?> getTsysParameterByHQL(String hql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql, object);
 	}
@@ -130,7 +129,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	  * @throws DataAccessException
 	*/
 
-	public List getTsysParameterPageDataByHQL(String hql, Object[] object,
+	public List<?> getTsysParameterPageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, object, page_size, pageNo);
 	}
@@ -145,7 +144,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterPageDataByHQL(String hql, Map obj,
+	public List<?> getTsysParameterPageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, obj, page_size, pageNo);
 	}
@@ -158,7 +157,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTsysParameterValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql, object);
 	}
@@ -171,7 +170,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterValueObjectByNameQuery(String queryName,
+	public List<?> getTsysParameterValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, object);
 	}
@@ -182,7 +181,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysParameterValueObjectByDetachedCriteria(
+	public List<?> getTsysParameterValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -193,23 +192,21 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysParameterValueObjectByDetachedCriterias(
+	public List<?> getTsysParameterValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,
 				arg1, arg2);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void saveFillParamMap(String paraType) throws ServiceException {
-		List list = null;
-		List paramList = null;
+		List<?> list = null;
+		List<TsysParameter> paramList = null;
 		String type = null;
 		Object[] obj = getTsysParameterHql(new Object[] { "", "", "", "" });
 		StringBuffer paramHql = (StringBuffer) obj[0];
-		if (Constant.paramMap == null) {
-			Constant.paramMap = new HashMap();
-		}
 		if (paraType != null && !paraType.trim().equals("")) {
 			paramHql.append(" and param.paraType = ?");
 
@@ -220,12 +217,12 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 			}
 		} else {
 			list = baseDAO.getValueObjectsByHQL(paramHql.toString());
-			Iterator it = list.iterator();
+			Iterator<?> it = list.iterator();
 			while (it.hasNext()) {
 				TsysParameter param = (TsysParameter) it.next();
 				type = param.getParaType();
 				if (Constant.paramMap.containsKey(type)) {
-					paramList = (List) Constant.paramMap.get(type);
+					paramList = (List<TsysParameter>) Constant.paramMap.get(type);
 				} else {
 					paramList = new ArrayList<TsysParameter>();
 					Constant.paramMap.put(type, paramList);
@@ -243,7 +240,7 @@ public class TsysParameterServiceImpl extends BaseServiceImpl implements
 		String paraClass = (String) object[3];
 		StringBuffer paramHql = new StringBuffer(
 				"from TsysParameter param where 1=1");
-		List paramList = new ArrayList();
+		List<String> paramList = new ArrayList<String>();
 		if (paraname != null && !paraname.trim().equals("")) {
 			paramHql.append(" and param.paraname like ?");
 			paramList.add("%" + paraname + "%");

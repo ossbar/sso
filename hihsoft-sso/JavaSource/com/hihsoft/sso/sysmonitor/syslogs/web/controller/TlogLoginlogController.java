@@ -77,12 +77,11 @@ public class TlogLoginlogController extends javahihBaseController {
 		this.bind(request, tlogLoginlog);
 		String pageSize = getParam(request, "rows");
 		String pageNo = getParam(request, "page");
-		String orders = getParam(request, "orders");
 		if (pageSize == null)
 			pageSize = "10";
 		if (pageNo == null)
 			pageNo = "1";
-		List list = tlogLoginlogService.getPageDataBySQL(TlogLoginlog.class,
+		List<TlogLoginlog> list = tlogLoginlogService.getPageDataBySQL(TlogLoginlog.class,
 				sql, Integer.parseInt(pageSize), Integer.parseInt(pageNo));
 		int total = tlogLoginlogService.getTotalNumBySQL(sql);
 		int rows = Integer.parseInt(pageSize);

@@ -27,6 +27,7 @@ import com.hihsoft.sso.business.model.TsysOrg;
 
 public class TlogBusinesslog extends BaseEntity {
 
+	private static final long serialVersionUID = -4301098141844290577L;
 	// alias
 	public static final String TABLE_ALIAS = "TlogBusinesslog";
 	public static final String ALIAS_LOGID = "logid";

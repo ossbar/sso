@@ -52,7 +52,6 @@ public ModelAndView list(HttpServletRequest request,
 		HttpServletResponse response) throws ControllerException {
 	ModelAndView mv = new ModelAndView("businesslog/tlogbusinessloglist");
 		String sql = "select logid, create_date, custip, m.modulename as moduleid, p.operatename as operateid, o.orgname as orgid, u.username as userid from t_log_businesslog l,t_sys_moduleinfo m,t_Sys_Moduleoperate p,t_acl_userinfo u,t_sys_org o where l.moduleid=m.moduleid and l.operateid=p.operateid and l.orgid=o.orgid and l.userid=u.userid";
-	TlogBusinesslog tlogbusinesslog = new TlogBusinesslog();
 	Map<String, Object> filter = WebUtils.getParametersStartingWith(
 			request, "srh_");// 得到查询条件
 	String userid = (String) filter.get("userid");
@@ -76,12 +75,11 @@ public ModelAndView list(HttpServletRequest request,
 	}
 	String pageSize = getParam(request, "rows");
 	String pageNo = getParam(request, "page");
-	String orders = getParam(request, "orders");
 	if (pageSize == null)
 		pageSize = "10";
 	if (pageNo == null)
 		pageNo = "1";
-	List list = tlogBusinesslogService.getPageDataBySQL(TlogBusinesslog.class,
+	List<TlogBusinesslog> list = tlogBusinesslogService.getPageDataBySQL(TlogBusinesslog.class,
 			sql, Integer.parseInt(pageSize), Integer.parseInt(pageNo));
 	int total = tlogBusinesslogService.getTotalNumBySQL(sql);
 	int rows = Integer.parseInt(pageSize);

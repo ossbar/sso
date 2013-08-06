@@ -48,7 +48,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateByHQL(String hql) throws ServiceException;
+	public List<?> getTsysModuleoperateByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 查询所有的TsysModuleoperate信息
@@ -57,7 +57,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTsysModuleoperate() throws ServiceException;
+	public List<?> getAllTsysModuleoperate() throws ServiceException;
 
 	/**
 	 * 根据主键查询TsysModuleoperate信息明细
@@ -76,7 +76,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateByHQL(String hql, Object... object)
+	public List<?> getTsysModuleoperateByHQL(String hql, Object... object)
 			throws ServiceException;
 
 	/**
@@ -102,7 +102,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTsysModuleoperatePageDataByHQL(String hql, Object object, int page_size, int pageNo) throws ServiceException;
+	public List<?> getTsysModuleoperatePageDataByHQL(String hql, Object object, int page_size, int pageNo) throws ServiceException;
 
 	/**
 	 * 分页查询。
@@ -115,7 +115,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperatePageDataByHQL(String hql, Map<String, Object> obj,
+	public List<?> getTsysModuleoperatePageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException;
 
 	/**
@@ -126,7 +126,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateValueObjectBySQL(String sql, Object... object)
+	public List<?> getTsysModuleoperateValueObjectBySQL(String sql, Object... object)
 			throws ServiceException;
 
 	/**
@@ -137,7 +137,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateValueObjectByNameQuery(String queryName
+	public List<?> getTsysModuleoperateValueObjectByNameQuery(String queryName
 			, Object... object) throws ServiceException;
 
 	/**
@@ -147,7 +147,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysModuleoperateValueObjectByDetachedCriteria(
+	public List<?> getTsysModuleoperateValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -157,7 +157,7 @@ public interface TsysModuleoperateService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysModuleoperateValueObjectByDetachedCriterias(
+	public List<?> getTsysModuleoperateValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 }

@@ -112,11 +112,11 @@
 			<hih:table items="${list}" var="item">
 				<hih:column field="paraid" checkbox="true"/>
 				<hih:column field="isdefault" header="tsysparameter.isdefault" width="120">${item.isdefault eq "1" ? "是": item.isdefault}</hih:column>
-				<hih:column field="paraname" header="tsysparameter.paraname" width="120"/>
+				<hih:column field="paraname" header="tsysparameter.paraname" width="220"/>
 				<hih:column field="parano" header="tsysparameter.parano" width="120"/>
 				<hih:column field="paraClass" header="tsysparameter.paraclass" width="120">${item.paraClass eq "1" ? "自定义级":"系统级"}</hih:column>
-				<hih:column field="paraKey" header="tsysparameter.parakey" width="120"/>
-				<hih:column field="paraType" header="tsysparameter.paratype" width="120"/>
+				<hih:column field="paraKey" header="tsysparameter.parakey" width="220"/>
+				<hih:column field="paraType" header="tsysparameter.paratype" width="220"/>
 				<hih:column field="paraOrder" header="tsysparameter.paraorder" width="120"/>
 			</hih:table>
 		</div>

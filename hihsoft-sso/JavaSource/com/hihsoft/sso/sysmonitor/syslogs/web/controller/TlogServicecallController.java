@@ -46,7 +46,7 @@ private TlogServicecallService tlogServicecallService;
 public ModelAndView list(HttpServletRequest request,
 		HttpServletResponse response) throws ControllerException {
 	String hql="";
-	List list = tlogServicecallService.getTlogServicecallByHQL(hql);
+	List<?> list = tlogServicecallService.getTlogServicecallByHQL(hql);
 	TlogServicecall tlogServicecall=new TlogServicecall();
     this.bind(request,tlogServicecall);
 	request.setAttribute("list", list);

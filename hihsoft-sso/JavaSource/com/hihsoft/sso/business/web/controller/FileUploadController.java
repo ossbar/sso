@@ -79,7 +79,7 @@ public class FileUploadController extends javahihBaseController {
 			hql += " order by " + orders;
 		addOrders(request, orders);
 		List<TsysUpload> list = calcPage(request, tsysUploadService, hql);
-		List<TsysFlat> flats = tsysFlatService.getAllTsysFlat();
+		List<TsysFlat> flats = (List<TsysFlat>) tsysFlatService.getAllTsysFlat();
 		for (TsysUpload up : list) {
 			String curflat = up.getFlatid();
 			if (StringHelpers.isNull(curflat)) continue;
@@ -219,7 +219,7 @@ public class FileUploadController extends javahihBaseController {
 		String idStr = getParam(request, "ids");
 		String[] ids = idStr.split(",");
 		String hql = "from TsysUpload where uploadid in ("+StringHelpers.join(ids, ",", "'")+")";
-		List<TsysUpload> list = tsysUploadService.getTsysUploadByHQL(hql);
+		List<TsysUpload> list = (List<TsysUpload>) tsysUploadService.getTsysUploadByHQL(hql);
 		mv.addObject("files", list);
 		mv.addObject("flats", tsysFlatService.getAllTsysFlat());
 		mv.addObject("count", list.size());

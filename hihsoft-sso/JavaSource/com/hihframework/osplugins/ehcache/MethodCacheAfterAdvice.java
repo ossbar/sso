@@ -43,7 +43,7 @@ public class MethodCacheAfterAdvice implements AfterReturningAdvice,
 
 	public void afterReturning(Object returnValue, Method method,
 			Object[] args, Object target) throws Throwable {
-		for (Iterator itr = cache.getKeys().iterator(); itr.hasNext();) {
+		for (Iterator<?> itr = cache.getKeys().iterator(); itr.hasNext();) {
 			Serializable key = (Serializable) itr.next();
 			logger.info("得到要清除缓存的方法－－－－－!" + method.getName());
 			// if(key.toString()..contains(target.getClass().getName())){

@@ -54,7 +54,7 @@ public class TaclRoleprivilegeController extends javahihBaseController {
 		if (notNull) {
 			hql += "and roleid='" + roleId + "'";
 		}
-		List rolelist = taclRoleService.getTaclRoleByHQL(hql);
+		List<?> rolelist = taclRoleService.getTaclRoleByHQL(hql);
 		request.setAttribute("rolelist", rolelist);
 		return new ModelAndView("/roleprivilege/taclroleprivilegelist");
 	}

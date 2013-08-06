@@ -40,7 +40,7 @@ public interface BaseService
 	 * @param dataList：LIST对象
 	 * @throws ServiceException
 	 */
-	public void saveOrUpdateBatchVO(List dataList) throws ServiceException;
+	public void saveOrUpdateBatchVO(List<?> dataList) throws ServiceException;
 
 	/**
 	 * 删除对象
@@ -56,7 +56,7 @@ public interface BaseService
 	 * @param dataList
 	 * @throws ServiceException
 	 */
-	public void deleteBatchVO(List dataList) throws ServiceException;
+	public void deleteBatchVO(List<?> dataList) throws ServiceException;
 
 	/**
 	 * 通过字符串型主键来加载子类对象
@@ -68,7 +68,7 @@ public interface BaseService
 	 */
 	public BaseEntity getVO(BaseEntity vo, String id) throws ServiceException;
 
-	public BaseEntity getVO(BaseEntity vo) throws ServiceException;
+	public List<? extends BaseEntity> getVO(BaseEntity vo) throws ServiceException;
 
 	/**
 	 * 通用的通过ＨＱＬ来查询列表
@@ -77,7 +77,7 @@ public interface BaseService
 	 * @return List
 	 * @throws ServiceException
 	 */
-	public List getValueObjectsByHQL(String hql) throws ServiceException;
+	public List<?> getValueObjectsByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 通过数组来构造查询条件，解决复杂查询
@@ -87,7 +87,7 @@ public interface BaseService
 	 * @return list
 	 * @throws ServiceException
 	 */
-	public List getValueObjectsByHQL(String hql, Object... filter) throws ServiceException;
+	public List<?> getValueObjectsByHQL(String hql, Object... filter) throws ServiceException;
 
 	/**
 	 * 取得页总数
@@ -140,7 +140,7 @@ public interface BaseService
 	 */
 	public int getTotalNumBySQL(String sql, Object... args) throws ServiceException;
 
-	public List getPageDataByHQL(String hql, int page_size, int pageNo, Object... object) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo, Object... object) throws ServiceException;
 
 	/**
 	 * @param hql：HQL
@@ -149,7 +149,7 @@ public interface BaseService
 	 * @throws ServiceException
 	 */
 
-	public List getPageDataByHQL(String hql, Map<String, Object> filter) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, Map<String, Object> filter) throws ServiceException;
 
 	/**
 	 * 根据HQL得出分页列表
@@ -160,7 +160,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getPageDataByHQL(String hql, int page_size, int pageNo) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo) throws ServiceException;
 
 	/**
 	 * @param hql
@@ -170,7 +170,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getPageDataByHQL(String hql, String arg1, int page_size, int pageNo) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, String arg1, int page_size, int pageNo) throws ServiceException;
 
 	/**
 	 * @param hql
@@ -180,7 +180,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getPageDataByHQL(String hql, Object obj, int page_size, int pageNo) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, Object obj, int page_size, int pageNo) throws ServiceException;
 
 	/**
 	 * @param hql
@@ -190,7 +190,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getPageDataByHQL(String hql, Map<String, Object> filter, int page_size, int pageNo) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, Map<String, Object> filter, int page_size, int pageNo) throws ServiceException;
 
 	/**
 	 * @param hql
@@ -200,7 +200,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getPageDataByHQL(String hql, int page_size, int pageNo, int total_num) throws ServiceException;
+	public List<?> getPageDataByHQL(String hql, int page_size, int pageNo, int total_num) throws ServiceException;
 	/**
 	 * 按SQL分页
 	 * @param sql
@@ -219,7 +219,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getValueObjectBySQL(String sql) throws ServiceException;
+	public List<?> getValueObjectBySQL(String sql) throws ServiceException;
 
 	/**
 	 * 利用SQL数组条件来查询记录
@@ -229,7 +229,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getValueObjectBySQL(String sql, Object... filter) throws ServiceException;
+	public List<?> getValueObjectBySQL(String sql, Object... filter) throws ServiceException;
 
 	/**
 	 * 通过存储过程来查询
@@ -238,7 +238,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getValueObjectByNameQuery(String queryName) throws ServiceException;
+	public List<?> getValueObjectByNameQuery(String queryName) throws ServiceException;
 
 	/**
 	 * 通过存储过程来查询带单个参数
@@ -248,7 +248,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getValueObjectByNameQuery(String queryName, Object object) throws ServiceException;
+	public List<?> getValueObjectByNameQuery(String queryName, Object object) throws ServiceException;
 
 	/**
 	 * 通过存储过程来查询带多个参数的情况
@@ -258,7 +258,7 @@ public interface BaseService
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getValueObjectByNameQuery(String queryName, Object... filter) throws ServiceException;
+	public List<?> getValueObjectByNameQuery(String queryName, Object... filter) throws ServiceException;
 
 	/**
 	 * Gets the now time stamp.
@@ -423,13 +423,13 @@ public interface BaseService
 	public Integer executeSQL(final String sql, final Object... args) throws ServiceException;
 	/**
 	 * 获取岗位树
-	 * @param dutyId 如果该参数为空，则取所有岗位，否则取其子岗位和其本身
+	 * @param userId 如果该参数为空，则取所有岗位，否则取该用户的岗位
 	 * @return
 	 * @throws ServiceException
 	 * @author xjf721
 	 * @since 2011-11-29
 	 */
-	public List<Map<String, Object>> getDutyTree(String dutyId) throws ServiceException;
+	public List<Map<String, Object>> getDutyTree(String userId) throws ServiceException;
 	/**
 	 * 按照授权显示机构树
 	 * @param userId

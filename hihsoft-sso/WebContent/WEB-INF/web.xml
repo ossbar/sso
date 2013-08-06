@@ -11,7 +11,7 @@
 	</context-param>
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/log4j.xml</param-value>
+		<param-value>classpath:log4j.xml</param-value>
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -22,7 +22,7 @@
 	<context-param>
 		<param-name>hihSoftConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/classes/resources/hihsoftcfg/hihsoft-initdb-base.xml
+			classpath:resources/hihsoftcfg/hihsoft-initdb-base.xml
 		</param-value>
 	</context-param>
 	<context-param>
@@ -110,19 +110,21 @@
 	<listener>
 		<listener-class>com.hihsoft.sso.sysmonitor.syswatch.session.HihSoftSessionListener</listener-class>
 	</listener>
-	<!-- 错误页面配置-开始 
-	<error-page>
-		<error-code>500</error-code>
-		<location>/common/error.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/common/404.jsp</location>
-	</error-page>-->
-	<!-- 错误页面配置-结束 -->
-
+<!-- 错误 页面配置 -->
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/WEB-INF/jsp/common/500.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/jsp/common/500.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/jsp/common/404.jsp</location>
+  </error-page>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
 	</welcome-file-list>
 	<jsp-config>
 		<taglib>

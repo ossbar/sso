@@ -508,7 +508,7 @@ public class DateUtils {
 					: startDate;
 			Date end = (startDate.getTime() < endDate.getTime()) ? endDate
 					: startDate;
-			java.util.Vector v = new java.util.Vector();
+			java.util.Vector<Object> v = new java.util.Vector<Object>();
 
 			// 计算开始日期的月份
 			cal.setTime(new java.util.Date(start.getTime()));
@@ -814,9 +814,9 @@ public class DateUtils {
 	}
 
 	// *2*3*4*--->Collection (2,3,4)
-	public static Collection getColString(String str, String str1) {
+	public static Collection<String> getColString(String str, String str1) {
 		if ((str != null) && (str.length() > 2)) {
-			Collection col = new ArrayList();
+			Collection<String> col = new ArrayList<String>();
 			int len = str.length();
 
 			while (len > 2) {
@@ -835,14 +835,14 @@ public class DateUtils {
 		return null;
 	}
 
-	public static Collection getAllYearForDay(String yy, String mm,
-			Collection incol, int start, int len, String op) {
-		Collection col = null;
+	public static Collection<String> getAllYearForDay(String yy, String mm,
+			Collection<String> incol, int start, int len, String op) {
+		Collection<String> col = null;
 
 		if ((incol != null) && (incol.size() > 0)) {
-			col = new java.util.ArrayList();
+			col = new java.util.ArrayList<String>();
 
-			java.util.Iterator it = incol.iterator();
+			java.util.Iterator<String> it = incol.iterator();
 
 			while (it.hasNext()) {
 				String whichday = (String) it.next();
@@ -909,17 +909,17 @@ public class DateUtils {
 		return getDateDays(newdate) - getDateDays(olddate);
 	}
 
-	public static Collection getAllWeekForDay(String yy, String mm,
-			Collection incol, int start, int len) {
-		Collection col = null;
+	public static Collection<Object> getAllWeekForDay(String yy, String mm,
+			Collection<String> incol, int start, int len) {
+		Collection<Object> col = null;
 		String max = "2010-12-31";
 		long lMax = toDate(max).getTime();
 		long span = 7 * 24 * 60 * 60 * 1000;
 
 		if ((incol != null) && (incol.size() > 0)) {
-			col = new ArrayList();
+			col = new ArrayList<Object>();
 
-			java.util.Iterator weekit = incol.iterator();
+			java.util.Iterator<String> weekit = incol.iterator();
 
 			while (weekit.hasNext()) {
 				String strDay = (String) weekit.next();
@@ -1059,6 +1059,7 @@ public class DateUtils {
 
 	// 如果当前日期大于15号就取下个月一号，否则取本月一号
 	public static Date getFirstDateByDate(Date date) {
+		@SuppressWarnings("deprecation")
 		int curday = DateUtils.getNowDate().getDate();
 		if (curday > 15)
 			return getNextMonthFirstDate(date);

@@ -21,6 +21,7 @@ import com.hihsoft.baseclass.model.BaseEntity;
 
 public class TsysModuleoperate extends BaseEntity {
 	
+	private static final long serialVersionUID = -5807201266230537336L;
 	//alias
 	public static final String TABLE_ALIAS = "TsysModuleoperate";
 	public static final String ALIAS_OPERATEID = "operateid";

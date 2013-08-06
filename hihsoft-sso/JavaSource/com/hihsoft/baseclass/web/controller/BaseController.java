@@ -136,7 +136,8 @@ public abstract class BaseController extends MultiActionController {
 	 */
 	protected static void saveMessage(HttpServletRequest request, String message) {
 		if (StringUtils.isNotBlank(message)) {
-			List list = getOrCreateRequestAttribute(request, "springMessages",
+			@SuppressWarnings("unchecked")
+			List<String> list = getOrCreateRequestAttribute(request, "springMessages",
 					ArrayList.class);
 			list.add(message);
 		}
@@ -147,7 +148,8 @@ public abstract class BaseController extends MultiActionController {
 	 */
 	protected static void saveError(HttpServletRequest request, String errorMsg) {
 		if (StringUtils.isNotBlank(errorMsg)) {
-			List list = getOrCreateRequestAttribute(request, "springErrors",
+			@SuppressWarnings("unchecked")
+			List<String> list = getOrCreateRequestAttribute(request, "springErrors",
 					ArrayList.class);
 			list.add(errorMsg);
 		}
@@ -156,7 +158,8 @@ public abstract class BaseController extends MultiActionController {
 	protected void saveParameter(final HttpServletRequest request,
 			final String name, final Object value) {
 		if (StringUtils.isNotBlank(name)) {
-			final Map messages = (Map) WebUtils.getOrCreateSessionAttribute(
+			@SuppressWarnings("unchecked")
+			final Map<String, Object> messages = (Map<String, Object>) WebUtils.getOrCreateSessionAttribute(
 					request.getSession(), "parameters", HashMap.class);
 			messages.put(name, value);
 		}
@@ -166,7 +169,6 @@ public abstract class BaseController extends MultiActionController {
 	 * 数据交换：待验证此方法的正确性(xiaojf发现说有问题)
 	 */
 	@Override
-	@Deprecated
 	protected void bind(final HttpServletRequest request, final Object command) {
 		final PropertyDescriptor[] pds = BeanUtils
 				.getPropertyDescriptors(command.getClass());
@@ -615,7 +617,7 @@ public abstract class BaseController extends MultiActionController {
 		request.setAttribute("page", page);
 		request.setAttribute("pages", pages);
 		@SuppressWarnings("unchecked")
-		List<T> list = service.getPageDataByHQL(hql,Integer.parseInt(pageSize), Integer.parseInt(pageNo), params);
+		List<T> list = (List<T>) service.getPageDataByHQL(hql,Integer.parseInt(pageSize), Integer.parseInt(pageNo), params);
 		return list;
 	}
 	

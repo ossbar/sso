@@ -23,41 +23,23 @@ $(function(){
 	<input type="hidden" name="orgid" value="${orgid}">
 	<div id="grid-container" fit="true" align="center" border="false">
 		<div id="grid-body" class="grid-body" region="center" border="false" align="left">
-			<table class="data-grid" cellspacing="0" cellpadding="0">
-				<thead>
-					<tr class="data-grid-header">
-						<th width="35"><input type="checkbox" id="selectAll" /></th>
-						<th width="120"><fmt:message key="tacluserinfo.loginname" /></th>
-						<th width="120"><fmt:message key="tacluserinfo.username" /></th>
-						<th width="60"><fmt:message key="tacluserinfo.usertype" /></th>
-						<th width="90"><fmt:message key="tacluserinfo.dutyid" /></th>
-						<th width="80"><fmt:message key="tacluserinfo.mobile" /></th>
-						<th width="100"><fmt:message key="tacluserinfo.idcard" /></th>
-						<th width="60"><fmt:message key="tacluserinfo.sex" /></th>
-						<th width="60"><fmt:message key="tacluserinfo.userstate" /></th>
-						<th width="80"><fmt:message key="tacluserinfo.birthday" /></th>
-						<th width=""><fmt:message key="tacluserinfo.userEmail" /></th>
-						</tr>
-				</thead>
-				<c:forEach items="${list}" var="tacluserinfo" varStatus="paStatus">
-					<tr>
-						<td class="checkbox"><input type="checkbox"
-							name="ckh" value="${tacluserinfo.userid}" /></td>
-						<td width="120"><a href="#" onclick="showUser('${tacluserinfo.userid}')">${tacluserinfo.loginname}</a></td>
-						<td>${tacluserinfo.username}</td>
-						<td>${tacluserinfo.usertype}</td>
-						<td>${tacluserinfo.tsysDuty.dutyname}</td>
-						<td>${tacluserinfo.mobile}</td>
-						<td>${tacluserinfo.idcard}</td>
-						<td>${tacluserinfo.sex}</td>
-						<td>${tacluserinfo.userstate}</td>
-						<td>${tacluserinfo.birthday}</td>
-						<td>${tacluserinfo.userEmail}</td>
-					</tr>
-				</c:forEach>
-			</table>
+		<hih:table items="${list}" var="tacluserinfo">
+				<hih:column field="userid" checkbox="true" />
+				<hih:column field="loginname" header="tacluserinfo.loginname" width="120">
+				<a href="#" onclick="showUser('${tacluserinfo.userid}')">${tacluserinfo.loginname}</a>
+				</hih:column>
+				<hih:column field="username" header="tacluserinfo.username" width="120"/>
+				<hih:column field="usertype" header="tacluserinfo.usertype" width="120"/>
+				<hih:column field="dutyid" header="tacluserinfo.dutyid" width="120"/>
+				<hih:column field="mobile" header="tacluserinfo.mobile" width="120"/>
+				<hih:column field="idcard" header="tacluserinfo.idcard" width="120"/>
+				<hih:column field="sex" header="tacluserinfo.sex" width="120"/>
+				<hih:column field="userstate" header="tacluserinfo.userstate" width="120"/>
+				<hih:column field="birthday" header="tacluserinfo.birthday" width="120"/>
+				<hih:column field="userEmail" header="tacluserinfo.userEmail" width="120"/>
+			</hih:table>
 		</div>
-		<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
+	<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
 	</div>
 </form>
 </body>

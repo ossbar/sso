@@ -75,8 +75,7 @@ var moduleTree;
 					<td>${userlist.loginname}</td>
 					<td>${userlist.username}</td>
 					<td>${userlist.tsysOrg.orgname}</td>
-					<%-- <td>${userlist.tsysDept.deptname}</td> --%>
-					<td>${userlist.tsysDuty.dutyname}</td>
+					<td>${dutyname}</td>
 				</tr>
 			</c:forEach>
 		</table>

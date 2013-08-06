@@ -55,7 +55,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeByHQL(String hql) throws ServiceException {
+	public List<?> getTaclRoleprivilegeByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -67,7 +67,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTaclRoleprivilege() throws ServiceException {
+	public List<?> getAllTaclRoleprivilege() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTACLROLEPRIVILEGE_HQL);
 	}
 
@@ -80,7 +80,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	public TaclRoleprivilege getTaclRoleprivilegeById(String id)
 			throws ServiceException {
 		TaclRoleprivilege taclRoleprivilege = null;
-		List list = baseDAO.getValueObjectsByHQL(TACLROLEPRIVILEGEById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TACLROLEPRIVILEGEById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			taclRoleprivilege = (TaclRoleprivilege) list.get(0);
@@ -96,7 +96,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeByHQL(String hql, Object[] object)
+	public List<?> getTaclRoleprivilegeByHQL(String hql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql, object);
 	}
@@ -126,7 +126,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @throws DataAccessException
 	 */
 
-	public List getTaclRoleprivilegePageDataByHQL(String hql, Object[] object,
+	public List<?> getTaclRoleprivilegePageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, object, page_size, pageNo);
 	}
@@ -142,7 +142,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegePageDataByHQL(String hql, Map obj,
+	public List<?> getTaclRoleprivilegePageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, obj, page_size, pageNo);
 	}
@@ -155,7 +155,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTaclRoleprivilegeValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql, object);
 	}
@@ -168,7 +168,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTaclRoleprivilegeValueObjectByNameQuery(String queryName,
+	public List<?> getTaclRoleprivilegeValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, object);
 	}
@@ -180,7 +180,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleprivilegeValueObjectByDetachedCriteria(
+	public List<?> getTaclRoleprivilegeValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -192,7 +192,7 @@ public class TaclRoleprivilegeServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTaclRoleprivilegeValueObjectByDetachedCriterias(
+	public List<?> getTaclRoleprivilegeValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,

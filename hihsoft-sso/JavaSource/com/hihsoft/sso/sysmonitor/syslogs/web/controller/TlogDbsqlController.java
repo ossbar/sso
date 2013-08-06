@@ -76,12 +76,11 @@ public ModelAndView list(HttpServletRequest request,
 	}
 	String pageSize = getParam(request, "rows");
 	String pageNo = getParam(request, "page");
-	String orders = getParam(request, "orders");
 	if (pageSize == null)
 		pageSize = "10";
 	if (pageNo == null)
 		pageNo = "1";
-	List list = tlogDbsqlService.getPageDataBySQL(TlogDbsql.class,
+	List<TlogDbsql> list = tlogDbsqlService.getPageDataBySQL(TlogDbsql.class,
 			sql, Integer.parseInt(pageSize), Integer.parseInt(pageNo));
 	int total = tlogDbsqlService.getTotalNumBySQL(sql);
 	int rows = Integer.parseInt(pageSize);

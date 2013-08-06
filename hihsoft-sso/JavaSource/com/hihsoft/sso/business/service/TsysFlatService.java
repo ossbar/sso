@@ -47,7 +47,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatByHQL(String hql) throws ServiceException;
+	public List<?> getTsysFlatByHQL(String hql) throws ServiceException;
 
 	/**
 	 * 查询所有的TsysFlat信息
@@ -56,7 +56,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTsysFlat() throws ServiceException;
+	public List<?> getAllTsysFlat() throws ServiceException;
 
 	/**
 	 * 根据主键查询TsysFlat信息明细
@@ -74,7 +74,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatByArray(Object[] filter) throws ServiceException;
+	public List<?> getTsysFlatByArray(Object[] filter) throws ServiceException;
 
 	/**
 	 * 取得分页总数
@@ -95,7 +95,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatByMap(Map filter) throws ServiceException;
+	public List<?> getTsysFlatByMap(Map<String, Object> filter) throws ServiceException;
 
 	/**
 	 * 分页查询
@@ -108,7 +108,7 @@ public interface TsysFlatService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTsysFlatPageDataByArray(Object[] filter, int page_size,
+	public List<?> getTsysFlatPageDataByArray(Object[] filter, int page_size,
 			int pageNo) throws ServiceException;
 
 	/**
@@ -122,7 +122,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatPageDataByMap(Map filter, int page_size, int pageNo)
+	public List<?> getTsysFlatPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 			throws ServiceException;
 
 	/**
@@ -133,7 +133,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatValueObjectWithSQLByArray(Object[] filter)
+	public List<?> getTsysFlatValueObjectWithSQLByArray(Object[] filter)
 			throws ServiceException;
 
 	/**
@@ -144,7 +144,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysFlatValueObjectByNameQuery(String queryName,
+	public List<?> getTsysFlatValueObjectByNameQuery(String queryName,
 			Object[] filter) throws ServiceException;
 
 	/**
@@ -154,7 +154,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysFlatValueObjectByDetachedCriteria(
+	public List<?> getTsysFlatValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -164,7 +164,7 @@ public interface TsysFlatService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysFlatValueObjectByDetachedCriterias(
+	public List<?> getTsysFlatValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 	/**

@@ -76,11 +76,11 @@ public class Consts {
 
 	public static ServletContext context;
 
-	public static Map pathMap;
+	public static Map<String, String> pathMap;
 
 	// 框架初始化信息定义
 	// 4.默认管理员信息定义
-	public static final String ADMIN_USER_LOGINID = "admin"; //
+	public static final String ADMIN_USER_LOGINID = "devadmin"; //
 	
 	public static final String ADMIN_USER_PASSWD="123478";
 

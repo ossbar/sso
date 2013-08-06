@@ -82,35 +82,18 @@ $(document).ready(function() {
 			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" id="btn_remove"><fmt:message key="button.remove" /></a>
 			<a class="easyui-linkbutton" iconCls="icon-search" plain="true" id="btn_search"><fmt:message key="button.query" /></a>
 		</div>
-		<div id="grid-body" class="grid-body" region="center">
-			<table class="data-grid" cellspacing="0" cellpadding="0">
-				<thead>
-					<tr class="data-grid-header">
-						<th><input type="checkbox" id="selectAll" /></th>
-						<th width="120"><fmt:message key="tsysupload.secondName" /></th>  
-						<th width="120"><fmt:message key="tsysupload.fileName" /></th>
-						<th width="120"><fmt:message key="tsysupload.flatid" /></th>   							
-						<th width="120"><fmt:message key="tsysupload.fileUrl" /></th>
-						<th width="120"><fmt:message key="tsysupload.createMan" /></th>   							
-						<th width="120"><fmt:message key="tsysupload.createTime" /></th>
-						<th width="120"><fmt:message key="tsysupload.remark" /></th>
-					</tr>
-				</thead>
-				<c:forEach items="${list}" var="tsysupload" varStatus="paStatus">
-					<tr>
-						<td width="100" class="checkbox">
-							<input type="checkbox" name="ckh" value="${tsysupload.uploadid}" />
-						</td>    
-						<td width="120">${tsysupload.secondName}</td>
-						<td width="120">${tsysupload.fileName}</td>
-						<td width="120">${tsysupload.flatid}</td>
-						<td width="120">${tsysupload.fileUrl}</td>
-						<td width="120">${tsysupload.createMan}</td>
-						<td width="120">${tsysupload.createTime}</td>
-						<td width="120">${tsysupload.remark}</td>
-					</tr>
-				</c:forEach>
-			</table>
+		<div id="grid-body" region="center">
+			<hih:table items="${list}" var="item">
+				<hih:column field="uploadid" checkbox="true" />
+				<hih:column field="secondName" header="tsysupload.secondName" width="220"/>
+				<hih:column field="fileName" header="tsysupload.fileName" width="220"/>
+				<hih:column field="flatid" header="tsysupload.flatid" width="120"/>
+				<hih:column field="fileUrl" header="tsysupload.fileUrl" width="320"/>
+			    <hih:column field="createMan" header="tsysupload.createMan" width="120"/>
+			    <hih:column field="createTime" header="tsysupload.createTime" width="120"/>
+			    <hih:column field="remark" header="tsysupload.remark" width="320"/>
+			</hih:table>
+		</div>
 		</div>
 		<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
 	</div>

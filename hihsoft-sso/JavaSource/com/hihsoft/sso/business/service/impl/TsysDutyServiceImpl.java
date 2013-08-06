@@ -4,10 +4,17 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package com.hihsoft.sso.business.service.impl;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Service;
 
 
@@ -59,7 +66,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDutyByHQL(String hql) throws ServiceException{
+	  public List<?> getTsysDutyByHQL(String hql) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(hql);
 		  
 	  }
@@ -70,7 +77,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getAllTsysDuty() throws ServiceException{
+	  public List<?> getAllTsysDuty() throws ServiceException{
 		  return  baseDAO.getValueObjectsByHQL(ALLTSYSDUTY_HQL);
 	  }
 
@@ -82,7 +89,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 */
 	  public TsysDuty getTsysDutyById(String id) throws ServiceException{
 		  TsysDuty tsysDuty=null;
-		  List list=baseDAO.getValueObjectsByHQL(TSYSDUTYById_HQL,new Object[]{id});
+		  List<?> list=baseDAO.getValueObjectsByHQL(TSYSDUTYById_HQL,new Object[]{id});
 		  if(!list.isEmpty()&&list.size()>0){
 			  tsysDuty=(TsysDuty)list.get(0);
 		  }
@@ -96,7 +103,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDutyByArray(Object[] filter) throws ServiceException{
+	  public List<?> getTsysDutyByArray(Object[] filter) throws ServiceException{
 		  return baseDAO.getValueObjectsByHQL(QUERY_TSYSDUTY_HQL.toString(),filter);
 	  }
 	  /**
@@ -121,7 +128,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return List
 		 * @throws DataAccessException
 		 */
-	  public List getTsysDutyByMap(Map filter) throws ServiceException{
+	  public List<?> getTsysDutyByMap(Map<String, Object> filter) throws ServiceException{
 		  return baseDAO.getPageDataByHQL(QUERY_TSYSDUTY_HQL.toString(),filter);
 	  }
 
@@ -137,7 +144,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 	    * @throws DataAccessException
 	 */
 
-     public List getTsysDutyPageDataByArray(Object[] filter, int page_size,
+     public List<?> getTsysDutyPageDataByArray(Object[] filter, int page_size,
 	                                 int pageNo) throws ServiceException{
 	  return baseDAO.getPageDataByHQL(QUERY_TSYSDUTY_HQL.toString(),filter,page_size,pageNo);
 }
@@ -153,9 +160,8 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysDutyPageDataByMap(Map filter, int page_size, int pageNo)
+	    public List<?> getTsysDutyPageDataByMap(Map<String, Object> filter, int page_size, int pageNo)
 	            throws ServiceException{
-	    	 String id = (String) filter.get("id");
 	    	return baseDAO.getPageDataByHQL(QUERY_TSYSDUTY_HQL.toString(),filter,page_size,pageNo);
 	    }
 
@@ -167,7 +173,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return
 		 * @throws DataAccessException
 		 */
-	    public List getTsysDutyValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
+	    public List<?> getTsysDutyValueObjectWithSQLByArray(Object[] filter) throws ServiceException{
 	    	return baseDAO.getValueObjectBySQL(QUERY_TSYSDUTY_SQL.toString(),filter);
 	    }
 
@@ -180,7 +186,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return
 		 * @throws DataAccessException
 		 */
-		public List getTsysDutyValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
+		public List<?> getTsysDutyValueObjectByNameQuery(String queryName,Object[] filter)throws ServiceException{
 			return baseDAO.getValueObjectByNameQuery(queryName,filter);
 		}
 		/**
@@ -189,7 +195,7 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysDutyValueObjectByDetachedCriteria(
+		public List<?> getTsysDutyValueObjectByDetachedCriteria(
 				DetachedCriteria detachedCriteria) throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 		}
@@ -200,10 +206,42 @@ public class TsysDutyServiceImpl extends BaseServiceImpl implements TsysDutyServ
 		 * @return
 		 * @throws ServiceException
 		 */
-		public List getTsysDutyValueObjectByDetachedCriterias(
+		public List<?> getTsysDutyValueObjectByDetachedCriterias(
 				DetachedCriteria detachedCriteria, int arg1, int arg2)
 				throws ServiceException{
 			return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria, arg1, arg2);
+		}
+
+		@Override
+		public List<TaclDutyuser> getUserAllByDutyId(String dutyid)
+				throws ServiceException {
+			String hql = "from TaclDutyuser d where d.userid in " +
+					"(select du.userid from TaclDutyuser du where du.dutyid = ?)";
+			@SuppressWarnings("unchecked")
+			List<TaclDutyuser> userSet = (List<TaclDutyuser>) getValueObjectsByHQL(hql, dutyid);
+			return userSet; 
+		}
+
+		@Override
+		public List<TaclDutyuser> getTaclDutyuserByDutyid(final String dutyid)
+				throws ServiceException {
+			return baseDAO.doInHibernate(new HibernateCallback<List<TaclDutyuser>>() {
+				@Override
+				public List<TaclDutyuser> doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					TsysDuty tsysDuty = null;
+					Query query = session.createQuery(TSYSDUTYById_HQL);
+					query.setString(0, dutyid);
+					List<?> list = query.list();
+					if (!list.isEmpty() && list.size() > 0) {
+						tsysDuty = (TsysDuty) list.get(0);
+						Hibernate.initialize(tsysDuty.getTaclDutyusers());
+						list.clear();
+						return new ArrayList<TaclDutyuser>(tsysDuty.getTaclDutyusers());
+					}
+					return new ArrayList<TaclDutyuser>();
+				}
+			});
 		}
 
 

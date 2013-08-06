@@ -55,7 +55,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateByHQL(String hql) throws ServiceException {
+	public List<?> getTsysModuleoperateByHQL(String hql) throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql);
 
 	}
@@ -67,7 +67,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getAllTsysModuleoperate() throws ServiceException {
+	public List<?> getAllTsysModuleoperate() throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(ALLTSYSMODULEOPERATE_HQL);
 	}
 
@@ -80,7 +80,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	public TsysModuleoperate getTsysModuleoperateById(String id)
 			throws ServiceException {
 		TsysModuleoperate tsysModuleoperate = null;
-		List list = baseDAO.getValueObjectsByHQL(TSYSMODULEOPERATEById_HQL,
+		List<?> list = baseDAO.getValueObjectsByHQL(TSYSMODULEOPERATEById_HQL,
 				new Object[] { id });
 		if (!list.isEmpty() && list.size() > 0) {
 			tsysModuleoperate = (TsysModuleoperate) list.get(0);
@@ -96,7 +96,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateByHQL(String hql, Object... object)
+	public List<?> getTsysModuleoperateByHQL(String hql, Object... object)
 			throws ServiceException {
 		return baseDAO.getValueObjectsByHQL(hql, object);
 	}
@@ -125,7 +125,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperatePageDataByHQL(String hql, Object object,
+	public List<?> getTsysModuleoperatePageDataByHQL(String hql, Object object,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, object, page_size, pageNo);
 	}
@@ -141,7 +141,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperatePageDataByHQL(String hql, Map<String, Object> obj,
+	public List<?> getTsysModuleoperatePageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException {
 		return baseDAO.getPageDataByHQL(hql, obj, page_size, pageNo);
 	}
@@ -154,7 +154,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateValueObjectBySQL(String sql, Object... object)
+	public List<?> getTsysModuleoperateValueObjectBySQL(String sql, Object... object)
 			throws ServiceException {
 		return baseDAO.getValueObjectBySQL(sql, object);
 	}
@@ -167,7 +167,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysModuleoperateValueObjectByNameQuery(String queryName,
+	public List<?> getTsysModuleoperateValueObjectByNameQuery(String queryName,
 			Object... object) throws ServiceException {
 		return baseDAO.getValueObjectByNameQuery(queryName, object);
 	}
@@ -179,7 +179,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysModuleoperateValueObjectByDetachedCriteria(
+	public List<?> getTsysModuleoperateValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriteria(detachedCriteria);
 	}
@@ -191,7 +191,7 @@ public class TsysModuleoperateServiceImpl extends BaseServiceImpl implements
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysModuleoperateValueObjectByDetachedCriterias(
+	public List<?> getTsysModuleoperateValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException {
 		return baseDAO.getValueObjectByDetachedCriterias(detachedCriteria,

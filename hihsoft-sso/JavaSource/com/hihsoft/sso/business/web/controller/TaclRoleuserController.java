@@ -45,7 +45,7 @@ public class TaclRoleuserController extends javahihBaseController {
 	@RequestMapping(params="method=list")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
-		List list = taclRoleuserService.getAllTaclRoleuser();
+		List<?> list = taclRoleuserService.getAllTaclRoleuser();
 		TaclRoleuser taclRoleuser = new TaclRoleuser();
 		this.bind(request, taclRoleuser);
 		request.setAttribute("list", list);

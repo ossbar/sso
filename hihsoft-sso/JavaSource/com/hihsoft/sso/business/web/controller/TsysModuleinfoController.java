@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +39,6 @@ import com.hihsoft.sso.business.service.TsysModuleinfoService;
 @Controller
 @RequestMapping("/tsysModuleinfoController.do")
 public class TsysModuleinfoController extends javahihBaseController {
-	private static Logger log = Logger.getLogger(TsysModuleinfoController.class);
 	@Autowired
 	private TsysModuleinfoService tsysModuleinfoService;
 	@Autowired
@@ -55,7 +53,6 @@ public class TsysModuleinfoController extends javahihBaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@SuppressWarnings("unchecked")
 	@RequestMapping(params="method=list")
 	public ModelAndView list(final HttpServletRequest request,
 			final HttpServletResponse response) throws ControllerException {
@@ -74,7 +71,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 		if (orders != null && !"".equals(orders))
 			hql += " order by " + orders;
 		addOrders(request, orders);
-		List list = calcPage(request, tsysModuleinfoService, hql);
+		List<?> list = calcPage(request, tsysModuleinfoService, hql);
 		request.setAttribute("list", list);
 		return new ModelAndView("/module/tsysmodulelist");
 	}
@@ -91,7 +88,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 	public ModelAndView add(final HttpServletRequest request,
 			final HttpServletResponse response) throws ControllerException {
 		ModelAndView mv = new ModelAndView("/module/tsysmoduleform");
-		List flats = tsysFlatService.getAllTsysFlat();
+		List<?> flats = tsysFlatService.getAllTsysFlat();
 		mv.addObject("flats", flats);
 		return mv;
 	}
@@ -134,7 +131,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 		TsysModuleinfo moduleinfo = tsysModuleinfoService
 				.getTsysModuleinfoById(id);
 		mv.addObject("moduleInfo", moduleinfo);
-		List flats = tsysFlatService.getAllTsysFlat();
+		List<?> flats = tsysFlatService.getAllTsysFlat();
 		mv.addObject("flats", flats);
 		return mv;
 	}
@@ -171,7 +168,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 			pageSize = "10";
 		if (pageNo == null)
 			pageSize = "1";
-		final List list = tsysModuleinfoService.getTsysModuleinfoPageDataByHQL(
+		final List<?> list = tsysModuleinfoService.getTsysModuleinfoPageDataByHQL(
 				hql, new Object[] {}, Integer.parseInt(pageSize),
 				Integer.parseInt(pageNo));
 		final int total = tsysModuleinfoService.getDataTotalNum(hql);

@@ -47,7 +47,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterByHQL(String hql) throws ServiceException;
+	public List<?> getTsysParameterByHQL(String hql) throws ServiceException;
 
 	/**
 	* 查询所有的TsysParameter信息
@@ -56,7 +56,7 @@ public interface TsysParameterService extends BaseService {
 	* @return List
 	* @throws DataAccessException
 	*/
-	public List getAllTsysParameter() throws ServiceException;
+	public List<?> getAllTsysParameter() throws ServiceException;
 
 	/**
 	 * 根据主键查询TsysParameter信息明细
@@ -75,7 +75,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return List
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterByHQL(String hql, Object[] object)
+	public List<?> getTsysParameterByHQL(String hql, Object[] object)
 			throws ServiceException;
 
 	/**
@@ -101,7 +101,7 @@ public interface TsysParameterService extends BaseService {
 	 * @throws DataAccessException
 	 */
 
-	public List getTsysParameterPageDataByHQL(String hql, Object[] object,
+	public List<?> getTsysParameterPageDataByHQL(String hql, Object[] object,
 			int page_size, int pageNo) throws ServiceException;
 
 	/**
@@ -114,7 +114,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterPageDataByHQL(String hql, Map obj,
+	public List<?> getTsysParameterPageDataByHQL(String hql, Map<String, Object> obj,
 			int page_size, int pageNo) throws ServiceException;
 
 	/**
@@ -125,7 +125,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterValueObjectBySQL(String sql, Object[] object)
+	public List<?> getTsysParameterValueObjectBySQL(String sql, Object[] object)
 			throws ServiceException;
 
 	/**
@@ -136,7 +136,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return
 	 * @throws DataAccessException
 	 */
-	public List getTsysParameterValueObjectByNameQuery(String queryName,
+	public List<?> getTsysParameterValueObjectByNameQuery(String queryName,
 			Object[] object) throws ServiceException;
 
 	/**
@@ -145,7 +145,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysParameterValueObjectByDetachedCriteria(
+	public List<?> getTsysParameterValueObjectByDetachedCriteria(
 			DetachedCriteria detachedCriteria) throws ServiceException;
 
 	/**
@@ -154,7 +154,7 @@ public interface TsysParameterService extends BaseService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public List getTsysParameterValueObjectByDetachedCriterias(
+	public List<?> getTsysParameterValueObjectByDetachedCriterias(
 			DetachedCriteria detachedCriteria, int arg1, int arg2)
 			throws ServiceException;
 

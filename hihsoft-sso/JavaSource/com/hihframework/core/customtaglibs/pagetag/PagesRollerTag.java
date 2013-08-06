@@ -16,6 +16,7 @@ import com.hihframework.core.customtaglibs.util.HTMLEncoder;
 import com.hihsoft.baseclass.constants.Consts;
 
 public class PagesRollerTag extends TagBase {
+	private static final long serialVersionUID = -657633179567749351L;
 	int sumPages;
 	int count;
 
@@ -31,7 +32,7 @@ public class PagesRollerTag extends TagBase {
 	}
 
 	public int doStartTag() throws JspException {
-		Hashtable paramTable = new Hashtable();
+		Hashtable<String, String> paramTable = new Hashtable<String, String>();
 		HttpServletRequest request = (HttpServletRequest) pageContext
 				.getRequest();
 		String action = (String) request.getAttribute("action");

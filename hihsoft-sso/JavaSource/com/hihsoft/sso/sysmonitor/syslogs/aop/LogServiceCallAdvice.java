@@ -44,7 +44,7 @@ public class LogServiceCallAdvice implements MethodInterceptor
 		final Object result = invocation.proceed();
 		clock.stop(); // 计时结束 //方法参数类型，转换成简单类型
 
-		final Class[] params = invocation.getMethod().getParameterTypes();
+		final Class<?>[] params = invocation.getMethod().getParameterTypes();
 		final String[] simpleParams = new String[params.length];
 		for (int i = 0; i < params.length; i++)
 		{

@@ -18,6 +18,8 @@ import javax.servlet.jsp.tagext.*;
  * @version 1.0
  * */
 public abstract class TagBase extends BodyTagSupport {
+	private static final long serialVersionUID = 7512360820313456672L;
+
 	protected BodyContent bodyOut;
 
 	protected PageContext pageContext;

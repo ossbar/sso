@@ -42,7 +42,7 @@ public final class ReflectUtil {
 	 */
 	private static String[] getFieldsName(Object obj, int cmpModifier) {
 		String[] retValue;
-		Class objClass = obj.getClass();
+		Class<?> objClass = obj.getClass();
 		Field[] fields = objClass.getDeclaredFields();
 
 		if (fields != null && !(fields.length < 1)) {
@@ -84,7 +84,7 @@ public final class ReflectUtil {
 
 	public static final String[] getAllFieldsName(Object obj) {
 		String[] retValue;
-		Class objClass = obj.getClass();
+		Class<?> objClass = obj.getClass();
 		Field[] fields = objClass.getDeclaredFields();
 
 		if (fields != null && !(fields.length < 1)) {
@@ -92,7 +92,6 @@ public final class ReflectUtil {
 			retValue = new String[fields.length];
 
 			for (int i = 0; i < fields.length; i++) {
-				int modifier = fields[i].getModifiers();
 				retValue[i] = fields[i].getName();
 			}
 
@@ -104,7 +103,7 @@ public final class ReflectUtil {
 	private static String[] getMethodsName(Object obj, int cmpModifier,
 			String prefix) {
 		String[] retValue;
-		Class objClass = obj.getClass();
+		Class<?> objClass = obj.getClass();
 		Method[] methods = objClass.getDeclaredMethods();
 
 		if (methods != null && !(methods.length < 1)) {
@@ -165,7 +164,7 @@ public final class ReflectUtil {
 			String prefix) {
 		Method[] retMethod = null;
 
-		Class objClass = obj.getClass();
+		Class<?> objClass = obj.getClass();
 		Method[] methods = objClass.getDeclaredMethods();
 
 		if (methods != null && !(methods.length < 1)) {
@@ -338,8 +337,8 @@ public final class ReflectUtil {
 	 * @return the first generic declaration, or Object.class if cannot be determined
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> Class<T> getSuperClassGenricType(final Class clazz) {
-		return getSuperClassGenricType(clazz, 0);
+	public static <T> Class<T> getSuperClassGenricType(Class<?> clazz) {
+		return (Class<T>) getSuperClassGenricType(clazz, 0);
 	}
 
 	/**
@@ -353,8 +352,7 @@ public final class ReflectUtil {
 	 * @return the index generic declaration, or Object.class if cannot be determined
 	 */
 
-	@SuppressWarnings("unchecked")
-	public static Class getSuperClassGenricType(final Class clazz,
+	public static Class<?> getSuperClassGenricType(final Class<?> clazz,
 			final int index) {
 
 		Type genType = clazz.getGenericSuperclass();
@@ -379,7 +377,7 @@ public final class ReflectUtil {
 			return Object.class;
 		}
 
-		return (Class) params[index];
+		return (Class<?>) params[index];
 	}
 
 	/**
@@ -388,10 +386,9 @@ public final class ReflectUtil {
 	 * @param collection 来源集合.
 	 * @param propertyName 要提取的属性名.
 	 */
-	@SuppressWarnings("unchecked")
-	public static List convertElementPropertyToList(
-			final Collection collection, final String propertyName) {
-		List list = new ArrayList();
+	public static List<Object> convertElementPropertyToList(
+			final Collection<?> collection, final String propertyName) {
+		List<Object> list = new ArrayList<Object>();
 
 		try {
 			for (Object obj : collection) {
@@ -411,11 +408,10 @@ public final class ReflectUtil {
 	 * @param propertyName 要提取的属性名.
 	 * @param separator 分隔符.
 	 */
-	@SuppressWarnings("unchecked")
 	public static String convertElementPropertyToString(
-			final Collection collection, final String propertyName,
+			final Collection<?> collection, final String propertyName,
 			final String separator) {
-		List list = convertElementPropertyToList(collection, propertyName);
+		List<Object> list = convertElementPropertyToList(collection, propertyName);
 		return StringUtils.join(list, separator);
 	}
 

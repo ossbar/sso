@@ -23,6 +23,7 @@ import java.util.*;
 
 public class TaclRole extends BaseEntity {
 	
+	private static final long serialVersionUID = -1038897504050757754L;
 	//alias
 	public static final String TABLE_ALIAS = "TaclRole";
 	public static final String ALIAS_ROLEID = "roleid";
@@ -95,21 +96,21 @@ public class TaclRole extends BaseEntity {
 		return this.roleSort;
 	}
 	
-	private Set taclRoleusers = new HashSet(0);
-	public void setTaclRoleusers(Set taclRoleuser){
+	private Set<TaclRoleuser> taclRoleusers = new HashSet<TaclRoleuser>(0);
+	public void setTaclRoleusers(Set<TaclRoleuser> taclRoleuser){
 		this.taclRoleusers = taclRoleuser;
 	}
 	
-	public Set getTaclRoleusers() {
+	public Set<TaclRoleuser> getTaclRoleusers() {
 		return taclRoleusers;
 	}
 	
-	private Set tsysDataprivileges = new HashSet(0);
-	public void setTsysDataprivileges(Set tsysDataprivilege){
+	private Set<TsysDataprivilege> tsysDataprivileges = new HashSet<TsysDataprivilege>(0);
+	public void setTsysDataprivileges(Set<TsysDataprivilege> tsysDataprivilege){
 		this.tsysDataprivileges = tsysDataprivilege;
 	}
 	
-	public Set getTsysDataprivileges() {
+	public Set<TsysDataprivilege> getTsysDataprivileges() {
 		return tsysDataprivileges;
 	}
 	

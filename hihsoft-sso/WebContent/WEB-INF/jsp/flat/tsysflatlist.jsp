@@ -65,18 +65,16 @@
 					id="btn_edit" iconCls="icon-edit" />
 				<hih:auth operate="DELETE" module="SYS_FLATINFO"
 					value="button.remove" id="btn_remove" iconCls="icon-remove" />
-				<hih:auth operate="QUERY" module="SYS_FLATINFO"
-					value="button.query" id="btn_search" iconCls="icon-search" />
 			</div>
 			<div id="grid-body" region="center">
 			<hih:table items="${list}" var="item">
 				<hih:column field="flatid" checkbox="true"/>
 				<hih:column field="flatcode" header="tsysflat.flatcode" width="120"/>
-				<hih:column field="flatname" header="tsysflat.flatname" width="120"/>
+				<hih:column field="flatname" header="tsysflat.flatname" width="180"/>
 				<hih:column field="shortname" header="tsysflat.shortname" width="120"/>
 				<hih:column field="flatdesc" header="tsysflat.flatdesc" width="120"/>
-				<hih:column field="remark" header="tsysflat.remark" width="120"/>
-				<hih:column field="flaturl" header="tsysflat.flaturl" width="120"/>
+				<hih:column field="flaturl" header="tsysflat.flaturl" width="280"/>
+				<hih:column field="remark" header="tsysflat.remark"  width="200"/>
 			</hih:table>
 		</div>
 			<jsp:include page="/WEB-INF/jsp/common/page.jsp" />

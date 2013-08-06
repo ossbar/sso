@@ -80,14 +80,7 @@
 							style="width: 110px"></td>
 						<td align="right"><fmt:message key="tacluserinfo.dutyid" /></td>
 						<td>
-						<%-- <hih:parameter name="userType" id="usertype" cssClass="select"/> --%>
-							<%-- <select name="dutyid" class="select" style="width: 165px">
-								<option value="">----请选择----</option>
-								<c:forEach items="${dutys}" var="duty">
-										<option value="${duty.dutyid}">${duty.dutyname}</option>
-								</c:forEach>
-							</select> --%>
-							<input name="dutyid" id="dutyid" class="text" style="width: 162px;"/>
+					<input name="dutyid" id="dutyid" class="text" style="width: 162px;"/>
 						</td>
 					</tr>
 					<tr>
