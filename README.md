@@ -136,13 +136,13 @@ Github：https://github.com/hihsoft/sso
 ###
 googlecode：https://code.google.com/p/hihsoft-sso/
 ###
-oschina：https://git.oschina.net/hihsoft/sso
+oschina：https://git.oschina.net/hihsoft/sso 
 ###
 如果你想参与进来共同完善它或有更好的建议，请联系我吧(^_^)。
 ###
 备注说明：因第三方开源包在gitthub下下载比较慢，为满足拉丝们的需要，
 ###
-手拉手研发团队在oschina国内版本库上以maven模式发布，以提供更好的体验。
+手拉手研发团队在oschina国内版本库上已经以maven模式发布，并同步更新，以提供更好的体验。
 
 1.9   版本发布历史
 -------------------------------------------------------------------------------
