@@ -27,9 +27,6 @@ Hihsoft业务基础平台目标定位有两个：
 ###
 网站地址：http://www.javahih.com 定期开放注册，欢迎你的加入！
 用户名：devadmin 密码：devadmin
-###
-![hihsoft](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/login.png "hihsoft") 
-![hihsoft](https://github.com/hihsoft/sso/raw/master/hihsoft-sso/doc/main.png "hihsoft") 
 
 1.4 为何选择
 ---------------------------------------------------------------------------
