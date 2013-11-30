@@ -3,7 +3,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
-	<class name="TlogLoginlog" table="t_log_loginlog">
+	<class name="TlogLoginlog" table="T_LOG_LOGINLOG">
 
 		<id name="logid" column="LOGID" type="java.lang.String" length="32">
 			<generator class="uuid" />

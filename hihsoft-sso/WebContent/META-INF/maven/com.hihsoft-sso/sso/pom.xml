@@ -1,0 +1,444 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hihsoft-sso</groupId>
+  <artifactId>sso</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>sso</name>
+  <url>http://maven.apache.org</url>
+  <description>Hihsoft-sso前身是javahih研发团队从多个大型项目实施过程中，精练提取出来的一个开源的信息化管理系统基础框架。我们本着取之于开源，服务于开源的宗旨，以码会友，着力打造一个轻量级、性能良好、快速开发的大众化的业务基础平台 本框架以Spring Framework为核心、Spring MVC作为模型视图控制器、JDBC + Hibernate作为数据库持久化，前端引入开源版本的JQuery EasyUI是一个简单、易学的综合性业务基础平台. 手拉手(hand in hand)业务基础平台</description>
+  <properties>
+  		<!-- Spring 版本 -->
+		<spring.version>3.2.2.RELEASE</spring.version>
+		<!-- Hibernate 版本 -->
+		<hibernate.version>3.6.8.Final</hibernate.version>
+		<!-- 数据库配置 -->
+		<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+		<jdbc.url><![CDATA[jdbc:mysql://localhost:3306/hihsoft-sso?useUnicode=true&characterEncoding=UTF-8]]></jdbc.url>
+		<jdbc.username>root</jdbc.username>
+		<jdbc.password>root</jdbc.password>
+		<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
+		<dbunit.metadataHandlerName>org.dbunit.ext.mysql.MySqlMetadataHandler</dbunit.metadataHandlerName>
+		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+  </properties>
+  <dependencies>
+  		<!-- Spring  依赖 -->
+  		<!-- 加入spring mvc依赖包 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 加入orm依赖包 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 加入spring测试依赖包 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- mvc测试框架 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-mock</artifactId>
+		    <version>2.0.8</version>
+		</dependency>
+		<!-- 加入hibernate依赖包 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- ehcache需要的依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 加入ehcache -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.7.2</version>
+		</dependency>
+		<!-- 加入mysql驱动依赖包 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.4</version>
+		</dependency>
+		<!-- 加入oracle驱动依赖包 
+		<dependency>
+		    <groupId>com.hihsoft-sso</groupId>
+		    <artifactId>ojdbc14</artifactId>
+		    <version>10.0</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+
+		<!-- 加入slf4j依赖包 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<!-- 加入XML框架依赖 -->
+		<dependency>
+		    <groupId>dom4j</groupId>
+		    <artifactId>dom4j</artifactId>
+		    <version>1.6.1</version>
+		</dependency>
+		<!-- 加入jstl依赖包 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- 加入模板语言框架 -->
+		<dependency>
+		    <groupId>org.freemarker</groupId>
+		    <artifactId>freemarker</artifactId>
+		    <version>2.3.16</version>
+		</dependency>
+		<!-- excel 操作辅助框架 -->
+		<dependency>
+		    <groupId>net.sourceforge.jexcelapi</groupId>
+		    <artifactId>jxl</artifactId>
+		    <version>2.6.12</version>
+		</dependency>
+		<!-- pingyin辅助框架 -->
+		<dependency>
+		    <groupId>com.belerweb</groupId>
+		    <artifactId>pinyin4j</artifactId>
+		    <version>2.5.0</version>
+		</dependency>
+		<!-- 远程调用框架 -->
+		<dependency>
+		    <groupId>com.caucho</groupId>
+		    <artifactId>hessian</artifactId>
+		    <version>4.0.7</version>
+		</dependency>
+		<!-- json操作依赖 -->
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <version>2.4</version>
+		    <classifier>jdk15</classifier>
+		</dependency> 
+		<!-- apache 常用包依赖 -->
+		<dependency>
+		    <groupId>commons-beanutils</groupId>
+		    <artifactId>commons-beanutils-core</artifactId>
+		    <version>1.8.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-chain</groupId>
+		    <artifactId>commons-chain</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-digester</groupId>
+		    <artifactId>commons-digester</artifactId>
+		    <version>2.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.2.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-validator</groupId>
+		    <artifactId>commons-validator</artifactId>
+		    <version>1.3.1</version>
+		</dependency>
+		<!-- 开源数据库连接池 依赖 -->
+		<dependency>
+		    <groupId>com.jolbox</groupId>
+		    <artifactId>bonecp</artifactId>
+		    <version>0.7.1.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>14.0.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>persistence-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.openjpa</groupId>
+		    <artifactId>openjpa</artifactId>
+		    <version>1.2.2</version> 
+		</dependency>
+		<!-- AOP框架 -->
+		<!-- <dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjtools</artifactId>
+		    <version>1.7.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.7.2</version>
+		</dependency> -->
+  </dependencies>
+  <build>
+		<finalName>hihsoft-sso</finalName>
+		<plugins>
+			<!-- 编译的时候使用JDK6和UTF8编码 -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 配置Maven插件(mvn jetty:run可以运行项目) 此处有JSTL包冲突 暂未解决-->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.24</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<stopKey>foo</stopKey>
+					<stopPort>9089</stopPort>
+				</configuration>
+			</plugin>
+			<!-- 请使用tomcat:run 端口默认为8080-->
+			<plugin>                 
+			    <groupId>org.apache.tomcat.maven</groupId>                 
+				<artifactId>tomcat6-maven-plugin</artifactId>  
+				<version>2.0</version>  
+				<configuration>
+				     <warSourceDirectory>src/main/webapp</warSourceDirectory>
+				</configuration>
+			</plugin> 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1-beta-1</version>
+				<configuration>
+					<warName>sso</warName>
+				</configuration>
+			</plugin>
+			<plugin>
+	          <groupId>org.codehaus.mojo</groupId>
+	          <artifactId>tomcat-maven-plugin</artifactId>
+	          <configuration>
+		     <uriEncoding>UTF-8</uriEncoding>
+		      <path>/sso</path>
+                <!--在这里定义端口号 -->
+                <port>9081</port>
+	     </configuration>
+         </plugin>
+			<plugin>  
+			    <groupId>org.apache.maven.plugins</groupId>  
+			    <artifactId>maven-eclipse-plugin</artifactId>  
+			    <version>2.5.1</version>  
+			</plugin>  
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>prepare-hbm-copy</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<copy todir="target/classes/com/hihsoft/sso/business/model"
+									overwrite="true">
+									<fileset dir="src/main/java/com/hihsoft/sso/business/model">
+										<include name="**/*.hbm.xml" />
+									</fileset>
+								</copy>
+								<copy todir="target/classes/com/hihsoft/sso/sysmonitor/syslogs/model"
+									overwrite="true">
+									<fileset dir="src/main/java/com/hihsoft/sso/sysmonitor/syslogs/model">
+										<include name="**/*.hbm.xml" />
+									</fileset>
+								</copy>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>hibernate3-maven-plugin</artifactId>
+				<version>2.0-alpha-1</version>
+				<dependencies>
+					<dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>5.1.4</version>
+				</dependency>
+				</dependencies>
+				<configuration>
+					<components>
+						<component>
+							<name>hbm2ddl</name>
+							<implementation>
+								annotationconfiguration
+							</implementation>
+						</component>
+					</components>
+					<componentProperties>
+						<drop>true</drop>
+						<jdk5>true</jdk5>
+						<propertyfile>
+							/src/main/resources/jdbc.properties
+						</propertyfile>
+						<configurationfile>
+							/src/main/resources/hibernate.cfg.xml
+						</configurationfile>
+					</componentProperties>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>hbm2ddl</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+<!-- 
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dbunit-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.4</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>  
+                    <metadataHandlerName>${dbunit.metadataHandlerName}</metadataHandlerName>  
+                    <encoding>utf-8</encoding>
+					<driver>${jdbc.driverClassName}</driver>
+					<url>${jdbc.url}&amp;sessionVariables=foreign_key_checks=0</url>
+					<username>${jdbc.username}</username>
+					<password>${jdbc.password}</password>
+					<src>src/test/resources/sample-data.xml</src>
+					<type>${dbunit.operation.type}</type>
+				</configuration>
+				<executions>-->
+					<!--这里设置的 goal 是 process-test-classes，所以当我们在执行 mvn process-test-classes 后会调用这个 dbunit:operation goal。
+					而当我们执行 mvn test 时，会发现这个 dbunit:operation 会在 test 之前执行，这能也就能为我们准备好单元测试的数据了，
+					不会因为小动了下数据库而让 test 全线告错-->  
+					<!--   <execution>  
+				        <phase>process-test-classes</phase>  
+				        <goals>  
+				            <goal>operation</goal>  
+				        </goals>  
+				        <configuration>  
+				            <format>xml</format>  
+				            <src>src/test/resources/sample-data.xml</src>  
+				            <type>CLEAN_INSERT</type>  
+				        </configuration>  
+				    </execution>  
+					<execution>
+						<id>test-compile</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>-->
+		</plugins>
+		<pluginManagement>   
+            <plugins>   
+                <plugin>   
+                    <groupId>org.eclipse.m2e</groupId>   
+                    <artifactId>lifecycle-mapping</artifactId>   
+                    <version>1.0.0</version>   
+                    <configuration>   
+                        <lifecycleMappingMetadata>   
+                            <pluginExecutions>   
+                                <pluginExecution>   
+                                    <pluginExecutionFilter>   
+                                        <groupId>   
+                                            org.apache.maven.plugins   
+                                        </groupId>   
+                                        <artifactId>   
+                                            maven-antrun-plugin   
+                                        </artifactId>   
+                                        <versionRange>   
+                                            [1.3,)   
+                                        </versionRange>   
+                                        <goals>   
+                                            <goal>run</goal>   
+                                        </goals>   
+                                    </pluginExecutionFilter>   
+                                    <action>   
+                                        <ignore></ignore>   
+                                    </action>   
+                                </pluginExecution> 
+                            </pluginExecutions>   
+                        </lifecycleMappingMetadata>   
+                    </configuration>   
+                </plugin>   
+            </plugins>   
+        </pluginManagement>
+	</build>
+</project>

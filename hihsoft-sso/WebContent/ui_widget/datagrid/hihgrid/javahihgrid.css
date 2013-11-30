@@ -1,0 +1,42 @@
+.checkbox {width: 35px; text-align: center !important;}
+.tool-btn {
+	width:45px; 
+	line-height: 20px;
+	height: 18px; 
+	display:inline-block;
+	text-align: right;
+	margin: 2px auto 2px 5px;
+	color: rgb(38,80,123);
+	cursor: pointer;
+	padding: 3px 3px 3px 4px;
+	vertical-align: middle;
+}
+.tool-btn:hover {outline: 1px solid gray;}
+.tool-btn span {width: 16px;float: left; height: 16px; }
+.page-bar {
+	height: 28px;
+	border-top: 1px solid #ccc;
+	background:#efefef;
+	width: 100%;
+	overflow: hidden;
+	vertical-align: bottom;
+}
+.page-bar * {float: left;margin-left: 5px;margin-top: 5px; height: 16px; vertical-align: middle;position: relative;}
+.page-size {border:1px solid #ccc; width: 25px;margin-top: 5px;}
+.page-first {width: 18px;height: 18px;background:url("../jquery/js/themes/default/images/pagination_first.gif") no-repeat center;}
+.page-last {width: 18px;height: 18px;background:url("../jquery/js/themes/default/images/pagination_last.gif") no-repeat center;}
+.page-prev {width: 18px;height: 18px;background:url("../jquery/js/themes/default/images/pagination_prev.gif") no-repeat center;}
+.page-next {width: 18px;height: 18px;background:url("../jquery/js/themes/default/images/pagination_next.gif") no-repeat center;}
+.page-bar span:hover {outline: 1px solid gray;cursor: pointer;}
+.page-bar label {margin-top: 8px !important;}
+.page-msg {float: right !important; margin-right: 5px;}
+.page-refresh {width: 18px;height: 18px;background: url("../jquery/js/themes/default/images/pagination_load.png") no-repeat center;}
+
+#pagination-bar table {width: 100%;margin-top: 3px;}
+#pagination-bar ul {margin: auto 4px;list-style-type: none;display: inline;width: 100%;line-height: 18px;}
+#pagination-bar li{float: right;text-align: center;}
+#pagination-bar a{display:block;text-align:center;height:18px;width: 20px;margin-top: 3px;}
+.cur-page{font-weight: bold;color: #E9201A;}
+
+
+

@@ -61,7 +61,7 @@
 	<form method="post" target="_self"
 		action="
 		${ctx}/tlogBusinesslogController.do?method=list "
-		name="listForm">
+		name="listForm" style="width: 100%;height: 90%;">
 		<input type="hidden" name="error" value='' />
 		<table class="FormView" border="0" cellspacing="1" cellpadding="0">
 			<col class="Label" />
@@ -103,9 +103,7 @@
 				</td>
 			</tr>
 		</table>
-		<div
-			style="width: 100%; height: 400px; margin: auto; position: relative;"
-			id="container">
+	<div class="easyui-layout" style="border: none;" fit="true" id="container">
 			<div class="datagrid-toolbar" region="north" style="height: 31px;"
 				border="false">
 				<hih:auth operate="DELETE" module="LOG_BUSINESSLOG" value="button.remove"

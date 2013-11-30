@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
-	 <class name="TlogServicecall" table="t_log_servicecall">
+	 <class name="TlogServicecall" table="T_LOG_SERVICECALL">
 
         <id name="callid" column="CALLID" type="java.lang.String" length="32">
             <generator class="uuid"/>

@@ -18,17 +18,9 @@ import com.hihsoft.sso.sysmonitor.syslogs.model.TlogBusinesslog;
 /**
  * <p>
  * Title:
- * </p>
- * <p>
  * Description:
- * </p>
- * <p>
  * Copyright: Copyright (c) 2013
- * </p>
- * <p>
  * Company:hihsoft.co.,ltd
- * </p>
- * 
  * @author hihsoft.co.,ltd
  * @version 1.0
  */

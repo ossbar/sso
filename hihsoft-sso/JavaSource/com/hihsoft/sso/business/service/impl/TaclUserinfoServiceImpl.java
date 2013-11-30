@@ -321,14 +321,14 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 				List<TsysFlat> flats = session.createSQLQuery(sql)
 						.addEntity(TsysFlat.class)
 						.setString("USERID", curUserId).list();
-				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?) UNION ALL SELECT DISTINCT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
+				sql = "SELECT DISTINCT MODULEID,OPERATEID FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?) UNION ALL SELECT DISTINCT MODULEID,OPERATEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
 				//当前用户可用模块
 				Map<String, Object> modules = baseDAO.queryAsMapBySQL(sql, curUserId, curUserId);
 				//已授权角色
-				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?)";
+				sql = "SELECT DISTINCT MODULEID,OPERATEID FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN (SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?)";
 				Map<String, Object> assigned = baseDAO.queryAsMapBySQL(sql, userId);
 				//已授权特权
-				sql = "SELECT DISTINCT CONCAT(MODULEID,OPERATEID) FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
+				sql = "SELECT DISTINCT MODULEID,OPERATEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?";
 				Map<String, Object> privileges = baseDAO.queryAsMapBySQL(sql, userId);
 				for (TsysFlat flat : flats) {
 					Map<String, Object> map = new HashMap<String, Object>();
@@ -344,7 +344,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 							if (!StringUtils.isNullOrEmpty(info.getParentmoduleid()))
 								continue;
 							Map<String, Object> child = new HashMap<String, Object>();
-							if (modules.get(info.getModuleid()) == null) continue;
+							if (!modules.containsKey(info.getModuleid())) continue;
 							buildModuleTree(info, child, modules, assigned, privileges);
 							if (!child.isEmpty()) children.add(child);
 						}
@@ -361,7 +361,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 	
 	protected void buildModuleTree(TsysModuleinfo info,
 			Map<String, Object> child, Map<String, Object> modules, Map<String, Object> assinged, Map<String, Object> privileges) throws ServiceException {
-		if (modules.get(info.getModuleid()) == null) return;
+		if (!modules.containsKey(info.getModuleid())) return;
 		child.put("id", info.getModuleid());
 		child.put("text", info.getModulename());
 		Map<String, Object> attributes = new HashMap<String, Object>();
@@ -374,7 +374,7 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 		
 		Set<TsysModuleoperate> opers = info.getTsysModuleoperates();
 		for (TsysModuleoperate oper : opers) {
-			if (modules.get(info.getModuleid() + oper.getOperateid()) == null) continue;
+			if (modules.get(oper.getOperateid()) == null) continue;
 			Map<String, Object> operMap = new HashMap<String, Object>();
 			operMap.put("id", oper.getOperateid());
 			operMap.put("text", oper.getOperatename());
@@ -383,10 +383,10 @@ public class TaclUserinfoServiceImpl extends BaseServiceImpl implements
 			attr.put("moduleid", info.getModuleid());
 			operMap.put("attributes", attr);
 			boolean found = false;
-			if (assinged.get(info.getModuleid() + oper.getOperateid()) != null) {
+			if (assinged.get(oper.getOperateid()) != null) {
 				found = true;
 				attr.put("disabled", true);
-			} else if (privileges.get(info.getModuleid() + oper.getOperateid()) != null) {
+			} else if (privileges.get(oper.getOperateid()) != null) {
 				found = true;
 			}
 			if (found) operMap.put("checked", true);

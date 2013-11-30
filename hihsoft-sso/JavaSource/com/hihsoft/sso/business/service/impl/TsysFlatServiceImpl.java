@@ -5,17 +5,19 @@
  */
 package com.hihsoft.sso.business.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-
+import com.hihframework.core.utils.StringHelpers;
 import com.hihframework.exception.ServiceException;
 import com.hihsoft.baseclass.service.impl.BaseServiceImpl;
-import com.hihsoft.sso.business.model.*;
-import com.hihsoft.sso.business.service.*;
+import com.hihsoft.sso.business.model.TsysFlat;
+import com.hihsoft.sso.business.service.TsysFlatService;
 @Service(value ="tsysFlatService")
 public class TsysFlatServiceImpl extends BaseServiceImpl implements
 		TsysFlatService {
@@ -222,5 +224,18 @@ public class TsysFlatServiceImpl extends BaseServiceImpl implements
 	public List<TsysFlat> getFlatsByUser(String userId) {
 		String sql = "SELECT * FROM T_SYS_FLAT WHERE FLATID IN (SELECT FLATID FROM T_SYS_MODULEINFO WHERE MODULEID IN (SELECT MODULEID FROM T_ACL_ROLEPRIVILEGE WHERE ROLEID IN(SELECT ROLEID FROM T_ACL_ROLEUSER WHERE USERID=?)) OR MODULEID IN (SELECT MODULEID FROM T_ACL_USERPRIVILEGE WHERE USERID=?)) ORDER BY FLATDESC";
 		return getBeanBySQL(sql, TsysFlat.class, userId, userId);
+	}
+	public List<Map<String,Object>> getFlatsList(String flatname, String orders,int rows,int page) throws ServiceException{
+		List<Map<String,Object>> map=new ArrayList<Map<String,Object>>();
+		String querysql=" where 1=1";
+		String order="";
+		if(StringHelpers.notNull(flatname))querysql+=" and flatname like '%"+flatname+"%'";
+		if(StringHelpers.notNull(orders))order+=" order by "+orders;
+		String sql="select * from t_sys_flat "+querysql+"+"+order;
+		if(page==0&&rows==0)
+			map=baseDAO.queryForListBySQL(sql);
+		else
+			map=baseDAO.queryForPagedListBySQL(sql,page,rows);
+	return map;
 	}
 }

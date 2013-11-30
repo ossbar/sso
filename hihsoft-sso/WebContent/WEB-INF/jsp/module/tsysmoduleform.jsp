@@ -2,19 +2,18 @@
 <%@ include file="/WEB-INF/jsp/common/taglibs.jsp"%>
 <html>
 <head>
-<%@ include file="/WEB-INF/jsp/common/title.jsp"%>
 </head>
 <script type="text/javascript">
-	function save_click() {
+	/* function save_click() {
 		if(!$("#formID").validationEngine('validate'))
 			return;	
 		var frm = $("form[name='moduleinfoform']");
 		frm.attr("action", "${ctx}/tsysModuleinfoController.do?method=saveOrUpdate");
 		frm.submit();
-	}
+	} */
 	
 	function back_click() {
-		document.location = "${ctx}/tsysModuleinfoController.do?method=list"
+		document.location = "${ctx}/tsysModuleinfoController.do?method=getTree"
 	}
 	$(function() {
 		var flat = $("select[name=flatid]").val();
@@ -43,6 +42,28 @@
 		});
 		$("table.FormView").find("td:even").css("text-align", "right");
 	});
+	
+	function save_click() {
+		if(!$("#formID").validationEngine('validate'))
+			return;	
+		var frm = $("form[name='moduleinfoform']");
+		frm.attr("action", "${ctx}/tsysModuleinfoController.do?method=saveOrUpdate");
+		submit(frm, function(res, status) {
+			//jsondata = $.parseJSON(res);
+			win.window("close");
+			/* alert(res.moduleid);
+			alert(res.modulename);
+			alert(res.success); 
+			alert(res.flatid);*/
+			if (isSuccess(res, status)) {
+				alert("保存成功!")
+				appendRole(res.modulename, res.moduleid, res.flatid);
+				moduleid = res.moduleid;
+				detail();
+				
+			} 
+		});
+	}
 </script>
 <body>
 	<hih:form bean="moduleInfo" scope="request">
@@ -69,7 +90,7 @@
 								<c:forEach items="${flats}" var="flat">
 									<option value="${flat.flatid}">${flat.flatname}</option>
 								</c:forEach>
-						</select>
+						</select><font color="red">**</font>
 						</td>
 					</tr>
 					<tr>

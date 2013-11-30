@@ -136,8 +136,8 @@ var win;
 </script>
 </head>
 <body>
-<form method="post" target="_self" action="${ctx}/taclRoleController.do?method=list" name="listForm" style="width: 100%;height: 100%;">
-	<div class="easyui-layout" style="border: none;" fit="true" id="container">
+<form method="post" target="_self" action="${ctx}/taclRoleController.do?method=list" name="listForm">
+	<div  id="container">
 		<input type="hidden" id="isGroup" value="${isGroup}" />
 		<div class="datagrid-toolbar" region="north" border="false" style="height: 70px;">
 			<hih:auth operate="ADD" module="ACL_ROLE" value="button.add"
@@ -155,11 +155,14 @@ var win;
 			<table class="FormView" border="0" cellspacing="1" cellpadding="0" style="margin-top: 4px;">
 				<col class="Label" />
 				<col class="Data" />
+				<col class="Label" />
+				<col class="Data" />
 				<tr height="30px">
 					<td align="left" >
-						<fmt:message key="taclrole.rolename" />
-						<input type="text" class="text" name="srh_rolename" value="${rolename}">
-					</td>
+						<fmt:message key="taclrole.rolename" /></td>
+					<td><input type="text" style="width:200px" name="srh_rolename" value="${rolename}"></td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
 				</tr>
 			</table>
 		</div>

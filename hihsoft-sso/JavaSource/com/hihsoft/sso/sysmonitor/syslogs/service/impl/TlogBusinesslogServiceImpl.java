@@ -18,18 +18,10 @@ import com.hihsoft.sso.sysmonitor.syslogs.model.TlogBusinesslog;
 import com.hihsoft.sso.sysmonitor.syslogs.service.TlogBusinesslogService;
 
 /**
- * <p>
  * Title:
- * </p>
- * <p>
  * Description:
- * </p>
- * <p>
  * Copyright: Copyright (c) 2011
- * </p>
- * <p>
  * Company:javahih.co.,ltd
- * </p>
  * 
  * @author zhujw
  * @version 1.0

@@ -21,13 +21,13 @@ if ((u != null && !"".equals(u) && p != null && !"".equals(p) && "".equals(msg))
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="${ctx}/themes/shareResources/images/favicon.ico" />
+<link rel="shortcut icon" href="${ctx}/hih.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="${ctx}/js_plugins/jquery/css/default.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/js_plugins/jquery/js/themes/default/easyui.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/js_plugins/jquery/js/themes/icon.css" />
-<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="${ctx}/js_plugins/jquery/js/jquery.easyui.min.js"></script>
+<link href="${ctx}/ui_widget/easyui/css/default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/ui_widget/easyui/js/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/ui_widget/easyui/js/themes/icon.css" />
+<script type="text/javascript" src="${ctx}/ui_widget/easyui/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="${ctx}/ui_widget/easyui/js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${ctx}/js_plugins/custom/common.js"></script>
 <script type="text/javascript" >
 function onBodyLoad() {
@@ -57,7 +57,7 @@ function onBodyLoad() {
 	$("#reset").click(function() {
 		document.forms[0].reset();
 	});
-	var imgPath = "js_plugins/jquery/images/";
+	var imgPath = "ui_widget/easyui/images/";
 	$("input[type=image]").hover(function(){
 		this.src = imgPath + this.name + "L.gif";
 	},function(){
@@ -87,7 +87,7 @@ function onBodyLoad() {
 		<input type="hidden" name="method" value="index">
 		<input type="hidden" name="url" value="${url}">
 		<div id="loginWindow"
-			style="margin-left:auto;margin-right:auto;position:relative;top:180px;background-image:url(${ctx}/js_plugins/jquery/images/loginWindow.png); width:600px; height:310px; font-size:12px; font:bold;">
+			style="margin-left:auto;margin-right:auto;position:relative;top:180px;background-image:url(${ctx}/ui_widget/easyui/images/loginWindow.png); width:600px; height:310px; font-size:12px; font:bold;">
 			<div
 				style="position: absolute; top: 100px; left: 180px; top: 100px; height: 26px; width: 300px;">
 				<fmt:bundle basename="resources/propertiescfg/ApplicationResources">
@@ -111,10 +111,10 @@ function onBodyLoad() {
 					<tr>
 						<td style="height: 35px"></td>
 						<td><input
-							src="js_plugins/jquery/images/submit.gif" name="submit" id="submit"
+							src="ui_widget/easyui/images/submit.gif" name="submit" id="submit"
 							type="image" style="float: left;">
 							<input
-								src="js_plugins/jquery/images/reset.gif" name="reset" id="reset"
+								src="ui_widget/easyui/images/reset.gif" name="reset" id="reset"
 								type="image" style="float: right;">
 						</td>
 					</tr>

@@ -1,0 +1,90 @@
+*{font-size:13px; font-family:Tahoma,Verdana,微软雅黑,新宋体}
+body{background:#D2E0F2; }
+a{ color:Black; text-decoration:none;}
+a:hover{ color:Red; text-decoration:underline;}
+.textbox03 {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,宋体;line-height: 14px; background-color: #fff;  height: auto; font-size: 14px;  font-weight: bold; width: 190px; }
+
+.txt01{font:Verdana, Geneva, sans-serif,宋体;padding:3px 2px 2px 2px; border-width:1px; border-color:#ddd;  color:#000;}
+.txt {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,宋体;line-height: 14px; background-color: #fff;  height: auto; font-size: 14px;}
+.footer{text-align:center;color:#15428B; margin:0px; padding:0px;line-height:23px; font-weight:bold;}
+
+.head a{color:White;text-decoration:underline;}
+.easyui-accordion ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 10px;
+}
+
+.easyui-accordion ul li {
+	padding: 0px;
+}
+
+.easyui-accordion ul li a {
+	line-height: 24px;
+}
+
+.easyui-accordion ul li div {
+	margin: 2px 0px;
+	padding-left: 10px;
+	padding-top: 4px;
+	border:1px  #ffffff;
+}
+
+.easyui-accordion ul li div.hover {
+	background: #E0ECFF;
+	cursor: pointer;
+}
+
+.easyui-accordion ul li div.hover a {
+	color: #416AA3;
+}
+
+.easyui-accordion ul li div.selected {
+	background: #E0ECFF;
+	cursor: default;
+}
+
+.easyui-accordion ul li div.selected a {
+	color: #416AA3;
+	font-weight: bold;
+}
+
+
+
+.icon{ background:url(../images/tabicons.png) no-repeat;width:18px; line-height:18px; display:inline-block;}
+.icon-sys{ background-position:0px -80px;}
+.icon-sys-tes{ background-position:-20px -80px;}
+.icon-org{ background-position:-300px -80px;}
+.icon-report{ background-position:-220px -60px;}
+.icon-chart{ background-position:-240px -80px;}
+.icon-file{ background-position:-220px -40px;}
+.icon-query{ background-position:-220px -200px;}
+.icon-email{ background-position:-140px -180px;}
+.icon-base-set{ background-position:-200px -40px;}
+.icon-security{ background-position:-380px -220px;}
+.icon-setting{ background-position:-220px -320px;}
+.icon-bill{ background-position:-240px -20px;}
+.icon-single{ background-position: 0px -140px;}
+.icon-chart-hisgram{ background-position:-240px -80px;}
+.icon-chart-cake{ background-position:-260px -80px;}
+.icon-chart-line{ background-position:-320px -80px;}
+.icon-job{ background-position:-80px -440px;}
+.icon-para{ background-position:-20px -100px;}
+.icon-flats{ background-position:-40px -100px;}
+.icon-exception{ background-position:-220px -120px;}
+.icon-set{ background-position:-380px -200px;}
+.icon-add{background-position: -20px 0px;}
+.icon-add1{background:url('icon/edit_add.png') no-repeat;}
+.icon-nav{background-position: -100px -20px; }
+.icon-users{background-position: -100px -480px;}
+.icon-login{background-position: -140px -480px;}
+.icon-role{background-position: -360px -200px;}
+.icon-set{background-position: -380px -200px;}
+.icon-log{background-position: -380px -80px;}
+.icon-delete16{background:url('icon/delete.gif') no-repeat;width:18px; line-height:18px; display:inline-block;}
+.icon-delete{ background-position:-140px -120px;}
+.icon-edit{ background-position:-380px -320px;}
+.icon-magic{ background-position:0px -500px;}
+.icon-database{ background-position:-20px -140px;}
+.icon-expand{ background:url('/images/coll2.gif') no-repeat;}
+.icon-collapse{ background:url('/images/coll3.gif') no-repeat;}

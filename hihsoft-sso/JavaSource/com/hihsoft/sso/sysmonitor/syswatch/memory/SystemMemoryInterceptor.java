@@ -22,7 +22,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  */
 public class SystemMemoryInterceptor extends HandlerInterceptorAdapter{
 	protected static Logger logger = LoggerFactory.getLogger(SystemMemoryInterceptor.class);
-	public static boolean enabled = true;
+	public static  boolean enabled =false;
 
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
 		if(enabled){
@@ -39,12 +39,12 @@ public class SystemMemoryInterceptor extends HandlerInterceptorAdapter{
 		return super.preHandle(request, response, handler);
 	}
 
-	public boolean isEnabled() {
+	public  boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled2) {
-		enabled = enabled2;
+	public  void setEnabled(boolean enabled) {
+		SystemMemoryInterceptor.enabled = enabled;
 	}
 
 	

@@ -1,0 +1,2158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hihsoft>
+	<models isLoad="false">
+		<!-- 系统参数 -->
+		<model name="tSysAreacoding" class="com.hihsoft.sso.business.model.TsysAreacoding">
+			<object id="110000">
+				<property name="areacode" value="110000" />
+				<property name="areaname" value="北京市" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="120000">
+				<property name="areacode" value="120000" />
+				<property name="areaname" value="天津市" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="130000">
+				<property name="areacode" value="130000" />
+				<property name="areaname" value="河北省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="130100">
+				<property name="areacode" value="130100" />
+				<property name="areaname" value="石家庄市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130200">
+				<property name="areacode" value="130200" />
+				<property name="areaname" value="唐山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130300">
+				<property name="areacode" value="130300" />
+				<property name="areaname" value="秦皇岛市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130400">
+				<property name="areacode" value="130400" />
+				<property name="areaname" value="邯郸市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130500">
+				<property name="areacode" value="130500" />
+				<property name="areaname" value="邢台市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130600">
+				<property name="areacode" value="130600" />
+				<property name="areaname" value="保定市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130700">
+				<property name="areacode" value="130700" />
+				<property name="areaname" value="张家口市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130800">
+				<property name="areacode" value="130800" />
+				<property name="areaname" value="承德市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="130900">
+				<property name="areacode" value="130900" />
+				<property name="areaname" value="沧州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="131000">
+				<property name="areacode" value="131000" />
+				<property name="areaname" value="廊坊市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="131100">
+				<property name="areacode" value="131100" />
+				<property name="areaname" value="衡水市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="130000" property="areacodingid" />
+			</object>
+			<object id="140000">
+				<property name="areacode" value="140000" />
+				<property name="areaname" value="山西省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="140100">
+				<property name="areacode" value="140100" />
+				<property name="areaname" value="太原市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140200">
+				<property name="areacode" value="140200" />
+				<property name="areaname" value="大同市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140300">
+				<property name="areacode" value="140300" />
+				<property name="areaname" value="阳泉市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140400">
+				<property name="areacode" value="140400" />
+				<property name="areaname" value="长治市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140500">
+				<property name="areacode" value="140500" />
+				<property name="areaname" value="晋城市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140600">
+				<property name="areacode" value="140600" />
+				<property name="areaname" value="朔州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140700">
+				<property name="areacode" value="140700" />
+				<property name="areaname" value="晋中市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140800">
+				<property name="areacode" value="140800" />
+				<property name="areaname" value="运城市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="140900">
+				<property name="areacode" value="140900" />
+				<property name="areaname" value="忻州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="141000">
+				<property name="areacode" value="141000" />
+				<property name="areaname" value="临汾市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="141100">
+				<property name="areacode" value="141100" />
+				<property name="areaname" value="吕梁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="140000" property="areacodingid" />
+			</object>
+			<object id="150000">
+				<property name="areacode" value="150000" />
+				<property name="areaname" value="内蒙古自治区" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="150100">
+				<property name="areacode" value="150100" />
+				<property name="areaname" value="呼和浩特市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150200">
+				<property name="areacode" value="150200" />
+				<property name="areaname" value="包头市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150300">
+				<property name="areacode" value="150300" />
+				<property name="areaname" value="乌海市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150400">
+				<property name="areacode" value="150400" />
+				<property name="areaname" value="赤峰市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150500">
+				<property name="areacode" value="150500" />
+				<property name="areaname" value="通辽市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150600">
+				<property name="areacode" value="150600" />
+				<property name="areaname" value="鄂尔多斯市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150700">
+				<property name="areacode" value="150700" />
+				<property name="areaname" value="呼伦贝尔市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150800">
+				<property name="areacode" value="150800" />
+				<property name="areaname" value="巴彦淖尔市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="150900">
+				<property name="areacode" value="150900" />
+				<property name="areaname" value="乌兰察布市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="152200">
+				<property name="areacode" value="152200" />
+				<property name="areaname" value="兴安盟" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="152500">
+				<property name="areacode" value="152500" />
+				<property name="areaname" value="锡林郭勒盟" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="152900">
+				<property name="areacode" value="152900" />
+				<property name="areaname" value="阿拉善盟" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="150000" property="areacodingid" />
+			</object>
+			<object id="210000">
+				<property name="areacode" value="210000" />
+				<property name="areaname" value="辽宁省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="210100">
+				<property name="areacode" value="210100" />
+				<property name="areaname" value="沈阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210200">
+				<property name="areacode" value="210200" />
+				<property name="areaname" value="大连市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210300">
+				<property name="areacode" value="210300" />
+				<property name="areaname" value="鞍山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210400">
+				<property name="areacode" value="210400" />
+				<property name="areaname" value="抚顺市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210500">
+				<property name="areacode" value="210500" />
+				<property name="areaname" value="本溪市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210600">
+				<property name="areacode" value="210600" />
+				<property name="areaname" value="丹东市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210700">
+				<property name="areacode" value="210700" />
+				<property name="areaname" value="锦州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210800">
+				<property name="areacode" value="210800" />
+				<property name="areaname" value="营口市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="210900">
+				<property name="areacode" value="210900" />
+				<property name="areaname" value="阜新市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="211000">
+				<property name="areacode" value="211000" />
+				<property name="areaname" value="辽阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="211100">
+				<property name="areacode" value="211100" />
+				<property name="areaname" value="盘锦市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="211200">
+				<property name="areacode" value="211200" />
+				<property name="areaname" value="铁岭市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="211300">
+				<property name="areacode" value="211300" />
+				<property name="areaname" value="朝阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="211400">
+				<property name="areacode" value="211400" />
+				<property name="areaname" value="葫芦岛市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="210000" property="areacodingid" />
+			</object>
+			<object id="220000">
+				<property name="areacode" value="220000" />
+				<property name="areaname" value="吉林省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="220100">
+				<property name="areacode" value="220100" />
+				<property name="areaname" value="长春市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220200">
+				<property name="areacode" value="220200" />
+				<property name="areaname" value="吉林市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220300">
+				<property name="areacode" value="220300" />
+				<property name="areaname" value="四平市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220400">
+				<property name="areacode" value="220400" />
+				<property name="areaname" value="辽源市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220500">
+				<property name="areacode" value="220500" />
+				<property name="areaname" value="通化市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220600">
+				<property name="areacode" value="220600" />
+				<property name="areaname" value="白山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220700">
+				<property name="areacode" value="220700" />
+				<property name="areaname" value="松原市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="220800">
+				<property name="areacode" value="220800" />
+				<property name="areaname" value="白城市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="220000" property="areacodingid" />
+			</object>
+			<object id="230000">
+				<property name="areacode" value="230000" />
+				<property name="areaname" value="黑龙江省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="230100">
+				<property name="areacode" value="230100" />
+				<property name="areaname" value="哈尔滨市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230200">
+				<property name="areacode" value="230200" />
+				<property name="areaname" value="齐齐哈尔市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230300">
+				<property name="areacode" value="230300" />
+				<property name="areaname" value="鸡西市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230400">
+				<property name="areacode" value="230400" />
+				<property name="areaname" value="鹤岗市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230500">
+				<property name="areacode" value="230500" />
+				<property name="areaname" value="双鸭山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230600">
+				<property name="areacode" value="230600" />
+				<property name="areaname" value="大庆市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230700">
+				<property name="areacode" value="230700" />
+				<property name="areaname" value="伊春市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230800">
+				<property name="areacode" value="230800" />
+				<property name="areaname" value="佳木斯市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="230900">
+				<property name="areacode" value="230900" />
+				<property name="areaname" value="七台河市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="231000">
+				<property name="areacode" value="231000" />
+				<property name="areaname" value="牡丹江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="231100">
+				<property name="areacode" value="231100" />
+				<property name="areaname" value="黑河市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="231200">
+				<property name="areacode" value="231200" />
+				<property name="areaname" value="绥化市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="230000" property="areacodingid" />
+			</object>
+			<object id="310000">
+				<property name="areacode" value="310000" />
+				<property name="areaname" value="上海市" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="320000">
+				<property name="areacode" value="320000" />
+				<property name="areaname" value="江苏省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="320100">
+				<property name="areacode" value="320100" />
+				<property name="areaname" value="南京市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320200">
+				<property name="areacode" value="320200" />
+				<property name="areaname" value="无锡市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320300">
+				<property name="areacode" value="320300" />
+				<property name="areaname" value="徐州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320400">
+				<property name="areacode" value="320400" />
+				<property name="areaname" value="常州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320500">
+				<property name="areacode" value="320500" />
+				<property name="areaname" value="苏州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320600">
+				<property name="areacode" value="320600" />
+				<property name="areaname" value="南通市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320700">
+				<property name="areacode" value="320700" />
+				<property name="areaname" value="连云港市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320800">
+				<property name="areacode" value="320800" />
+				<property name="areaname" value="淮安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="320900">
+				<property name="areacode" value="320900" />
+				<property name="areaname" value="盐城市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="321000">
+				<property name="areacode" value="321000" />
+				<property name="areaname" value="扬州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="321100">
+				<property name="areacode" value="321100" />
+				<property name="areaname" value="镇江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="321200">
+				<property name="areacode" value="321200" />
+				<property name="areaname" value="泰州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="321300">
+				<property name="areacode" value="321300" />
+				<property name="areaname" value="宿迁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="320000" property="areacodingid" />
+			</object>
+			<object id="330000">
+				<property name="areacode" value="330000" />
+				<property name="areaname" value="浙江省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="330100">
+				<property name="areacode" value="330100" />
+				<property name="areaname" value="杭州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330200">
+				<property name="areacode" value="330200" />
+				<property name="areaname" value="宁波市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330300">
+				<property name="areacode" value="330300" />
+				<property name="areaname" value="温州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330400">
+				<property name="areacode" value="330400" />
+				<property name="areaname" value="嘉兴市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330500">
+				<property name="areacode" value="330500" />
+				<property name="areaname" value="湖州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330700">
+				<property name="areacode" value="330700" />
+				<property name="areaname" value="金华市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330800">
+				<property name="areacode" value="330800" />
+				<property name="areaname" value="衢州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="330900">
+				<property name="areacode" value="330900" />
+				<property name="areaname" value="舟山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="331000">
+				<property name="areacode" value="331000" />
+				<property name="areaname" value="台州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="331100">
+				<property name="areacode" value="331100" />
+				<property name="areaname" value="丽水市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="330000" property="areacodingid" />
+			</object>
+			<object id="340000">
+				<property name="areacode" value="340000" />
+				<property name="areaname" value="安徽省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="340100">
+				<property name="areacode" value="340100" />
+				<property name="areaname" value="合肥市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340200">
+				<property name="areacode" value="340200" />
+				<property name="areaname" value="芜湖市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340300">
+				<property name="areacode" value="340300" />
+				<property name="areaname" value="蚌埠市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340400">
+				<property name="areacode" value="340400" />
+				<property name="areaname" value="淮南市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340500">
+				<property name="areacode" value="340500" />
+				<property name="areaname" value="马鞍山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340600">
+				<property name="areacode" value="340600" />
+				<property name="areaname" value="淮北市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340700">
+				<property name="areacode" value="340700" />
+				<property name="areaname" value="铜陵市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="340800">
+				<property name="areacode" value="340800" />
+				<property name="areaname" value="安庆市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341000">
+				<property name="areacode" value="341000" />
+				<property name="areaname" value="黄山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341100">
+				<property name="areacode" value="341100" />
+				<property name="areaname" value="滁州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341200">
+				<property name="areacode" value="341200" />
+				<property name="areaname" value="阜阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341300">
+				<property name="areacode" value="341300" />
+				<property name="areaname" value="宿州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341400">
+				<property name="areacode" value="341400" />
+				<property name="areaname" value="巢湖市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341500">
+				<property name="areacode" value="341500" />
+				<property name="areaname" value="六安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341600">
+				<property name="areacode" value="341600" />
+				<property name="areaname" value="亳州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341700">
+				<property name="areacode" value="341700" />
+				<property name="areaname" value="池州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="341800">
+				<property name="areacode" value="341800" />
+				<property name="areaname" value="宣城市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="340000" property="areacodingid" />
+			</object>
+			<object id="350000">
+				<property name="areacode" value="350000" />
+				<property name="areaname" value="福建省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="350100">
+				<property name="areacode" value="350100" />
+				<property name="areaname" value="福州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350200">
+				<property name="areacode" value="350200" />
+				<property name="areaname" value="厦门市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350300">
+				<property name="areacode" value="350300" />
+				<property name="areaname" value="莆田市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350400">
+				<property name="areacode" value="350400" />
+				<property name="areaname" value="三明市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350500">
+				<property name="areacode" value="350500" />
+				<property name="areaname" value="泉州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350600">
+				<property name="areacode" value="350600" />
+				<property name="areaname" value="漳州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350700">
+				<property name="areacode" value="350700" />
+				<property name="areaname" value="南平市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350800">
+				<property name="areacode" value="350800" />
+				<property name="areaname" value="龙岩市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="350900">
+				<property name="areacode" value="350900" />
+				<property name="areaname" value="宁德市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="350000" property="areacodingid" />
+			</object>
+			<object id="360000">
+				<property name="areacode" value="360000" />
+				<property name="areaname" value="江西省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="360100">
+				<property name="areacode" value="360100" />
+				<property name="areaname" value="南昌市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360200">
+				<property name="areacode" value="360200" />
+				<property name="areaname" value="景德镇市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360300">
+				<property name="areacode" value="360300" />
+				<property name="areaname" value="萍乡市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360400">
+				<property name="areacode" value="360400" />
+				<property name="areaname" value="九江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360500">
+				<property name="areacode" value="360500" />
+				<property name="areaname" value="新余市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360600">
+				<property name="areacode" value="360600" />
+				<property name="areaname" value="鹰潭市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360700">
+				<property name="areacode" value="360700" />
+				<property name="areaname" value="赣州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360800">
+				<property name="areacode" value="360800" />
+				<property name="areaname" value="吉安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="360900">
+				<property name="areacode" value="360900" />
+				<property name="areaname" value="宜春市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="361000">
+				<property name="areacode" value="361000" />
+				<property name="areaname" value="抚州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="360000" property="areacodingid" />
+			</object>
+			<object id="370000">
+				<property name="areacode" value="370000" />
+				<property name="areaname" value="山东省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="370100">
+				<property name="areacode" value="370100" />
+				<property name="areaname" value="济南市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370200">
+				<property name="areacode" value="370200" />
+				<property name="areaname" value="青岛市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370300">
+				<property name="areacode" value="370300" />
+				<property name="areaname" value="淄博市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370400">
+				<property name="areacode" value="370400" />
+				<property name="areaname" value="枣庄市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370500">
+				<property name="areacode" value="370500" />
+				<property name="areaname" value="东营市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370600">
+				<property name="areacode" value="370600" />
+				<property name="areaname" value="烟台市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370700">
+				<property name="areacode" value="370700" />
+				<property name="areaname" value="潍坊市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370800">
+				<property name="areacode" value="370800" />
+				<property name="areaname" value="济宁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="370900">
+				<property name="areacode" value="370900" />
+				<property name="areaname" value="泰安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371000">
+				<property name="areacode" value="371000" />
+				<property name="areaname" value="威海市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371100">
+				<property name="areacode" value="371100" />
+				<property name="areaname" value="日照市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371200">
+				<property name="areacode" value="371200" />
+				<property name="areaname" value="莱芜市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371300">
+				<property name="areacode" value="371300" />
+				<property name="areaname" value="临沂市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371400">
+				<property name="areacode" value="371400" />
+				<property name="areaname" value="德州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371500">
+				<property name="areacode" value="371500" />
+				<property name="areaname" value="聊城市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371600">
+				<property name="areacode" value="371600" />
+				<property name="areaname" value="滨州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="371700">
+				<property name="areacode" value="371700" />
+				<property name="areaname" value="菏泽市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="370000" property="areacodingid" />
+			</object>
+			<object id="410000">
+				<property name="areacode" value="410000" />
+				<property name="areaname" value="河南省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="410100">
+				<property name="areacode" value="410100" />
+				<property name="areaname" value="郑州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410200">
+				<property name="areacode" value="410200" />
+				<property name="areaname" value="开封市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410300">
+				<property name="areacode" value="410300" />
+				<property name="areaname" value="洛阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410400">
+				<property name="areacode" value="410400" />
+				<property name="areaname" value="平顶山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410500">
+				<property name="areacode" value="410500" />
+				<property name="areaname" value="安阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410600">
+				<property name="areacode" value="410600" />
+				<property name="areaname" value="鹤壁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410700">
+				<property name="areacode" value="410700" />
+				<property name="areaname" value="新乡市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410800">
+				<property name="areacode" value="410800" />
+				<property name="areaname" value="焦作市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="410900">
+				<property name="areacode" value="410900" />
+				<property name="areaname" value="濮阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411000">
+				<property name="areacode" value="411000" />
+				<property name="areaname" value="许昌市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411100">
+				<property name="areacode" value="411100" />
+				<property name="areaname" value="漯河市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411200">
+				<property name="areacode" value="411200" />
+				<property name="areaname" value="三门峡市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411400">
+				<property name="areacode" value="411400" />
+				<property name="areaname" value="商丘市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411500">
+				<property name="areacode" value="411500" />
+				<property name="areaname" value="信阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411600">
+				<property name="areacode" value="411600" />
+				<property name="areaname" value="周口市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="411700">
+				<property name="areacode" value="411700" />
+				<property name="areaname" value="驻马店市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="410000" property="areacodingid" />
+			</object>
+			<object id="420000">
+				<property name="areacode" value="420000" />
+				<property name="areaname" value="湖北省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="420100">
+				<property name="areacode" value="420100" />
+				<property name="areaname" value="武汉市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420200">
+				<property name="areacode" value="420200" />
+				<property name="areaname" value="黄石市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420300">
+				<property name="areacode" value="420300" />
+				<property name="areaname" value="十堰市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420500">
+				<property name="areacode" value="420500" />
+				<property name="areaname" value="宜昌市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420600">
+				<property name="areacode" value="420600" />
+				<property name="areaname" value="襄樊市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420700">
+				<property name="areacode" value="420700" />
+				<property name="areaname" value="鄂州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420800">
+				<property name="areacode" value="420800" />
+				<property name="areaname" value="荆门市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="420900">
+				<property name="areacode" value="420900" />
+				<property name="areaname" value="孝感市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="421000">
+				<property name="areacode" value="421000" />
+				<property name="areaname" value="荆州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="421100">
+				<property name="areacode" value="421100" />
+				<property name="areaname" value="黄冈市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="421200">
+				<property name="areacode" value="421200" />
+				<property name="areaname" value="咸宁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="421300">
+				<property name="areacode" value="421300" />
+				<property name="areaname" value="随州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="422800">
+				<property name="areacode" value="422800" />
+				<property name="areaname" value="恩施土家族苗族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="429004">
+				<property name="areacode" value="429004" />
+				<property name="areaname" value="仙桃市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="429005">
+				<property name="areacode" value="429005" />
+				<property name="areaname" value="潜江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="429006">
+				<property name="areacode" value="429006" />
+				<property name="areaname" value="天门市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="429021">
+				<property name="areacode" value="429021" />
+				<property name="areaname" value="神农架林区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="420000" property="areacodingid" />
+			</object>
+			<object id="430000">
+				<property name="areacode" value="430000" />
+				<property name="areaname" value="湖南省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="430100">
+				<property name="areacode" value="430100" />
+				<property name="areaname" value="长沙市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430200">
+				<property name="areacode" value="430200" />
+				<property name="areaname" value="株洲市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430300">
+				<property name="areacode" value="430300" />
+				<property name="areaname" value="湘潭市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430400">
+				<property name="areacode" value="430400" />
+				<property name="areaname" value="衡阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430500">
+				<property name="areacode" value="430500" />
+				<property name="areaname" value="邵阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430600">
+				<property name="areacode" value="430600" />
+				<property name="areaname" value="岳阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430700">
+				<property name="areacode" value="430700" />
+				<property name="areaname" value="常德市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430800">
+				<property name="areacode" value="430800" />
+				<property name="areaname" value="张家界市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="430900">
+				<property name="areacode" value="430900" />
+				<property name="areaname" value="益阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="431000">
+				<property name="areacode" value="431000" />
+				<property name="areaname" value="郴州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="431100">
+				<property name="areacode" value="431100" />
+				<property name="areaname" value="永州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="431200">
+				<property name="areacode" value="431200" />
+				<property name="areaname" value="怀化市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="431300">
+				<property name="areacode" value="431300" />
+				<property name="areaname" value="娄底市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="433100">
+				<property name="areacode" value="433100" />
+				<property name="areaname" value="湘西土家族苗族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="430000" property="areacodingid" />
+			</object>
+			<object id="440000">
+				<property name="areacode" value="440000" />
+				<property name="areaname" value="广东省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="440100">
+				<property name="areacode" value="440100" />
+				<property name="areaname" value="广州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440200">
+				<property name="areacode" value="440200" />
+				<property name="areaname" value="韶关市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440300">
+				<property name="areacode" value="440300" />
+				<property name="areaname" value="深圳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440400">
+				<property name="areacode" value="440400" />
+				<property name="areaname" value="珠海市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440500">
+				<property name="areacode" value="440500" />
+				<property name="areaname" value="汕头市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440600">
+				<property name="areacode" value="440600" />
+				<property name="areaname" value="佛山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440700">
+				<property name="areacode" value="440700" />
+				<property name="areaname" value="江门市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440800">
+				<property name="areacode" value="440800" />
+				<property name="areaname" value="湛江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="440900">
+				<property name="areacode" value="440900" />
+				<property name="areaname" value="茂名市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441200">
+				<property name="areacode" value="441200" />
+				<property name="areaname" value="肇庆市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441300">
+				<property name="areacode" value="441300" />
+				<property name="areaname" value="惠州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441400">
+				<property name="areacode" value="441400" />
+				<property name="areaname" value="梅州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441500">
+				<property name="areacode" value="441500" />
+				<property name="areaname" value="汕尾市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441600">
+				<property name="areacode" value="441600" />
+				<property name="areaname" value="河源市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441700">
+				<property name="areacode" value="441700" />
+				<property name="areaname" value="阳江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441800">
+				<property name="areacode" value="441800" />
+				<property name="areaname" value="清远市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="441900">
+				<property name="areacode" value="441900" />
+				<property name="areaname" value="东莞市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="442000">
+				<property name="areacode" value="442000" />
+				<property name="areaname" value="中山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="445100">
+				<property name="areacode" value="445100" />
+				<property name="areaname" value="潮州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="445200">
+				<property name="areacode" value="445200" />
+				<property name="areaname" value="揭阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="445300">
+				<property name="areacode" value="445300" />
+				<property name="areaname" value="云浮市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="440000" property="areacodingid" />
+			</object>
+			<object id="450000">
+				<property name="areacode" value="450000" />
+				<property name="areaname" value="广西壮族自治区" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="450100">
+				<property name="areacode" value="450100" />
+				<property name="areaname" value="南宁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450200">
+				<property name="areacode" value="450200" />
+				<property name="areaname" value="柳州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450300">
+				<property name="areacode" value="450300" />
+				<property name="areaname" value="桂林市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450400">
+				<property name="areacode" value="450400" />
+				<property name="areaname" value="梧州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450500">
+				<property name="areacode" value="450500" />
+				<property name="areaname" value="北海市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450600">
+				<property name="areacode" value="450600" />
+				<property name="areaname" value="防城港市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450700">
+				<property name="areacode" value="450700" />
+				<property name="areaname" value="钦州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450800">
+				<property name="areacode" value="450800" />
+				<property name="areaname" value="贵港市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="450900">
+				<property name="areacode" value="450900" />
+				<property name="areaname" value="玉林市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="451000">
+				<property name="areacode" value="451000" />
+				<property name="areaname" value="百色市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="451100">
+				<property name="areacode" value="451100" />
+				<property name="areaname" value="贺州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="451200">
+				<property name="areacode" value="451200" />
+				<property name="areaname" value="河池市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="451300">
+				<property name="areacode" value="451300" />
+				<property name="areaname" value="来宾市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="451400">
+				<property name="areacode" value="451400" />
+				<property name="areaname" value="崇左市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="450000" property="areacodingid" />
+			</object>
+			<object id="460000">
+				<property name="areacode" value="460000" />
+				<property name="areaname" value="海南省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="460100">
+				<property name="areacode" value="460100" />
+				<property name="areaname" value="海口市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="460000" property="areacodingid" />
+			</object>
+			<object id="460200">
+				<property name="areacode" value="460200" />
+				<property name="areaname" value="三亚市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="460000" property="areacodingid" />
+			</object>
+			<object id="500000">
+				<property name="areacode" value="500000" />
+				<property name="areaname" value="重庆市" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="510000">
+				<property name="areacode" value="510000" />
+				<property name="areaname" value="四川省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="510100">
+				<property name="areacode" value="510100" />
+				<property name="areaname" value="成都市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510300">
+				<property name="areacode" value="510300" />
+				<property name="areaname" value="自贡市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510400">
+				<property name="areacode" value="510400" />
+				<property name="areaname" value="攀枝花市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510500">
+				<property name="areacode" value="510500" />
+				<property name="areaname" value="泸州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510600">
+				<property name="areacode" value="510600" />
+				<property name="areaname" value="德阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510700">
+				<property name="areacode" value="510700" />
+				<property name="areaname" value="绵阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510800">
+				<property name="areacode" value="510800" />
+				<property name="areaname" value="广元市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="510900">
+				<property name="areacode" value="510900" />
+				<property name="areaname" value="遂宁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511000">
+				<property name="areacode" value="511000" />
+				<property name="areaname" value="内江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511100">
+				<property name="areacode" value="511100" />
+				<property name="areaname" value="乐山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511300">
+				<property name="areacode" value="511300" />
+				<property name="areaname" value="南充市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511400">
+				<property name="areacode" value="511400" />
+				<property name="areaname" value="眉山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511500">
+				<property name="areacode" value="511500" />
+				<property name="areaname" value="宜宾市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511600">
+				<property name="areacode" value="511600" />
+				<property name="areaname" value="广安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511700">
+				<property name="areacode" value="511700" />
+				<property name="areaname" value="达州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511800">
+				<property name="areacode" value="511800" />
+				<property name="areaname" value="雅安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="511900">
+				<property name="areacode" value="511900" />
+				<property name="areaname" value="巴中市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="512000">
+				<property name="areacode" value="512000" />
+				<property name="areaname" value="资阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="513200">
+				<property name="areacode" value="513200" />
+				<property name="areaname" value="阿坝藏族羌族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="513300">
+				<property name="areacode" value="513300" />
+				<property name="areaname" value="甘孜藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="513400">
+				<property name="areacode" value="513400" />
+				<property name="areaname" value="凉山彝族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="510000" property="areacodingid" />
+			</object>
+			<object id="520000">
+				<property name="areacode" value="520000" />
+				<property name="areaname" value="贵州省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="520100">
+				<property name="areacode" value="520100" />
+				<property name="areaname" value="贵阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="520200">
+				<property name="areacode" value="520200" />
+				<property name="areaname" value="六盘水市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="520300">
+				<property name="areacode" value="520300" />
+				<property name="areaname" value="遵义市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="520400">
+				<property name="areacode" value="520400" />
+				<property name="areaname" value="安顺市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="522200">
+				<property name="areacode" value="522200" />
+				<property name="areaname" value="铜仁地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="522300">
+				<property name="areacode" value="522300" />
+				<property name="areaname" value="黔西南布依族苗族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="522400">
+				<property name="areacode" value="522400" />
+				<property name="areaname" value="毕节地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="522600">
+				<property name="areacode" value="522600" />
+				<property name="areaname" value="黔东南苗族侗族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="522700">
+				<property name="areacode" value="522700" />
+				<property name="areaname" value="黔南布依族苗族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="520000" property="areacodingid" />
+			</object>
+			<object id="530000">
+				<property name="areacode" value="530000" />
+				<property name="areaname" value="云南省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="530100">
+				<property name="areacode" value="530100" />
+				<property name="areaname" value="昆明市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530300">
+				<property name="areacode" value="530300" />
+				<property name="areaname" value="曲靖市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530400">
+				<property name="areacode" value="530400" />
+				<property name="areaname" value="玉溪市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530500">
+				<property name="areacode" value="530500" />
+				<property name="areaname" value="保山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530600">
+				<property name="areacode" value="530600" />
+				<property name="areaname" value="昭通市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530700">
+				<property name="areacode" value="530700" />
+				<property name="areaname" value="丽江市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530800">
+				<property name="areacode" value="530800" />
+				<property name="areaname" value="普洱市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="530900">
+				<property name="areacode" value="530900" />
+				<property name="areaname" value="临沧市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="532300">
+				<property name="areacode" value="532300" />
+				<property name="areaname" value="楚雄彝族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="532500">
+				<property name="areacode" value="532500" />
+				<property name="areaname" value="红河哈尼族彝族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="532800">
+				<property name="areacode" value="532800" />
+				<property name="areaname" value="西双版纳傣族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="532900">
+				<property name="areacode" value="532900" />
+				<property name="areaname" value="大理白族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="533100">
+				<property name="areacode" value="533100" />
+				<property name="areaname" value="德宏傣族景颇族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="533300">
+				<property name="areacode" value="533300" />
+				<property name="areaname" value="怒江傈僳族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="533400">
+				<property name="areacode" value="533400" />
+				<property name="areaname" value="迪庆藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="530000" property="areacodingid" />
+			</object>
+			<object id="540000">
+				<property name="areacode" value="540000" />
+				<property name="areaname" value="西藏自治区" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="540100">
+				<property name="areacode" value="540100" />
+				<property name="areaname" value="拉萨市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="542100">
+				<property name="areacode" value="542100" />
+				<property name="areaname" value="昌都地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="542200">
+				<property name="areacode" value="542200" />
+				<property name="areaname" value="山南地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="542300">
+				<property name="areacode" value="542300" />
+				<property name="areaname" value="日喀则地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="542400">
+				<property name="areacode" value="542400" />
+				<property name="areaname" value="那曲地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="542500">
+				<property name="areacode" value="542500" />
+				<property name="areaname" value="阿里地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="542600">
+				<property name="areacode" value="542600" />
+				<property name="areaname" value="林芝地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="540000" property="areacodingid" />
+			</object>
+			<object id="610000">
+				<property name="areacode" value="610000" />
+				<property name="areaname" value="陕西省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="610100">
+				<property name="areacode" value="610100" />
+				<property name="areaname" value="西安市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610200">
+				<property name="areacode" value="610200" />
+				<property name="areaname" value="铜川市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610300">
+				<property name="areacode" value="610300" />
+				<property name="areaname" value="宝鸡市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610400">
+				<property name="areacode" value="610400" />
+				<property name="areaname" value="咸阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610500">
+				<property name="areacode" value="610500" />
+				<property name="areaname" value="渭南市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610700">
+				<property name="areacode" value="610700" />
+				<property name="areaname" value="汉中市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610800">
+				<property name="areacode" value="610800" />
+				<property name="areaname" value="榆林市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="610900">
+				<property name="areacode" value="610900" />
+				<property name="areaname" value="安康市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="611000">
+				<property name="areacode" value="611000" />
+				<property name="areaname" value="商洛市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="610000" property="areacodingid" />
+			</object>
+			<object id="620000">
+				<property name="areacode" value="620000" />
+				<property name="areaname" value="甘肃省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="620100">
+				<property name="areacode" value="620100" />
+				<property name="areaname" value="兰州市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620200">
+				<property name="areacode" value="620200" />
+				<property name="areaname" value="嘉峪关市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620300">
+				<property name="areacode" value="620300" />
+				<property name="areaname" value="金昌市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620400">
+				<property name="areacode" value="620400" />
+				<property name="areaname" value="白银市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620500">
+				<property name="areacode" value="620500" />
+				<property name="areaname" value="天水市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620600">
+				<property name="areacode" value="620600" />
+				<property name="areaname" value="武威市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620700">
+				<property name="areacode" value="620700" />
+				<property name="areaname" value="张掖市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620800">
+				<property name="areacode" value="620800" />
+				<property name="areaname" value="平凉市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="620900">
+				<property name="areacode" value="620900" />
+				<property name="areaname" value="酒泉市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="621000">
+				<property name="areacode" value="621000" />
+				<property name="areaname" value="庆阳市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="621100">
+				<property name="areacode" value="621100" />
+				<property name="areaname" value="定西市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="621200">
+				<property name="areacode" value="621200" />
+				<property name="areaname" value="陇南市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="622900">
+				<property name="areacode" value="622900" />
+				<property name="areaname" value="临夏回族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="623000">
+				<property name="areacode" value="623000" />
+				<property name="areaname" value="甘南藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="620000" property="areacodingid" />
+			</object>
+			<object id="630000">
+				<property name="areacode" value="630000" />
+				<property name="areaname" value="青海省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="630100">
+				<property name="areacode" value="630100" />
+				<property name="areaname" value="西宁市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632100">
+				<property name="areacode" value="632100" />
+				<property name="areaname" value="海东地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632200">
+				<property name="areacode" value="632200" />
+				<property name="areaname" value="海北藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632300">
+				<property name="areacode" value="632300" />
+				<property name="areaname" value="黄南藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632500">
+				<property name="areacode" value="632500" />
+				<property name="areaname" value="海南藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632600">
+				<property name="areacode" value="632600" />
+				<property name="areaname" value="果洛藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632700">
+				<property name="areacode" value="632700" />
+				<property name="areaname" value="玉树藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="632800">
+				<property name="areacode" value="632800" />
+				<property name="areaname" value="海西蒙古族藏族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="630000" property="areacodingid" />
+			</object>
+			<object id="640000">
+				<property name="areacode" value="640000" />
+				<property name="areaname" value="宁夏回族自治区" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="640100">
+				<property name="areacode" value="640100" />
+				<property name="areaname" value="银川市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="640000" property="areacodingid" />
+			</object>
+			<object id="640200">
+				<property name="areacode" value="640200" />
+				<property name="areaname" value="石嘴山市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="640000" property="areacodingid" />
+			</object>
+			<object id="640300">
+				<property name="areacode" value="640300" />
+				<property name="areaname" value="吴忠市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="640000" property="areacodingid" />
+			</object>
+			<object id="640400">
+				<property name="areacode" value="640400" />
+				<property name="areaname" value="固原市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="640000" property="areacodingid" />
+			</object>
+			<object id="640500">
+				<property name="areacode" value="640500" />
+				<property name="areaname" value="中卫市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="640000" property="areacodingid" />
+			</object>
+			<object id="650000">
+				<property name="areacode" value="650000" />
+				<property name="areaname" value="新疆维吾尔自治区" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="650100">
+				<property name="areacode" value="650100" />
+				<property name="areaname" value="乌鲁木齐市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="650200">
+				<property name="areacode" value="650200" />
+				<property name="areaname" value="克拉玛依市" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="652100">
+				<property name="areacode" value="652100" />
+				<property name="areaname" value="吐鲁番地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="652200">
+				<property name="areacode" value="652200" />
+				<property name="areaname" value="哈密地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="652300">
+				<property name="areacode" value="652300" />
+				<property name="areaname" value="昌吉回族自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="652700">
+				<property name="areacode" value="652700" />
+				<property name="areaname" value="博尔塔拉蒙古自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="652800">
+				<property name="areacode" value="652800" />
+				<property name="areaname" value="巴音郭楞蒙古自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="652900">
+				<property name="areacode" value="652900" />
+				<property name="areaname" value="阿克苏地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="653000">
+				<property name="areacode" value="653000" />
+				<property name="areaname" value="克孜勒苏柯尔克孜自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="653100">
+				<property name="areacode" value="653100" />
+				<property name="areaname" value="喀什地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="653200">
+				<property name="areacode" value="653200" />
+				<property name="areaname" value="和田地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="654000">
+				<property name="areacode" value="654000" />
+				<property name="areaname" value="伊犁哈萨克自治州" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="654200">
+				<property name="areacode" value="654200" />
+				<property name="areaname" value="塔城地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="654300">
+				<property name="areacode" value="654300" />
+				<property name="areaname" value="阿勒泰地区" />
+				<property name="areatype" value="2" />
+				<property name="parentarea" parent="650000" property="areacodingid" />
+			</object>
+			<object id="710000">
+				<property name="areacode" value="710000" />
+				<property name="areaname" value="台湾省" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="810000">
+				<property name="areacode" value="810000" />
+				<property name="areaname" value="香港特别行政区" />
+				<property name="areatype" value="1" />
+			</object>
+			<object id="820000">
+				<property name="areacode" value="820000" />
+				<property name="areaname" value="澳门特别行政区" />
+				<property name="areatype" value="1" />
+			</object>
+		</model>
+	</models>
+</hihsoft>

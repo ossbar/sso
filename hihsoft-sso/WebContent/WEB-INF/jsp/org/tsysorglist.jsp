@@ -45,6 +45,9 @@ function add_click() {
 }
 function save_click() {
 	if (!formEnabled) return;
+	var valid = $("#formID").validationEngine('validate');
+	if(!valid)
+		return;
 	orgform.attr("action", baseUrl + "save");
 	orgform[0].submit();
 }
@@ -89,6 +92,7 @@ function disableForm() {
 	formEnabled = false;
 }
 function modify_click() {
+	$("#orgno").attr("class","");
 	enableForm();
 	layout();
 }

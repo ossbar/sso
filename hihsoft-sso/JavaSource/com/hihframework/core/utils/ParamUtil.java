@@ -28,7 +28,7 @@ public class ParamUtil {
 	private static ParamUtil instance;
 
 	private ParamUtil() {
-		tsysParameterService = (TsysParameterService) SpringBeanLoader.getBean("tsysParameterService");
+		tsysParameterService = (TsysParameterService) SpringContextHolder.getBean("tsysParameterService");
 	}
 	
 	public static ParamUtil getInstance() {

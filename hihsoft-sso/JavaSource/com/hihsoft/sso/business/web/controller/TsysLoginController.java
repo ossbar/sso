@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hihframework.core.utils.DateUtils;
 import com.hihframework.core.utils.Eryptogram;
 import com.hihframework.core.utils.ParamUtil;
 import com.hihframework.core.utils.StringHelpers;
@@ -33,12 +34,12 @@ import com.hihsoft.sso.business.model.TsysFlat;
 import com.hihsoft.sso.business.service.TaclUserinfoService;
 import com.hihsoft.sso.business.service.TsysFlatService;
 import com.hihsoft.sso.business.service.TsysUploadService;
+import com.hihsoft.sso.sysmonitor.syslogs.model.TlogLoginlog;
 
 /**
- * Title:系统登录主界面
- * Description:
- * Copyright: Copyright (c) 2013
+ * Title:系统登录主界面 Description: Copyright: Copyright (c) 2013
  * Company:hihsoft.co.,ltd
+ * 
  * @author hihsoft.co.,ltd
  * @version 1.0
  */
@@ -51,9 +52,10 @@ public class TsysLoginController extends javahihBaseController {
 	private TaclUserinfoService taclUserinfoService;
 	@Autowired
 	private TsysUploadService tsysUploadService;
-//	@Autowired
-//	private TlogLoginlogService tlogLoginlogService;
-	
+
+	// @Autowired
+	// private TlogLoginlogService tlogLoginlogService;
+
 	/**
 	 * 访问列表
 	 * 
@@ -62,7 +64,7 @@ public class TsysLoginController extends javahihBaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(params="method=index_bak",method=RequestMethod.POST)
+	@RequestMapping(params = "method=index_bak", method = RequestMethod.POST)
 	public ModelAndView index_bak(final HttpServletRequest request,
 			final HttpServletResponse response) throws Exception {
 		ModelAndView mv = new ModelAndView(v_list);
@@ -108,7 +110,8 @@ public class TsysLoginController extends javahihBaseController {
 					mv.addObject("msg", "密码不正确！");
 					return mv;
 				}
-				String state = ParamUtil.getInstance().getValByKey("userState", "正常");
+				String state = ParamUtil.getInstance().getValByKey("userState",
+						"正常");
 				if (StringHelpers.notNull(state)
 						&& !state.equals(user.getUserstate())) {
 					mv.addObject("msg", "该用户已停用！");
@@ -138,9 +141,9 @@ public class TsysLoginController extends javahihBaseController {
 				if (url.indexOf(ctx) == -1) {
 
 					url += "?method=index&u="
-							+ URLEncoder.encode(URLEncoder.encode(user
-									.getLoginname(), "UTF-8"), "UTF-8") + "&p="
-							+ user.getUserpw() + "&f=" + flatid;
+							+ URLEncoder.encode(URLEncoder.encode(
+									user.getLoginname(), "UTF-8"), "UTF-8")
+							+ "&p=" + user.getUserpw() + "&f=" + flatid;
 
 					clearSession(request);
 					response.sendRedirect(url);
@@ -162,7 +165,7 @@ public class TsysLoginController extends javahihBaseController {
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(params="method=index")
+	@RequestMapping(params = "method=index")
 	public ModelAndView index(HttpServletRequest request,
 			HttpServletResponse response) throws ControllerException {
 		ModelAndView mv = new ModelAndView("index");
@@ -182,14 +185,14 @@ public class TsysLoginController extends javahihBaseController {
 		TaclUserinfo user = getUser(request);
 		if (user != null) {
 			ModelAndView login = login(request, user, mv);
-			if (login != null) return login;
+			if (login != null)
+				return login;
 			mv.setViewName("/common/main");
 			return mv;
 		}
 		String username = getParam(request, "u");
 		String password = getParam(request, "p");
-		if (StringHelpers.isNull(username)
-				|| StringHelpers.isNull(password)) {
+		if (StringHelpers.isNull(username) || StringHelpers.isNull(password)) {
 			mv.addObject("msg", "用户名密码不能为空！");
 			return mv;
 		}
@@ -198,8 +201,9 @@ public class TsysLoginController extends javahihBaseController {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		List<TaclUserinfo> list = (List<TaclUserinfo>) taclUserinfoService.getValueObjectsByHQL(
-				"from TaclUserinfo where loginname=?", username);
+		List<TaclUserinfo> list = (List<TaclUserinfo>) taclUserinfoService
+				.getValueObjectsByHQL("from TaclUserinfo where loginname=?",
+						username);
 		if (list.size() > 0)
 			user = list.get(0);
 		if (user != null) {
@@ -211,7 +215,8 @@ public class TsysLoginController extends javahihBaseController {
 				return mv;
 			}
 			ModelAndView login = login(request, user, mv);
-			if (login != null) return login;
+			if (login != null)
+				return login;
 			String lastUrl = request.getParameter("url");
 			if (StringHelpers.notNull(lastUrl)) {
 				String url = Eryptogram.decrypt(lastUrl);
@@ -228,7 +233,7 @@ public class TsysLoginController extends javahihBaseController {
 		}
 		return mv;
 	}
-	
+
 	private ModelAndView login(HttpServletRequest request, TaclUserinfo user,
 			ModelAndView mv) {
 		Map<String, Map<String, String>> roles = taclUserinfoService
@@ -238,10 +243,10 @@ public class TsysLoginController extends javahihBaseController {
 			mv.addObject("msg", "该用户没有授权，请联系管理员");
 			return mv;
 		}
-		
+
 		String state = ParamUtil.getInstance().getValByKey("userState", "正常");
-		log.info("用户当前状态"+state);
-			if (!state.equals(user.getUserstate())) {
+		log.info("用户当前状态" + state);
+		if (!state.equals(user.getUserstate())) {
 			mv.addObject("msg", "该用户已停用！");
 			return mv;
 		}
@@ -252,22 +257,23 @@ public class TsysLoginController extends javahihBaseController {
 			putSession(request, Consts.CUR_ORGID, user.getTsysOrg().getOrgid());
 			putSession(request, Consts.USER_DEFAULT_ORG, user.getTsysOrg());
 		}
-		
+
 		List<TsysFlat> flatList = tsysFlatService.getFlatsByUser(user
 				.getUserid());
 		request.setAttribute("flatlist", flatList);
 		String flatid = getParam(request, "f");
-		log.info("登录的平台"+flatid);
-		if (StringHelpers.isNull(flatid)) flatid = flatList.get(0).getFlatid();
+		log.info("登录的平台" + flatid);
+		if (StringHelpers.isNull(flatid))
+			flatid = flatList.get(0).getFlatid();
 		putSession(request, "curFlatId", flatid);
-		
-		// add by zhujw 登录日志
-//		TlogLoginlog tlogLoginlog = new TlogLoginlog();
-//		tlogLoginlog.setOrgid(user.getTsysOrg().getOrgid());
-//		tlogLoginlog.setUserid(user.getUserid());
-//		tlogLoginlog.setLogintime(DateUtils.getNowDateTime());
-//		tlogLoginlog.setIpaddr(request.getRemoteAddr());
-//		taclUserinfoService.saveOrUpdateVO(tlogLoginlog);
+
+		// add by zhujw 增加登录日志
+		TlogLoginlog tlogLoginlog = new TlogLoginlog();
+		tlogLoginlog.setOrgid(user.getTsysOrg().getOrgid());
+		tlogLoginlog.setUserid(user.getUserid());
+		tlogLoginlog.setLogintime(DateUtils.getNowDateTime());
+		tlogLoginlog.setIpaddr(request.getRemoteAddr());
+		taclUserinfoService.saveOrUpdateVO(tlogLoginlog);
 		return null;
 	}
 
@@ -279,7 +285,7 @@ public class TsysLoginController extends javahihBaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(params="method=loginpage")
+	@RequestMapping(params = "method=loginpage")
 	public ModelAndView loginpage(final HttpServletRequest request,
 			final HttpServletResponse response) throws Exception {
 		final List<?> flatList = tsysFlatService.getAllTsysFlat();
@@ -297,10 +303,10 @@ public class TsysLoginController extends javahihBaseController {
 	 * @author Xiaojf
 	 * @since 2011-6-11
 	 */
-	@RequestMapping(params="method=logout")
+	@RequestMapping(params = "method=logout")
 	public ModelAndView logout(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-//		String casUser = request.getRemoteUser();
+		// String casUser = request.getRemoteUser();
 		String jumpTo = getParam(request, "jumpTo");
 		if (StringHelpers.notNull(jumpTo)) {
 			request.getSession().invalidate();
@@ -315,13 +321,13 @@ public class TsysLoginController extends javahihBaseController {
 			response.sendRedirect(url);
 		}
 		return null;
-//		if (casUser != null) {
-//			String casServerLogoutUrl = (String) request.getSession()
-//					.getServletContext().getInitParameter("casServerLogoutUrl");
-//			return new ModelAndView("redirect:" + casServerLogoutUrl);
-//		} else {
-//			return new ModelAndView(v_list);
-//		}
+		// if (casUser != null) {
+		// String casServerLogoutUrl = (String) request.getSession()
+		// .getServletContext().getInitParameter("casServerLogoutUrl");
+		// return new ModelAndView("redirect:" + casServerLogoutUrl);
+		// } else {
+		// return new ModelAndView(v_list);
+		// }
 	}
 
 	/**
@@ -333,14 +339,15 @@ public class TsysLoginController extends javahihBaseController {
 	 * @author Xiaojf
 	 * @since 2011-6-13
 	 */
-	@RequestMapping(params="method=getMenus")
+	@RequestMapping(params = "method=getMenus")
 	public void getMenus(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String flatid = getParam(request, "flatid");
 		String menus = baseService.getMenus(getUser(request), flatid);
 		renderJson(response, menus);
 	}
-	@RequestMapping(params="method=getFlats")
+
+	@RequestMapping(params = "method=getFlats")
 	public void getFlats(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		List<?> flats = tsysFlatService.getAllTsysFlat();

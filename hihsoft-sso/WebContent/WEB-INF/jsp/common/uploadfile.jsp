@@ -5,8 +5,8 @@
 <head>
 <%@ include file="/WEB-INF/jsp/common/meta.jsp"%>
 <!-- 文件上传组件 uploadify -->
-<link rel="stylesheet" type="text/css" href="${ctx}/js_plugins/uploadify/uploadify.css"/>
-<script type="text/javascript" src="${ctx}/js_plugins/uploadify/jquery.uploadify.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/ui_widget/uploadify/uploadify.css"/>
+<script type="text/javascript" src="${ctx}/ui_widget/uploadify/jquery.uploadify.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	var form = $("form[name=listForm]");
@@ -37,9 +37,9 @@ $(document).ready(function() {
 	var up = $('#file_upload');
 	var uploaded = [];
 	up.uploadify({
-	  'swf'  : '${ctx}/js_plugins/uploadify/uploadify.swf',
+	  'swf'  : '${ctx}/ui_widget/uploadify/uploadify.swf',
 	  'uploader'    : '${ctx}/fileUploadController.do?method=upload',
-	  'cancelImage' : '${ctx}/js_plugins/uploadify/uploadify-cancel.png',
+	  'cancelImage' : '${ctx}/ui_widget/uploadify/uploadify-cancel.png',
 	  'folder'    : '/uploads',
 	  'buttonText': '选择文件',
 	  'queueID'   : 'fileDiv', 

@@ -4,7 +4,7 @@
 <head>
 <%@ include file="/WEB-INF/jsp/common/meta.jsp"%>
 <script type="text/javascript"
-	src='${ctx}/js_plugins/jquery/js/outlook2.js'>
+	src='${ctx}/ui_widget/easyui/js/outlook2.js'>
 </script>
 <script type="text/javascript">
 var win,curFlatId;
@@ -18,12 +18,12 @@ $(function() {
 		defaultMenu = $("div[flatid='"+curFlatId+"']");
 	}
 	$("div[flatid="+defaultMenu.attr("flatid")+"]").children("div").each(function(){
-		var css = {"background" : "url('${ctx}/js_plugins/jquery/images/menu_lefts.png') no-repeat"};
+		var css = {"background" : "url('${ctx}/ui_widget/easyui/images/menu_lefts.png') no-repeat"};
 		var menu = $(this).attr("menu");
 		if (menu == "cent") {
-			css.background = "url('${ctx}/js_plugins/jquery/images/menu_cens.png') repeat";
+			css.background = "url('${ctx}/ui_widget/easyui/images/menu_cens.png') repeat";
 		} else if (menu =="right") {
-			css.background = "url('${ctx}/js_plugins/jquery/images/menu_rights.png') no-repeat";
+			css.background = "url('${ctx}/ui_widget/easyui/images/menu_rights.png') no-repeat";
 		}
 		$(this).css(css);
 	});
@@ -31,7 +31,11 @@ $(function() {
 	getHelpMenu("${ctx}");
 	win = $("#modifyWindow").window({
 		title : "修改密码",
-		modal : true
+		collapsible : false,
+        minimizable : false,
+        maximizable : false,
+        closable : true,
+    	modal : true
 	});
 	$("#changePwd").click(function() {
 		win.window("open");
@@ -54,7 +58,7 @@ $(function() {
 		</div>
 	</noscript>
 	<div region="north" split="false" border="false"
-		style="overflow: hidden; height: 73px; font-family: Verdana, 微软雅黑, 黑体">
+		style="overflow: hidden; height: 78px; font-family: Verdana, 微软雅黑, 黑体">
 		<div class="maintop2">
     <div class="maintop1"></div>
     <div style="width:393px; height:45px; margin:0; float:right;">
@@ -81,12 +85,12 @@ $(function() {
 				<div id="menu${paStatus.index}" flatid="${tsysflat.flatid}" onclick="jump('${tsysflat.flaturl}', '${userinfo.loginname}', '${userinfo.userpw}', '${tsysflat.flatid}', '${ctx}')"
 					style="width: auto; height: 22px; line-height: 22px; cursor: pointer; margin: 0 1px; display: inline; float: left;">
 					<div menu="left" 
-						style="width: 5px; height: 22px; background: url(${ctx}/js_plugins/jquery/images/menu_left.png) no-repeat; margin: 0; float: left;"></div>
+						style="width: 5px; height: 22px; background: url(${ctx}/ui_widget/easyui/images/menu_left.png) no-repeat; margin: 0; float: left;"></div>
 					<div menu="cent"
-						style="font-family:'微软雅黑', Courier, monospace;height: 22px; background: url(${ctx}/js_plugins/jquery/images/menu_cen.png) repeat; margin: 0; float: left;">
+						style="font-family:'微软雅黑', Courier, monospace;height: 22px; background: url(${ctx}/ui_widget/easyui/images/menu_cen.png) repeat; margin: 0; float: left;">
 						${tsysflat.shortname}</div>
 					<div menu="right"
-						style="width: 5px; height: 22px; background: url(${ctx}/js_plugins/jquery/images/menu_right.png) no-repeat; margin: 0; float: left;"></div>
+						style="width: 5px; height: 22px; background: url(${ctx}/ui_widget/easyui/images/menu_right.png) no-repeat; margin: 0; float: left;"></div>
 				</div>
 				</c:forEach>
 	</div>
@@ -100,7 +104,7 @@ $(function() {
 		style="height: 3px; background: #D2E0F2;">
 	</div>
 	<div region="west" hide="true" split="true" title="导航菜单"
-		style="width: 168px;" id="west">
+		style="width: 170px;" id="west">
 		<div id="nav" class="easyui-accordion" fit="true" border="false">
 			<!--  导航内容 -->
 
@@ -123,12 +127,8 @@ $(function() {
 		<div id="mm-tabcloseall">全部关闭</div>
 		<div id="mm-tabcloseother">除此之外全部关闭</div>
 		<div class="menu-sep"></div>
-		<div id="mm-tabcloseright">当前页右侧全部关闭</div>
-		<div id="mm-tabcloseleft">当前页左侧全部关闭</div>
-		<div class="menu-sep"></div>
-		<div id="mm-exit">退出</div>
 	</div>
-	<div id="modifyWindow" style="width: 350px;height: 230px;" closed="true">
+	<div id="modifyWindow"  style="width:400px;height:220px;" closed="true">
 		<div id="window-body"></div>
 	</div>
 	<div id="loading" class="hih-mask-container" style="display: none;">

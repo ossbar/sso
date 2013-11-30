@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hihsoft.sso.business.model">
+    <class name="TbusinessOrder" table="t_business_order">
+
+        <id name="id" column="id" type="java.lang.String" length="32">
+            <generator class="uuid"/>
+        </id>
+		
+		
+		
+		<property 
+			name="applyname" 
+			column="applyname" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="orderid" 
+			column="orderid" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="appointmentTime" 
+			column="appointmentTime" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="orderingTime" 
+			column="orderingTime" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="upperorderid" 
+			column="upperorderid" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="customName" 
+			column="customName" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="customPhone" 
+			column="customPhone" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="11"/>
+		
+		<property 
+			name="customAddress" 
+			column="customAddress" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="failurePhenomenon" 
+			column="failurePhenomenon" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2147483647"/>
+		
+		<property 
+			name="productBrand" 
+			column="productBrand" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="productType" 
+			column="productType" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="productSubtype" 
+			column="productSubtype" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="productModel" 
+			column="productModel" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="productColor" 
+			column="productColor" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="purchaseDate" 
+			column="purchaseDate" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="purchaseCount" 
+			column="purchaseCount" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="repairmanId" 
+			column="repairmanId" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="32"/>
+		
+		<property 
+			name="repairMeasures" 
+			column="repairMeasures" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2147483647"/>
+		
+		<property 
+			name="repairMoney" 
+			column="repairMoney" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="repairPartsImages" 
+			column="repairPartsImages" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2147483647"/>
+		
+		<property 
+			name="invoiceImages" 
+			column="invoiceImages" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2147483647"/>
+		
+		<property 
+			name="barCodes" 
+			column="barCodes" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<property 
+			name="repairedTime" 
+			column="repairedTime" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="paymentTime" 
+			column="paymentTime" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="cancelPerson" 
+			column="cancelPerson" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="cancelTime" 
+			column="cancelTime" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="exportPerson" 
+			column="exportPerson" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="exportTime" 
+			column="exportTime" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="verifyPerson" 
+			column="verifyPerson" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="40"/>
+		
+		<property 
+			name="verifyTime" 
+			column="verifyTime" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="orderState" 
+			column="orderState" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="userSatisfaction" 
+			column="userSatisfaction" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="isWarranty" 
+			column="isWarranty" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="5"/>
+		
+		<property 
+			name="orderType" 
+			column="orderType" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="within24Hours" 
+			column="within24Hours" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="5"/>
+		
+		<property 
+			name="basicSalary" 
+			column="basicSalary" 
+			update="true"
+            insert="true"
+            type="java.lang.Double"
+			not-null="false" 
+			unique="false" 
+			length="22"/>
+		
+		<property 
+			name="positiveIncentive" 
+			column="positiveIncentive" 
+			update="true"
+            insert="true"
+            type="java.lang.Double"
+			not-null="false" 
+			unique="false" 
+			length="22"/>
+		
+		<property 
+			name="negativeIncentive" 
+			column="negativeIncentive" 
+			update="true"
+            insert="true"
+            type="java.lang.Double"
+			not-null="false" 
+			unique="false" 
+			length="22"/>
+		
+		<property 
+			name="appreciationComponents" 
+			column="appreciationComponents" 
+			update="true"
+            insert="true"
+            type="java.lang.Double"
+			not-null="false" 
+			unique="false" 
+			length="22"/>
+		
+		<property 
+			name="appreciationMoney" 
+			column="appreciationMoney" 
+			update="true"
+            insert="true"
+            type="java.lang.Double"
+			not-null="false" 
+			unique="false" 
+			length="22"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

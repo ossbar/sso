@@ -1,0 +1,28 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:tool="http://www.springframework.org/schema/tool"
+	xmlns:context="http://www.springframework.org/schema/context"
+	default-autowire="byName" default-lazy-init="true"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+     http://www.springframework.org/schema/beans/spring-beans.xsd  
+     http://www.springframework.org/schema/tx  
+     http://www.springframework.org/schema/tx/spring-tx.xsd  
+     http://www.springframework.org/schema/aop  
+     http://www.springframework.org/schema/aop/spring-aop.xsd  
+     http://www.springframework.org/schema/jee  
+     http://www.springframework.org/schema/jee/spring-jee.xsd  
+     http://www.springframework.org/schema/context  
+     http://www.springframework.org/schema/context/spring-context.xsd  
+     http://www.springframework.org/schema/util  
+     http://www.springframework.org/schema/util/spring-util.xsd  
+     http://www.springframework.org/schema/tool  
+     http://www.springframework.org/schema/tool/spring-tool.xsd">
+	<!-- =================================系统框架全局配置开始============================================ -->
+	<import resource="applicationContext-hihsoft-sso.xml" />
+	<!-- =================================系统安全框架配置============================================= -->
+	<!-- <import resource="applicationContext-message.xml" /> -->
+	<!-- ================================系统框架之外模块配置开始例如：JBPM工作流=============================== -->
+	<!-- <import resource="applicationContext-jbpm.xml" /> -->
+</beans>

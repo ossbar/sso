@@ -55,6 +55,11 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 					SQLException {
 				Transaction tx = session.beginTransaction();
 				if (StringHelpers.notNull(tsysOrg.getOrgid())) {
+					//修改需要判断修改后的编号 除了自己的编号 是否还存在相同的编号 
+					List<TsysOrg> tsysOrgs = (List<TsysOrg>) session.createQuery(" from TsysOrg where orgno = '"+tsysOrg.getOrgno()+"' and orgid != '"+tsysOrg.getOrgid()+"'").list();
+					if(tsysOrgs.size() > 0){
+						throw new ServiceException("编号已经存在!");
+					}
 					TsysOrg old = (TsysOrg) session.get(TsysOrg.class, tsysOrg.getOrgid());
 					TsysOrg parent = (TsysOrg) session.get(TsysOrg.class, tsysOrg.getParentorgid());
 					BeanUtils.bean2Bean(tsysOrg, old);
@@ -78,6 +83,11 @@ public class TsysOrgServiceImpl extends BaseServiceImpl implements
 					}
 					session.saveOrUpdate(old);
 				} else {
+					//新增需要判断是否有编号已经存在
+					List<TsysOrg> tsysOrgs = (List<TsysOrg>) session.createQuery(" from TsysOrg where orgno = '"+tsysOrg.getOrgno()+"'").list();
+					if(tsysOrgs.size() > 0){
+						throw new ServiceException("编号已经存在!");
+					}
 					session.saveOrUpdate(tsysOrg);
 				}
 				tx.commit();

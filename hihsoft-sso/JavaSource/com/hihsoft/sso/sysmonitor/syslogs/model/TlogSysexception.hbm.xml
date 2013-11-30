@@ -3,7 +3,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.hihsoft.sso.sysmonitor.syslogs.model">
-	<class name="TlogSysexception" table="t_log_sysexception">
+	<class name="TlogSysexception" table="T_LOG_SYSEXCEPTION">
 
 		<id name="exceptionOid" column="EXCEPTION_OID" type="java.lang.String" length="32">
 			<generator class="uuid" />

@@ -1,0 +1,103 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-3.2.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<description>Spring MVC 3配置 </description>
+	<!-- 自动扫描且只扫描@Controller -->
+	<context:component-scan
+		base-package="com.hihsoft.sso.business.web.controller,com.hihsoft.baseclass.web.controller,com.hihframework.core.utils,com.hihsoft.sso.sysmonitor.syslogs.web.controller,com.hihsoft.ui_widget">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- 使用缓存mvc注解配置 -->
+<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<!-- 将StringHttpMessageCOnverter的默认编码设为UTF-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+    
+	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
+	<mvc:annotation-driven/>
+	
+	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<mvc:default-servlet-handler/>
+
+	<!-- spring mvc 的静态资源处理 -->
+	<mvc:resources mapping="/ui_widget/**" location="/ui_widget/" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!--文件分段上傳 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize">
+			<value>104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+	 <!-- 异常处理类 -->
+<bean id="exceptionHandler" class="com.hihframework.exception.HihSoftHandlerException" />
+<!-- 系统错误转发配置[并记录错误日志]   -->
+<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<property name="defaultErrorView" value="500"></property>   <!-- 默认为500，系统错误(error.jsp)  -->
+<property name="defaultStatusCode" value="404"></property>
+<property name="statusCodes"><!-- 配置多个statusCode -->
+  <props>    
+      <prop key="error">500</prop>  <!-- error.jsp -->
+      <prop key="error1">404</prop>    <!-- error1.jsp -->
+  </props>    
+</property>
+</bean>
+<!--国际化modify by zhujw一次性加载多个属性配置文件 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:/resources/propertiescfg/ApplicationResources
+				</value>
+				<value>classpath:/resources/propertiescfg/SystemGlobals</value>
+				<value>classpath:/resources/propertiescfg/error</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	<bean id="methodNameResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName">
+			<value>method</value>
+		</property>
+		<property name="defaultMethodName" value="list" />
+	</bean>
+		<!-- 面向写业务日志的拦截器AOP拦截器定义-->
+	<mvc:interceptors>
+	<bean class="com.hihsoft.sso.sysmonitor.syswatch.memory.SystemMemoryInterceptor">
+	<property name="enabled" value="true"/>
+	</bean>
+	</mvc:interceptors> 
+		<!-- 拦截器配置
+	<mvc:interceptors>
+		<bean class="com.hihsoft.sso.sysmonitor.syslogs.aop.BusinessLoggerInterceptor" />
+	</mvc:interceptors> -->
+</beans>

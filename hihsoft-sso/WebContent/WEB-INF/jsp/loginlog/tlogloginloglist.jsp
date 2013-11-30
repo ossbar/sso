@@ -7,19 +7,18 @@
 <%@ include file="/WEB-INF/jsp/common/meta.jsp"%>
 <%@ include file="/WEB-INF/jsp/common/title.jsp"%>
 <script type="text/javascript">
-	$(function() {
-		var form = $("form[name=listForm]");
-		initGrid(form);
-		var win = $("#win").window({
-			title : "新增",
-			modal : true
-		});
-		var handler = function() {
-			var hid = function() {
-				win.window("close");
-			};
-			$("input[type='button']").click(hid);
-		};
+$(function() {
+	var form = $("form[name=listForm]");
+	initGrid(form);
+	var handler = function() {
+		win.window('open');
+		var div = $(this);
+		div.show();
+	};
+	win = $("#win").window({
+		title : "操作窗口",
+		modal : true
+	});
 		$("#btn_remove").click(
 				function() {
 					if (!confirm("确定删除选中的记录吗？"))
@@ -32,15 +31,19 @@
 		$("#btn_search").click(function() {
 				form.submit();
 		});
-		$("#container").layout();
+		$(".table-container").layout();
+		$(window).resize(function() {
+			$("#container").layout();
+		});
 	});
+
 </script>
 </head>
 <body>
 	<form method="post" target="_self"
 		action="
 		${ctx}/tlogLoginlogController.do?method=list "
-		name="listForm">
+		name="listForm" style="width: 100%;height: 90%;">
 		<input type="hidden" name="error" value='' />
 		<table class="FormView" border="0" cellspacing="1" cellpadding="0">
 			<col class="Label" />
@@ -80,9 +83,7 @@
 				<td><input type="text" class="text" name="srh_ipaddr" value="${ipaddr==null?"":ipaddr}"/></td>
 			</tr>
 		</table>
-		<div
-			style="width: 100%; height: 400px; margin: auto; position: relative;"
-			id="container">
+		<div class="easyui-layout" style="border: none;" fit="true" id="container">
 			<div class="datagrid-toolbar" region="north" style="height: 31px;"
 				border="false">
 				<hih:auth operate="DELETE" module="LOG_LOGIN" value="button.remove"
@@ -90,48 +91,20 @@
 				<hih:auth operate="QUERY" module="LOG_LOGIN" value="button.query"
 					id="btn_search" iconCls="icon-search" />
 			</div>
-			<div id="grid-body" class="grid-body" region="center">
-				<table class="data-grid" cellspacing="0" cellpadding="0">
-					<thead>
-						<tr class="data-grid-header">
-							<th><input type="checkbox" id="selectAll" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.ipaddr" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.logintime" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.logouttime" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.onlinetime" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.userid" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.logout" />
-							</th>
-							<th width="120"><fmt:message key="tlogloginlog.orgid" />
-							</th>
-						</tr>
-					</thead>
-					<c:forEach items="${list}" var="tlogloginlog" varStatus="paStatus">
-						<tr>
-							<td width="100" class="checkbox"><input type="checkbox"
-								name="ckh" value="${tlogloginlog.logid}" />
-							</td>
-							<td width="120">${tlogloginlog.ipaddr}</td>
-							<td width="120">${tlogloginlog.logintime}</td>
-							<td width="120">${tlogloginlog.logouttime}</td>
-							<td width="120">${tlogloginlog.onlinetime}</td>
-							<td width="120">${tlogloginlog.userid}</td>
-							<td width="120">${tlogloginlog.logout}</td>
-							<td width="120">${tlogloginlog.orgid}</td>
-						</tr>
-					</c:forEach>
-				</table>
+			<div id="grid-body" region="center">
+			<hih:table items="${list}" var="tlogloginlog">
+				<hih:column field="logid" checkbox="true"/>
+				<hih:column field="orgid" header="tlogloginlog.orgid" width="200"/>
+				<hih:column field="ipaddr" header="tlogloginlog.ipaddr" width="120"/>
+				<hih:column field="userid" header="tlogloginlog.userid" width="120"/>
+				<hih:column field="logintime" header="tlogloginlog.logintime" width="200"/>
+			    <hih:column field="logouttime" header="tlogloginlog.logouttime" width="400"/>
+			</hih:table>
 			</div>
-			<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
+		<jsp:include page="/WEB-INF/jsp/common/page.jsp" />
 		</div>
 	</form>
-	<div id="win" closed="true" style="width: 450px; height: 350px;">
+	<div id="win" closed="true" style="width: 650px; height: 500px;">
 		<div id="msg"></div>
 	</div>
 </body>

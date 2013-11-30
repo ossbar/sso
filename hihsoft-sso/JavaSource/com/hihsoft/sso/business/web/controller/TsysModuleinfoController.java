@@ -9,11 +9,15 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +43,7 @@ import com.hihsoft.sso.business.service.TsysModuleinfoService;
 @Controller
 @RequestMapping("/tsysModuleinfoController.do")
 public class TsysModuleinfoController extends javahihBaseController {
+	private static Logger log = Logger.getLogger(TsysModuleinfoController.class);
 	@Autowired
 	private TsysModuleinfoService tsysModuleinfoService;
 	@Autowired
@@ -53,6 +58,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 	 * @return
 	 * @throws Exception
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(params="method=list")
 	public ModelAndView list(final HttpServletRequest request,
 			final HttpServletResponse response) throws ControllerException {
@@ -71,10 +77,54 @@ public class TsysModuleinfoController extends javahihBaseController {
 		if (orders != null && !"".equals(orders))
 			hql += " order by " + orders;
 		addOrders(request, orders);
-		List<?> list = calcPage(request, tsysModuleinfoService, hql);
+		List list = calcPage(request, tsysModuleinfoService, hql);
 		request.setAttribute("list", list);
 		return new ModelAndView("/module/tsysmodulelist");
 	}
+	/**
+	 * 访问列表
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 * add by panyt 2013-07-21
+	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(params="method=queryModule")
+	public ModelAndView queryModule(final HttpServletRequest request,
+			final HttpServletResponse response) throws ControllerException {
+		Map<String, Object> filter = WebUtils.getParametersStartingWith(request, "srh_");// 得到查询条件
+		String moduleId = request.getParameter("moduleid");
+		if(StringUtils.isBlank(moduleId)){
+			return null;
+		}
+		
+		String hql = "from TsysModuleinfo t where t.moduleid = ?";
+		ModelAndView mv = new ModelAndView("/module/tsysmodulelist");
+		List list = calcPage(request, tsysModuleinfoService, hql, moduleId);
+		mv.addObject("list", list);
+		mv.addObject("moduleid", moduleId);
+		return mv;
+	}
+	
+	
+	/**
+	 * 显示树
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 * @author panyt
+	 * @since 2013-07-12
+	 */
+	@RequestMapping(params="method=getTree")
+	public ModelAndView getTree(HttpServletRequest request,
+			HttpServletResponse response) throws ControllerException {
+		ModelAndView mv = new ModelAndView("/module/tsysmoduletree");
+		return mv; 
+	}
+
 
 	/**
 	 * 進入新增頁面
@@ -88,7 +138,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 	public ModelAndView add(final HttpServletRequest request,
 			final HttpServletResponse response) throws ControllerException {
 		ModelAndView mv = new ModelAndView("/module/tsysmoduleform");
-		List<?> flats = tsysFlatService.getAllTsysFlat();
+		List flats = tsysFlatService.getAllTsysFlat();
 		mv.addObject("flats", flats);
 		return mv;
 	}
@@ -121,8 +171,15 @@ public class TsysModuleinfoController extends javahihBaseController {
 		TsysModuleinfo tsysModuleinfo = new TsysModuleinfo();
 		this.setValue(request, tsysModuleinfo);
 		tsysModuleinfoService.saveOrUpdateTsysModuleinfo(tsysModuleinfo);
-		return new ModelAndView(new RedirectView(request.getContextPath()+"/tsysModuleinfoController.do?method=list"));
+		JSONObject json = new JSONObject();
+		json.put(TsysModuleinfo.ALIAS_MODULEID , tsysModuleinfo.getModuleid());
+		json.put(TsysModuleinfo.ALIAS_MODULENAME , tsysModuleinfo.getModulename());
+		json.put(TsysModuleinfo.ALIAS_FLATID, tsysModuleinfo.getFlatid());
+		json.put("success", true);
+		renderJson(response, json.toString());
+		return null;
 	}
+	
 	@RequestMapping(params="method=modify")
 	public ModelAndView modify(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -131,7 +188,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 		TsysModuleinfo moduleinfo = tsysModuleinfoService
 				.getTsysModuleinfoById(id);
 		mv.addObject("moduleInfo", moduleinfo);
-		List<?> flats = tsysFlatService.getAllTsysFlat();
+		List flats = tsysFlatService.getAllTsysFlat();
 		mv.addObject("flats", flats);
 		return mv;
 	}
@@ -156,7 +213,8 @@ public class TsysModuleinfoController extends javahihBaseController {
 			}
 		}
 		tsysModuleinfoService.deleteBatchVO(modules);
-		return new ModelAndView(new RedirectView(request.getContextPath()+"/tsysModuleinfoController.do?method=list"));
+		renderJson(response, toJson("success", true));
+		return null;
 	}
 	@RequestMapping(params="method=queryList")
 	public ModelAndView queryList(final HttpServletRequest request,
@@ -168,7 +226,7 @@ public class TsysModuleinfoController extends javahihBaseController {
 			pageSize = "10";
 		if (pageNo == null)
 			pageSize = "1";
-		final List<?> list = tsysModuleinfoService.getTsysModuleinfoPageDataByHQL(
+		final List list = tsysModuleinfoService.getTsysModuleinfoPageDataByHQL(
 				hql, new Object[] {}, Integer.parseInt(pageSize),
 				Integer.parseInt(pageNo));
 		final int total = tsysModuleinfoService.getDataTotalNum(hql);

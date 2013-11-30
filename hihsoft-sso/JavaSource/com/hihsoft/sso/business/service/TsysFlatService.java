@@ -176,4 +176,14 @@ public interface TsysFlatService extends BaseService {
 	 * @since 2011-6-14
 	 */
 	public List<TsysFlat> getFlatsByUser(String userId) throws ServiceException;
+	/**
+	 * 演示列表组件的例子
+	 * @param flatname
+	 * @param orders
+	 * @param rows
+	 * @param page
+	 * @return
+	 * @throws ServiceException
+	 */
+	public List<Map<String,Object>> getFlatsList(String flatname, String orders,int rows,int page) throws ServiceException;
 }

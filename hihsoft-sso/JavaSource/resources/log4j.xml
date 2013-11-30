@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+	<param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[hihsoft_sso] %-d{yyyy-MM-dd HH:mm:ss} %p [%t] %c{1}.%M(%L) | %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="APPLOGFILE" class="org.apache.log4j.RollingFileAppender">
+        <param name="encoding" value="UTF-8" />
+	    <param name="File" value="c:/logs/hihsoft_sso.log" />
+	    <param name="Append" value="true" />
+	    <param name="MaxFileSize" value="1024KB" />
+	    <layout class="org.apache.log4j.PatternLayout">
+	      <param name="ConversionPattern" value="[javahih_sso] %-d{yyyy-MM-dd HH:mm:ss} %-5p %-15c{1}: %m%n"/>
+	    </layout>
+   </appender>
+	<!-- 指定logger的设置，additivity指示是否遵循缺省的继承机制 如果要在控制台在打印出来,则设定additivity="true" -->
+	<logger name="com.hihframework" >
+     <level value="info"/>
+		</logger>
+	<logger name="com.hihsoft" >
+		<level  value="info" />
+	</logger>
+	<logger name="org.springframework" >
+		<level  value="ERROR" />
+	</logger>
+	<logger name="org.hibernate" >
+		<level  value="ERROR" />
+	</logger>
+	<root>
+		<priority value="ERROR" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="APPLOGFILE" />
+	</root>
+</log4j:configuration>
