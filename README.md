@@ -186,20 +186,16 @@ oschina：https://git.oschina.net/hihsoft/sso
  
 ###
     V1.3.0（2014-05-01）
-1、升级spring到3.2.6版本，清除多余的jar包更轻量
-2、数据库连接池，采用监控和性能良好的druid
-3、缓存解决方案ehcache，使用查看业务基础平台与ehcache配置文档
-4、去掉登录选择子系统选项，通过账号自动获取用户拥有的子系统的功能权限和数据权限
-5、修复文件文件组件：采用spring mvc时异常提交表单造成造成上传失败、建议采用form.submit()提交
-6、修正角色管理样式问题、角色类型默认值问题
-7、meta.jsp引入，只要求在父页面引入即可，子页面不需要引入，否则造成父页面上多个按钮重叠的情况。
-8、拉丝反馈：formvalidate不起使用，注意页面属性id和name都需要，并在页面中引入如下脚本
+    1、升级spring到3.2.6版本，清除多余的jar包更轻量
+    2、数据库连接池，采用监控和性能良好的druid
+    3、缓存解决方案ehcache，使用查看业务基础平台与ehcache配置文档
+    4、去掉登录选择子系统选项，通过账号自动获取用户拥有的子系统的功能权限和数据权限
+    5、修复文件文件组件：采用spring mvc时异常提交表单造成造成上传失败、建议采用form.submit()提交
+    6、修正角色管理样式问题、角色类型默认值问题
+    7、meta.jsp引入，只要求在父页面引入即可，子页面不需要引入，否则造成父页面上多个按钮重叠的情况。
+    8、拉丝反馈：formvalidate不起使用，注意页面属性id和name都需要，并在页面中引入如下脚本
      $("#formID").validationEngine({
      showOnMouseOver : true
       });
-9、优化参数标签<hih:parameter />
-10、优化表单、列表标签：<hih:table/>，<hih:form />
-
- 
-
-
+    9、优化参数标签<hih:parameter />
+    10、优化表单、列表标签：<hih:table/>，<hih:form />
