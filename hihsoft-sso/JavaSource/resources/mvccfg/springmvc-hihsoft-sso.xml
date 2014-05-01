@@ -1,47 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop.xsd 
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context.xsd">
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-3.2.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
 	<description>Spring MVC 3配置 </description>
-
-	<aop:aspectj-autoproxy proxy-target-class="true" />
-
 	<!-- 自动扫描且只扫描@Controller -->
 	<context:component-scan
-		base-package="com.hihsoft.sso.business.web.controller,com.hihsoft.baseclass.web.controller,com.hihframework.core.utils,com.hihsoft.sso.sysmonitor.syslogs.web.controller">
+		base-package="com.hihsoft.sso.business.web.controller,com.hihsoft.baseclass.web.controller,com.hihframework.core.utils,com.hihsoft.sso.sysmonitor.syslogs.web.controller,com.hihsoft.ui_widget">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 	<!-- 使用缓存mvc注解配置 -->
+<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven>
-		<!-- 配置StringHttpMessageConverter当@ResponseBody 时中文正常显示 -->
-		<mvc:message-converters>
+		<mvc:message-converters register-defaults="true">
+			<!-- 将StringHttpMessageCOnverter的默认编码设为UTF-8 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-				<property name="supportedMediaTypes">
-					<list>
-						<value>text/plain;charset=UTF-8</value>
-					</list>
-				</property>
+				<constructor-arg value="UTF-8" />
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+    
+	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
+	<mvc:annotation-driven/>
+	
+	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<mvc:default-servlet-handler/>
 
 	<!-- spring mvc 的静态资源处理 -->
-	<mvc:resources mapping="/js_plugins/**" location="/js_plugins/" />
-	<mvc:resources mapping="/themes/**" location="/themes/" />
+	<mvc:resources mapping="/ui_widget/**" location="/ui_widget/" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
@@ -90,7 +90,14 @@
 		</property>
 		<property name="defaultMethodName" value="list" />
 	</bean>
-	<!-- 面向写业务日志的拦截器AOP <bean id="businessLoggerInterceptor" class="com.framework.syslogs.aop.BusinessLoggerInterceptor"> 
-		</bean> -->
-	<mvc:default-servlet-handler />
+		<!-- 面向写业务日志的拦截器AOP拦截器定义-->
+	<mvc:interceptors>
+	<bean class="com.hihsoft.sso.sysmonitor.syswatch.memory.SystemMemoryInterceptor">
+	<property name="enabled" value="true"/>
+	</bean>
+	</mvc:interceptors> 
+		<!-- 拦截器配置
+	<mvc:interceptors>
+		<bean class="com.hihsoft.sso.sysmonitor.syslogs.aop.BusinessLoggerInterceptor" />
+	</mvc:interceptors> -->
 </beans>

@@ -105,40 +105,6 @@
 				<property name="parentmoduleid" parent="sysSecurityArea"
 					property="moduleid" />
 			</object>
-			<object id="sysBusinesslog">
-				<property name="moduleno" value="LOG_BUSINESSLOG" />
-				<property name="modulename" value="业务日志" />
-				<property name="moduleicon" value="icon-database" />
-				<property name="sortnum" value="41" />
-				<property name="moduleclass" value="3" />
-				<property name="flatid" parent="sso" property="flatid" />
-				<property name="parentmoduleid" parent="sysMonitorArea"
-					property="moduleid" />
-				<property name="linkedaddr" value="tlogBusinesslogController.do?method=list" />
-			</object>
-			<object id="syslogDbSql">
-				<property name="moduleno" value="LOG_DBSQL" />
-				<property name="modulename" value="审计日志" />
-				<property name="moduleicon" value="icon-log" />
-				<property name="sortnum" value="42" />
-				<property name="moduleclass" value="3" />
-				<property name="flatid" parent="sso" property="flatid" />
-				<property name="parentmoduleid" parent="sysMonitorArea"
-					property="moduleid" />
-				<property name="linkedaddr" value="tlogDbsqlController.do?method=list" />
-			</object>
-			<!-- 异常日志 -->
-			<object id="syslogSysexception">
-				<property name="moduleno" value="LOG_SYSEXCEPTION" />
-				<property name="modulename" value="异常日志" />
-				<property name="moduleicon" value="icon-users" />
-				<property name="sortnum" value="43" />
-				<property name="moduleclass" value="3" />
-				<property name="flatid" parent="sso" property="flatid" />
-				<property name="parentmoduleid" parent="sysMonitorArea"
-					property="moduleid" />
-				<property name="linkedaddr" value="tlogSysexceptionController.do?method=list" />
-			</object>
 			<object id="syslogLogin">
 				<property name="moduleno" value="LOG_LOGIN" />
 				<property name="modulename" value="登录日志" />
@@ -155,7 +121,7 @@
 				<property name="moduleno" value="" />
 				<property name="moduleicon" value="icon-sys" />
 				<property name="modulename" value="模块管理" />
-				<property name="sortnum" value="3" />
+				<property name="sortnum" value="2" />
 				<property name="moduleclass" value="1" />
 				<property name="flatid" parent="sso" property="flatid" />
 			</object>
@@ -169,7 +135,7 @@
 				<property name="flatid" parent="sso" property="flatid" />
 				<property name="parentmoduleid" parent="sysModule"
 					property="moduleid" />
-				<property name="linkedaddr" value="tsysModuleinfoController.do?method=list" />
+				<property name="linkedaddr" value="tsysModuleinfoController.do?method=getTree" />
 			</object>
 			<!-- 模块操作 -->
 			<object id="sysOperateinfo">
@@ -183,6 +149,165 @@
 					property="moduleid" />
 				<property name="linkedaddr"
 					value="tsysModuleoperateController.do?method=getTree" />
+			</object>
+		 <!-- UI组件库，选择当前开源界优秀的开源UI做功能演示-->
+			<object id="UIWidget">
+				<property name="moduleno" value="" />
+				<property name="moduleicon" value="icon-database" />
+				<property name="modulename" value="UI组件库" />
+				<property name="sortnum" value="3" />
+				<property name="moduleclass" value="1" />
+				<property name="flatid" parent="sso" property="flatid" />
+			</object>
+			<!-- 列表组件flexigrid -->
+			<object id="UIWidget_Datagrid">
+				<property name="moduleno" value="UI_DATAGRID" />
+				<property name="moduleicon" value="icon-role" />
+				<property name="modulename" value="列表组件" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr" value="uiDataGridDemoController.do?method=list" />
+			</object>
+			<!-- 树组件 -->
+			<object id="UIWidget_Tree">
+				<property name="moduleno" value="UI_TREE" />
+				<property name="moduleicon" value="icon-job" />
+				<property name="modulename" value="树组件" />
+				<property name="sortnum" value="2" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiTreeDemoController.do?method=getTree" />
+			</object>
+			<!-- 表格树组件 -->
+			<object id="UIWidget_GridTree">
+				<property name="moduleno" value="UI_GRIDTREE" />
+				<property name="moduleicon" value="icon-email" />
+				<property name="modulename" value="表格树组件" />
+				<property name="sortnum" value="3" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiGridTreeDemoController.do?method=getTree" />
+			</object>
+			<!-- portal组件 -->
+			<object id="UIWidget_Portal">
+				<property name="moduleno" value="UI_PORTAL" />
+				<property name="moduleicon" value="icon-users" />
+				<property name="modulename" value="portal组件" />
+				<property name="sortnum" value="4" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiPortalDemoController.do?method=getTree" />
+			</object>
+			<!-- 编辑器组件 -->
+			<object id="UIWidget_XhEditor">
+				<property name="moduleno" value="UI_XHEDITOR" />
+				<property name="moduleicon" value="icon-edit" />
+				<property name="modulename" value="html编辑器组件" />
+				<property name="sortnum" value="5" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiHtmlEditorDemoController.do" />
+			</object>
+			<!-- 日期组件 -->
+			<object id="UIWidget_Datepicker">
+				<property name="moduleno" value="UI_DATEPICKER" />
+				<property name="moduleicon" value="icon-para" />
+				<property name="modulename" value="日期组件" />
+				<property name="sortnum" value="6" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiDatePickerDemoController.do?method=list" />
+			</object>
+			<!-- 自动搜索提示组件autocomplete -->
+			<object id="UIWidget_Autocomplete">
+				<property name="moduleno" value="UI_AUTOCOMPLETE" />
+				<property name="moduleicon" value="icon-chart" />
+				<property name="modulename" value="自动搜索提示组件" />
+				<property name="sortnum" value="7" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiAutocompleteDemoController.do?method=getTree" />
+			</object>
+			<!-- 文件上传组件 -->
+			<object id="UIWidget_FileUpload">
+				<property name="moduleno" value="UI_FILEUPLOAD" />
+				<property name="moduleicon" value="icon-file" />
+				<property name="modulename" value="文件上传组件" />
+				<property name="sortnum" value="8" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+				<property name="linkedaddr"
+					value="uiFileUploadDemoController.do?method=getTree" />
+			</object>
+			<!-- 图表组件 -->
+			<object id="UIWidget_Chat">
+				<property name="moduleno" value="UI_Chat" />
+				<property name="moduleicon" value="icon-chart" />
+				<property name="modulename" value="图表组件" />
+				<property name="sortnum" value="9" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget"
+					property="moduleid" />
+			</object>
+			
+			<object id="UIWidget_Chat_month">
+				<property name="moduleno" value="PARTS_MANAGER" />
+				<property name="moduleicon" value="icon-role" />
+				<property name="modulename" value="业务统计-月报" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget_Chat"
+					property="moduleid" />
+				<property name="linkedaddr" value="uiChatemoController.do?method=list&amp;module=brand&amp;target=month" />
+			</object>
+			
+			<object id="UIWidget_Chat_quarter">
+				<property name="moduleno" value="PARTS_MANAGER" />
+				<property name="moduleicon" value="icon-role" />
+				<property name="modulename" value="业务统计-季报" />
+				<property name="sortnum" value="2" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget_Chat"
+					property="moduleid" />
+				<property name="linkedaddr" value="uiChatemoController.do?method=list&amp;module=brand&amp;target=quarter" />
+			</object>
+			
+			<object id="UIWidget_Chat_year">
+				<property name="moduleno" value="PARTS_MANAGER" />
+				<property name="moduleicon" value="icon-role" />
+				<property name="modulename" value="业务统计-年报" />
+				<property name="sortnum" value="3" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="UIWidget_Chat"
+					property="moduleid" />
+				<property name="linkedaddr" value="uiChatemoController.do?method=list&amp;module=brand&amp;target=year" />
 			</object>
 		</model>
 		<!-- ############################具体定义模块(菜单)下的模块操作############################ -->
@@ -403,38 +528,6 @@
 				<property name="operatename" value="取消分配" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
-			<object id="sysBusinesslogDelete">
-				<property name="operateno" value="DELETE" />
-				<property name="operatename" value="删除" />
-				<property name="moduleid" parent="sysBusinesslog" property="moduleid" />
-			</object>
-			<object id="sysBusinesslogQuery">
-				<property name="operateno" value="QUERY" />
-				<property name="operatename" value="查询" />
-				<property name="moduleid" parent="sysBusinesslog" property="moduleid" />
-			</object>
-			<object id="syslogDbSqlDelete">
-				<property name="operateno" value="DELETE" />
-				<property name="operatename" value="删除" />
-				<property name="moduleid" parent="syslogDbSql" property="moduleid" />
-			</object>
-			<object id="syslogDbSqlQuery">
-				<property name="operateno" value="QUERY" />
-				<property name="operatename" value="查询" />
-				<property name="moduleid" parent="syslogDbSql" property="moduleid" />
-			</object>
-			<object id="syslogSysexceptionDelete">
-				<property name="operateno" value="DELETE" />
-				<property name="operatename" value="删除" />
-				<property name="moduleid" parent="syslogSysexception"
-					property="moduleid" />
-			</object>
-			<object id="syslogSysexceptionQuery">
-				<property name="operateno" value="QUERY" />
-				<property name="operatename" value="查询" />
-				<property name="moduleid" parent="syslogSysexception"
-					property="moduleid" />
-			</object>
 			<object id="syslogLoginDelete">
 				<property name="operateno" value="DELETE" />
 				<property name="operatename" value="删除" />
@@ -452,7 +545,31 @@
 			</object>
 		</model>
 		<!-- ###################初始化系统数据######################################## -->
-		<model name="sysOrginfo" class="com.hihsoft.sso.business.model.TsysOrg">
+		<model name="tbusinessOrder" class="com.hihsoft.sso.business.model.TbusinessOrder">
+			<!-- 月报展示 -->
+				<object id="tbusinessOrder1">
+				<property name="applyname" value="001"></property>
+				<property name="orderid" value="1"></property>
+				<property name="productBrand" value="格力空调"></property>
+				<property name="paymentTime" value="2013-10-06 10:20:54"></property>
+				<property name="orderState" value="4"></property>
+			</object>
+			<object id="tbusinessOrder2">
+				<property name="applyname" value="002"></property>
+				<property name="orderid" value="1"></property>
+				<property name="productBrand" value="中央空调"></property>
+				<property name="paymentTime" value="2013-09-07 10:20:54"></property>
+				<property name="orderState" value="4"></property>
+			</object>
+			<object id="tbusinessOrder3">
+				<property name="applyname" value="003"></property>
+				<property name="orderid" value="1"></property>
+				<property name="productBrand" value="海尔空调"></property>
+				<property name="paymentTime" value="2013-10-07 08:22:54"></property>
+				<property name="orderState" value="4"></property>
+			</object>
+			</model>
+		  <model name="sysOrginfo" class="com.hihsoft.sso.business.model.TsysOrg">
 			<!-- 单位信息定义 -->
 			<object id="orginfo1">
 				<property name="orgno" value="001"></property>
@@ -1291,45 +1408,6 @@
 					property="operateid" />
 				<property name="moduleid" parent="sysRoleinfo" property="moduleid" />
 			</object>
-			<object id="tAclRoleprivilege_sso38">
-				<property name="roleid" parent="devadminRole" property="roleid" />
-				<property name="operateid" parent="sysBusinesslogDelete"
-					property="operateid" />
-				<property name="moduleid" parent="sysBusinesslog" property="moduleid" />
-			</object>
-			<object id="tAclRoleprivilege_sso39">
-				<property name="roleid" parent="devadminRole" property="roleid" />
-				<property name="operateid" parent="sysBusinesslogQuery"
-					property="operateid" />
-				<property name="moduleid" parent="sysBusinesslog" property="moduleid" />
-			</object>
-			<object id="tAclRoleprivilege_sso40">
-				<property name="roleid" parent="devadminRole" property="roleid" />
-				<property name="operateid" parent="syslogDbSqlDelete"
-					property="operateid" />
-				<property name="moduleid" parent="syslogDbSql" property="moduleid" />
-			</object>
-			<object id="tAclRoleprivilege_sso41">
-				<property name="roleid" parent="devadminRole" property="roleid" />
-				<property name="operateid" parent="syslogDbSqlQuery"
-					property="operateid" />
-				<property name="moduleid" parent="syslogDbSql" property="moduleid" />
-			</object>
-
-			<object id="tAclRoleprivilege_sso42">
-				<property name="roleid" parent="devadminRole" property="roleid" />
-				<property name="operateid" parent="syslogSysexceptionDelete"
-					property="operateid" />
-				<property name="moduleid" parent="syslogSysexception"
-					property="moduleid" />
-			</object>
-			<object id="tAclRoleprivilege_sso43">
-				<property name="roleid" parent="devadminRole" property="roleid" />
-				<property name="operateid" parent="syslogSysexceptionQuery"
-					property="operateid" />
-				<property name="moduleid" parent="syslogSysexception"
-					property="moduleid" />
-			</object>
 			<object id="tAclRoleprivilege_sso44">
 				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="syslogLoginDelete"
@@ -1356,6 +1434,59 @@
 				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="operateid" parent="sysDutyCancel" property="operateid" />
 				<property name="moduleid" parent="sysDuty" property="moduleid" />
+			</object>
+				<!-- UI组件库配置 begin -->
+				<object id="tAclRoleprivilege_sso50">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso51">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Datagrid" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso52">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Tree" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso53">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_GridTree" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso54">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Portal" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso55">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_XhEditor" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso56">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Datepicker" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso57">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Autocomplete" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso58">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_FileUpload" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso59">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Chat" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso60">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Chat_month" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso61">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Chat_quarter" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso62">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="UIWidget_Chat_year" property="moduleid" />
 			</object>
 		</model>
 	</models>

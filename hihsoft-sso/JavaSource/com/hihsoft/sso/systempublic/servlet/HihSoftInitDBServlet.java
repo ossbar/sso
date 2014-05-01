@@ -24,7 +24,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.hihframework.osplugins.dom4j.XmlParseUtil;
 import com.hihsoft.baseclass.service.InitFrameworkService;
-import com.hihsoft.sso.business.service.TsysAreacodingService;
 import com.hihsoft.sso.business.service.TsysParameterService;
 import com.hihsoft.sso.systempublic.constants.Constant;
 
@@ -47,7 +46,6 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 	private static ApplicationContext ctx = null;
 	private static ServletContext context = null;
 	private InitFrameworkService initFrameworkService;
-	private TsysAreacodingService tsysAreacodingService;
 	private TsysParameterService tsysParameterService;
 
 	public HihSoftInitDBServlet() {
@@ -70,8 +68,6 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 				.getBean("initFrameworkService");
 		tsysParameterService = (TsysParameterService) ctx
 				.getBean("tsysParameterService");
-		tsysAreacodingService = (TsysAreacodingService) ctx
-				.getBean("tsysAreacodingService");
 		// 检察系统是不是第一次启动，如果是把初始化数据加载至数据库
 		//util.getIsFrameworkInitialized(); 2011-03-08 by
 		// zhujw:需求变更如果系统已经运行，要初始化其他数据时，不适合，所以去掉此验证
@@ -199,14 +195,6 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 			ex.setStackTrace(e.getStackTrace());
 			throw ex;
 		}
-		// 地区信息
-		try {
-			tsysAreacodingService.saveFillParamMap(null);
-		} catch (Exception e) {
-			ServletException ex = new ServletException();
-			ex.setStackTrace(e.getStackTrace());
-			throw ex;
-		}
 	}
 
 	public void service(HttpServletRequest request, HttpServletResponse response)
@@ -252,6 +240,5 @@ public class HihSoftInitDBServlet extends javax.servlet.http.HttpServlet
 		}
 		public static void main(String[] args) {
 			String fileseparate=System.getProperty("file.separator");
-			System.out.println(fileseparate);
-		}
+			}
 }
