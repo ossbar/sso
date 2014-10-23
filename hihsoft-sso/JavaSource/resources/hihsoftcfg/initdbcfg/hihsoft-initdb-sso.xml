@@ -153,7 +153,7 @@
 		 <!-- UI组件库，选择当前开源界优秀的开源UI做功能演示-->
 			<object id="UIWidget">
 				<property name="moduleno" value="" />
-				<property name="moduleicon" value="icon-database" />
+				<property name="moduleicon" value="icon-sys" />
 				<property name="modulename" value="UI组件库" />
 				<property name="sortnum" value="3" />
 				<property name="moduleclass" value="1" />
@@ -308,6 +308,75 @@
 				<property name="parentmoduleid" parent="UIWidget_Chat"
 					property="moduleid" />
 				<property name="linkedaddr" value="uiChatemoController.do?method=list&amp;module=brand&amp;target=year" />
+			</object>
+			 <!-- 監控管理-->
+			<object id="SysMonitor">
+				<property name="moduleno" value="" />
+				<property name="moduleicon" value="icon-sys" />
+				<property name="modulename" value="监控管理" />
+				<property name="sortnum" value="3" />
+				<property name="moduleclass" value="1" />
+				<property name="flatid" parent="sso" property="flatid" />
+			</object>
+			<!-- 数据源管理 -->
+			<object id="SysMonitor_DS">
+				<property name="moduleno" value="SysMonitor_DS" />
+				<property name="moduleicon" value="icon-single" />
+				<property name="modulename" value="数据源管理" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="SysMonitor"
+					property="moduleid" />
+				<property name="linkedaddr" value="sysMonitorController.do?method=ds" />
+			</object>
+			<!-- SQL管理 -->
+			<object id="SysMonitor_SQL">
+				<property name="moduleno" value="SysMonitor_SQL" />
+				<property name="moduleicon" value="icon-chart-hisgram" />
+				<property name="modulename" value="SQL管理" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="SysMonitor"
+					property="moduleid" />
+				<property name="linkedaddr" value="sysMonitorController.do?method=sql" />
+			</object>
+			<!-- URL管理 -->
+			<object id="SysMonitor_URL">
+				<property name="moduleno" value="SysMonitor_URL" />
+				<property name="moduleicon" value="icon-report" />
+				<property name="modulename" value="URL管理" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="SysMonitor"
+					property="moduleid" />
+				<property name="linkedaddr" value="sysMonitorController.do?method=url" />
+			</object>
+			<!-- 会话管理 -->
+			<object id="SysMonitor_SESSION">
+				<property name="moduleno" value="SysMonitor_SESSION" />
+				<property name="moduleicon" value="icon-flats" />
+				<property name="modulename" value="会话管理" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="SysMonitor"
+					property="moduleid" />
+				<property name="linkedaddr" value="sysMonitorController.do?method=session" />
+			</object>
+			<!-- 数据源管理 -->
+			<object id="SysMonitor_SPRING">
+				<property name="moduleno" value="SysMonitor_spring" />
+				<property name="moduleicon" value="icon-email" />
+				<property name="modulename" value="Spring管理" />
+				<property name="sortnum" value="1" />
+				<property name="moduleclass" value="2" />
+				<property name="flatid" parent="sso" property="flatid" />
+				<property name="parentmoduleid" parent="SysMonitor"
+					property="moduleid" />
+				<property name="linkedaddr" value="sysMonitorController.do?method=spring" />
 			</object>
 		</model>
 		<!-- ############################具体定义模块(菜单)下的模块操作############################ -->
@@ -1487,6 +1556,31 @@
 			<object id="tAclRoleprivilege_sso62">
 				<property name="roleid" parent="devadminRole" property="roleid" />
 				<property name="moduleid" parent="UIWidget_Chat_year" property="moduleid" />
+			</object>
+				<!-- 监控管理 begin -->
+				<object id="tAclRoleprivilege_sso63">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="SysMonitor" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso64">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="SysMonitor_DS" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso65">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="SysMonitor_SQL" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso66">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="SysMonitor_SESSION" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso67">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="SysMonitor_SPRING" property="moduleid" />
+			</object>
+			<object id="tAclRoleprivilege_sso68">
+				<property name="roleid" parent="devadminRole" property="roleid" />
+				<property name="moduleid" parent="SysMonitor_URL" property="moduleid" />
 			</object>
 		</model>
 	</models>
