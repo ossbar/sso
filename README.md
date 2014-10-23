@@ -188,3 +188,8 @@ oschina：https://git.oschina.net/hihsoft/sso
       });
     9、优化参数标签<hih:parameter />
     10、优化表单、列表标签：<hih:table/>，<hih:form />
+###
+    V1.4.0版本更新(2014-10-23)
+    1、升级druid到1.0.9版本，清除多余的jar包更轻量
+    2、新增监控管理，实现对底层代码运行的session,datasource,url,sql等综合监控，便于优化代码，提升框架质量
+    3、修复参数标签的重复性问题
