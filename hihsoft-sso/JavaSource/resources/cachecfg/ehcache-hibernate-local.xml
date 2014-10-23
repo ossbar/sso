@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false">
+	<diskStore path="java.io.tmpdir/ehcache-hibernate" />
+	<defaultCache overflowToDisk="true" eternal="false"
+		memoryStoreEvictionPolicy="LRU" maxElementsOnDisk="10000000" diskExpiryThreadIntervalSeconds="600"
+		timeToIdleSeconds="3600" timeToLiveSeconds="100000" diskPersistent="false" />
+    <!-- query cache设置为true将会创建两个缓存区域 -->
+    <!-- 一个用于保存查询结果集 -->
+	<cache name="org.hibernate.cache.StandardQueryCache" maxElementsInMemory="5" eternal="false"
+	    timeToLiveSeconds="120" overflowToDisk="false"/>
+	<!-- 另一个用于保存最近查询的一系列表的时间戳 -->
+	<cache name="org.hibernate.cache.UpdateTimestampsCache" maxElementsInMemory="5000" 
+        eternal="true" overflowToDisk="true"/>
+        
+    <!-- base-->		
+	<cache 
+		name="com.hihsoft.sso.model"
+		eternal="true" 
+		overflowToDisk="true"
+		maxElementsOnDisk="10000" />
+
+</ehcache>

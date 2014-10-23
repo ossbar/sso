@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+	<diskStore path="java.io.tmpdir" />
+	 <!-- 每24小时 -->
+	<defaultCache  eternal="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="86400" overflowToDisk="false"
+		maxElementsOnDisk="10000000" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="86400" memoryStoreEvictionPolicy="LRU" />
+	<!--  
+	<cache name="dictionarys_byType_cache" overflowToDisk="true" 
+		eternal="false" diskPersistent="false" timeToLiveSeconds="86400"
+		timeToIdleSeconds="86400"
+		memoryStoreEvictionPolicy="LFU" />
+	<cache name="user_module_Tree_cache" eternal="false"
+		diskSpoolBufferSizeMB="20" timeToIdleSeconds="300" timeToLiveSeconds="86400"
+		memoryStoreEvictionPolicy="LFU" transactionalMode="off" />
+		-->
+</ehcache>
